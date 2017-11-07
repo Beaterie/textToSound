@@ -1,0 +1,30 @@
+https://www.ibm.com/support/knowledgecenter/en/SSWTQQ_1.2.0/com.ibm.swg.ba.cognos.sifs_solution_guide.1.2.0.doc/c_trd_emotion_detection_library.html
+IBM Emotion Detection Library:   (machine-learned)
+	containing 5 categories of emotions:     
+	Anger
+    Disgust
+    Joy
+    Sadness
+    Fear
+
+
+https://www.libraryofthehumansoul.com/
+music for different emotions
+
+
+https://www.lexalytics.com/demo?link=http%3A%2F%2Fwww.angelfire.com%2Fhi%2Flittleprince%2Fframechapter21.html
+sentiment analysis tool (also extracts places)
+
+
+https://nlp.stanford.edu/software/CRF-NER.html
+Stanford Named Entity Recognizer 
+	Named Entity Recognition (NER) labels sequences of words in a text which are the names of things, such as person and company names, or gene and protein names. 
+
+
+http://audiometaphor.ca/
+Audio Metaphor Soundscape Generation Research
+	Search for related audio files and mix ambient sound
+
+
+a-comparison-of-named-entity-recognition-tools-applied-to-biographical-texts
+	---> Stanford NER has the best result
