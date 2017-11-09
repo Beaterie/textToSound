@@ -28,3 +28,6 @@ Audio Metaphor Soundscape Generation Research
 
 a-comparison-of-named-entity-recognition-tools-applied-to-biographical-texts
 	---> Stanford NER has the best result
+	
+https://cloudacademy.com/blog/natural-language-processing-stanford-corenlp-2/
+Stanfort Core NLP
