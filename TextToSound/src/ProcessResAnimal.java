@@ -8,7 +8,7 @@ public class ProcessResAnimal {
 
 	private int mTextLength;
 	private int mNumLines;
-	private int mNumWords;
+	//private int mNumWords;
 	private Map<String, TargetOccurenceInfo> mOccurenceInfos;
 	
 	
@@ -16,7 +16,10 @@ public class ProcessResAnimal {
 	// Constructors
 	// --------------------------------------------------------
 	
-	public ProcessResAnimal(Map<String, TargetOccurenceInfo> occInfos) {
+	public ProcessResAnimal(int textLength, int numLines,
+			Map<String, TargetOccurenceInfo> occInfos) {
+		mTextLength = textLength;
+		mNumLines = numLines;
 		mOccurenceInfos = occInfos;
 	}
 	
@@ -31,9 +34,9 @@ public class ProcessResAnimal {
 	public int getmNumLines() {
 		return mNumLines;
 	}
-	public int getmNumWords() {
-		return mNumWords;
-	}
+//	public int getmNumWords() {
+//		return mNumWords;
+//	}
 	public Map<String, TargetOccurenceInfo> getmOccurenceInfos() {
 		return mOccurenceInfos;
 	}
@@ -49,11 +52,21 @@ public class ProcessResAnimal {
 	public void setmNumLines(int numLines) {
 		this.mNumLines = numLines;
 	}
-	public void setmNumWords(int numWords) {
-		this.mNumWords = numWords;
-	}
+//	public void setmNumWords(int numWords) {
+//		this.mNumWords = numWords;
+//	}
 	public void setmOccurenceInfos(Map<String, TargetOccurenceInfo> occurenceInfos) {
 		this.mOccurenceInfos = occurenceInfos;
 	}
 	
+	
+	// --------------------------------------------------------
+	// Methods
+	// --------------------------------------------------------
+
+	public void printRes() {
+		for (Map.Entry<String, TargetOccurenceInfo> entry : mOccurenceInfos.entrySet()) {
+			entry.getValue().printInfo();
+		}
+	}
 }
