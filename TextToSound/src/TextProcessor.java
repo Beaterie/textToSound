@@ -43,7 +43,7 @@ public class TextProcessor {
 	 * Process the given source text and analyze occurrence of animals
 	 * @throws IOException
 	 */
-	public ProcessResAnimal process() throws IOException {
+	public ProcessResult process() throws IOException {
 		
 		verifySrc();					// Verify source file. Prints error message if needed.
 		mAnimalLex = readLexicon();		// Read animal lexicon and store in list
@@ -77,8 +77,8 @@ public class TextProcessor {
 		scanner.close();
 		calcRelativOccPos(result, textLength);
 		
-		ProcessResAnimal animAnalysis = 
-				new ProcessResAnimal(textLength, numLine, result);
+		ProcessResult animAnalysis = 
+				new ProcessResult(textLength, numLine, result);
 		animAnalysis.printRes();
 		return animAnalysis; 
 	}
