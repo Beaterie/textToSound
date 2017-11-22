@@ -1,11 +1,18 @@
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TextProcessor {
 	
@@ -14,8 +21,8 @@ public class TextProcessor {
 	// --------------------------------------------------------
 	
 	private String mSrcFileName;
-	private String mAnimalLexicon = "data/lexicon_animals.txt";
-	private List<String> mAnimals;
+	private String mFileLexicon = "data/lexicon_animals.txt";
+	private List<String> mAnimalLex;
 	
 	
 	// --------------------------------------------------------
@@ -29,26 +36,47 @@ public class TextProcessor {
 	
 	
 	// --------------------------------------------------------
-	// 
+	// Text-processing methods
 	// --------------------------------------------------------
 	
+	/**
+	 * Process the given source text and analyze occurrence of animals
+	 * @throws IOException
+	 */
 	public void process() throws IOException {
 		
-		// Verify source file. Prints error message if needed.
-		verifySrc();
+		verifySrc();					// Verify source file. Prints error message if needed.
+		mAnimalLex = readLexicon();		// Read animal lexicon and store in list
 		
-		// Read animal lexicon and store in list
-		mAnimals = readLexicon();
-		
-		// Read input story
-		FileReader srcReader = new FileReader(mSrcFileName);
-		BufferedReader bufferedSrcReader = new BufferedReader(srcReader);
-		// Find animal occurrence line by line
+		// Initialize variables, read input file
 		String line;
-		while ((line = bufferedSrcReader.readLine())!= null) {	
-			
-		}
+		int numLine = 0, numMatch = 0, textLength = 0;
+		Map<String, TargetOccurenceInfo> result = new HashMap<String, TargetOccurenceInfo>();
+		Scanner scanner = new Scanner(new File(mSrcFileName), "UTF-8");
+		scanner.useDelimiter("\n");
 		
+		// Process file line by line
+		while(scanner.hasNextLine()){
+			line = scanner.nextLine();
+			// Remove all characters that are not alphabets
+			String text = line.replaceAll("[^a-zA-Z ]", "").toLowerCase();
+			// Find all animal occurrences in line
+			for (String animal : mAnimalLex) {
+				// Setting word boundaries to find matches of the whole word
+				String pattern = "(?<!\\S)" + Pattern.quote(animal) + "(?!\\S)";
+				Matcher m = Pattern.compile(pattern).matcher(text);
+				while (m.find()) {
+					int matchPos = m.start() + textLength;
+					pushMatchPos(result, animal, matchPos);
+				    numMatch++;
+				}
+			}
+			textLength += text.length();
+			numLine++;
+		}
+		scanner.close();
+		System.out.println(mAnimalLex.get(0));
+		result.get(mAnimalLex.get(0)).printInfo();;
 	}
 	
 	/**
@@ -60,7 +88,7 @@ public class TextProcessor {
 	private List<String> readLexicon() throws IOException {
 		
 		// Preparing to read animal lexicon
-		FileReader lexReader = new FileReader(mAnimalLexicon);
+		FileReader lexReader = new FileReader(mFileLexicon);
 		BufferedReader bufferedLexReader = new BufferedReader(lexReader);
 		List<String> animals = new ArrayList<String>();
 		String line;
@@ -96,6 +124,50 @@ public class TextProcessor {
 				System.exit(1);
 			}
 		}
+	}
+	
+	/**
+	 * Pre-process text: remove punctuation and upper-cases, 
+	 * split the text into words.
+	 * @param args
+	 * @throws IOException
+	 */
+//	public String[] preProsText(String text) {
+//		text = text.replaceAll("[^a-zA-Z ]", "").toLowerCase();
+//		return text.split("\\s+");
+//	}
+	
+	/**
+	 * Push newly found match position to result map.
+	 * @param result result map
+	 * @param target target string
+	 * @param matchPos match position
+	 */
+	private void pushMatchPos(Map<String, TargetOccurenceInfo> result, 
+			String target, int matchPos) {
+		
+		TargetOccurenceInfo occurenceInfo;
+		if (result.containsKey(target)) {
+			occurenceInfo = result.get(target);
+		} else {
+			occurenceInfo = new TargetOccurenceInfo(target);
+		}
+		occurenceInfo.pushOccurenceIndexes(matchPos);
+		result.put(target, occurenceInfo);
+	}
+	
+	public void calcRelativOccPos(Map<String, TargetOccurenceInfo> result, int textLength) {
+		for (TargetOccurenceInfo occInfo : result) {
+			
+		}
+	}
+	
+	
+	public static void main(String[] args) throws IOException {
+		TextProcessor processor = new TextProcessor("data/the-happy-prince.txt");
+		processor.process();
+//		String teString = "This is just a stupid little test.".replaceAll("(?<!\\S)" + "stupid" + "(?!\\S)", "smart");
+//		System.out.println(teString);
 	}
 	
 }
