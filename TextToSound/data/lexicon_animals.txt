@@ -38,3 +38,5 @@ goose
 rooster
 cock
 sheep
+snail
+crow
