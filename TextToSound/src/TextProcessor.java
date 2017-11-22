@@ -166,7 +166,7 @@ public class TextProcessor {
 	
 	
 	public static void main(String[] args) throws IOException {
-		TextProcessor processor = new TextProcessor("data/the-fox-and-the-crow.txt");
+		TextProcessor processor = new TextProcessor("data/the-happy-prince.txt");
 		processor.process();
 //		String teString = "This is just a stupid little test.".replaceAll("(?<!\\S)" + "stupid" + "(?!\\S)", "smart");
 //		System.out.println(teString);

@@ -102,8 +102,11 @@ public class MusicProcessor {
 		if (counter == 2) {
 			note = "E";
 		}
-		if (counter >= 3) {
+		if (counter == 3) {
 			note = "G";
+		}
+		if (counter >= 4) {
+			note = "C";
 		}
 		for (int i = 0; i < appearance.length; i++) {
 			if (appearance[i] >= 3) {
