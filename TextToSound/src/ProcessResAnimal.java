@@ -1,7 +1,6 @@
 import java.util.Map;
 
-public class ProcessResAnimal {
-	
+public class ProcessResAnimal {	
 	
 	// --------------------------------------------------------
 	// Members
@@ -11,6 +10,15 @@ public class ProcessResAnimal {
 	private int mNumLines;
 	private int mNumWords;
 	private Map<String, TargetOccurenceInfo> mOccurenceInfos;
+	
+	
+	// --------------------------------------------------------
+	// Constructors
+	// --------------------------------------------------------
+	
+	public ProcessResAnimal(Map<String, TargetOccurenceInfo> occInfos) {
+		mOccurenceInfos = occInfos;
+	}
 	
 	
 	// --------------------------------------------------------

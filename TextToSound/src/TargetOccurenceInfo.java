@@ -67,7 +67,7 @@ public class TargetOccurenceInfo {
 	
 	public void calcRelativOccPos(int textLength) {
 		for (Integer matchPos : mOccurenceIndexes) {
-			mRelativOccPos.add((float)(matchPos) / (float)(textLength));
+			mRelativOccPos.add((float)(matchPos) / (float)(textLength) * 100);
 		}
 	}
 	
@@ -80,7 +80,9 @@ public class TargetOccurenceInfo {
 		System.out.println("==================================");
 		System.out.println("Occurance info for " + mTarget);
 		System.out.println("Total occurrences: " + mOccurenceIndexes.size());
-		System.out.println("First occurence index: " + mOccurenceIndexes.get(0));
+		System.out.println("Last occurence index: " + mOccurenceIndexes.get(mOccurenceIndexes.size()-1));
+		System.out.println("Last occurence is at " + (mRelativOccPos.get(mRelativOccPos.size()-1)) + " percent of whole text length.");
+		System.out.println();
 		for (Integer integer : mOccurenceIndexes) {
 			System.out.print(integer + " ");
 		}

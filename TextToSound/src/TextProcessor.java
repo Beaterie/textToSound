@@ -75,8 +75,9 @@ public class TextProcessor {
 			numLine++;
 		}
 		scanner.close();
-		System.out.println(mAnimalLex.get(0));
-		result.get(mAnimalLex.get(0)).printInfo();;
+		calcRelativOccPos(result, textLength);
+//		System.out.println(mAnimalLex.get(0));
+		result.get(mAnimalLex.get(0)).printInfo();
 	}
 	
 	/**
@@ -127,17 +128,6 @@ public class TextProcessor {
 	}
 	
 	/**
-	 * Pre-process text: remove punctuation and upper-cases, 
-	 * split the text into words.
-	 * @param args
-	 * @throws IOException
-	 */
-//	public String[] preProsText(String text) {
-//		text = text.replaceAll("[^a-zA-Z ]", "").toLowerCase();
-//		return text.split("\\s+");
-//	}
-	
-	/**
 	 * Push newly found match position to result map.
 	 * @param result result map
 	 * @param target target string
@@ -156,9 +146,16 @@ public class TextProcessor {
 		result.put(target, occurenceInfo);
 	}
 	
-	public void calcRelativOccPos(Map<String, TargetOccurenceInfo> result, int textLength) {
-		for (TargetOccurenceInfo occInfo : result) {
-			
+	/**
+	 * Update the percentage expression of where the match is from the whole text
+	 * in the TargetOccurenceInfo object for the target.
+	 * @param result
+	 * @param textLength
+	 */
+	public void calcRelativOccPos(
+			Map<String, TargetOccurenceInfo> result, int textLength) {
+		for (Map.Entry<String, TargetOccurenceInfo> entry : result.entrySet()) {
+			entry.getValue().calcRelativOccPos(textLength);
 		}
 	}
 	
