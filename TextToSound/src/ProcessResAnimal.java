@@ -65,6 +65,8 @@ public class ProcessResAnimal {
 	// --------------------------------------------------------
 
 	public void printRes() {
+		System.out.println("Processed text length: " + mTextLength);
+		System.out.println("Number of lines: " + mNumLines);
 		for (Map.Entry<String, TargetOccurenceInfo> entry : mOccurenceInfos.entrySet()) {
 			entry.getValue().printInfo();
 		}
