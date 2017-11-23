@@ -6,8 +6,8 @@ public class TargetOccurenceInfo {
 	// Members
 	// --------------------------------------------------------
 	
-	// Target string/token
-	private String mTarget;
+	private String mTarget;		// Target string/token
+	private int mNumTotalOcc;	// Number of total occurrences
 	
 	// Character indexes of the target word
 	private ArrayList<Integer> mOccurenceIndexes = new ArrayList<Integer>();
@@ -43,6 +43,10 @@ public class TargetOccurenceInfo {
 	public ArrayList<Float> getRelativPosOccurence() {
 		return mRelativOccPos;
 	}
+
+	public int getNumTotalOcc() {
+		return mNumTotalOcc;
+	}
 	
 	
 	// --------------------------------------------------------
@@ -61,6 +65,10 @@ public class TargetOccurenceInfo {
 		mRelativOccPos = relativPosOccurence;
 	}
 	
+	public void setmNumTotalOcc(int numTotalOcc) {
+		mNumTotalOcc = numTotalOcc;
+	}
+	
 	public void pushOccurenceIndexes(int index) {
 		mOccurenceIndexes.add(index);
 	}
@@ -69,6 +77,10 @@ public class TargetOccurenceInfo {
 		for (Integer matchPos : mOccurenceIndexes) {
 			mRelativOccPos.add((float)(matchPos) / (float)(textLength) * 100);
 		}
+	}
+	
+	public void calcTotalOcc() {
+		mNumTotalOcc = mOccurenceIndexes.size();
 	}
 	
 	
@@ -93,5 +105,7 @@ public class TargetOccurenceInfo {
 		System.out.println();
 		System.out.println("==================================");
 	}
+
+
 	
 }

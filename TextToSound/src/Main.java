@@ -1,9 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.jfugue.pattern.Pattern;
-import org.jfugue.player.Player;
-
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {

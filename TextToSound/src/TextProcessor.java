@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -75,7 +74,7 @@ public class TextProcessor {
 			numLine++;
 		}
 		scanner.close();
-		calcRelativOccPos(result, textLength);
+		updateAnalysisComputation(result, textLength);
 		
 		ProcessResult animAnalysis = 
 				new ProcessResult(textLength, numLine, result);
@@ -152,15 +151,17 @@ public class TextProcessor {
 	}
 	
 	/**
-	 * Update the percentage expression of where the match is from the whole text
-	 * in the TargetOccurenceInfo object for the target.
+	 * Update other information of the TargetOccurence class, including
+	 * the percentage expression of where the match is from the whole text
+	 * for the target and total occurences.
 	 * @param result
 	 * @param textLength
 	 */
-	public void calcRelativOccPos(
+	public void updateAnalysisComputation(
 			Map<String, TargetOccurenceInfo> result, int textLength) {
 		for (Map.Entry<String, TargetOccurenceInfo> entry : result.entrySet()) {
 			entry.getValue().calcRelativOccPos(textLength);
+			entry.getValue().calcTotalOcc();
 		}
 	}
 	
