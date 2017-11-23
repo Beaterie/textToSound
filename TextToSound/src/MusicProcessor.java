@@ -42,6 +42,7 @@ public class MusicProcessor {
 	
 	public void process() {
 		int counter = 0;
+		// tempo definition
 		musicstring += "T200 ";
 		// for each appearing animal
 		for (Entry<String, TargetOccurenceInfo> e : textInput.entrySet()) {
@@ -74,13 +75,15 @@ public class MusicProcessor {
 		}
 		Player player = new Player();
 		Pattern pattern = new Pattern(musicstring);
+		// play stuff
 		player.play(pattern);
 	}
 	
 	private String generateSection(int[] appearance, int animalnumber, int counter) {
+		// L for new layer (melody)
 		String s = "L" + Integer.toString(counter) + " ";
-		String octave = Integer.toString(animalnumber % 10 + 1);
-		octave = "";
+		String octave = "";
+		// animalnumber sets note
 		String note = Integer.toString(animalnumber + 50);
 		for (int i = 0; i < appearance.length; i++) {
 			if (appearance[i] >= 3) {
@@ -97,6 +100,7 @@ public class MusicProcessor {
 				s += note + octave + "w ";
 			}
 			else {
+				// rest
 				s += "Rw ";
 			}
 		}
