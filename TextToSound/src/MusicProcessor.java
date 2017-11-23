@@ -36,6 +36,14 @@ public class MusicProcessor {
 		musicstring = "";
 	};
 	
+	public MusicProcessor(ProcessResult txtRes) throws IOException {
+		Map<String, TargetOccurenceInfo> map = txtRes.getmOccurenceInfos();
+		
+		textInput = map;
+		animals = Files.readAllLines(Paths.get("data/lexicon_animals.txt"), StandardCharsets.UTF_8);
+		musicstring = "";
+	}
+	
 	// --------------------------------------------------------
 	// music-processing methods
 	// --------------------------------------------------------

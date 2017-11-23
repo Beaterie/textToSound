@@ -80,8 +80,8 @@ public class TextProcessor {
 		ProcessResult animAnalysis = 
 				new ProcessResult(textLength, numLine, result);
 		animAnalysis.printRes();
-		MusicProcessor mp = new MusicProcessor(animAnalysis.getmOccurenceInfos());
-		mp.process();
+//		MusicProcessor mp = new MusicProcessor(animAnalysis.getmOccurenceInfos());
+//		mp.process();
 		return animAnalysis; 
 	}
 	
