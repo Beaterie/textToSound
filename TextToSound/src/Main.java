@@ -12,6 +12,7 @@ public class Main {
 //		Pattern pattern = new Pattern(lattern + mattern);
 		//player.play(pattern);
 		
+		
 		TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.txt");
 		TextLexProcessor processor2 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.txt");
 		MusicProcessor mp = new MusicProcessor(processor1.process());
