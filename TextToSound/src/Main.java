@@ -14,7 +14,7 @@ public class Main {
 		
 		TextProcessor processor1 = new TextProcessor("data/the-happy-prince.txt");
 		TextProcessor processor2 = new TextProcessor("data/the-fox-and-the-crow.txt");
-		MusicProcessor mp = new MusicProcessor(processor2.process());
+		MusicProcessor mp = new MusicProcessor(processor1.process());
 		mp.process();
 		
 		
