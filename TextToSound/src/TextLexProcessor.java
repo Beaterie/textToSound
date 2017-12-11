@@ -13,24 +13,30 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TextProcessor {
+public class TextLexProcessor {
 	
 	// --------------------------------------------------------
 	// Members
 	// --------------------------------------------------------
 	
 	private String mSrcFileName;
-	private String mFileLexicon = "data/lexicon_animals.txt";
-	private List<String> mAnimalLex;
+	private String mFileLexicon;
+	private List<String> mLex;
 	
 	
 	// --------------------------------------------------------
 	// Constructors
 	// --------------------------------------------------------
 	
-	public TextProcessor() {};
-	public TextProcessor(String src) {
+	public TextLexProcessor() {};
+	/**
+	 * Constructor.
+	 * @param src source text to be analysed
+	 * @param lex lexicon to use
+	 */
+	public TextLexProcessor(String src, String lex) {
 		mSrcFileName = src;
+		mFileLexicon = lex;
 	};
 	
 	
@@ -39,13 +45,13 @@ public class TextProcessor {
 	// --------------------------------------------------------
 	
 	/**
-	 * Process the given source text and analyze occurrence of animals
+	 * Process the given source text and analyze occurrence of tokens
 	 * @throws IOException
 	 */
 	public ProcessResult process() throws IOException {
 		
 		verifySrc();					// Verify source file. Prints error message if needed.
-		mAnimalLex = readLexicon();		// Read animal lexicon and store in list
+		mLex = readLexicon();		// Read tokens from lexicon and store in list
 		
 		// Initialize variables, read input file
 		String line;
@@ -59,14 +65,14 @@ public class TextProcessor {
 			line = scanner.nextLine();
 			// Remove all characters that are not alphabets
 			String text = line.replaceAll("[^a-zA-Z ]", "").toLowerCase();
-			// Find all animal occurrences in line
-			for (String animal : mAnimalLex) {
+			// Find all target token occurrences in line
+			for (String token : mLex) {
 				// Setting word boundaries to find matches of the whole word
-				String pattern = "(?<!\\S)" + Pattern.quote(animal) + "(?!\\S)";
+				String pattern = "(?<!\\S)" + Pattern.quote(token) + "(?!\\S)";
 				Matcher m = Pattern.compile(pattern).matcher(text);
 				while (m.find()) {
 					int matchPos = m.start() + textLength;
-					pushMatchPos(result, animal, matchPos);
+					pushMatchPos(result, token, matchPos);
 				    numMatch++;
 				}
 			}
@@ -76,39 +82,37 @@ public class TextProcessor {
 		scanner.close();
 		updateAnalysisComputation(result, textLength);
 		
-		ProcessResult animAnalysis = 
+		ProcessResult tokenAnalysis = 
 				new ProcessResult(textLength, numLine, result);
-		animAnalysis.printRes();
-//		MusicProcessor mp = new MusicProcessor(animAnalysis.getmOccurenceInfos());
-//		mp.process();
-		return animAnalysis; 
+		tokenAnalysis.printRes();
+		return tokenAnalysis; 
 	}
 	
 	/**
-	 * Read the animal lexicon for further text analysis which
-	 * identifies the occurrence of animals
-	 * @return A list of animal names
+	 * Read the lexicon for further text analysis which
+	 * identifies the occurrence of tokens
+	 * @return A list of token targets
 	 * @throws IOException
 	 */
 	private List<String> readLexicon() throws IOException {
 		
-		// Preparing to read animal lexicon
+		// Preparing to read target lexicon
 		FileReader lexReader = new FileReader(mFileLexicon);
 		BufferedReader bufferedLexReader = new BufferedReader(lexReader);
-		List<String> animals = new ArrayList<String>();
+		List<String> tokens = new ArrayList<String>();
 		String line;
 		
-		// Reading animal lexicon
+		// Reading lexicon
 		while ((line = bufferedLexReader.readLine())!= null) {
 			if (!line.isEmpty()) {
-				animals.add(line);
+				tokens.add(line);
 			}
 		}
 		
 		// Close readers
 		bufferedLexReader.close();
 		lexReader.close();
-		return animals;
+		return tokens;
 	}
 	
 	/**
@@ -167,8 +171,8 @@ public class TextProcessor {
 	
 	
 	public static void main(String[] args) throws IOException {
-		TextProcessor processor1 = new TextProcessor("data/the-happy-prince.txt");
-		TextProcessor processor2 = new TextProcessor("data/the-fox-and-the-crow.txt");
+		TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.txt");
+		TextLexProcessor processor2 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.txt");
 		processor2.process();
 //		String teString = "This is just a stupid little test.".replaceAll("(?<!\\S)" + "stupid" + "(?!\\S)", "smart");
 //		System.out.println(teString);
