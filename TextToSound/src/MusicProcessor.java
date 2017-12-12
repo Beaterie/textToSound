@@ -38,11 +38,19 @@ public class MusicProcessor {
 //	};
 
 	public MusicProcessor(ProcessResult txtRes) throws IOException {
+<<<<<<< HEAD
 		Map<String, TargetOccurenceInfo> map = txtRes.getmOccurenceInfos();
 		m_textInput = map;
 		m_animals = Files.readAllLines(Paths.get("data/lexicon_animals.txt"), StandardCharsets.UTF_8);
 		m_musicstring = "";
 		m_textLength = txtRes.getmTextLength();
+=======
+		Map<String, TargetOccurenceInfo> map = txtRes.getOccurenceInfos();
+		
+		textInput = map;
+		animals = Files.readAllLines(Paths.get("data/lexicon_animals.txt"), StandardCharsets.UTF_8);
+		musicstring = "";
+>>>>>>> ef3b370e63e71bf7857931a1e7068cad83e7742b
 	}
 	
 	// --------------------------------------------------------

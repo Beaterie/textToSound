@@ -1,7 +1,9 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,6 +24,7 @@ public class TextLexProcessor {
 	private String mSrcFileName;
 	private String mFileLexicon;
 	private List<String> mLex;
+	private StringBuilder mText = new StringBuilder();
 	
 	
 	// --------------------------------------------------------
@@ -65,6 +68,7 @@ public class TextLexProcessor {
 			line = scanner.nextLine();
 			// Remove all characters that are not alphabets
 			String text = line.replaceAll("[^a-zA-Z ]", "").toLowerCase();
+			mText.append(text);
 			// Find all target token occurrences in line
 			for (String token : mLex) {
 				// Setting word boundaries to find matches of the whole word
@@ -169,13 +173,39 @@ public class TextLexProcessor {
 		}
 	}
 	
+	/**
+	 * Find target death by checking for death-indicating words between
+	 * 100 characters around the last match position. 
+	 * <br>
+	 * This method should be carried out only after the occurrence results are aquired.
+	 * @param res The ProcessResult returned after the text has been processed to find targets
+	 * @throws FileNotFoundException
+	 */
+	public void findDeaths(ProcessResult res) throws FileNotFoundException {
+		String[] deathIndicators = {"dead","die","dies","died","death","killed"};		
+		
+		for (Map.Entry<String, TargetOccurenceInfo> entry : res.getOccurenceInfos().entrySet()) {
+			String target = entry.getKey();
+			TargetOccurenceInfo targetInfo = entry.getValue();
+			int lastOccPos = targetInfo.getOccurenceIndexes().get(targetInfo.getNumTotalOcc()-1);
+			String subString = mText.substring(lastOccPos-25, lastOccPos+25);
+			//System.out.println(subString);
+			
+			for (String word : deathIndicators) {
+				if (subString.indexOf(word) > 0) {
+					System.out.println(target + " Death!");
+				}
+			}
+		}
+		
+	}
 	
 	public static void main(String[] args) throws IOException {
 		TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.txt");
 		TextLexProcessor processor2 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.txt");
-		processor2.process();
-//		String teString = "This is just a stupid little test.".replaceAll("(?<!\\S)" + "stupid" + "(?!\\S)", "smart");
-//		System.out.println(teString);
+		ProcessResult result = processor1.process();
+		processor1.findDeaths(result);
+		//System.out.println(processor1.mText.toString());
 	}
 	
 }

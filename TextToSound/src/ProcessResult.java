@@ -29,16 +29,16 @@ public class ProcessResult {
 	// Getters
 	// --------------------------------------------------------
 
-	public int getmTextLength() {
+	public int getTextLength() {
 		return mTextLength;
 	}
-	public int getmNumLines() {
+	public int getNumLines() {
 		return mNumLines;
 	}
 //	public int getmNumWords() {
 //		return mNumWords;
 //	}
-	public Map<String, TargetOccurenceInfo> getmOccurenceInfos() {
+	public Map<String, TargetOccurenceInfo> getOccurenceInfos() {
 		return mOccurenceInfos;
 	}
 	
