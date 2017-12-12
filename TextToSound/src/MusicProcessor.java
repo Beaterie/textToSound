@@ -35,7 +35,7 @@ public class MusicProcessor {
 	};
 	
 	public MusicProcessor(ProcessResult txtRes) throws IOException {
-		Map<String, TargetOccurenceInfo> map = txtRes.getmOccurenceInfos();
+		Map<String, TargetOccurenceInfo> map = txtRes.getOccurenceInfos();
 		
 		textInput = map;
 		animals = Files.readAllLines(Paths.get("data/lexicon_animals.txt"), StandardCharsets.UTF_8);
