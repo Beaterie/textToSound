@@ -13,11 +13,14 @@ public class Main {
 		//player.play(pattern);
 		
 		TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.txt");
-		//TextLexProcessor processor2 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.txt");
 		TextLexProcessor processor2 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_environment.txt");
-		MusicProcessor mp = new MusicProcessor(processor1.process());
+		TextLexProcessor processor3 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.txt");
+		MusicProcessor mp = new MusicProcessor(processor3.process());
 		mp.process();
-		
+//		mp = new MusicProcessor(processor2.process());
+//		mp.process();
+//		mp = new MusicProcessor(processor3.process());
+//		mp.process();
 		
 			
 	}
