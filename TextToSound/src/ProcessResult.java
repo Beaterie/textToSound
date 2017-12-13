@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Map;
 
 public class ProcessResult {	
@@ -17,7 +18,7 @@ public class ProcessResult {
 	// --------------------------------------------------------
 	
 	public ProcessResult(int textLength, int numLines,
-			Map<String, TargetOccurenceInfo> occInfos) {
+			Map<String, TargetOccurenceInfo> occInfos) throws IOException {
 		mTextLength = textLength;
 		mNumLines = numLines;
 		mOccurenceInfos = occInfos;
@@ -28,16 +29,16 @@ public class ProcessResult {
 	// Getters
 	// --------------------------------------------------------
 
-	public int getmTextLength() {
+	public int getTextLength() {
 		return mTextLength;
 	}
-	public int getmNumLines() {
+	public int getNumLines() {
 		return mNumLines;
 	}
 //	public int getmNumWords() {
 //		return mNumWords;
 //	}
-	public Map<String, TargetOccurenceInfo> getmOccurenceInfos() {
+	public Map<String, TargetOccurenceInfo> getOccurenceInfos() {
 		return mOccurenceInfos;
 	}
 	
