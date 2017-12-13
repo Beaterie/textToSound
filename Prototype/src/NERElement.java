@@ -2,7 +2,8 @@ public class NERElement {
     private String name;
 	private int SentenceID;
 	private int TokenID;
-	private int TotalPosition;
+	private double TotalPosition;
+	private double RelativePosition;
 	
 	public int getSentenceID() {
         return SentenceID;
@@ -22,17 +23,28 @@ public class NERElement {
     public void setName(String name) {
         this.name = name;
     }
-    public int getTotalPosition() {
+    public double getTotalPosition() {
         return TotalPosition;
     }
     
-    public void setTotalPosition(int TotalPosition) {
+    public void setTotalPosition(double TotalPosition) {
         this.TotalPosition = TotalPosition;
+    }
+    
+    public double getRelativePosition() {
+        return RelativePosition;
+    }
+    
+    public void setRelativePosition(double RelativePosition) {
+        this.RelativePosition = RelativePosition;
     }
     
     @Override
     public String toString() {
-    	return this.name + ", in Satz #" + this.SentenceID + "and at position " + this.TokenID + " with the absolute position" + this.TotalPosition + "\n";
+    	return this.name + ": " + this.SentenceID + " " + this.TokenID + "; " + this.TotalPosition + "; " + this.RelativePosition + "\n";
+    	//return this.name + ", in Sentence #" + this.SentenceID + "and at position " + this.TokenID + " with the absolute position" + this.TotalPosition + "\n";
     }
+    
+    
 
 }

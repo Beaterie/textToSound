@@ -1,1 +1,1 @@
-This is a simple example text. In contains names like Anna Maria or Klaus Gustav. A chicken is also part of this document to test the recognition of animals. The chicken is an interesting animal, which is able to recognize the faces of its chicken friends!
+This is a simple example text. In contains names like Anna Maria or Klaus Gustav. A chicken is also part of this document to test the recognition of animals. The chicken is an interesting animal, which is able to recognize the faces of its chicken friends! Clever, cleverer, cleverest.
