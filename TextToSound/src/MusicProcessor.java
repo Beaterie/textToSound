@@ -9,6 +9,7 @@ import java.lang.Math;
 
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
+//import javax.sound.midi.*;
 
 public class MusicProcessor {
 	
@@ -38,11 +39,11 @@ public class MusicProcessor {
 //	};
 
 	public MusicProcessor(ProcessResult txtRes) throws IOException {
-		Map<String, TargetOccurenceInfo> map = txtRes.getmOccurenceInfos();
+		Map<String, TargetOccurenceInfo> map = txtRes.getOccurenceInfos();
 		m_textInput = map;
 		m_animals = Files.readAllLines(Paths.get("data/lexicon_animals.txt"), StandardCharsets.UTF_8);
 		m_musicstring = "";
-		m_textLength = txtRes.getmTextLength();
+		m_textLength = txtRes.getTextLength();
 	}
 	
 	// --------------------------------------------------------
@@ -92,6 +93,7 @@ public class MusicProcessor {
 		//m_musicstring = "T120 L1 " + foxTheme();
 		Player player = new Player();
 		Pattern pattern = new Pattern(m_musicstring);
+		//player.saveMidi(pattern, new File("music-file.mid"));
 		// play stuff
 		player.play(pattern);
 	}
@@ -111,10 +113,19 @@ public class MusicProcessor {
 	// use matching theme
 	private String useTheme(String animal) {
 		if (animal.equals("bird")) {
-			return wolfTheme();
+			return birdTheme();
 		}
 		else if (animal.equals("fox")) {
 			return foxTheme();
+		}
+		else if (animal.equals("crow")) {
+			return crowTheme();
+		}
+		else if (animal.equals("swallow")) {
+			return swallowTheme();
+		}
+		else if (animal.equals("dog")) {
+			return dogTheme();
 		}
 		else {
 			return silenceTheme();
@@ -137,14 +148,28 @@ public class MusicProcessor {
 	
 	// animal themes
 	// each has the same length (4 beats/Takte)
-	private String wolfTheme() {
-		String wolf = "36/1.0 32/0.5 34/0.5 36/1.0 24/1.0";
-		return wolf;
+	private String birdTheme() {
+		String music = "36/1.0 32/0.5 34/0.5 36/1.0 24/1.0";
+		return music;
 	}
 	private String foxTheme() {
-		String fox = "67/0.125 R/0.125 71/0.125 69/0.125 67/0.125 R/0.125 71/0.125 69/0.125 " +
+		String music = "67/0.125 R/0.125 71/0.125 69/0.125 67/0.125 R/0.125 71/0.125 69/0.125 " +
 				"65/0.25 65/0.25 67/0.25 67/0.25";
-		return fox;
+		return music;
+	}
+	private String crowTheme() {
+		String music = "R/0.25 40/0.25 41/0.25 43/0.25 R/0.25 40/0.25 41/0.25 43/0.25 " +
+				"45/0.25 43/0.25 36/0.25 41/0.25 41/0.5 R/0.5";
+		return music;
+	}
+	private String swallowTheme() {
+		String music = "55/0.5 60/0.5 59/0.375 57/0.125 55/0.25 55/0.25 48/1.0 R/1.0";
+		return music;
+	}
+	private String dogTheme() {
+		String music = "65/0.125 R/0.125 65/0.125 R/0.125 R/0.5 65/0.125 R/0.125 R/0.5 " +
+				"60/0.25 59/0.25 R/0.5 67/0.5 60/0.5";
+		return music;
 	}
 	private String silenceTheme() {
 		String silence = "R/4.0";
