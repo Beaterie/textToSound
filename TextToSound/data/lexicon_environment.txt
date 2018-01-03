@@ -9,3 +9,14 @@ river
 lake
 thunder
 wind
+forest
+woods
+park
+plaza
+market
+bonfire
+city
+garden
+temple
+church
+mountain
