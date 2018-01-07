@@ -51,15 +51,15 @@ public class TextLexProcessor {
 	 * Process the given source text and analyze occurrence of tokens
 	 * @throws IOException
 	 */
-	public ProcessResult process() throws IOException {
+	public ProcessedResult process() throws IOException {
 		
-		verifySrc();					// Verify source file. Prints error message if needed.
+		verifySrc();				// Verify source file. Prints error message if needed.
 		mLex = readLexicon();		// Read tokens from lexicon and store in list
 		
 		// Initialize variables, read input file
 		String line;
 		int numLine = 0, numMatch = 0, textLength = 0;
-		Map<String, TargetOccurenceInfo> result = new HashMap<String, TargetOccurenceInfo>();
+		Map<String, TargetInfo> result = new HashMap<String, TargetInfo>();
 		Scanner scanner = new Scanner(new File(mSrcFileName), "UTF-8");
 		scanner.useDelimiter("\n");
 		
@@ -70,13 +70,22 @@ public class TextLexProcessor {
 			String text = line.replaceAll("[^a-zA-Z ]", "").toLowerCase();
 			mText.append(text);
 			// Find all target token occurrences in line
-			for (String token : mLex) {
+			for (String lexLine : mLex) {
+				// Check lexicon dimension
+				String[] lineContent = lexLine.split(",");
+				String token = lineContent[0];
 				// Setting word boundaries to find matches of the whole word
 				String pattern = "(?<!\\S)" + Pattern.quote(token) + "(?!\\S)";
 				Matcher m = Pattern.compile(pattern).matcher(text);
 				while (m.find()) {
 					int matchPos = m.start() + textLength;
-					pushMatchPos(result, token, matchPos);
+					if (lineContent.length == 3) {
+						int phys = Integer.parseInt(lineContent[1]);
+						boolean character = Boolean.parseBoolean(lineContent[2]);
+						pushAttributes(result, token, phys, character, matchPos);
+					} else {
+						pushMatchPos(result, token, matchPos);
+					}
 				    numMatch++;
 				}
 			}
@@ -86,8 +95,8 @@ public class TextLexProcessor {
 		scanner.close();
 		updateAnalysisComputation(result, textLength);
 		
-		ProcessResult tokenAnalysis = 
-				new ProcessResult(textLength, numLine, result);
+		ProcessedResult tokenAnalysis = 
+				new ProcessedResult(textLength, numLine, result);
 		tokenAnalysis.printRes();
 		return tokenAnalysis; 
 	}
@@ -140,22 +149,46 @@ public class TextLexProcessor {
 	}
 	
 	/**
+	 * Create new found target in the result map, initialize attributes
+	 * and push the first match position.
+	 * @param result result map
+	 * @param target target string
+	 * @param phys Target physical size or age from the scale of 0-10
+	 * @param character target character good(0) or evil (1)
+	 * @param matchPos match position
+	 */
+	private void pushAttributes(Map<String, TargetInfo> result, 
+			String target, int phys, boolean character, int matchPos) {
+		
+		TargetInfo targetInfo;
+		if (result.containsKey(target)) {
+			targetInfo = result.get(target);
+		} else {
+			targetInfo = new TargetInfo(target);
+		}
+		targetInfo.setTargetPhys(phys);
+		targetInfo.setTargetCharacter(character);
+		targetInfo.pushOccurenceIndexes(matchPos);
+		result.put(target, targetInfo);
+	}
+	
+	/**
 	 * Push newly found match position to result map.
 	 * @param result result map
 	 * @param target target string
 	 * @param matchPos match position
 	 */
-	private void pushMatchPos(Map<String, TargetOccurenceInfo> result, 
+	private void pushMatchPos(Map<String, TargetInfo> result, 
 			String target, int matchPos) {
 		
-		TargetOccurenceInfo occurenceInfo;
+		TargetInfo targetInfo;
 		if (result.containsKey(target)) {
-			occurenceInfo = result.get(target);
+			targetInfo = result.get(target);
 		} else {
-			occurenceInfo = new TargetOccurenceInfo(target);
+			targetInfo = new TargetInfo(target);
 		}
-		occurenceInfo.pushOccurenceIndexes(matchPos);
-		result.put(target, occurenceInfo);
+		targetInfo.pushOccurenceIndexes(matchPos);
+		result.put(target, targetInfo);
 	}
 	
 	/**
@@ -166,8 +199,8 @@ public class TextLexProcessor {
 	 * @param textLength
 	 */
 	public void updateAnalysisComputation(
-			Map<String, TargetOccurenceInfo> result, int textLength) {
-		for (Map.Entry<String, TargetOccurenceInfo> entry : result.entrySet()) {
+			Map<String, TargetInfo> result, int textLength) {
+		for (Map.Entry<String, TargetInfo> entry : result.entrySet()) {
 			entry.getValue().calcRelativOccPos(textLength);
 			entry.getValue().calcTotalOcc();
 		}
@@ -181,12 +214,12 @@ public class TextLexProcessor {
 	 * @param res The ProcessResult returned after the text has been processed to find targets
 	 * @throws FileNotFoundException
 	 */
-	public void findDeaths(ProcessResult res) throws FileNotFoundException {
+	public void findDeaths(ProcessedResult res) throws FileNotFoundException {
 		String[] deathIndicators = {"dead","die","dies","died","death","killed"};		
 		
-		for (Map.Entry<String, TargetOccurenceInfo> entry : res.getOccurenceInfos().entrySet()) {
+		for (Map.Entry<String, TargetInfo> entry : res.getOccurenceInfos().entrySet()) {
 			String target = entry.getKey();
-			TargetOccurenceInfo targetInfo = entry.getValue();
+			TargetInfo targetInfo = entry.getValue();
 			int lastOccPos = targetInfo.getOccurenceIndexes().get(targetInfo.getNumTotalOcc()-1);
 			String subString = mText.substring(lastOccPos-25, lastOccPos+25);
 			//System.out.println(subString);
@@ -201,9 +234,9 @@ public class TextLexProcessor {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.txt");
-		TextLexProcessor processor2 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.txt");
-		ProcessResult result = processor1.process();
+		TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.csv");
+//		TextLexProcessor processor1 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
+		ProcessedResult result = processor1.process();
 		processor1.findDeaths(result);
 		//System.out.println(processor1.mText.toString());
 	}

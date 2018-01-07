@@ -18,7 +18,7 @@ public class MusicProcessor {
 	// --------------------------------------------------------
 	
 	// <animal, index of appear, percent>
-	private Map<String, TargetOccurenceInfo> m_textInput;
+	private Map<String, TargetInfo> m_textInput;
 	// animals
 	private List<String> m_animals;
 	// music string
@@ -38,8 +38,8 @@ public class MusicProcessor {
 //		musicstring = "";
 //	};
 
-	public MusicProcessor(ProcessResult txtRes) throws IOException {
-		Map<String, TargetOccurenceInfo> map = txtRes.getOccurenceInfos();
+	public MusicProcessor(ProcessedResult txtRes) throws IOException {
+		Map<String, TargetInfo> map = txtRes.getOccurenceInfos();
 		m_textInput = map;
 		m_animals = Files.readAllLines(Paths.get("data/lexicon_animals.txt"), StandardCharsets.UTF_8);
 		m_musicstring = "";
@@ -60,7 +60,7 @@ public class MusicProcessor {
 		m_musicstring += getTempo();
 		
 		// for each appearing animal
-		for (Entry<String, TargetOccurenceInfo> e : m_textInput.entrySet()) {
+		for (Entry<String, TargetInfo> e : m_textInput.entrySet()) {
 			// check animal preset list
 			for (int i = 0; i < m_animals.size(); i++) {
 				// if existing

@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.Map;
 
-public class ProcessResult {	
+public class ProcessedResult {	
 	
 	// --------------------------------------------------------
 	// Members
@@ -10,15 +10,15 @@ public class ProcessResult {
 	private int mTextLength;
 	private int mNumLines;
 	//private int mNumWords;
-	private Map<String, TargetOccurenceInfo> mOccurenceInfos;
+	private Map<String, TargetInfo> mOccurenceInfos;
 	
 	
 	// --------------------------------------------------------
 	// Constructors
 	// --------------------------------------------------------
 	
-	public ProcessResult(int textLength, int numLines,
-			Map<String, TargetOccurenceInfo> occInfos) throws IOException {
+	public ProcessedResult(int textLength, int numLines,
+			Map<String, TargetInfo> occInfos) throws IOException {
 		mTextLength = textLength;
 		mNumLines = numLines;
 		mOccurenceInfos = occInfos;
@@ -38,7 +38,7 @@ public class ProcessResult {
 //	public int getmNumWords() {
 //		return mNumWords;
 //	}
-	public Map<String, TargetOccurenceInfo> getOccurenceInfos() {
+	public Map<String, TargetInfo> getOccurenceInfos() {
 		return mOccurenceInfos;
 	}
 	
@@ -56,7 +56,7 @@ public class ProcessResult {
 //	public void setmNumWords(int numWords) {
 //		this.mNumWords = numWords;
 //	}
-	public void setmOccurenceInfos(Map<String, TargetOccurenceInfo> occurenceInfos) {
+	public void setmOccurenceInfos(Map<String, TargetInfo> occurenceInfos) {
 		this.mOccurenceInfos = occurenceInfos;
 	}
 	
@@ -68,7 +68,7 @@ public class ProcessResult {
 	public void printRes() {
 		System.out.println("Processed text length: " + mTextLength);
 		System.out.println("Number of lines: " + mNumLines);
-		for (Map.Entry<String, TargetOccurenceInfo> entry : mOccurenceInfos.entrySet()) {
+		for (Map.Entry<String, TargetInfo> entry : mOccurenceInfos.entrySet()) {
 			entry.getValue().printInfo();
 		}
 	}

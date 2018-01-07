@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class TargetOccurenceInfo {
+public class TargetInfo {
 	
 	// --------------------------------------------------------
 	// Members
@@ -8,6 +8,8 @@ public class TargetOccurenceInfo {
 	
 	private String mTarget;		// Target string/token
 	private int mNumTotalOcc;	// Number of total occurrences
+	private int mTargetPhys;	// Target physical size or age from the scale of 0-10
+	private boolean mTargetCharacter;	// Target character good/evil (0/1)
 	
 	// Character indexes of the target word
 	private ArrayList<Integer> mOccurenceIndexes = new ArrayList<Integer>();
@@ -20,10 +22,10 @@ public class TargetOccurenceInfo {
 	// Constructors
 	// --------------------------------------------------------
 	
-	public TargetOccurenceInfo() {
+	public TargetInfo() {
 	}
 	
-	public TargetOccurenceInfo(String target) {
+	public TargetInfo(String target) {
 		mTarget = target;
 	}
 	
@@ -48,6 +50,14 @@ public class TargetOccurenceInfo {
 		return mNumTotalOcc;
 	}
 	
+	public int getTargetPhys() {
+		return mTargetPhys;
+	}
+	
+	public boolean getTargetCharacter() {
+		return mTargetCharacter;
+	}
+	
 	
 	// --------------------------------------------------------
 	// Setters
@@ -55,6 +65,14 @@ public class TargetOccurenceInfo {
 
 	public void setTarget(String target) {
 		mTarget = target;
+	}
+	
+	public void setTargetPhys(int physicalAttribute) {
+		mTargetPhys = physicalAttribute;
+	}
+	
+	public void setTargetCharacter(boolean character) {
+		mTargetCharacter = character;
 	}
 
 	public void setOccurenceIndexes(ArrayList<Integer> occurenceIndexes) {
@@ -89,8 +107,10 @@ public class TargetOccurenceInfo {
 	// --------------------------------------------------------
 	
 	public void printInfo() {
+		int character = mTargetCharacter ? 1 : 0;
 		System.out.println("==================================");
-		System.out.println("Occurance info for " + mTarget);
+		System.out.println(mTarget + " size/age: " + mTargetPhys);
+		System.out.println(mTarget + " character: " + character + "\n");
 		System.out.println("Total occurrences: " + mOccurenceIndexes.size());
 		System.out.println("Last occurence index: " + mOccurenceIndexes.get(mOccurenceIndexes.size()-1));
 		System.out.println("Last occurence is at " + (mRelativOccPos.get(mRelativOccPos.size()-1)) + " percent of whole text length.");
