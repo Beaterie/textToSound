@@ -41,7 +41,7 @@ public class MusicProcessor {
 	public MusicProcessor(ProcessedResult txtRes) throws IOException {
 		Map<String, TargetInfo> map = txtRes.getOccurenceInfos();
 		m_textInput = map;
-		m_animals = Files.readAllLines(Paths.get("data/lexicon_animals.txt"), StandardCharsets.UTF_8);
+		m_animals = Files.readAllLines(Paths.get("data/lexicon_animals.csv"), StandardCharsets.UTF_8);
 		m_musicstring = "";
 		m_textLength = txtRes.getTextLength();
 	}
@@ -93,6 +93,7 @@ public class MusicProcessor {
 		//m_musicstring = "T120 L1 " + foxTheme();
 		Player player = new Player();
 		Pattern pattern = new Pattern(m_musicstring);
+		System.out.println(m_musicstring);
 		//player.saveMidi(pattern, new File("music-file.mid"));
 		// play stuff
 		player.play(pattern);
