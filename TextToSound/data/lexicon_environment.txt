@@ -1,5 +1,4 @@
 bush
-bushes
 lightning
 rain
 rainy
@@ -16,7 +15,8 @@ plaza
 market
 bonfire
 city
-garden
-temple
+town
+car
+street
 church
 mountain
