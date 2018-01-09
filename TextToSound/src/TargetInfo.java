@@ -10,6 +10,7 @@ public class TargetInfo {
 	private int mNumTotalOcc;	// Number of total occurrences
 	private int mTargetPhys;	// Target physical size or age from the scale of 0-10
 	private boolean mTargetCharacter;	// Target character good/evil (0/1)
+	private String mTheme;		// Target music theme
 	
 	// Character indexes of the target word
 	private ArrayList<Integer> mOccurenceIndexes = new ArrayList<Integer>();
@@ -58,6 +59,10 @@ public class TargetInfo {
 		return mTargetCharacter;
 	}
 	
+	public String getmTheme() {
+		return mTheme;
+	}
+	
 	
 	// --------------------------------------------------------
 	// Setters
@@ -85,6 +90,10 @@ public class TargetInfo {
 	
 	public void setmNumTotalOcc(int numTotalOcc) {
 		mNumTotalOcc = numTotalOcc;
+	}
+	
+	public void setmTheme(String mTheme) {
+		this.mTheme = mTheme;
 	}
 	
 	public void pushOccurenceIndexes(int index) {
