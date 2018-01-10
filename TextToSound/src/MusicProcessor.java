@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -53,6 +54,24 @@ public class MusicProcessor {
 		int numOfSections = getNumOfSections();
 		// tempo definition
 		m_musicstring += getTempo();
+		
+		HashMap<Integer, String> majorKey = new HashMap<Integer, String>();
+		majorKey.put(0,"C");
+		majorKey.put(2,"D");
+		majorKey.put(4,"E");
+		majorKey.put(5,"F");
+		majorKey.put(7,"G");
+		majorKey.put(9,"A");
+		majorKey.put(11,"B");
+		
+		HashMap<Integer, String> minorKey = new HashMap<Integer, String>();
+		minorKey.put(0,"C");
+		minorKey.put(2,"D");
+		minorKey.put(3,"Eb");
+		minorKey.put(5,"F");
+		minorKey.put(7,"G");
+		minorKey.put(8,"Ab");
+		minorKey.put(10,"Bb");
 		
 		// for each appearing animal
 //		for (Entry<String, TargetInfo> e : m_textInput.entrySet()) {
@@ -125,8 +144,9 @@ public class MusicProcessor {
 		String theme = "";
 		Boolean animal_character = animal.getTargetCharacter();
 		int animal_size = animal.getTargetPhys();
+		String animal_name = animal.getTarget();
 		
-		animal.setmTheme(theme);
+		animal.setTheme(theme);
 	}
 
 }
