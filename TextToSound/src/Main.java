@@ -17,6 +17,10 @@ public class Main {
 		TextLexProcessor processor3 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
 		MusicProcessor mp = new MusicProcessor(processor1.process());
 		mp.process();
+		
+		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt");
+		
+		NERprocessor1.main(args);
 //		mp = new MusicProcessor(processor2.process());
 //		mp.process();
 //		mp = new MusicProcessor(processor3.process());
