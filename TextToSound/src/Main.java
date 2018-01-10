@@ -18,9 +18,13 @@ public class Main {
 		MusicProcessor mp = new MusicProcessor(processor1.process());
 		mp.process();
 		
-		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt");
+		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt", 10);
+		NEREmotionProcessor NERprocessor2 = new NEREmotionProcessor("data/the-fox-and-the-crow.txt", 5);
 		
-		NERprocessor1.main(args);
+		//NERprocessor1.main(args);
+		EmotionResult EmotionResults = NERprocessor2.main(args);
+		
+		System.out.println("done");
 //		mp = new MusicProcessor(processor2.process());
 //		mp.process();
 //		mp = new MusicProcessor(processor3.process());

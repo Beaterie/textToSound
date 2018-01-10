@@ -25,6 +25,8 @@ public class NEREmotionProcessor {
 	// Members
 	// --------------------------------------------------------
 	private String mSrcFileName;
+	private Integer sections;
+	private static Integer TextLength;
 
 	private List<NERElement> NNList = new ArrayList<>();// List with Nouns
 	private List<NERElement> NNPList = new ArrayList<>(); // List with Proper Nouns (Names)
@@ -42,23 +44,23 @@ public class NEREmotionProcessor {
 	 * 
 	 * @param src
 	 *            source text to be analysed
-	 * @param lex
-	 *            lexicon to use
+	 * @param sections
+	 *            number of sections
 	 */
-	public NEREmotionProcessor(String src) {
+	public NEREmotionProcessor(String src, Integer sec) {
 		mSrcFileName = src;
+		sections = sec;
 	};
 
 	// --------------------------------------------------------
 	// Methods
 	// --------------------------------------------------------
 
-	
 	// *Create temp text file of text without punctuation
 	public static void prepareText(String story, String tempstory) {
 
 		try {
-			//System.out.println(story);
+			// System.out.println(story);
 			FileReader reader = new FileReader(story);
 			BufferedReader bufferedReader = new BufferedReader(reader);
 			FileWriter writer = new FileWriter(tempstory, true);
@@ -86,7 +88,7 @@ public class NEREmotionProcessor {
 			Runtime rt = Runtime.getRuntime();
 			Process pr = rt.exec(
 					"java -cp \"data/stanford-corenlp/*\" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
-							+ story + " -outputDirectory data/" );
+							+ story + " -outputDirectory data/");
 			int exitVal = pr.waitFor();
 			System.out.println("Exited with error code " + exitVal);
 		} catch (Exception e) {
@@ -154,6 +156,8 @@ public class NEREmotionProcessor {
 						}
 					}
 				}
+
+				TextLength = iToken;
 			}
 
 			for (NERElement Element : NNList) {
@@ -188,29 +192,77 @@ public class NEREmotionProcessor {
 	// *Use adjectives and analyze emotions
 	// *
 	// **************
-	public static List<List<Integer>> AssessEmotion(List<NERElement> AdjList) throws IOException {
+	public static EmotionResult AssessEmotion(List<NERElement> AdjList, Integer sections) throws IOException {
+		
 		List<EmotionElement> EmoLex;
 		EmoLex = ReadLexicon();
 		Integer Index;
-		int ListPosition = 0;
-		int Sections = 10; // aus Testzwecken fest
-		double PpS = 100 / Sections; // Percent per Section
-		List<List<Integer>> SectionEmotion = new ArrayList<>(); // List with Adjectives
-		List<Integer> SeEl = null;// SectionElement SeEl = null;
+		int ListPosition = 0; // Zählvariable
+		int DensityPosition = 0; // Zählvariable
+		int EmotionAmount;
+		double PpS = 100 / sections; // Percent per Section
+		int PosSum = 0;
+		int NegSum = 0;
+		List<List<Double>> SectionEmotion = new ArrayList<>(); // List with Adjectives
+		List<Double> SeEl = null;
 
-		for (int i = 0; i < Sections; i++) {
-			SeEl = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		List<List<Double>> AllDensities = new ArrayList<>(); // Densities for all Sections
+		List<Double> Density = null; // 16 Densities for one Section
+
+		
+		EmotionResult EmotionResult = new EmotionResult();
+		for (int i = 0; i < sections; i++) { // Interation über jede Textsektion
+			SeEl = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 			while (ListPosition < AdjList.size() && AdjList.get(ListPosition).getRelativePosition() < (i + 1) * PpS) {
+				// solang nicht an alle Elemente aus AdjList und Prozentsatz des Textes pro
+				// Sektion abgearbeitet
 				Index = FindEqual(EmoLex, AdjList.get(ListPosition).getName());
 				if (Index != null) {
 					SeEl = AddEmotion(EmoLex.get(Index), SeEl);
 				}
 				ListPosition++;
 			}
+			// Density = (ListPosition - 1) / (TextLength / 16 * sections); //16 Densities
+			// für jede Sektion --> 16tel Noten
+			// SeEl.set(10, Density);
 			SectionEmotion.add(SeEl);
 		}
-		System.out.println(SectionEmotion);
-		return SectionEmotion;
+
+		for (int i = 0; i < sections; i++) {
+			Density = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+			for (int j = 0; j < 16; j++) {
+				EmotionAmount = 0;
+				while (AdjList.get(DensityPosition).getRelativePosition() < ((i) * PpS + (j + 1) * PpS / 16)) {
+					Index = FindEqual(EmoLex, AdjList.get(DensityPosition).getName());
+					//System.out.println("Index: " + Index);
+					if (Index != null) {
+						EmotionAmount++;
+						//System.out.println("Emotion: "+EmotionAmount);
+						// Emotionsdichte pro Sektion hier berechnen, Emotionswörter geteilt durch alle
+						// Wörter per Sektion
+					}
+
+					DensityPosition++;
+				}
+				double D = EmotionAmount/(TextLength / (16D * sections));
+				Density.set(j, D);
+			}
+			AllDensities.add(Density);
+		}
+
+		System.out.println("Number of Sections: " + sections);
+
+		EmotionResult.setSectionEmotion(SectionEmotion);
+		EmotionResult.setDensity(AllDensities);
+
+		for (List<Double> Element : SectionEmotion) {
+			PosSum = PosSum + Element.get(8).intValue();
+			NegSum = NegSum + Element.get(9).intValue();
+		}
+
+		EmotionResult.setNegSum(NegSum);
+		EmotionResult.setPosSum(PosSum);
+		return EmotionResult;
 
 	}
 
@@ -296,7 +348,7 @@ public class NEREmotionProcessor {
 
 	}
 
-	private static List<Integer> AddEmotion(EmotionElement EmoLexEntry, List<Integer> SeEl) {
+	private static List<Double> AddEmotion(EmotionElement EmoLexEntry, List<Double> SeEl) {
 		if (EmoLexEntry.getAnger()) {
 			SeEl.set(0, SeEl.get(0) + 1);
 		}
@@ -330,21 +382,25 @@ public class NEREmotionProcessor {
 		}
 		return SeEl;
 	}
-	
-	
 
-	public void main(String[] args) throws IOException {
-		
-		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt");
+	public  EmotionResult main(String[] args) throws IOException {
 
-		String tempSrc = mSrcFileName.substring(0, mSrcFileName.length() - 4) +"temp.txt";
+		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt", 10);
+
+		String tempSrc = mSrcFileName.substring(0, mSrcFileName.length() - 4) + "temp.txt";
 		File Ftempstory = new File(tempSrc);
 
 		prepareText(mSrcFileName, tempSrc);
+		System.out.println("prepare Text done");
 		classify(tempSrc);
+		System.out.println("classify done");
 		xml(tempSrc, NNList, NNPList, AdjList);
+		System.out.println("xml done");
 
-		List<List<Integer>> EmotionResults = AssessEmotion(AdjList);
+		EmotionResult EmotionResults = AssessEmotion(AdjList, sections);
+		System.out.println("emotion done");
+		EmotionResults.printResult();
+		System.out.println("above be should be a print :C");
 
 		try {
 			Ftempstory.delete();
@@ -352,6 +408,8 @@ public class NEREmotionProcessor {
 
 			e.printStackTrace();
 		}
+		
+		return EmotionResults;
 
 	}
 
