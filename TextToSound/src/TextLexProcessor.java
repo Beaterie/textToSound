@@ -15,6 +15,8 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.imageio.ImageTypeSpecifier;
+
 public class TextLexProcessor {
 	
 	// --------------------------------------------------------
@@ -215,18 +217,37 @@ public class TextLexProcessor {
 	 * @throws FileNotFoundException
 	 */
 	public void findDeaths(ProcessedResult res) throws FileNotFoundException {
-		String[] deathIndicators = {"dead","die","dies","died","death","killed"};		
+		String[] deathIndicators = {"dead","die","dies","died","death","killed","eat up","ate up"};
 		
 		for (Map.Entry<String, TargetInfo> entry : res.getOccurenceInfos().entrySet()) {
 			String target = entry.getKey();
 			TargetInfo targetInfo = entry.getValue();
 			int lastOccPos = targetInfo.getOccurenceIndexes().get(targetInfo.getNumTotalOcc()-1);
-			String subString = mText.substring(lastOccPos-25, lastOccPos+25);
-			//System.out.println(subString);
+			String textExcert = mText.substring(lastOccPos-25, lastOccPos+100);
 			
+			// For each indicating word and phrase
 			for (String word : deathIndicators) {
-				if (subString.indexOf(word) > 0) {
-					System.out.println(target + " Death!");
+				// Check if it's a phrase
+				String substring[] = word.split("\\s+");
+				// If phrase, create pattern which allows dynamic words in the place of spaces
+				if (substring.length > 1) {
+					String pattern = "(?<!\\S)" + Pattern.quote(substring[0]) + "(?!\\S)" + 
+									 "(.*)" + "(?<!\\S)" + Pattern.quote(substring[1]) + "(?!\\S)";
+					Matcher m = Pattern.compile(pattern).matcher(textExcert);
+					if (m.find()) {
+						System.out.println(target + " Death!");
+						return;
+					}
+				}
+				// If word, create pattern to match the exact word instead of occurence of the 
+				// alphabetic combination
+				else {
+					String pattern = "(?<!\\S)" + Pattern.quote(word) + "(?!\\S)";
+					Matcher m = Pattern.compile(pattern).matcher(textExcert);
+					if (m.find()) {
+						System.out.println(target + " Death!");
+						return;
+					}
 				}
 			}
 		}
@@ -234,7 +255,8 @@ public class TextLexProcessor {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.csv");
+//		TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.csv");
+		TextLexProcessor processor1 = new TextLexProcessor("data/little-red-riding-hood.txt", "data/lexicon_people.csv");
 //		TextLexProcessor processor1 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
 		ProcessedResult result = processor1.process();
 		processor1.findDeaths(result);
