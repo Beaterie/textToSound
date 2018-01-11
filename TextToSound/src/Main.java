@@ -15,11 +15,11 @@ public class Main {
 		TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.csv");
 		TextLexProcessor processor2 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_environment.txt");
 		TextLexProcessor processor3 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
-		MusicProcessor mp = new MusicProcessor(processor1.process());
+		MusicProcessor mp = new MusicProcessor(processor3.process());
 		mp.process();
 		
 		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt", 10);
-		NEREmotionProcessor NERprocessor2 = new NEREmotionProcessor("data/the-fox-and-the-crow.txt", 2);
+		NEREmotionProcessor NERprocessor2 = new NEREmotionProcessor("data/the-fox-and-the-crow.txt", 3);
 		
 		//NERprocessor1.main(args);
 		EmotionResult EmotionResults = NERprocessor2.main(args);

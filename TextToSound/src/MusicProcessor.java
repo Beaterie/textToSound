@@ -31,7 +31,7 @@ public class MusicProcessor {
 	private int m_textLength;
 	// number of sections
 	private int m_numOfSections;
-	
+	// major and minor key, noteDuration
 	private HashMap<Integer, Integer> majorKey = new HashMap<Integer, Integer>();
 	private HashMap<Integer, Integer> minorKey = new HashMap<Integer, Integer>();
 	private HashMap<Double, Double> noteDuration = new HashMap<Double, Double>();
@@ -49,6 +49,24 @@ public class MusicProcessor {
 		m_musicstring = "";
 		m_textLength = txtRes.getTextLength();
 		m_numOfSections = genereateNumOfSections();
+	}
+
+	
+	// --------------------------------------------------------
+	// Getter
+	// --------------------------------------------------------
+	
+	public int getM_numOfSections() {
+		return m_numOfSections;
+	}
+	
+	
+	// --------------------------------------------------------
+	// Setter
+	// --------------------------------------------------------
+
+	public void setM_numOfSections(int m_numOfSections) {
+		this.m_numOfSections = m_numOfSections;
 	}
 	
 	
@@ -128,7 +146,7 @@ public class MusicProcessor {
 	// generate the number of sections subject to
 	// the number of characters of the text
 	private int genereateNumOfSections() {
-		int numOfSections = 10 + (int) Math.log10(m_textLength);
+		int numOfSections = 6 + (int) Math.log10(m_textLength);
 		return numOfSections;
 	}
 	
