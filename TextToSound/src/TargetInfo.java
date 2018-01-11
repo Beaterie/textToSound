@@ -59,7 +59,7 @@ public class TargetInfo {
 		return mTargetCharacter;
 	}
 	
-	public String getmTheme() {
+	public String getTheme() {
 		return mTheme;
 	}
 	
@@ -88,11 +88,11 @@ public class TargetInfo {
 		mRelativOccPos = relativPosOccurence;
 	}
 	
-	public void setmNumTotalOcc(int numTotalOcc) {
+	public void setNumTotalOcc(int numTotalOcc) {
 		mNumTotalOcc = numTotalOcc;
 	}
 	
-	public void setmTheme(String mTheme) {
+	public void setTheme(String mTheme) {
 		this.mTheme = mTheme;
 	}
 	
