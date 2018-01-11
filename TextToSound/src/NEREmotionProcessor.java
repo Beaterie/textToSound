@@ -85,12 +85,15 @@ public class NEREmotionProcessor {
 	public static void classify(String story) {
 		System.out.println(story);// just a test
 		try {
-			Runtime rt = Runtime.getRuntime();
-			Process pr = rt.exec(
-					"java -cp \"data/stanford-corenlp/*\" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
+			//$ java -cp 'data/stanford-corenlp/*' -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file data/the-fox-and-the-crowtemp.txt -outputDirectory data/
+			char quotes ='"';
+			System.out.println("java -cp " + quotes + "data/stanford-corenlp/*" + quotes + " -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
 							+ story + " -outputDirectory data/");
-			int exitVal = pr.waitFor();
-			System.out.println("Exited with error code " + exitVal);
+			Runtime rt = Runtime.getRuntime();
+			Process pr = rt.exec("java -cp " + quotes + "data/stanford-corenlp/*" + quotes + " -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
+							+ story + " -outputDirectory data/");
+			pr.waitFor();
+			System.out.println("Exited with error code ");
 		} catch (Exception e) {
 			System.out.println("it does not work :(");
 			e.printStackTrace();
@@ -197,8 +200,8 @@ public class NEREmotionProcessor {
 		List<EmotionElement> EmoLex;
 		EmoLex = ReadLexicon();
 		Integer Index;
-		int ListPosition = 0; // Zählvariable
-		int DensityPosition = 0; // Zählvariable
+		int ListPosition = 0; // Zï¿½hlvariable
+		int DensityPosition = 0; // Zï¿½hlvariable
 		int EmotionAmount;
 		double PpS = 100 / sections; // Percent per Section
 		int PosSum = 0;
@@ -211,7 +214,7 @@ public class NEREmotionProcessor {
 
 		
 		EmotionResult EmotionResult = new EmotionResult();
-		for (int i = 0; i < sections; i++) { // Interation über jede Textsektion
+		for (int i = 0; i < sections; i++) { // Interation ï¿½ber jede Textsektion
 			SeEl = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 			while (ListPosition < AdjList.size() && AdjList.get(ListPosition).getRelativePosition() < (i + 1) * PpS) {
 				// solang nicht an alle Elemente aus AdjList und Prozentsatz des Textes pro
@@ -223,13 +226,13 @@ public class NEREmotionProcessor {
 				ListPosition++;
 			}
 			// Density = (ListPosition - 1) / (TextLength / 16 * sections); //16 Densities
-			// für jede Sektion --> 16tel Noten
+			// fï¿½r jede Sektion --> 16tel Noten
 			// SeEl.set(10, Density);
 			SectionEmotion.add(SeEl);
 		}
 
 		for (int i = 0; i < sections; i++) {
-			Density = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+			Density = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 			for (int j = 0; j < 16; j++) {
 				EmotionAmount = 0;
 				while (AdjList.get(DensityPosition).getRelativePosition() < ((i) * PpS + (j + 1) * PpS / 16)) {
@@ -238,8 +241,8 @@ public class NEREmotionProcessor {
 					if (Index != null) {
 						EmotionAmount++;
 						//System.out.println("Emotion: "+EmotionAmount);
-						// Emotionsdichte pro Sektion hier berechnen, Emotionswörter geteilt durch alle
-						// Wörter per Sektion
+						// Emotionsdichte pro Sektion hier berechnen, Emotionswï¿½rter geteilt durch alle
+						// Wï¿½rter per Sektion
 					}
 
 					DensityPosition++;
@@ -386,7 +389,6 @@ public class NEREmotionProcessor {
 	public  EmotionResult main(String[] args) throws IOException {
 
 		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt", 10);
-
 		String tempSrc = mSrcFileName.substring(0, mSrcFileName.length() - 4) + "temp.txt";
 		File Ftempstory = new File(tempSrc);
 

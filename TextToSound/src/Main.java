@@ -19,7 +19,7 @@ public class Main {
 		mp.process();
 		
 		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt", 10);
-		NEREmotionProcessor NERprocessor2 = new NEREmotionProcessor("data/the-fox-and-the-crow.txt", 5);
+		NEREmotionProcessor NERprocessor2 = new NEREmotionProcessor("data/the-fox-and-the-crow.txt", 2);
 		
 		//NERprocessor1.main(args);
 		EmotionResult EmotionResults = NERprocessor2.main(args);
