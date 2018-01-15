@@ -78,10 +78,14 @@ public class TextLexProcessor {
 				Matcher m = Pattern.compile(pattern).matcher(text);
 				while (m.find()) {
 					int matchPos = m.start() + textLength;
-					if (lineContent.length == 3) {
+					if (lineContent.length > 2) {
 						int phys = Integer.parseInt(lineContent[1]);
 						boolean character = Boolean.parseBoolean(lineContent[2]);
 						pushAttributes(result, token, phys, character, matchPos);
+						if (lineContent.length > 3) {
+							String pronoun = lineContent[3];
+							pushAttributePronoun(result, token, pronoun);
+						}
 					} else {
 						pushMatchPos(result, token, matchPos);
 					}
@@ -167,6 +171,14 @@ public class TextLexProcessor {
 		targetInfo.setTargetPhys(phys);
 		targetInfo.setTargetCharacter(character);
 		targetInfo.pushOccurenceIndexes(matchPos);
+		result.put(target, targetInfo);
+	}
+	
+	private void pushAttributePronoun(Map<String, TargetInfo> result, 
+			String target, String pronoun) {
+		
+		TargetInfo targetInfo = result.get(target);
+		targetInfo.setTargetPronoun(pronoun);
 		result.put(target, targetInfo);
 	}
 	

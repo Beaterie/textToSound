@@ -10,6 +10,7 @@ public class TargetInfo {
 	private int mNumTotalOcc;	// Number of total occurrences
 	private int mTargetPhys;	// Target physical size or age from the scale of 0-10
 	private boolean mTargetCharacter;	// Target character good/evil (0/1)
+	private String mTargetPronoun;		// Target pronoun (he/she/it)
 	private String mTheme;		// Target music theme
 	
 	// Character indexes of the target word
@@ -55,6 +56,10 @@ public class TargetInfo {
 		return mTargetPhys;
 	}
 	
+	public String getTargetPronoun() {
+		return mTargetPronoun;
+	}
+	
 	public boolean getTargetCharacter() {
 		return mTargetCharacter;
 	}
@@ -78,6 +83,10 @@ public class TargetInfo {
 	
 	public void setTargetCharacter(boolean character) {
 		mTargetCharacter = character;
+	}
+
+	public void setTargetPronoun(String pronoun) {
+		mTargetPronoun = pronoun;
 	}
 
 	public void setOccurenceIndexes(ArrayList<Integer> occurenceIndexes) {
@@ -119,7 +128,8 @@ public class TargetInfo {
 		int character = mTargetCharacter ? 1 : 0;
 		System.out.println("==================================");
 		System.out.println(mTarget + " size/age: " + mTargetPhys);
-		System.out.println(mTarget + " character: " + character + "\n");
+		System.out.println(mTarget + " character: " + character);
+		System.out.println(mTarget + " is a " + mTargetPronoun + "\n");
 		System.out.println("Total occurrences: " + mOccurenceIndexes.size());
 		System.out.println("Last occurence index: " + mOccurenceIndexes.get(mOccurenceIndexes.size()-1));
 		System.out.println("Last occurence is at " + (mRelativOccPos.get(mRelativOccPos.size()-1)) + " percent of whole text length.");
@@ -134,7 +144,6 @@ public class TargetInfo {
 		System.out.println();
 		System.out.println("==================================");
 	}
-
 
 	
 }

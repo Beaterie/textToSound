@@ -6,7 +6,6 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.omg.PortableInterceptor.INACTIVE;
 
 public class ExperimentalCharacterAnalysis {
 	
@@ -14,6 +13,14 @@ public class ExperimentalCharacterAnalysis {
 	private static List<Integer> mQuoteIndexes = new ArrayList<Integer>();
 	private static List<String> mQuoteSpeakers = new ArrayList<String>();
 	
+	private static String firstPerson;
+	private static String thirdPerson;
+	
+	/**
+	 * Read the text and store the text in the member mText.
+	 * @param fileName
+	 * @throws FileNotFoundException
+	 */
 	private static void readText(String fileName) throws FileNotFoundException {
 		Scanner scanner = new Scanner(new File(fileName), "UTF-8");
 		scanner.useDelimiter("\n");
@@ -25,6 +32,10 @@ public class ExperimentalCharacterAnalysis {
 		scanner.close();
 	}
 	
+	/**
+	 * Find the quotes in the stored source text and stock the indexes of the quotes,
+	 * including the start and end indexes, in a list.
+	 */
 	private static void findQuotes() {
 		Pattern p = Pattern.compile("‘([^‘]*|[^’]*)’");
 		Matcher m = p.matcher(mText);
@@ -35,21 +46,6 @@ public class ExperimentalCharacterAnalysis {
 		
 		// Enforce the size of mQuoteSpeaker to the same
 		mQuoteSpeakers = new ArrayList<String>(mQuoteIndexes.size());
-	}
-	
-	private static void searchPersonWholeTxt() {
-		Pattern man = Pattern.compile("\\W(he|his|him|man|husband)\\W", Pattern.CASE_INSENSITIVE);
-		Matcher matcher = man.matcher(mText);
-		while (matcher.find()) {
-			System.out.print(matcher.start() + " " + matcher.group(1) + "  ");
-		}
-		System.out.println();
-
-		Pattern wife = Pattern.compile("\\W(she|her|wife|woman)\\W", Pattern.CASE_INSENSITIVE);
-		Matcher mtch = wife.matcher(mText);
-		while (mtch.find()) {
-			System.out.print(mtch.start() + " " + mtch.group(1) + "  ");
-		}
 	}
 	
 	private static void searchPerson(String text) {
@@ -67,6 +63,10 @@ public class ExperimentalCharacterAnalysis {
 		}
 	}
 	
+	/**
+	 * Find first-person nouns in the given text.
+	 * @param substring
+	 */
 	private static void findNouns(String substring) {
 		// \\W stands for non-alphabetic character
 		Pattern noun = Pattern.compile("\\W(he|man|husband|she|wife|woman)\\W", Pattern.CASE_INSENSITIVE);
@@ -76,6 +76,10 @@ public class ExperimentalCharacterAnalysis {
 		}
 	}
 	
+	/**
+	 * Find third-person pronouns in the given text.
+	 * @param substring
+	 */
 	private static void findPronouns(String substring) {
 		Pattern pronoun = Pattern.compile("\\W(her|his|him)\\W", Pattern.CASE_INSENSITIVE);
 		Matcher m2 = pronoun.matcher(substring);
@@ -84,20 +88,31 @@ public class ExperimentalCharacterAnalysis {
 		}
 	}
 	
-	private static void determinOtherSpeaker() {}
+//	private static String discardSubConjunctions(String substring) {
+//		return substring;
+//	}
 	
+	/**
+	 * Determine the speaker of the quote by analyzing the text before or after the quote.
+	 * @param substring
+	 * @return
+	 */
 	private static String determineSpeaker(String substring) {
-		Pattern preposition = Pattern.compile("\\W(to)\\W(\\w*\\W\\w*)\\W", Pattern.CASE_INSENSITIVE);
+		// If someone is spoken to, he won't be the subject of the sentence.
+		Pattern preposition = Pattern.compile("\\W(to|at)\\W(\\w*\\W\\w*)\\W", Pattern.CASE_INSENSITIVE);
 		Matcher m = preposition.matcher(substring);
 		String subject = "", object = "";
 		while (m.find()) {
 			object = m.group(2);
-//			System.out.print("Object: " + object + "\n");
+			System.out.print("Object: " + object + "\n");
 		}
 		
 		Pattern nouns = Pattern.compile("\\W(he|man|husband|she|wife|woman)\\W", Pattern.CASE_INSENSITIVE);
 		Matcher m1 = nouns.matcher(substring);
-		while (m1.find()) {
+		int count = 0;
+		// Return the first person that is not a known object in the sentence.
+		while (m1.find() && count < 1) {
+			count++;
 			String noun = m1.group(1);
 			boolean nounIsObject = (object.indexOf(noun)!=-1);
 			if (!nounIsObject) {
@@ -108,6 +123,15 @@ public class ExperimentalCharacterAnalysis {
 		return subject;
 	}
 	
+	/**
+	 * After determining the speaker, store the speaker in quotes before/after or not 
+	 * store at all according to properties of the sentence analyzed. These are properties
+	 * showing where the whole sentence starts/ends according to punctuation and cases,
+	 * deciding if the speaker already spoken or is about to speak (or both).
+	 * @param substring
+	 * @param subject
+	 * @param arrIndex
+	 */
 	private static void saveQuoteSpeaker(String substring, String subject, int arrIndex) {
 		substring = substring.trim();
 		int numQuotes = mQuoteIndexes.size();
@@ -151,15 +175,24 @@ public class ExperimentalCharacterAnalysis {
 	
 	private static void characterAnalysis() {}
 	
+	/**
+	 * Check if the given number is even.
+	 */
 	private static boolean isEven(int x) {
 		return x%2 == 0;
 	}
 	
+	/**
+	 * Return the bigger number of the 2 given numbers.
+	 */
 	private static int max(int a, int b) {
 		int x = a>b ? a:b;
 		return x;
 	}
 	
+	/**
+	 * Return the smaller number of the 2 given numbers.
+	 */
 	private static int min(int a, int b) {
 		int x = a<b ? a:b;
 		return x;
@@ -197,7 +230,6 @@ public class ExperimentalCharacterAnalysis {
 					saveQuoteSpeaker(substring, subject, i);
 				}
 				
-
 				System.out.print(subject + " returned. \n");
 				System.out.println(mQuoteSpeakers.toString());
 				return;
