@@ -1,7 +1,9 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,19 +11,19 @@ import java.util.regex.Pattern;
 
 public class ExperimentalCharacterAnalysis {
 	
-	private static StringBuilder mText = new StringBuilder();
-	private static List<Integer> mQuoteIndexes = new ArrayList<Integer>();
-	private static List<String> mQuoteSpeakers = new ArrayList<String>();
+	private StringBuilder mText = new StringBuilder();
+	private List<Integer> mQuoteIndexes = new ArrayList<Integer>();
+	private List<String> mQuoteSpeakers = new ArrayList<String>();
 	
-	private static String firstPerson;
-	private static String thirdPerson;
+	private String mFirstPerson = "";
+	private String mThirdPerson = "";
 	
 	/**
 	 * Read the text and store the text in the member mText.
 	 * @param fileName
 	 * @throws FileNotFoundException
 	 */
-	private static void readText(String fileName) throws FileNotFoundException {
+	private void readText(String fileName) throws FileNotFoundException {
 		Scanner scanner = new Scanner(new File(fileName), "UTF-8");
 		scanner.useDelimiter("\n");
 		
@@ -36,7 +38,7 @@ public class ExperimentalCharacterAnalysis {
 	 * Find the quotes in the stored source text and stock the indexes of the quotes,
 	 * including the start and end indexes, in a list.
 	 */
-	private static void findQuotes() {
+	private void findQuotes() {
 		Pattern p = Pattern.compile("‘([^‘]*|[^’]*)’");
 		Matcher m = p.matcher(mText);
 		while (m.find()) {
@@ -48,7 +50,59 @@ public class ExperimentalCharacterAnalysis {
 		mQuoteSpeakers = new ArrayList<String>(mQuoteIndexes.size());
 	}
 	
-	private static void searchPerson(String text) {
+	/**
+	 * Prepare the members mFirstperson and mThirdperson from TextLexProcessor results.
+	 * The found target and their first-person pronouns will be stored in mFirstperson,
+	 * and their third-person pronouns like his,her etc. will be stored in mThirdperson.
+	 * <BR><BR>
+	 * This step should be then executed, when a result from TextLexProcessor is ready.
+	 */
+	private void extractPeopleFromTxtLexProc(ProcessedResult result) {
+		fillFirstThirdperson(result);
+		cleanFirstThirdperson();
+	}
+	
+	private void fillFirstThirdperson(ProcessedResult result) {
+		// Adding each target and their pronouns to the members.
+		for (Map.Entry<String, TargetInfo> entry : result.getOccurenceInfos().entrySet()) {
+			String target = entry.getKey();
+			TargetInfo targetInfo = entry.getValue();
+			String pronoun = targetInfo.getTargetPronoun();
+			mFirstPerson += ("|" + target + "||" + pronoun + "|");
+			if (pronoun.equals("he")) {
+				mThirdPerson += ("|his||him|");
+			} else if (pronoun.equals("she")) {
+				mThirdPerson += ("|her|");
+			} else if (pronoun.equals("it")) {
+				mThirdPerson += ("|its|");
+			}
+		}
+	}
+	
+	private void cleanFirstThirdperson() {
+		// Remove excessive entries from the members.
+		if (mFirstPerson.indexOf("|he|") != -1) {	// If "he" already exists
+			mFirstPerson = mFirstPerson.replaceAll("\\|he\\|", "|") + "|he|";
+			mThirdPerson = mThirdPerson.replaceAll("\\|(his\\|)", "") + "|his|";
+			mThirdPerson = mThirdPerson.replaceAll("\\|(him\\|)", "") + "|him|";
+		}
+		if (mFirstPerson.indexOf("|she|") != -1) {
+			mFirstPerson = mFirstPerson.replaceAll("\\|she\\|", "|") + "|she|";
+			mThirdPerson = mThirdPerson.replaceAll("\\|her\\|", "") + "|her|";
+		}
+		if (mFirstPerson.indexOf("|it|") != -1) {
+			mFirstPerson = mFirstPerson.replaceAll("\\|it\\|", "|") + "|it|";
+			mThirdPerson = mThirdPerson.replaceAll("\\|its\\|", "") + "|its|";
+		}
+		// Remove excessive "|"
+		mFirstPerson = mFirstPerson.replaceAll("\\|+", "|");
+		mThirdPerson = mThirdPerson.replaceAll("\\|+", "|");
+		mFirstPerson = mFirstPerson.substring(1, mFirstPerson.length()-1);
+		mThirdPerson = mThirdPerson.substring(1, mThirdPerson.length()-1);
+		
+		System.out.println(mFirstPerson + "\t" + mThirdPerson);
+	}
+	private void searchPerson(String text) {
 		// \\W stands for non-alphabetic character
 		Pattern man = Pattern.compile("\\W(he|his|him|man|husband)\\W", Pattern.CASE_INSENSITIVE);
 		Matcher matcher = man.matcher(text);
@@ -67,7 +121,7 @@ public class ExperimentalCharacterAnalysis {
 	 * Find first-person nouns in the given text.
 	 * @param substring
 	 */
-	private static void findNouns(String substring) {
+	private void findNouns(String substring) {
 		// \\W stands for non-alphabetic character
 		Pattern noun = Pattern.compile("\\W(he|man|husband|she|wife|woman)\\W", Pattern.CASE_INSENSITIVE);
 		Matcher m1 = noun.matcher(substring);
@@ -80,7 +134,7 @@ public class ExperimentalCharacterAnalysis {
 	 * Find third-person pronouns in the given text.
 	 * @param substring
 	 */
-	private static void findPronouns(String substring) {
+	private void findPronouns(String substring) {
 		Pattern pronoun = Pattern.compile("\\W(her|his|him)\\W", Pattern.CASE_INSENSITIVE);
 		Matcher m2 = pronoun.matcher(substring);
 		while (m2.find()) {
@@ -97,7 +151,7 @@ public class ExperimentalCharacterAnalysis {
 	 * @param substring
 	 * @return
 	 */
-	private static String determineSpeaker(String substring) {
+	private String determineSpeaker(String substring) {
 		// If someone is spoken to, he won't be the subject of the sentence.
 		Pattern preposition = Pattern.compile("\\W(to|at)\\W(\\w*\\W\\w*)\\W", Pattern.CASE_INSENSITIVE);
 		Matcher m = preposition.matcher(substring);
@@ -107,6 +161,7 @@ public class ExperimentalCharacterAnalysis {
 			System.out.print("Object: " + object + "\n");
 		}
 		
+		String pattern = "\\W(" + mFirstPerson + ")\\W";
 		Pattern nouns = Pattern.compile("\\W(he|man|husband|she|wife|woman)\\W", Pattern.CASE_INSENSITIVE);
 		Matcher m1 = nouns.matcher(substring);
 		int count = 0;
@@ -132,7 +187,7 @@ public class ExperimentalCharacterAnalysis {
 	 * @param subject
 	 * @param arrIndex
 	 */
-	private static void saveQuoteSpeaker(String substring, String subject, int arrIndex) {
+	private void saveQuoteSpeaker(String substring, String subject, int arrIndex) {
 		substring = substring.trim();
 		int numQuotes = mQuoteIndexes.size();
 		if (substring.length() > 0) {
@@ -173,19 +228,19 @@ public class ExperimentalCharacterAnalysis {
 		}
 	}
 	
-	private static void characterAnalysis() {}
+	private void characterAnalysis() {}
 	
 	/**
 	 * Check if the given number is even.
 	 */
-	private static boolean isEven(int x) {
+	private boolean isEven(int x) {
 		return x%2 == 0;
 	}
 	
 	/**
 	 * Return the bigger number of the 2 given numbers.
 	 */
-	private static int max(int a, int b) {
+	private int max(int a, int b) {
 		int x = a>b ? a:b;
 		return x;
 	}
@@ -193,17 +248,12 @@ public class ExperimentalCharacterAnalysis {
 	/**
 	 * Return the smaller number of the 2 given numbers.
 	 */
-	private static int min(int a, int b) {
+	private int min(int a, int b) {
 		int x = a<b ? a:b;
 		return x;
 	}
 	
-	public static void main(String[] args) throws FileNotFoundException {
-		
-		readText("data/test-character.txt");
-		
-		findQuotes();
-		
+	private void extractSpeakersOfQuotes() {
 		for (int i = 0; i < mQuoteIndexes.size(); i++) {
 			int txtIndex = mQuoteIndexes.get(i);
 			String subject = null, substring = null;
@@ -253,8 +303,21 @@ public class ExperimentalCharacterAnalysis {
 			}
 
 			System.out.print(subject + " returned. \n");
-			System.out.println(mQuoteSpeakers.toString());
 		}
+		System.out.println(mQuoteSpeakers.toString());
+	}
+	
+	public static void main(String[] args) throws IOException {
 		
+		TextLexProcessor proc = new TextLexProcessor("data/test-character.txt", "data/lexicon_people.csv");
+		ProcessedResult result = proc.process();
+		
+		ExperimentalCharacterAnalysis exp = new ExperimentalCharacterAnalysis();
+		exp.readText("data/test-character.txt");
+		exp.findQuotes();
+		exp.extractPeopleFromTxtLexProc(result);
+		
+		
+		exp.extractSpeakersOfQuotes();
 	}
 }

@@ -99,7 +99,6 @@ public class TextLexProcessor {
 		
 		ProcessedResult res = 
 				new ProcessedResult(textLength, numLine, result);
-		res.printRes();
 		return res; 
 	}
 	
@@ -269,7 +268,9 @@ public class TextLexProcessor {
 		TextLexProcessor processor1 = new TextLexProcessor("data/test-character.txt", "data/lexicon_people.csv");
 //		TextLexProcessor processor1 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
 		ProcessedResult result = processor1.process();
+		result.printRes();
 		processor1.findDeaths(result);
+
 		//System.out.println(processor1.mText.toString());
 	}
 	
