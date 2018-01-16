@@ -87,13 +87,13 @@ public class NEREmotionProcessor {
 		try {
 			//$ java -cp 'data/stanford-corenlp/*' -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file data/the-fox-and-the-crowtemp.txt -outputDirectory data/
 			char quotes ='"';
-			System.out.println("java -cp " + quotes + "data/stanford-corenlp/*" + quotes + " -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
-							+ story + " -outputDirectory data/");
+			//System.out.println("java -cp " + quotes + "data/stanford-corenlp/*" + quotes + " -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
+			//				+ story + " -outputDirectory data/");
 			Runtime rt = Runtime.getRuntime();
 			Process pr = rt.exec("java -cp " + quotes + "data/stanford-corenlp/*" + quotes + " -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
 							+ story + " -outputDirectory data/");
-			pr.waitFor();
-			System.out.println("Exited with error code ");
+			int varerror = pr.waitFor();
+			System.out.println("Exited with error code " + varerror);
 		} catch (Exception e) {
 			System.out.println("it does not work :(");
 			e.printStackTrace();

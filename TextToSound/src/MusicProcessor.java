@@ -146,7 +146,7 @@ public class MusicProcessor {
 	// generate the number of sections subject to
 	// the number of characters of the text
 	private int genereateNumOfSections() {
-		int numOfSections = 6 + (int) Math.log10(m_textLength);
+		int numOfSections = 10 + (int) Math.log10(m_textLength);
 		return numOfSections;
 	}
 	
