@@ -84,6 +84,7 @@ public class NEREmotionProcessor {
 	// *Run Stanford Classifier and create XMl-File
 	public static void classify(String story) {
 		System.out.println(story);// just a test
+		//$ java -cp 'data/stanford-corenlp/*' -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file data/the-fox-and-the-crowtemp.txt -outputDirectory data/
 		try {
 			Runtime rt = Runtime.getRuntime();
 			Process pr = rt.exec(
@@ -159,7 +160,7 @@ public class NEREmotionProcessor {
 								|| Objects.equals(category, "(") || Objects.equals(category, ")")
 								|| Objects.equals(category, "{") || Objects.equals(category, "}")
 								|| Objects.equals(category, "?") || Objects.equals(category, "!")
-								|| Objects.equals(category, "`") || Objects.equals(category, "´")
+								|| Objects.equals(category, "`") || Objects.equals(category, "ï¿½")
 								|| Objects.equals(category, "-") || Objects.equals(category, "_")
 								|| Objects.equals(category, "CD") || Objects.equals(category, "SYM")) {
 							iToken--; // ignore punctuation for total text length
@@ -222,8 +223,8 @@ public class NEREmotionProcessor {
 		List<EmotionElement> EmoLex;
 		EmoLex = ReadLexicon();
 		Integer Index;
-		int ListPosition = 0; // Zählvariable
-		int DensityPosition = 0; // Zählvariable
+		int ListPosition = 0; // Zï¿½hlvariable
+		int DensityPosition = 0; // Zï¿½hlvariable
 		int EmotionAmount;
 		double PpS = 100 / sections; // Percent per Section
 		int PosSum = 0;
@@ -235,7 +236,7 @@ public class NEREmotionProcessor {
 		List<Double> Density = null; // 16 Densities for one Section
 
 		EmotionResult EmotionResult = new EmotionResult();
-		for (int i = 0; i < sections; i++) { // Interation über jede Textsektion
+		for (int i = 0; i < sections; i++) { // Interation ï¿½ber jede Textsektion
 			SeEl = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 			while (ListPosition < AdjList.size() && AdjList.get(ListPosition).getRelativePosition() < (i + 1) * PpS) {
 				// solang nicht an alle Elemente aus AdjList und Prozentsatz des Textes pro
