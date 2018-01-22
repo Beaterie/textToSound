@@ -88,7 +88,7 @@ public class NEREmotionProcessor {
 		try {
 			Runtime rt = Runtime.getRuntime();
 			Process pr = rt.exec(
-					"java -cp \"data/stanford-corenlp/*\" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
+					"java -cp 'data/stanford-corenlp/*' -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
 							+ story + " -outputDirectory data/");
 
 			int exitVal = pr.waitFor();
