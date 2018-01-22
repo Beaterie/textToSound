@@ -28,7 +28,7 @@ public class NEREmotionProcessor {
 	private Integer sections;
 	private static Integer TextLength;
 
-	private List<NERElement> NNList = new ArrayList<>();// List with Nouns
+	private List<NERElement> NNList = new ArrayList<>();  // List with Nouns
 	private List<NERElement> NNPList = new ArrayList<>(); // List with Proper Nouns (Names)
 	private List<NERElement> AdjList = new ArrayList<>(); // List with Adjectives
 
@@ -84,13 +84,12 @@ public class NEREmotionProcessor {
 	// *Run Stanford Classifier and create XMl-File
 	public static void classify(String story) {
 		System.out.println(story);// just a test
+		//$ java -cp 'data/stanford-corenlp/*' -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file data/the-fox-and-the-crowtemp.txt -outputDirectory data/
 		try {
 			Runtime rt = Runtime.getRuntime();
 			Process pr = rt.exec(
-					"java -cp 'data/stanford-corenlp/*' -Xmx2g "
-					+ "edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner "
-					+ "-file data/the-fox-and-the-crowtemp.txt -outputDirectory data/"
-					);
+					"java -cp 'data/stanford-corenlp/*' -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
+							+ story + " -outputDirectory data/");
 
 			int exitVal = pr.waitFor();
 			System.out.println("Exited with error code " + exitVal);

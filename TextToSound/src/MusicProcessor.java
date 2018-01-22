@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.lang.Math;
+import java.lang.reflect.Array;
+
 import org.apache.commons.math3.stat.regression.SimpleRegression;
 
 import org.jfugue.pattern.Pattern;
@@ -31,10 +33,26 @@ public class MusicProcessor {
 	private int m_textLength;
 	// number of sections
 	private int m_numOfSections;
-	// major and minor key, noteDuration
+	// major and minor key
 	private HashMap<Integer, Integer> majorKey = new HashMap<Integer, Integer>();
 	private HashMap<Integer, Integer> minorKey = new HashMap<Integer, Integer>();
+	// note duration
 	private HashMap<Double, Double> noteDuration = new HashMap<Double, Double>();
+	// emotion to minor and major key - 1=major, 0=minor
+	private int[] m_emotionKeys = {0,1,0,0,1,0,1,1};
+	// most major or minor?
+	private int m_key;
+	// character - 0=alive, 1=quiet, 2=neutral
+	private String[] m_char = {"alive","quiet","neutral"};
+	private int[] m_character = {0,0,2,0,2,1,0,1};
+	// possible note durations for the characters
+	private int[] alive = {4, 6, 8, 16};
+	private int[] quiet = {1, 2};
+	private int[] neutral = {2, 3, 4};
+	// emotions
+	private String[] m_emotions = {"Anger", "Anticipation",
+			"Disgust", "Fear", "Joy", "Sadness", "Surprise", "Trust"};
+
 	
 	
 	// --------------------------------------------------------
@@ -74,7 +92,7 @@ public class MusicProcessor {
 	// music-processing methods
 	// --------------------------------------------------------
 	
-	public void process() {
+	public void process(EmotionResult EmotionResults) {
 		
 		System.out.println("Number of Sections: " + m_numOfSections);
 		int counter = 0;
@@ -102,6 +120,8 @@ public class MusicProcessor {
 		noteDuration.put(2.0, 0.25);	// Quarter
 		noteDuration.put(3.0, 0.125);	// Eighth
 		noteDuration.put(4.0, 0.0625);	// Sixteenth
+		
+		
 		
 		// for each appearing animal
 //		for (Entry<String, TargetInfo> e : m_textInput.entrySet()) {
@@ -133,7 +153,9 @@ public class MusicProcessor {
 //				}
 //			}
 //		}
-		generateMusicalAmbient();
+		generateKey(EmotionResults);
+		generateMusicalAmbient(EmotionResults);
+
 		//m_musicstring = "T120 L1 " + foxTheme();
 		Player player = new Player();
 		Pattern pattern = new Pattern(m_musicstring);
@@ -145,7 +167,7 @@ public class MusicProcessor {
 	
 	// generate the number of sections subject to
 	// the number of characters of the text
-	private int genereateNumOfSections() {
+	public int genereateNumOfSections() {
 		int numOfSections = 10 + (int) Math.log10(m_textLength);
 		return numOfSections;
 	}
@@ -153,6 +175,43 @@ public class MusicProcessor {
 	// get the tempo
 	private String getTempo() {
 		return "T120 ";
+	}
+	
+	// --------
+	// find and set key - minor/major
+	// --------
+	private void generateKey(EmotionResult EmotionResults) {
+		int key = 0;
+		Double counter = 0.0;
+		int emotion = 0;
+		Double[] emotionSum = new Double[8];
+		for (int i = 0; i < emotionSum.length; i++) {
+			emotionSum[i] = 0.0;
+		}
+		for (List<Double> i : EmotionResults.getSectionEmotion()) {
+			for (int j = 0; j < 8; j++) {
+				emotionSum[j] += i.get(j);
+			}
+		}
+		for (int i = 0; i < 8; i++) {
+			if (emotionSum[i] > counter) {
+				counter = emotionSum[i];
+				key = m_emotionKeys[i];
+				emotion = i;
+			}
+		}
+		m_key = key;
+		if (m_key == 0) {
+			System.out.println("Key: Minor");
+		}
+		else if (m_key == 1) {
+			System.out.println("Key: Minor");
+		}
+		else {
+			System.out.println("Failure while key generation!");
+		}
+		System.out.println("Based on the most appeared emotion: " + m_emotions[emotion] +
+				" (Times: " + emotionSum[emotion] + ")");
 	}
 	
 	// generate musical animal theme
@@ -166,92 +225,178 @@ public class MusicProcessor {
 	}
 	
 	// generate musical ambient layer
-	private void generateMusicalAmbient() {
+	private void generateMusicalAmbient(EmotionResult EmotionResults) {
 		String musicalAmbient = "";
+		Double[][] highestEmotions = new Double[4][8];
+		Double counter = 0.0;
+		int index = 0;
+		int k = 0;
 		
-		
-		// Später dann von Isabell
-		int[] densities = {2,10,15,8,7,4,9,3,21,17,4,6,7,14};
-		int min = findMinimum(densities);
-		int max = findMaximum(densities);
-		System.out.println("Min: " + min);
-		System.out.println("Max: " + max);
-		
-		// Später dann von Isabell mit 16 Dichten
-		List<Integer> sectionInfo = new ArrayList<Integer>();
-		sectionInfo.add(2);
-		sectionInfo.add(23);
-		sectionInfo.add(10);
-		sectionInfo.add(0);
-		sectionInfo.add(24);
-		
-		sectionInfo.add(13);
-		sectionInfo.add(1);
-		sectionInfo.add(7);
-		sectionInfo.add(9);
-		sectionInfo.add(16);
-		
-		sectionInfo.add(22);
-		sectionInfo.add(27);
-		sectionInfo.add(5);
-		sectionInfo.add(14);
-		sectionInfo.add(29);
-		
-		sectionInfo.add(30);
-		SimpleRegression Regression = new SimpleRegression(true);
-		Regression.addData(new double[][] {
-            {min, 0},
-            {max, 4}
-		});
-	    double value = 0.0;
-	    int dens = 0;
-	    for (int i = 0; i < densities.length; i++) {
-	    	dens = densities[i];
-	    	value = Math.round(Regression.predict(dens));
-	    	System.out.println("prediction for " + dens + " = " + value);
-	    	musicalAmbient += generateAmbientSection(value, sectionInfo);
-	    }
-		
-	}
-	
-	private String generateAmbientSection(double noteDurationCoded, List<Integer> sectionInfo) {
-		String music = "";
-		double noteDurationDecoded = noteDuration.get(noteDurationCoded);
-		double times = 1.0 / noteDurationDecoded;
-		SimpleRegression simpleRegression = new SimpleRegression(true);
-		simpleRegression.addData(new double[][] {
-            {0, 0},
-            {30, 6}
-		});
-		for (int i = 0; i < sectionInfo.size(); i++) {
-			sectionInfo.get(i);
+		// get highest emotions per section
+		for (List<Double> i : EmotionResults.getSectionEmotion()) {
+			for (int j = 0; j < 8; j++) {
+				if (i.get(j) > counter) {
+					counter = i.get(j);
+					index = j;
+				}
+			}
+			// index -> highest emotion in this section
+			highestEmotions[0][k] = (double) index;
+			System.out.print("Emotion: " + m_emotions[index]);
+			// counter -> appearance of this emotion in this section
+			highestEmotions[1][k] = counter;
+			System.out.print(" (Times: " + counter + ")");
+			highestEmotions[2][k] = (double) m_character[index];
+			System.out.println(" (Character: " + m_character[index] + ")");
+			counter = 0.0;
+			k++;
 		}
 		
-		return music;
-	}
-	
-	
-	
-	private int findMinimum(int[] numbers) {
-		int min = numbers[0];
-		for (int i = 1; i < numbers.length; i++) {
-			if (numbers[i] < min) {
-				min = numbers[i];
+		// find min and max for each character (alive, quiet, neutral)
+		Double aliveMax = 0.0;
+		Double aliveMin = 0.0;
+		Double quietMax = 0.0;
+		Double quietMin = 0.0;
+		Double neutralMax = 0.0;
+		Double neutralMin = 0.0;
+		for (int i = 0; i < m_numOfSections; i++) {
+			if (highestEmotions[2][i] == 0.0) {
+				aliveMin = highestEmotions[1][i];
+				aliveMax = highestEmotions[1][i];
+			}
+			if (highestEmotions[2][i] == 1.0) {
+				quietMin = highestEmotions[1][i];
+				quietMax = highestEmotions[1][i];
+			}
+			if (highestEmotions[2][i] == 2.0) {
+				neutralMin = highestEmotions[1][i];
+				neutralMax = highestEmotions[1][i];
 			}
 		}
-		return min;
-	}
-	
-	private int findMaximum(int[] numbers) {
-		int max = numbers[0];
-		for (int i = 1; i < numbers.length; i++) {
-			if (numbers[i] > max) {
-				max = numbers[i];
+		for (int i = 0; i < m_numOfSections; i++) {
+			if (highestEmotions[2][i] == 0.0) {
+				if (aliveMin > highestEmotions[1][i]) {
+					aliveMin = highestEmotions[1][i];
+				}
+				if (aliveMax < highestEmotions[1][i]) {
+					aliveMax = highestEmotions[1][i];
+				}
+			}
+			if (highestEmotions[2][i] == 1.0) {
+				if (quietMin > highestEmotions[1][i]) {
+					quietMin = highestEmotions[1][i];
+				}
+				if (quietMax < highestEmotions[1][i]) {
+					quietMax = highestEmotions[1][i];
+				}
+			}
+			if (highestEmotions[2][i] == 2.0) {
+				if (neutralMin > highestEmotions[1][i]) {
+					neutralMin = highestEmotions[1][i];
+				}
+				if (neutralMax < highestEmotions[1][i]) {
+					neutralMax = highestEmotions[1][i];
+				}
 			}
 		}
-		return max;
+		System.out.println("aliveMin: " + aliveMin);
+		System.out.println("aliveMax: " + aliveMax);
+		System.out.println("quietMin: " + quietMin);
+		System.out.println("quietMax: " + quietMax);
+		System.out.println("neutralMin: " + neutralMin);
+		System.out.println("neutralMax: " + neutralMax);
+		
+		SimpleRegression aliveRegression = new SimpleRegression(true);
+		aliveRegression.addData(new double[][] {
+            {aliveMin, 0},
+            {aliveMax, alive.length-1}
+		});
+		SimpleRegression quietRegression = new SimpleRegression(true);
+		quietRegression.addData(new double[][] {
+            {quietMin, 0},
+            {quietMax, quiet.length-1}
+		});
+		SimpleRegression neutralRegression = new SimpleRegression(true);
+		neutralRegression.addData(new double[][] {
+            {neutralMin, 0},
+            {neutralMax, neutral.length-1}
+		});
+		
+		// get note duration
+		for (int i = 0; i < m_numOfSections; i++) {
+			if (highestEmotions[2][i] == 0.0) {
+				highestEmotions[3][i] = noteDuration(aliveRegression, alive, highestEmotions[1][i]);
+			}
+			if (highestEmotions[2][i] == 1.0) {
+				highestEmotions[3][i] = noteDuration(quietRegression, quiet, highestEmotions[1][i]);
+			}
+			if (highestEmotions[2][i] == 2.0) {
+				highestEmotions[3][i] = noteDuration(neutralRegression, neutral, highestEmotions[1][i]);
+			}
+		}
+		
+		printAmbient(highestEmotions);
 	}
 	
+	private Double noteDuration(SimpleRegression reg, int[] durations, Double times) {
+		long noteDuration = Math.round(reg.predict(times));
+		Double d = (double)((int) noteDuration);
+		return d;
+	}
+	
+	private void printAmbient(Double[][] info) {
+		System.out.println();
+		for (int i = 0; i < info[0].length; i++) {
+			System.out.println("Section " + i + ":");
+			for (int j = 0; j < info.length; j++) {
+				if (j == 0) {
+					System.out.println("   Emotion: "+m_emotions[(int) Math.round(info[j][i])]);
+				}
+				if (j == 1) {
+					System.out.println("   Times: "+(int) Math.round(info[j][i]));
+				}
+				if (j == 2) {
+					System.out.println("   Character: "+m_char[(int) Math.round(info[j][i])]);
+				}
+				if (j == 3) {
+					//System.out.println("   Noteduration: "+info[j][i]+" "+(int) Math.round(info[j][i]));
+					if (Math.round(info[2][i]) == 0) {
+						System.out.println("   Note duration: "+alive[(int) Math.round(info[j][i])]);
+					}
+					if (Math.round(info[2][i]) == 1) {
+						System.out.println("   Note duration: "+quiet[(int) Math.round(info[j][i])]);
+					}
+					if (Math.round(info[2][i]) == 2) {
+						System.out.println("   Note duration: "+neutral[(int) Math.round(info[j][i])]);
+					}
+				}
+				//System.out.print(i+": "+j+" = "+info[i][j]);
+			}
+			System.out.println();
+		}
+	}
+	
+//	private int findMinimum(HashMap<Integer, Double> numbers) {
+//		int min = numbers.;
+//		for (int i = 1; i < numbers.length; i++) {
+//			if (numbers[i] < min) {
+//				min = numbers[i];
+//			}
+//		}
+//		return min;
+//	}
+//	
+//	private int findMaximum(int[] numbers) {
+//		int max = numbers[0];
+//		for (int i = 1; i < numbers.length; i++) {
+//			if (numbers[i] > max) {
+//				max = numbers[i];
+//			}
+//		}
+//		return max;
+//	}
+	
+
 	
 
 }
