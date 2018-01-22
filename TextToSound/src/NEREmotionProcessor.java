@@ -87,8 +87,10 @@ public class NEREmotionProcessor {
 		try {
 			Runtime rt = Runtime.getRuntime();
 			Process pr = rt.exec(
-					"java -cp \"data/stanford-corenlp/*\" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
-							+ story + " -outputDirectory data/");
+					"java -cp 'data/stanford-corenlp/*' -Xmx2g "
+					+ "edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner "
+					+ "-file data/the-fox-and-the-crowtemp.txt -outputDirectory data/"
+					);
 
 			int exitVal = pr.waitFor();
 			System.out.println("Exited with error code " + exitVal);
@@ -159,7 +161,7 @@ public class NEREmotionProcessor {
 								|| Objects.equals(category, "(") || Objects.equals(category, ")")
 								|| Objects.equals(category, "{") || Objects.equals(category, "}")
 								|| Objects.equals(category, "?") || Objects.equals(category, "!")
-								|| Objects.equals(category, "`") || Objects.equals(category, "´")
+								|| Objects.equals(category, "`") || Objects.equals(category, "ï¿½")
 								|| Objects.equals(category, "-") || Objects.equals(category, "_")
 								|| Objects.equals(category, "CD") || Objects.equals(category, "SYM")) {
 							iToken--; // ignore punctuation for total text length
@@ -222,8 +224,8 @@ public class NEREmotionProcessor {
 		List<EmotionElement> EmoLex;
 		EmoLex = ReadLexicon();
 		Integer Index;
-		int ListPosition = 0; // Zählvariable
-		int DensityPosition = 0; // Zählvariable
+		int ListPosition = 0; // Zï¿½hlvariable
+		int DensityPosition = 0; // Zï¿½hlvariable
 		int EmotionAmount;
 		double PpS = 100 / sections; // Percent per Section
 		int PosSum = 0;
@@ -235,7 +237,7 @@ public class NEREmotionProcessor {
 		List<Double> Density = null; // 16 Densities for one Section
 
 		EmotionResult EmotionResult = new EmotionResult();
-		for (int i = 0; i < sections; i++) { // Interation über jede Textsektion
+		for (int i = 0; i < sections; i++) { // Interation ï¿½ber jede Textsektion
 			SeEl = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 			while (ListPosition < AdjList.size() && AdjList.get(ListPosition).getRelativePosition() < (i + 1) * PpS) {
 				// solang nicht an alle Elemente aus AdjList und Prozentsatz des Textes pro
@@ -403,10 +405,36 @@ public class NEREmotionProcessor {
 		}
 		return SeEl;
 	}
+	
+	public List<String> nameDetection() {
+		classify(mSrcFileName);
+		xml(mSrcFileName, NNList, NNPList, AdjList);
+		
+		// Put the names to map
+		Map<String, Integer> map = new HashMap<String, Integer>(); 
+		for (NERElement nerElement : NNPList) {
+			String name = nerElement.getName();
+			if (map.containsKey(name)) {
+				int count = map.get(name);
+				map.put(name, count+1);
+			} else {
+				map.put(name, 1);
+			}
+		}
+		
+		// Filter the map and delete names that occured less than 4 times
+		map.entrySet().removeIf(entry -> entry.getValue()<4);
+		
+		// Store the reduced names to a new list
+		List<String> names = new ArrayList<String>(map.keySet());
+		System.out.println(names.toString());
+		
+		return names;
+	}
 
 	public EmotionResult main(String[] args) throws IOException {
 
-		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt", 10);
+		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/little-red-riding-hood.txt", 10);
 
 		String tempSrc = mSrcFileName;
 		// String tempSrc = mSrcFileName.substring(0, mSrcFileName.length() - 4) +

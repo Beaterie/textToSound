@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -13,8 +14,8 @@ public class ExperimentalCharacterAnalysis {
 	
 	private StringBuilder mText = new StringBuilder();
 	private List<Integer> mQuoteIndexes = new ArrayList<Integer>();
-//	private List<String> mQuoteSpeakers = new ArrayList<String>();
 	private String[] mQuoteSpeakers;
+	private Map<String, StringBuilder> mQuoteMap = new HashMap<String, StringBuilder>();
 	
 	private String mFirstPerson = "";
 	private String mThirdPerson = "";
@@ -57,18 +58,18 @@ public class ExperimentalCharacterAnalysis {
 	 * and their third-person pronouns like his,her etc. will be stored in mThirdperson.
 	 * <BR><BR>
 	 * This step should be then executed, when a result from TextLexProcessor is ready.
+	 * @param nameList 
 	 */
-	private void extractPeopleFromTxtLexProc(ProcessedResult result) {
-		fillFirstThirdperson(result);
+	private void extractPeopleFromTxtLexProc(ProcessedResult result, List<String> nameList) {
+		fillFirstThirdperson(result, nameList);
 		cleanFirstThirdperson();
 	}
 	
-	private void fillFirstThirdperson(ProcessedResult result) {
+	private void fillFirstThirdperson(ProcessedResult result, List<String> nameList) {
 		// Adding each target and their pronouns to the members.
 		for (Map.Entry<String, TargetInfo> entry : result.getOccurenceInfos().entrySet()) {
 			String target = entry.getKey();
-			TargetInfo targetInfo = entry.getValue();
-			String pronoun = targetInfo.getTargetPronoun();
+			String pronoun = entry.getValue().getTargetPronoun();
 			
 			if (pronoun != null) {
 				mFirstPerson += ("|" + target + "||" + pronoun + "|");
@@ -81,6 +82,10 @@ public class ExperimentalCharacterAnalysis {
 					mThirdPerson += ("|its|");
 				}
 			}
+		}
+		
+		for (String name : nameList) {
+			mFirstPerson += ("|" + name + "|");
 		}
 	}
 	
@@ -187,6 +192,64 @@ public class ExperimentalCharacterAnalysis {
 		}
 	}
 	
+	private void determineSpeakersOfQuotes() {
+		for (int i = 0; i < mQuoteIndexes.size(); i++) {
+			int txtIndex = mQuoteIndexes.get(i);
+			String subject = null, substring = null;
+			// Search in the previous 50 characters before the first quote
+			if (i == 0) {
+				substring = mText.substring(max(0, txtIndex - 50), txtIndex).trim();
+				System.out.println("From -1 to 0: \n" + substring + "\n");
+				String lastPunctuation = Character.toString(substring.charAt(substring.length()-1));
+				// If the preceding text isn't a part of the whole sentence including the quote,
+				// disregard. Otherwise determine the speaker.
+				if (lastPunctuation.equals(":") | lastPunctuation.equals(",")) {
+					subject = determineSpeaker(substring);
+					saveQuoteSpeaker(substring, subject, i);
+				}
+			}
+			// Search in the following 50 characters after the last quote
+			if (i == mQuoteIndexes.size()-1) {
+				substring = mText.substring(txtIndex, min(txtIndex + 50, mText.length()-1)).trim();
+				System.out.println("From " + i + "\n" + substring);
+				char firstChar = substring.charAt(0);
+				// If the following text isn't a part of the previous sentence, disregard.
+				if (Character.isLowerCase(firstChar)) {
+					subject = determineSpeaker(substring);
+					saveQuoteSpeaker(substring, subject, i);
+				}
+				
+				System.out.println();
+				for (String index : mQuoteSpeakers) {
+					System.out.print(index + ", ");
+				}
+				return;
+			}
+			
+			int next = mQuoteIndexes.get(i+1);
+			substring = mText.substring(txtIndex, next);
+			
+			System.out.println("From " + i + "\n" + substring);
+			
+			// Search the span of quotes
+			if (isEven(i)) {	// If i is even, it indicates this index is the start pos of a quote
+				characterAnalysis();
+			}
+			// Search outside of quotes
+			else {
+				subject = determineSpeaker(substring);
+				saveQuoteSpeaker(substring, subject, i);
+				characterAnalysis(); 
+			}
+			System.out.println("Subject: " + subject + "\n");
+		}
+		System.out.println(mQuoteSpeakers.toString());
+	}
+	
+	private void mapQuoteToSpeaker() {
+		
+	}
+	
 	/**
 	 * Analyse the characters with the emotional lexicon based on their quotes.
 	 * This function's goal is to find out which emotions the characters are most related to.
@@ -216,73 +279,24 @@ public class ExperimentalCharacterAnalysis {
 		return x;
 	}
 	
-	private void determineSpeakersOfQuotes() {
-		for (int i = 0; i < mQuoteIndexes.size(); i++) {
-			int txtIndex = mQuoteIndexes.get(i);
-			String subject = null, substring = null;
-			// Search in the previous 50 characters before the first quote
-			if (i == 0) {
-				substring = mText.substring(max(0, txtIndex - 50), txtIndex).trim();
-				System.out.println("From -1 to 0: \n" + substring + "\n");
-				String lastPunctuation = Character.toString(substring.charAt(substring.length()-1));
-				// If the preceding text isn't a part of the whole sentence including the quote,
-				// disregard. Otherwise determine the speaker.
-				if (lastPunctuation.equals(":") | lastPunctuation.equals(",")) {
-					subject = determineSpeaker(substring);
-					saveQuoteSpeaker(substring, subject, i);
-				}
-			}
-			// Search in the following 50 characters after the last quote
-			if (i == mQuoteIndexes.size()-1) {
-				substring = mText.substring(txtIndex, min(txtIndex + 50, mText.length()-1)).trim();
-				System.out.println("From " + i + "\n" + substring);
-				char firstChar = substring.charAt(0);
-				// If the following text isn't a part of the previous sentence, disregard.
-				if (Character.isLowerCase(firstChar)) {
-					subject = determineSpeaker(substring);
-					saveQuoteSpeaker(substring, subject, i);
-				}
-				
-
-				System.out.println();
-				for (String index : mQuoteSpeakers) {
-					System.out.print(index + ", ");
-				}
-				return;
-			}
-			
-			int next = mQuoteIndexes.get(i+1);
-			substring = mText.substring(txtIndex, next);
-			
-			System.out.println("From " + i + "\n" + substring);
-			
-			// Search the span of quotes
-			if (isEven(i)) {	// If i is even, it indicates this index is the start pos of a quote
-				characterAnalysis();
-			}
-			// Search outside of quotes
-			else {
-				subject = determineSpeaker(substring);
-				saveQuoteSpeaker(substring, subject, i);
-				characterAnalysis(); 
-			}
-//			System.out.println(mQuoteSpeakers.toString());
-			System.out.println("Subject: " + subject + "\n");
-		}
-		System.out.println(mQuoteSpeakers.toString());
-	}
 	
 	public static void main(String[] args) throws IOException {
 		
-		TextLexProcessor proc = new TextLexProcessor("data/little-red-riding-hood.txt", "data/lexicon_people_and_animal.csv");
+		String sourceFile = "data/little-red-riding-hood.txt";
+		TextLexProcessor proc = new TextLexProcessor(sourceFile, "data/lexicon_people_and_animal.csv");
 		ProcessedResult result = proc.process();
-//		result.printRes();
+		
+		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor(sourceFile, 10);
+		List<String> nameList = NERprocessor1.nameDetection();
+		
 		
 		ExperimentalCharacterAnalysis exp = new ExperimentalCharacterAnalysis();
 		exp.readText("data/little-red-riding-hood.txt");
 		exp.findQuotes();
-		exp.extractPeopleFromTxtLexProc(result);
+		exp.extractPeopleFromTxtLexProc(result, nameList);
 		exp.determineSpeakersOfQuotes();
+		
+		exp.mapQuoteToSpeaker();
 		
 		exp.characterAnalysis();
 	}
