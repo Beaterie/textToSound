@@ -85,15 +85,13 @@ public class NEREmotionProcessor {
 	public static void classify(String story) {
 		System.out.println(story);// just a test
 		try {
-			//$ java -cp 'data/stanford-corenlp/*' -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file data/the-fox-and-the-crowtemp.txt -outputDirectory data/
-			char quotes ='"';
-			//System.out.println("java -cp " + quotes + "data/stanford-corenlp/*" + quotes + " -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
-			//				+ story + " -outputDirectory data/");
 			Runtime rt = Runtime.getRuntime();
-			Process pr = rt.exec("java -cp " + quotes + "data/stanford-corenlp/*" + quotes + " -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
+			Process pr = rt.exec(
+					"java -cp \"data/stanford-corenlp/*\" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
 							+ story + " -outputDirectory data/");
-			int varerror = pr.waitFor();
-			System.out.println("Exited with error code " + varerror);
+
+			int exitVal = pr.waitFor();
+			System.out.println("Exited with error code " + exitVal);
 		} catch (Exception e) {
 			System.out.println("it does not work :(");
 			e.printStackTrace();
@@ -130,15 +128,11 @@ public class NEREmotionProcessor {
 						if (TidAttr != null) {
 							iToken++; // if Token has ID, increase count variable
 						}
-					}
-
-					else if (startElement.getName().getLocalPart().equals("word")) {
+					} else if (startElement.getName().getLocalPart().equals("word")) {
 						event = eventReader.nextEvent();
 						TName = String.valueOf(event.asCharacters().getData());
 
-					}
-
-					else if (startElement.getName().getLocalPart().equals("POS")) {
+					} else if (startElement.getName().getLocalPart().equals("POS")) {
 						event = eventReader.nextEvent();
 						NEREle = new NERElement();
 						NEREle.setName(TName);
@@ -156,30 +150,58 @@ public class NEREmotionProcessor {
 						} else if (Objects.equals(category, "JJ") || Objects.equals(category, "JJR")
 								|| Objects.equals(category, "JJS")) {
 							AdjList.add(NEREle);
+						} else if (Objects.equals(category, ".") || Objects.equals(category, ",")
+								|| Objects.equals(category, "``") || Objects.equals(category, "''")
+								|| Objects.equals(category, "\"") || Objects.equals(category, "POS")
+								|| Objects.equals(category, "'") || Objects.equals(category, ";")
+								|| Objects.equals(category, "/") || Objects.equals(category, ":")
+								|| Objects.equals(category, "[") || Objects.equals(category, "]")
+								|| Objects.equals(category, "(") || Objects.equals(category, ")")
+								|| Objects.equals(category, "{") || Objects.equals(category, "}")
+								|| Objects.equals(category, "?") || Objects.equals(category, "!")
+								|| Objects.equals(category, "`") || Objects.equals(category, "´")
+								|| Objects.equals(category, "-") || Objects.equals(category, "_")
+								|| Objects.equals(category, "CD") || Objects.equals(category, "SYM")) {
+							iToken--; // ignore punctuation for total text length
 						}
 					}
 				}
-
-				TextLength = iToken;
 			}
+			TextLength = iToken;
+			System.out.println(TextLength);
 
 			for (NERElement Element : NNList) {
-				Element.setRelativePosition(Math.round(Element.getTotalPosition() / iToken * 10000D) / 100D);
+				Element.setRelativePosition(Math.round(Element.getTotalPosition() / TextLength * 10000D) / 100D);
 				// NNList.get(Element)
 			}
 
-			for (NERElement Element : NNPList) {
-				Element.setRelativePosition(Math.round(Element.getTotalPosition() / iToken * 10000D) / 100D);
-				// NNList.get(Element)
+			for (int Element = 0; Element < NNPList.size(); Element++) {
+				NNPList.get(Element).setRelativePosition(
+						Math.round(NNPList.get(Element).getTotalPosition() / TextLength * 10000D) / 100D);
+			}
+			
+			
+			for (int Element = 0; Element < NNPList.size()-1; Element++) {
+				int index = 0;
+				while(Element + index < NNPList.size()-1 && NNPList.get(Element + index).getSentenceID() == NNPList.get(Element + index + 1).getSentenceID()
+						&& NNPList.get(Element + index).getTokenID() == NNPList.get(Element + index + 1).getTokenID() - 1) {
+					NNPList.get(Element).setName(NNPList.get(Element).getName() +" " + NNPList.get(Element+index + 1).getName());
+					index++;
+					
+				}
+				for (int i = 0; i < index; i++) {
+					NNPList.remove(Element+1);
+				}
+
 			}
 
 			for (NERElement Element : AdjList) {
-				Element.setRelativePosition(Math.round(Element.getTotalPosition() / iToken * 10000D) / 100D);
+				Element.setRelativePosition(Math.round(Element.getTotalPosition() / TextLength * 10000D) / 100D);
 				// NNList.get(Element)
 			}
 
 			// System.out.println(NNList);
-			// System.out.println(NNPList);
+			System.out.println(NNPList);
 			// System.out.println(AdjList);
 
 		} catch (FileNotFoundException e) {
@@ -196,12 +218,12 @@ public class NEREmotionProcessor {
 	// *
 	// **************
 	public static EmotionResult AssessEmotion(List<NERElement> AdjList, Integer sections) throws IOException {
-		
+
 		List<EmotionElement> EmoLex;
 		EmoLex = ReadLexicon();
 		Integer Index;
-		int ListPosition = 0; // Zï¿½hlvariable
-		int DensityPosition = 0; // Zï¿½hlvariable
+		int ListPosition = 0; // Zählvariable
+		int DensityPosition = 0; // Zählvariable
 		int EmotionAmount;
 		double PpS = 100 / sections; // Percent per Section
 		int PosSum = 0;
@@ -212,9 +234,8 @@ public class NEREmotionProcessor {
 		List<List<Double>> AllDensities = new ArrayList<>(); // Densities for all Sections
 		List<Double> Density = null; // 16 Densities for one Section
 
-		
 		EmotionResult EmotionResult = new EmotionResult();
-		for (int i = 0; i < sections; i++) { // Interation ï¿½ber jede Textsektion
+		for (int i = 0; i < sections; i++) { // Interation über jede Textsektion
 			SeEl = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 			while (ListPosition < AdjList.size() && AdjList.get(ListPosition).getRelativePosition() < (i + 1) * PpS) {
 				// solang nicht an alle Elemente aus AdjList und Prozentsatz des Textes pro
@@ -225,9 +246,7 @@ public class NEREmotionProcessor {
 				}
 				ListPosition++;
 			}
-			// Density = (ListPosition - 1) / (TextLength / 16 * sections); //16 Densities
-			// fï¿½r jede Sektion --> 16tel Noten
-			// SeEl.set(10, Density);
+
 			SectionEmotion.add(SeEl);
 		}
 
@@ -235,19 +254,18 @@ public class NEREmotionProcessor {
 			Density = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 			for (int j = 0; j < 16; j++) {
 				EmotionAmount = 0;
-				while (AdjList.get(DensityPosition).getRelativePosition() < ((i) * PpS + (j + 1) * PpS / 16)) {
+
+				while (DensityPosition < AdjList.size()
+						&& AdjList.get(DensityPosition).getRelativePosition() < ((i) * PpS + (j + 1) * PpS / 16)) {
+					// rel. Position des Adj. in gsm Text <(IndexSektion* 100%/SummeSektionen
 					Index = FindEqual(EmoLex, AdjList.get(DensityPosition).getName());
-					//System.out.println("Index: " + Index);
 					if (Index != null) {
 						EmotionAmount++;
-						//System.out.println("Emotion: "+EmotionAmount);
-						// Emotionsdichte pro Sektion hier berechnen, Emotionswï¿½rter geteilt durch alle
-						// Wï¿½rter per Sektion
 					}
 
 					DensityPosition++;
 				}
-				double D = EmotionAmount/(TextLength / (16D * sections));
+				double D = EmotionAmount / (TextLength / (16D * sections));
 				Density.set(j, D);
 			}
 			AllDensities.add(Density);
@@ -386,13 +404,16 @@ public class NEREmotionProcessor {
 		return SeEl;
 	}
 
-	public  EmotionResult main(String[] args) throws IOException {
+	public EmotionResult main(String[] args) throws IOException {
 
 		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt", 10);
-		String tempSrc = mSrcFileName.substring(0, mSrcFileName.length() - 4) + "temp.txt";
+
+		String tempSrc = mSrcFileName;
+		// String tempSrc = mSrcFileName.substring(0, mSrcFileName.length() - 4) +
+		// "temp.txt";
 		File Ftempstory = new File(tempSrc);
 
-		prepareText(mSrcFileName, tempSrc);
+		// prepareText(mSrcFileName, tempSrc);
 		System.out.println("prepare Text done");
 		classify(tempSrc);
 		System.out.println("classify done");
@@ -402,15 +423,14 @@ public class NEREmotionProcessor {
 		EmotionResult EmotionResults = AssessEmotion(AdjList, sections);
 		System.out.println("emotion done");
 		EmotionResults.printResult();
-		System.out.println("above be should be a print :C");
 
 		try {
-			Ftempstory.delete();
+			// Ftempstory.delete();
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
-		
+
 		return EmotionResults;
 
 	}
