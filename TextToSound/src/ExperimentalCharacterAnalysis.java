@@ -39,7 +39,7 @@ public class ExperimentalCharacterAnalysis {
 	 * including the start and end indexes, in a list.
 	 */
 	private void findQuotes() {
-		Pattern p = Pattern.compile("‘([^‘]*|[^’]*)’");
+		Pattern p = Pattern.compile("‘([^‘]*|[^’]*)’|\"([^\"]*|[^\"]*)\"");
 		Matcher m = p.matcher(mText);
 		while (m.find()) {
 			mQuoteIndexes.add(m.start());
@@ -68,13 +68,17 @@ public class ExperimentalCharacterAnalysis {
 			String target = entry.getKey();
 			TargetInfo targetInfo = entry.getValue();
 			String pronoun = targetInfo.getTargetPronoun();
-			mFirstPerson += ("|" + target + "||" + pronoun + "|");
-			if (pronoun.equals("he")) {
-				mThirdPerson += ("|his||him|");
-			} else if (pronoun.equals("she")) {
-				mThirdPerson += ("|her|");
-			} else if (pronoun.equals("it")) {
-				mThirdPerson += ("|its|");
+			
+			if (pronoun != null) {
+				mFirstPerson += ("|" + target + "||" + pronoun + "|");
+				
+				if (pronoun.equals("he")) {
+					mThirdPerson += ("|his||him|");
+				} else if (pronoun.equals("she")) {
+					mThirdPerson += ("|her|");
+				} else if (pronoun.equals("it")) {
+					mThirdPerson += ("|its|");
+				}
 			}
 		}
 	}
@@ -102,45 +106,6 @@ public class ExperimentalCharacterAnalysis {
 		
 		System.out.println(mFirstPerson + "\t" + mThirdPerson);
 	}
-	private void searchPerson(String text) {
-		// \\W stands for non-alphabetic character
-		Pattern man = Pattern.compile("\\W(he|his|him|man|husband)\\W", Pattern.CASE_INSENSITIVE);
-		Matcher matcher = man.matcher(text);
-		while (matcher.find()) {
-			System.out.print(matcher.group(1) + "  ");
-		}
-
-		Pattern wife = Pattern.compile("\\W(she|her|wife|woman)\\W", Pattern.CASE_INSENSITIVE);
-		Matcher mtch = wife.matcher(text);
-		while (mtch.find()) {
-			System.out.print(mtch.group(1) + "  ");
-		}
-	}
-	
-	/**
-	 * Find first-person nouns in the given text.
-	 * @param substring
-	 */
-	private void findNouns(String substring) {
-		// \\W stands for non-alphabetic character
-		Pattern noun = Pattern.compile("\\W(he|man|husband|she|wife|woman)\\W", Pattern.CASE_INSENSITIVE);
-		Matcher m1 = noun.matcher(substring);
-		while (m1.find()) {
-			System.out.print("Noun: " + m1.group(1) + "\n");
-		}
-	}
-	
-	/**
-	 * Find third-person pronouns in the given text.
-	 * @param substring
-	 */
-	private void findPronouns(String substring) {
-		Pattern pronoun = Pattern.compile("\\W(her|his|him)\\W", Pattern.CASE_INSENSITIVE);
-		Matcher m2 = pronoun.matcher(substring);
-		while (m2.find()) {
-			System.out.print("Pronoun: " + m2.group(1) + "\n");
-		}
-	}
 	
 //	private static String discardSubConjunctions(String substring) {
 //		return substring;
@@ -158,11 +123,11 @@ public class ExperimentalCharacterAnalysis {
 		String subject = "", object = "";
 		while (m.find()) {
 			object = m.group(2);
-			System.out.print("Object: " + object + "\n");
+//			System.out.print("Object: " + object + "\n");
 		}
 		
 		String pattern = "\\W(" + mFirstPerson + ")\\W";
-		Pattern nouns = Pattern.compile("\\W(he|man|husband|she|wife|woman)\\W", Pattern.CASE_INSENSITIVE);
+		Pattern nouns = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE);
 		Matcher m1 = nouns.matcher(substring);
 		int count = 0;
 		// Return the first person that is not a known object in the sentence.
@@ -172,7 +137,7 @@ public class ExperimentalCharacterAnalysis {
 			boolean nounIsObject = (object.indexOf(noun)!=-1);
 			if (!nounIsObject) {
 				subject = noun;
-				System.out.print("Subject: " + noun + "\n");
+//				System.out.print("Subject: " + noun + "\n");
 			}
 		}
 		return subject;
@@ -211,23 +176,69 @@ public class ExperimentalCharacterAnalysis {
 					try {
 						mQuoteSpeakers.get(max(arrIndex-1, 0));
 					} catch (Exception e) {
-						mQuoteSpeakers.add(max(arrIndex-1, 0), subject);
-						mQuoteSpeakers.add(arrIndex, subject);
+						try {
+							mQuoteSpeakers.add(max(arrIndex-1, 0), subject);
+							mQuoteSpeakers.add(arrIndex, subject);							
+						} catch (Exception e2) {
+							mQuoteSpeakers.add("");
+							mQuoteSpeakers.add("");
+							mQuoteSpeakers.add(max(arrIndex-1, 0), subject);
+							mQuoteSpeakers.add(arrIndex, subject);	
+						}
 					}
 				}
-				if ((lastChar.equals(",") | lastChar.equals(":"))) {
+				if ((lastChar.equals(",") | lastChar.equals(":") | lastChar.equals(";"))) {
 					try {
 						mQuoteSpeakers.get(min(arrIndex+1, numQuotes));
 					} catch (Exception e) {
-						mQuoteSpeakers.add(min(arrIndex+1, numQuotes), subject);
-						mQuoteSpeakers.add(min(arrIndex+2, numQuotes), subject);
+						try {
+							mQuoteSpeakers.add(min(arrIndex+1, numQuotes), subject);
+							mQuoteSpeakers.add(min(arrIndex+2, numQuotes), subject);	
+						} catch (Exception e2) {
+							mQuoteSpeakers.add("");
+							mQuoteSpeakers.add("");
+							mQuoteSpeakers.add(min(arrIndex+1, numQuotes), subject);
+							mQuoteSpeakers.add(min(arrIndex+2, numQuotes), subject);	
+						}
 					}
 				}
-				mQuoteSpeakers.set(0, subject);
 			}
 		}
+//		else {
+//			subject = "";
+//			try {
+//				mQuoteSpeakers.get(max(arrIndex-1, 0));
+//			} catch (Exception e) {
+//				try {
+//					mQuoteSpeakers.add(max(arrIndex-1, 0), subject);
+//					mQuoteSpeakers.add(arrIndex, subject);							
+//				} catch (Exception e2) {
+//					mQuoteSpeakers.add("");
+//					mQuoteSpeakers.add("");
+//					mQuoteSpeakers.add(max(arrIndex-1, 0), subject);
+//					mQuoteSpeakers.add(arrIndex, subject);	
+//				}
+//			}
+//			try {
+//				mQuoteSpeakers.get(min(arrIndex+1, numQuotes));
+//			} catch (Exception e) {
+//				try {
+//					mQuoteSpeakers.add(min(arrIndex+1, numQuotes), subject);
+//					mQuoteSpeakers.add(min(arrIndex+2, numQuotes), subject);	
+//				} catch (Exception e2) {
+//					mQuoteSpeakers.add("");
+//					mQuoteSpeakers.add("");
+//					mQuoteSpeakers.add(min(arrIndex+1, numQuotes), subject);
+//					mQuoteSpeakers.add(min(arrIndex+2, numQuotes), subject);	
+//				}
+//			}
+//		}
 	}
 	
+	/**
+	 * Analyse the characters with the emotional lexicon based on their quotes.
+	 * This function's goal is to find out which emotions the characters are most related to.
+	 */
 	private void characterAnalysis() {}
 	
 	/**
@@ -253,14 +264,14 @@ public class ExperimentalCharacterAnalysis {
 		return x;
 	}
 	
-	private void extractSpeakersOfQuotes() {
+	private void determineSpeakersOfQuotes() {
 		for (int i = 0; i < mQuoteIndexes.size(); i++) {
 			int txtIndex = mQuoteIndexes.get(i);
 			String subject = null, substring = null;
 			// Search in the previous 50 characters before the first quote
 			if (i == 0) {
 				substring = mText.substring(max(0, txtIndex - 50), txtIndex).trim();
-				System.out.println("\n" + substring + "\n");
+				System.out.println("From -1 to 0: \n" + substring + "\n");
 				String lastPunctuation = Character.toString(substring.charAt(substring.length()-1));
 				// If the preceding text isn't a part of the whole sentence including the quote,
 				// disregard. Otherwise determine the speaker.
@@ -272,24 +283,23 @@ public class ExperimentalCharacterAnalysis {
 			// Search in the following 50 characters after the last quote
 			if (i == mQuoteIndexes.size()-1) {
 				substring = mText.substring(txtIndex, min(txtIndex + 50, mText.length()-1)).trim();
-				System.out.println("\n" + substring + "\n");
+				System.out.println("From " + i + "\n" + substring);
 				char firstChar = substring.charAt(0);
 				// If the following text isn't a part of the previous sentence, disregard.
 				if (Character.isLowerCase(firstChar)) {
 					subject = determineSpeaker(substring);
 					saveQuoteSpeaker(substring, subject, i);
 				}
-				
-				System.out.print(subject + " returned. \n");
 				System.out.println(mQuoteSpeakers.toString());
+
+				System.out.println("array size: " + mQuoteSpeakers.size());
 				return;
 			}
 			
 			int next = mQuoteIndexes.get(i+1);
 			substring = mText.substring(txtIndex, next);
 			
-			System.out.println(mQuoteIndexes.get(i));
-			System.out.println("\n" + substring + "\n");
+			System.out.println("From " + i + "\n" + substring);
 			
 			// Search the span of quotes
 			if (isEven(i)) {	// If i is even, it indicates this index is the start pos of a quote
@@ -301,23 +311,24 @@ public class ExperimentalCharacterAnalysis {
 				saveQuoteSpeaker(substring, subject, i);
 				characterAnalysis(); 
 			}
-
-			System.out.print(subject + " returned. \n");
+//			System.out.println(mQuoteSpeakers.toString());
+			System.out.println("Subject: " + subject + "\n");
 		}
 		System.out.println(mQuoteSpeakers.toString());
 	}
 	
 	public static void main(String[] args) throws IOException {
 		
-		TextLexProcessor proc = new TextLexProcessor("data/test-character.txt", "data/lexicon_people.csv");
+		TextLexProcessor proc = new TextLexProcessor("data/little-red-riding-hood.txt", "data/lexicon_people_and_animal.csv");
 		ProcessedResult result = proc.process();
+//		result.printRes();
 		
 		ExperimentalCharacterAnalysis exp = new ExperimentalCharacterAnalysis();
-		exp.readText("data/test-character.txt");
+		exp.readText("data/little-red-riding-hood.txt");
 		exp.findQuotes();
 		exp.extractPeopleFromTxtLexProc(result);
+		exp.determineSpeakersOfQuotes();
 		
-		
-		exp.extractSpeakersOfQuotes();
+		exp.characterAnalysis();
 	}
 }
