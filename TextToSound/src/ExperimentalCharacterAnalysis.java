@@ -13,7 +13,8 @@ public class ExperimentalCharacterAnalysis {
 	
 	private StringBuilder mText = new StringBuilder();
 	private List<Integer> mQuoteIndexes = new ArrayList<Integer>();
-	private List<String> mQuoteSpeakers = new ArrayList<String>();
+//	private List<String> mQuoteSpeakers = new ArrayList<String>();
+	private String[] mQuoteSpeakers;
 	
 	private String mFirstPerson = "";
 	private String mThirdPerson = "";
@@ -47,7 +48,7 @@ public class ExperimentalCharacterAnalysis {
 		}
 		
 		// Enforce the size of mQuoteSpeaker to the same
-		mQuoteSpeakers = new ArrayList<String>(mQuoteIndexes.size());
+		mQuoteSpeakers = new String[mQuoteIndexes.size()];
 	}
 	
 	/**
@@ -158,81 +159,32 @@ public class ExperimentalCharacterAnalysis {
 		if (substring.length() > 0) {
 			
 			if (arrIndex == 0) {
-				mQuoteSpeakers.add(0, subject);
-				mQuoteSpeakers.add(1, subject);
+				mQuoteSpeakers[0] = subject;
+				mQuoteSpeakers[1] = subject;
 			}
 			else if (arrIndex == numQuotes-1) {
-				try {
-					mQuoteSpeakers.get(numQuotes-2);
-				} catch (Exception e) {
-					mQuoteSpeakers.add(numQuotes-2, subject);
-					mQuoteSpeakers.add(numQuotes-1, subject);
+				if (mQuoteSpeakers[numQuotes-2] == null) {
+					mQuoteSpeakers[numQuotes-2] = subject;
+					mQuoteSpeakers[numQuotes-1] = subject;
 				}
 			}
 			else {
 				char firstChar = substring.charAt(0);
 				String lastChar = Character.toString(substring.charAt(substring.length()-1));
 				if (Character.isLowerCase(firstChar)) {
-					try {
-						mQuoteSpeakers.get(max(arrIndex-1, 0));
-					} catch (Exception e) {
-						try {
-							mQuoteSpeakers.add(max(arrIndex-1, 0), subject);
-							mQuoteSpeakers.add(arrIndex, subject);							
-						} catch (Exception e2) {
-							mQuoteSpeakers.add("");
-							mQuoteSpeakers.add("");
-							mQuoteSpeakers.add(max(arrIndex-1, 0), subject);
-							mQuoteSpeakers.add(arrIndex, subject);	
-						}
+					if (mQuoteSpeakers[max(arrIndex-1, 0)] == null) {
+						mQuoteSpeakers[max(arrIndex-1, 0)] = subject;
+						mQuoteSpeakers[arrIndex] =  subject;
 					}
 				}
 				if ((lastChar.equals(",") | lastChar.equals(":") | lastChar.equals(";"))) {
-					try {
-						mQuoteSpeakers.get(min(arrIndex+1, numQuotes));
-					} catch (Exception e) {
-						try {
-							mQuoteSpeakers.add(min(arrIndex+1, numQuotes), subject);
-							mQuoteSpeakers.add(min(arrIndex+2, numQuotes), subject);	
-						} catch (Exception e2) {
-							mQuoteSpeakers.add("");
-							mQuoteSpeakers.add("");
-							mQuoteSpeakers.add(min(arrIndex+1, numQuotes), subject);
-							mQuoteSpeakers.add(min(arrIndex+2, numQuotes), subject);	
-						}
+					if (mQuoteSpeakers[min(arrIndex+1, numQuotes)] == null) {
+						mQuoteSpeakers[min(arrIndex+1, numQuotes)] = subject;
+						mQuoteSpeakers[min(arrIndex+2, numQuotes)] = subject;
 					}
 				}
 			}
 		}
-//		else {
-//			subject = "";
-//			try {
-//				mQuoteSpeakers.get(max(arrIndex-1, 0));
-//			} catch (Exception e) {
-//				try {
-//					mQuoteSpeakers.add(max(arrIndex-1, 0), subject);
-//					mQuoteSpeakers.add(arrIndex, subject);							
-//				} catch (Exception e2) {
-//					mQuoteSpeakers.add("");
-//					mQuoteSpeakers.add("");
-//					mQuoteSpeakers.add(max(arrIndex-1, 0), subject);
-//					mQuoteSpeakers.add(arrIndex, subject);	
-//				}
-//			}
-//			try {
-//				mQuoteSpeakers.get(min(arrIndex+1, numQuotes));
-//			} catch (Exception e) {
-//				try {
-//					mQuoteSpeakers.add(min(arrIndex+1, numQuotes), subject);
-//					mQuoteSpeakers.add(min(arrIndex+2, numQuotes), subject);	
-//				} catch (Exception e2) {
-//					mQuoteSpeakers.add("");
-//					mQuoteSpeakers.add("");
-//					mQuoteSpeakers.add(min(arrIndex+1, numQuotes), subject);
-//					mQuoteSpeakers.add(min(arrIndex+2, numQuotes), subject);	
-//				}
-//			}
-//		}
 	}
 	
 	/**
@@ -290,9 +242,12 @@ public class ExperimentalCharacterAnalysis {
 					subject = determineSpeaker(substring);
 					saveQuoteSpeaker(substring, subject, i);
 				}
-				System.out.println(mQuoteSpeakers.toString());
+				
 
-				System.out.println("array size: " + mQuoteSpeakers.size());
+				System.out.println();
+				for (String index : mQuoteSpeakers) {
+					System.out.print(index + ", ");
+				}
 				return;
 			}
 			
