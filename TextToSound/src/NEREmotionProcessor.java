@@ -28,7 +28,7 @@ public class NEREmotionProcessor {
 	private Integer sections;
 	private static Integer TextLength;
 
-	private List<NERElement> NNList = new ArrayList<>();// List with Nouns
+	private List<NERElement> NNList = new ArrayList<>();  // List with Nouns
 	private List<NERElement> NNPList = new ArrayList<>(); // List with Proper Nouns (Names)
 	private List<NERElement> AdjList = new ArrayList<>(); // List with Adjectives
 
