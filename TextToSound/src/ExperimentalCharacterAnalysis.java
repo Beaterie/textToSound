@@ -75,7 +75,7 @@ public class ExperimentalCharacterAnalysis {
 			String pronoun = entry.getValue().getTargetPronoun();
 			fillGenderMap(target, pronoun);
 			
-			if (pronoun != null && !pronoun.toLowerCase().equals("it")) {
+			if (pronoun != null) {
 				mFirstPerson += ("|" + target + "||" + pronoun + "|");
 				
 				if (pronoun.equals("he")) {
@@ -414,8 +414,8 @@ public class ExperimentalCharacterAnalysis {
 	
 	public static void main(String[] args) throws IOException {
 		
-//		String sourceFile = "data/little-red-riding-hood.txt";
-		String sourceFile = "data/test-character.txt";
+		String sourceFile = "data/little-red-riding-hood.txt";
+//		String sourceFile = "data/test-character.txt";
 		TextLexProcessor proc = new TextLexProcessor(sourceFile, "data/lexicon_people_and_animal.csv");
 		ProcessedResult result = proc.process();
 		
@@ -436,5 +436,14 @@ public class ExperimentalCharacterAnalysis {
 		}System.out.println();
 		
 //		exp.characterAnalysis(NERprocessor1);
+		
+		
+		// Presentation
+		System.out.println("\n============================================================");
+		System.out.println("============================================================\n");
+		for (Entry<String, StringBuilder> entry : exp.mQuoteMap.entrySet()) {
+			System.out.println(entry.getKey());
+			System.out.println("[" + entry.getValue() + "]\n");
+		}
 	}
 }
