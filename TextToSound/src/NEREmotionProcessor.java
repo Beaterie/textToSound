@@ -1,23 +1,36 @@
 import java.io.BufferedReader;
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
-import java.io.File;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.FileReader;
-import java.io.FileWriter;
+import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
-import javax.xml.namespace.QName;
+
+import edu.stanford.nlp.coref.CorefCoreAnnotations;
+import edu.stanford.nlp.coref.data.CorefChain;
+import edu.stanford.nlp.io.*;
+import edu.stanford.nlp.ling.*;
+import edu.stanford.nlp.pipeline.*;
+import edu.stanford.nlp.semgraph.SemanticGraph;
+import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations;
+import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
+import edu.stanford.nlp.trees.*;
+import edu.stanford.nlp.util.*;
 
 public class NEREmotionProcessor {
 
@@ -82,13 +95,33 @@ public class NEREmotionProcessor {
 	}
 
 	// *Run Stanford Classifier and create XMl-File
+	
+	public static void create_xml(String story)  throws IOException{
+		
+		String storyXML = story + ".xml";
+		PrintWriter xmlOut =  new PrintWriter(storyXML);
+		
+		 Properties props = new Properties();
+		 props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner");
+
+		 StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+		 
+		 Annotation annotation = new Annotation(IOUtils.slurpFileNoExceptions(story));
+		 
+		 pipeline.annotate(annotation);
+		 
+		 pipeline.xmlPrint(annotation, xmlOut);
+
+	}
+	
+	
 	public static void classify(String story) {
 		System.out.println(story);// just a test
 		//$ java -cp 'data/stanford-corenlp/*' -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file data/the-fox-and-the-crowtemp.txt -outputDirectory data/
 		try {
 			Runtime rt = Runtime.getRuntime();
 			Process pr = rt.exec(
-					"java -cp 'data/stanford-corenlp/*' -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
+					"java -cp \"data/stanford-corenlp/*\" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
 							+ story + " -outputDirectory data/");
 
 			int exitVal = pr.waitFor();
@@ -100,7 +133,7 @@ public class NEREmotionProcessor {
 	}
 
 	// *Get important information from xml-file
-	public static void xml(String story, List<NERElement> NNList, List<NERElement> NNPList, List<NERElement> AdjList) {
+	public static void analyze_xml(String story, List<NERElement> NNList, List<NERElement> NNPList, List<NERElement> AdjList) {
 		Integer iSentence = 0; // number of sentences
 		Integer iToken = 0; // number of words
 		Attribute SidAttr = null; // Sentence ID
@@ -169,7 +202,7 @@ public class NEREmotionProcessor {
 				}
 			}
 			TextLength = iToken;
-			System.out.println(TextLength);
+			//System.out.println(TextLength);
 
 			for (NERElement Element : NNList) {
 				Element.setRelativePosition(Math.round(Element.getTotalPosition() / TextLength * 10000D) / 100D);
@@ -202,7 +235,7 @@ public class NEREmotionProcessor {
 			}
 
 			// System.out.println(NNList);
-			System.out.println(NNPList);
+			//System.out.println(NNPList);
 			// System.out.println(AdjList);
 
 		} catch (FileNotFoundException e) {
@@ -406,8 +439,8 @@ public class NEREmotionProcessor {
 	}
 	
 	public List<String> nameDetection() {
-		classify(mSrcFileName);
-		xml(mSrcFileName, NNList, NNPList, AdjList);
+		create_xml(mSrcFileName);
+		analyze_xml(mSrcFileName, NNList, NNPList, AdjList);
 		
 		// Put the names to map
 		Map<String, Integer> map = new HashMap<String, Integer>(); 
@@ -442,9 +475,10 @@ public class NEREmotionProcessor {
 
 		// prepareText(mSrcFileName, tempSrc);
 		System.out.println("prepare Text done");
-		classify(tempSrc);
+		create_xml(tempSrc);
+		//classify(tempSrc);
 		System.out.println("classify done");
-		xml(tempSrc, NNList, NNPList, AdjList);
+		analyze_xml(tempSrc, NNList, NNPList, AdjList);
 		System.out.println("xml done");
 
 		EmotionResult EmotionResults = AssessEmotion(AdjList, sections);
