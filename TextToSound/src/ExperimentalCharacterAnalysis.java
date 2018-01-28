@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,12 +14,14 @@ import java.util.regex.Pattern;
 public class ExperimentalCharacterAnalysis {
 	
 	private StringBuilder mText = new StringBuilder();
-	private List<Integer> mQuoteIndexes = new ArrayList<Integer>();
 	private String[] mQuoteSpeakers;
+	private List<Integer> mQuoteIndexes = new ArrayList<Integer>();
+	private List<StringBuilder> mQuoteList = new ArrayList<StringBuilder>();
 	private Map<String, StringBuilder> mQuoteMap = new HashMap<String, StringBuilder>();
 	
 	private String mFirstPerson = "";
 	private String mThirdPerson = "";
+	private Map<String, String> mGenderMap = new HashMap<String, String>();
 	
 	/**
 	 * Read the text and store the text in the member mText.
@@ -70,6 +73,7 @@ public class ExperimentalCharacterAnalysis {
 		for (Map.Entry<String, TargetInfo> entry : result.getOccurenceInfos().entrySet()) {
 			String target = entry.getKey();
 			String pronoun = entry.getValue().getTargetPronoun();
+			fillGenderMap(target, pronoun);
 			
 			if (pronoun != null) {
 				mFirstPerson += ("|" + target + "||" + pronoun + "|");
@@ -78,9 +82,10 @@ public class ExperimentalCharacterAnalysis {
 					mThirdPerson += ("|his||him|");
 				} else if (pronoun.equals("she")) {
 					mThirdPerson += ("|her|");
-				} else if (pronoun.equals("it")) {
-					mThirdPerson += ("|its|");
 				}
+//				} else if (pronoun.equals("it")) {
+//					mThirdPerson += ("|its|");
+//				}
 			}
 		}
 		
@@ -88,6 +93,14 @@ public class ExperimentalCharacterAnalysis {
 			mFirstPerson += ("|" + name + "|");
 		}
 	}
+	
+	/**
+	 * Store the persons and their pronouns into the member mGenderMap.
+	 */
+	private void fillGenderMap(String person, String pronoun) {
+		mGenderMap.put(person, pronoun);
+	}
+	
 	
 	private void cleanFirstThirdperson() {
 		// Remove excessive entries from the members.
@@ -192,6 +205,9 @@ public class ExperimentalCharacterAnalysis {
 		}
 	}
 	
+	/**
+	 * Determine the speaker of the quotes
+	 */
 	private void determineSpeakersOfQuotes() {
 		for (int i = 0; i < mQuoteIndexes.size(); i++) {
 			int txtIndex = mQuoteIndexes.get(i);
@@ -233,28 +249,144 @@ public class ExperimentalCharacterAnalysis {
 			
 			// Search the span of quotes
 			if (isEven(i)) {	// If i is even, it indicates this index is the start pos of a quote
-				characterAnalysis();
+				// Save the quote into mQuoteList
+				mQuoteList.add(new StringBuilder(substring));
+//				characterAnalysis();
 			}
 			// Search outside of quotes
 			else {
 				subject = determineSpeaker(substring);
 				saveQuoteSpeaker(substring, subject, i);
-				characterAnalysis(); 
+//				characterAnalysis(); 
 			}
 			System.out.println("Subject: " + subject + "\n");
 		}
-		System.out.println(mQuoteSpeakers.toString());
 	}
 	
+	private void updateEntryQuoteMap(String name, int i) {
+		// If the entry already exists, add quote to StringBuilder
+		StringBuilder newQuote;
+		if (mQuoteMap.containsKey(name)) {
+			newQuote = mQuoteMap.get(name).append(mQuoteList.get(i/2));
+		} else {	// Otherwise, add new entry
+			newQuote = new StringBuilder(mQuoteList.get(i/2));
+		}
+		mQuoteMap.put(name, newQuote);
+	}
+	
+	/**
+	 * Map the quotes to their speakers with String speaker as key and a StringBuilder of 
+	 * quotes as value (The map is stored as the member mQuoteMap).
+	 * This method also finds out the person a pronoun is pointed to, if a quote's speaker 
+	 * is a pronoun, and assigns the quote to the found character in the map.
+	 */
 	private void mapQuoteToSpeaker() {
-		
+		// Assign the quotes directly from the characters to the corresponding characters
+		for (int i = 0; i < mQuoteSpeakers.length; i = i+2) {
+			String name = mQuoteSpeakers[i];
+			if (name == null) {
+				determineSpeakerAdvanced(i);
+			} else {
+				switch (name.toLowerCase()) {
+				case "he":
+					// Find the male person with closest distance before "he"
+					determinePronounPerson(i, "he");
+					break;
+				case "she":
+					// Find the female person with closest distance before "she"
+					determinePronounPerson(i, "she");
+					break;
+				case "they":
+					// Find the plural people with closest distance before "they"
+					determinePronounPerson(i, "they");
+					break;
+				case "":
+					updateEntryQuoteMap(name, i);
+					break;
+				default:
+					// The real names or titles of the people are stored directly into the map
+					updateEntryQuoteMap(name, i);
+					break;
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Determine the speaker from the text before. The last talking person should be the other 
+	 * person in the conversation, which means the person before the last talking person should
+	 * be what we are looking for.
+	 * <BR><BR>
+	 * This method should be used only in mapQuoteToSpeaker(), and is only meant to find 
+	 * speaker, where determineSpeaker() returned null for.
+	 */
+	private void determineSpeakerAdvanced(int i) {
+		for (int j = i-4; j > -1; j = j-2) {
+			String prevPerson = mQuoteSpeakers[j+2];
+			String targetPerson = mQuoteSpeakers[j];
+			// If the person is found, update the quote map with the found key person
+			// And update the mQuoteSpeakers list
+			if (targetPerson!= null && prevPerson!=null && !targetPerson.equals(prevPerson)) {
+				updateEntryQuoteMap(targetPerson, i);
+				mQuoteSpeakers[i] = targetPerson;
+				mQuoteSpeakers[i+1] = targetPerson;
+				break;
+			}
+		}
+	}
+	
+	/**
+	 * Determine whom the pronoun points to. After finding the name or title of the person,
+	 * update the mQuoteMap by updating the corresponding entry.
+	 * <BR><BR>
+	 * This method should be used only in the for-loop in mapQuoteToSpeaker().
+	 * @param i The i-th run from the outer for-loop. Also indicates which quote speaker 
+	 * is being determined from mQuoteSpeakers
+	 * @param targetPronoun The pronoun being determined
+	 */
+	private void determinePronounPerson(int i, String targetPronoun) {
+		// If the pronoun is plural, find plural people occurring in this story
+		// (!!!ATTENTION: right now, there's only children that is plural)
+		if (targetPronoun.equals("they")) {
+			for (Entry<String, String> entry : mGenderMap.entrySet()) {
+				if (entry.getValue().equals("they")) {
+					String name = entry.getKey();
+					updateEntryQuoteMap(name, i);
+					mQuoteSpeakers[i] = name;
+					mQuoteSpeakers[i+1] = name;
+					return;
+				}
+			}
+		}
+		for (int j = i-2; j > -1; j = j-2) {
+			String prevPerson = mQuoteSpeakers[j];
+			if (prevPerson!=null && !prevPerson.isEmpty()) {
+				String pronoun = mGenderMap.get(prevPerson);
+				// If a match is found, update the quote map with the found key person
+				// And update the mQuoteSpeakers list
+				if (pronoun!=null && !pronoun.isEmpty() && pronoun.equals(targetPronoun)) {
+					String name = prevPerson;
+					updateEntryQuoteMap(name, i);
+					mQuoteSpeakers[i] = name;
+					mQuoteSpeakers[i+1] = name;
+					break;
+				}
+			}
+		}
 	}
 	
 	/**
 	 * Analyse the characters with the emotional lexicon based on their quotes.
 	 * This function's goal is to find out which emotions the characters are most related to.
+	 * @throws IOException 
 	 */
-	private void characterAnalysis() {}
+	private void characterAnalysis(NEREmotionProcessor NERprocessor) throws IOException {
+		List<NERElement> AdjList = NERprocessor.getAdjList();
+		for (Entry<String, StringBuilder> entry : mQuoteMap.entrySet()) {
+			String person = entry.getKey();
+			StringBuilder quotes = entry.getValue();
+		}
+	}
 	
 	/**
 	 * Check if the given number is even.
@@ -283,6 +415,7 @@ public class ExperimentalCharacterAnalysis {
 	public static void main(String[] args) throws IOException {
 		
 		String sourceFile = "data/little-red-riding-hood.txt";
+//		String sourceFile = "data/test-character.txt";
 		TextLexProcessor proc = new TextLexProcessor(sourceFile, "data/lexicon_people_and_animal.csv");
 		ProcessedResult result = proc.process();
 		
@@ -291,13 +424,26 @@ public class ExperimentalCharacterAnalysis {
 		
 		
 		ExperimentalCharacterAnalysis exp = new ExperimentalCharacterAnalysis();
-		exp.readText("data/little-red-riding-hood.txt");
+		exp.readText(sourceFile);
 		exp.findQuotes();
 		exp.extractPeopleFromTxtLexProc(result, nameList);
 		exp.determineSpeakersOfQuotes();
-		
 		exp.mapQuoteToSpeaker();
 		
-		exp.characterAnalysis();
+		System.out.println("\n" + exp.mQuoteMap.keySet());
+		for (String index : exp.mQuoteSpeakers) {
+			System.out.print(index + ", ");
+		}System.out.println();
+		
+//		exp.characterAnalysis(NERprocessor1);
+		
+		
+		// Presentation
+		System.out.println("\n============================================================");
+		System.out.println("============================================================\n");
+		for (Entry<String, StringBuilder> entry : exp.mQuoteMap.entrySet()) {
+			System.out.println(entry.getKey());
+			System.out.println("[" + entry.getValue() + "]\n");
+		}
 	}
 }

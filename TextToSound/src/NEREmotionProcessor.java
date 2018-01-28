@@ -68,6 +68,10 @@ public class NEREmotionProcessor {
 	// --------------------------------------------------------
 	// Methods
 	// --------------------------------------------------------
+	
+	public List<NERElement> getAdjList() {
+		return AdjList;
+	}
 
 	// *Create temp text file of text without punctuation
 	public static void prepareText(String story, String tempstory) {
