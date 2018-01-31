@@ -3,5 +3,20 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="data/jfugue-5.0.7.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/javax.json-api-1.0-sources.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/javax.json.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/joda-time-2.9-sources.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/joda-time.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/jollyday-0.4.9-sources.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/jollyday.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/protobuf.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/slf4j-simple.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/stanford-corenlp-3.8.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/stanford-corenlp-3.8.0-models.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/stanford-corenlp-3.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/stanford-corenlp-3.8.0.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/xom-1.2.10-src.jar"/>
+	<classpathentry kind="lib" path="data/stanford-corenlp/xom.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,17 +1,9 @@
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.lang.Math;
-import java.lang.reflect.Array;
 
 import org.apache.commons.math3.stat.regression.SimpleRegression;
-
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
 //import javax.sound.midi.*;

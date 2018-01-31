@@ -1,11 +1,5 @@
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import org.jfugue.midi.MidiFileManager;
-import org.jfugue.pattern.Pattern;
-import org.jfugue.pattern.PatternProducer;
-import org.jfugue.player.Player;
 
 public class Main {
 
@@ -23,20 +17,20 @@ public class Main {
 //		        ex.getStackTrace();
 //		    }
 	
-		TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.csv");
-		TextLexProcessor processor2 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_environment.txt");
-		TextLexProcessor processor3 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
+		//TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.csv");
+		//TextLexProcessor processor2 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_environment.txt");
+		//TextLexProcessor processor3 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
 		
-		MusicProcessor mp = new MusicProcessor(processor3.process());
-		mp.setM_numOfSections(8);
+		//MusicProcessor mp = new MusicProcessor(processor3.process());
+		//mp.setM_numOfSections(8);
 		
 		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt", 10);
-		NEREmotionProcessor NERprocessor2 = new NEREmotionProcessor("data/the-fox-and-the-crow.txt", mp.getM_numOfSections());
+		//NEREmotionProcessor NERprocessor2 = new NEREmotionProcessor("data/the-fox-and-the-crow.txt", mp.getM_numOfSections());
 		
 		//NERprocessor1.main(args);
-		EmotionResult EmotionResults = NERprocessor2.main(args);
+		EmotionResult EmotionResults = NERprocessor1.main(args);
 	
-		mp.process(EmotionResults);
+		//mp.process(EmotionResults);
 		
 		
 		

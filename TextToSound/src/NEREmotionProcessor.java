@@ -41,7 +41,7 @@ public class NEREmotionProcessor {
 	private Integer sections;
 	private static Integer TextLength;
 
-	private List<NERElement> NNList = new ArrayList<>();  // List with Nouns
+	private List<NERElement> NNList = new ArrayList<>(); // List with Nouns
 	private List<NERElement> NNPList = new ArrayList<>(); // List with Proper Nouns (Names)
 	private List<NERElement> AdjList = new ArrayList<>(); // List with Adjectives
 
@@ -68,7 +68,7 @@ public class NEREmotionProcessor {
 	// --------------------------------------------------------
 	// Methods
 	// --------------------------------------------------------
-	
+
 	public List<NERElement> getAdjList() {
 		return AdjList;
 	}
@@ -99,29 +99,31 @@ public class NEREmotionProcessor {
 	}
 
 	// *Run Stanford Classifier and create XMl-File
-	
-	public static void create_xml(String story)  throws IOException{
-		
-		String storyXML = story + ".xml";
-		PrintWriter xmlOut =  new PrintWriter(storyXML);
-		
-		 Properties props = new Properties();
-		 props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner");
 
-		 StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
-		 
-		 Annotation annotation = new Annotation(IOUtils.slurpFileNoExceptions(story));
-		 
-		 pipeline.annotate(annotation);
-		 
-		 pipeline.xmlPrint(annotation, xmlOut);
+	public static void create_xml(String story) throws IOException {
+
+		String storyXML = story + ".xml";
+		PrintWriter xmlOut = new PrintWriter(storyXML);
+
+		Properties props = new Properties();
+		props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner");
+
+		StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+
+		Annotation annotation = new Annotation(IOUtils.slurpFileNoExceptions(story));
+
+		pipeline.annotate(annotation);
+
+		pipeline.xmlPrint(annotation, xmlOut);
 
 	}
-	
-	
+
 	public static void classify(String story) {
 		System.out.println(story);// just a test
-		//$ java -cp 'data/stanford-corenlp/*' -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file data/the-fox-and-the-crowtemp.txt -outputDirectory data/
+		// $ java -cp 'data/stanford-corenlp/*' -Xmx2g
+		// edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators
+		// tokenize,ssplit,pos,lemma,ner -file data/the-fox-and-the-crowtemp.txt
+		// -outputDirectory data/
 		try {
 			Runtime rt = Runtime.getRuntime();
 			Process pr = rt.exec(
@@ -137,7 +139,8 @@ public class NEREmotionProcessor {
 	}
 
 	// *Get important information from xml-file
-	public static void analyze_xml(String story, List<NERElement> NNList, List<NERElement> NNPList, List<NERElement> AdjList) {
+	public static void analyze_xml(String story, List<NERElement> NNList, List<NERElement> NNPList,
+			List<NERElement> AdjList) {
 		Integer iSentence = 0; // number of sentences
 		Integer iToken = 0; // number of words
 		Attribute SidAttr = null; // Sentence ID
@@ -206,7 +209,7 @@ public class NEREmotionProcessor {
 				}
 			}
 			TextLength = iToken;
-			//System.out.println(TextLength);
+			// System.out.println(TextLength);
 
 			for (NERElement Element : NNList) {
 				Element.setRelativePosition(Math.round(Element.getTotalPosition() / TextLength * 10000D) / 100D);
@@ -217,18 +220,21 @@ public class NEREmotionProcessor {
 				NNPList.get(Element).setRelativePosition(
 						Math.round(NNPList.get(Element).getTotalPosition() / TextLength * 10000D) / 100D);
 			}
-			
-			
-			for (int Element = 0; Element < NNPList.size()-1; Element++) {
+
+			for (int Element = 0; Element < NNPList.size() - 1; Element++) {
 				int index = 0;
-				while(Element + index < NNPList.size()-1 && NNPList.get(Element + index).getSentenceID() == NNPList.get(Element + index + 1).getSentenceID()
-						&& NNPList.get(Element + index).getTokenID() == NNPList.get(Element + index + 1).getTokenID() - 1) {
-					NNPList.get(Element).setName(NNPList.get(Element).getName() +" " + NNPList.get(Element+index + 1).getName());
+				while (Element + index < NNPList.size() - 1
+						&& NNPList.get(Element + index).getSentenceID() == NNPList.get(Element + index + 1)
+								.getSentenceID()
+						&& NNPList.get(Element + index).getTokenID() == NNPList.get(Element + index + 1).getTokenID()
+								- 1) {
+					NNPList.get(Element)
+							.setName(NNPList.get(Element).getName() + " " + NNPList.get(Element + index + 1).getName());
 					index++;
-					
+
 				}
 				for (int i = 0; i < index; i++) {
-					NNPList.remove(Element+1);
+					NNPList.remove(Element + 1);
 				}
 
 			}
@@ -239,7 +245,7 @@ public class NEREmotionProcessor {
 			}
 
 			// System.out.println(NNList);
-			//System.out.println(NNPList);
+			// System.out.println(NNPList);
 			// System.out.println(AdjList);
 
 		} catch (FileNotFoundException e) {
@@ -255,33 +261,35 @@ public class NEREmotionProcessor {
 	// *Use adjectives and analyze emotions
 	// *
 	// **************
-	public static EmotionResult AssessEmotion(List<NERElement> AdjList, Integer sections) throws IOException {
-
+	//public static EmotionResult AssessEmotion(List<NERElement> AdjList, Integer sections) throws IOException {
+	public static EmotionResult AssessEmotion(String text, Integer sections) throws IOException {
+		String[] words= text.split("\\s+");
 		List<EmotionElement> EmoLex;
 		EmoLex = ReadLexicon();
-		Integer Index;
-		int ListPosition = 0; // Z�hlvariable
-		int DensityPosition = 0; // Z�hlvariable
+		Integer Index; //Index der Emotion im Lexikon
+		int ListPosition = 0; // Zählvariable für Emotionserkennung
+		int DensityPosition = 0; // Zählvariable für Densityerkennung
 		int EmotionAmount;
 		double PpS = 100 / sections; // Percent per Section
 		int PosSum = 0;
 		int NegSum = 0;
-		List<List<Double>> SectionEmotion = new ArrayList<>(); // List with Adjectives
+		List<List<Double>> SectionEmotion = new ArrayList<>(); // Emotion Count for all Sections
 		List<Double> SeEl = null;
 
 		List<List<Double>> AllDensities = new ArrayList<>(); // Densities for all Sections
 		List<Double> Density = null; // 16 Densities for one Section
 
 		EmotionResult EmotionResult = new EmotionResult();
-		for (int i = 0; i < sections; i++) { // Interation �ber jede Textsektion
+		for (int i = 0; i < sections; i++) { // Interation  über jede Textsektion
 			SeEl = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-			while (ListPosition < AdjList.size() && AdjList.get(ListPosition).getRelativePosition() < (i + 1) * PpS) {
+			while (ListPosition < words.length -1 && (ListPosition/(0.01*words.length))/*AdjList.get(ListPosition).getRelativePosition()*/ < (i + 1) * PpS) {
 				// solang nicht an alle Elemente aus AdjList und Prozentsatz des Textes pro
 				// Sektion abgearbeitet
-				Index = FindEqual(EmoLex, AdjList.get(ListPosition).getName());
+				Index = FindEqual(EmoLex, words[ListPosition]/*AdjList.get(ListPosition).getName()*/);
 				if (Index != null) {
 					SeEl = AddEmotion(EmoLex.get(Index), SeEl);
 				}
+				
 				ListPosition++;
 			}
 
@@ -293,10 +301,10 @@ public class NEREmotionProcessor {
 			for (int j = 0; j < 16; j++) {
 				EmotionAmount = 0;
 
-				while (DensityPosition < AdjList.size()
-						&& AdjList.get(DensityPosition).getRelativePosition() < ((i) * PpS + (j + 1) * PpS / 16)) {
+				while (DensityPosition < /*AdjList.size()*/words.length -1
+						&& /*AdjList.get(DensityPosition).getRelativePosition()*/(DensityPosition/(0.01*words.length)) < ((i) * PpS + (j + 1) * PpS / 16)) {
 					// rel. Position des Adj. in gsm Text <(IndexSektion* 100%/SummeSektionen
-					Index = FindEqual(EmoLex, AdjList.get(DensityPosition).getName());
+					Index = FindEqual(EmoLex, words[DensityPosition]/*AdjList.get(ListPosition).getName()*/);
 					if (Index != null) {
 						EmotionAmount++;
 					}
@@ -308,7 +316,6 @@ public class NEREmotionProcessor {
 			}
 			AllDensities.add(Density);
 		}
-
 		System.out.println("Number of Sections: " + sections);
 
 		EmotionResult.setSectionEmotion(SectionEmotion);
@@ -395,6 +402,24 @@ public class NEREmotionProcessor {
 		return emotions;
 	}
 
+	private static String txt2string(String SrcFileName) throws IOException {
+		FileReader StoryReader = new FileReader(SrcFileName);
+		BufferedReader bufferedStoryReader = new BufferedReader(StoryReader);
+		String line;
+		StringBuilder sb = new StringBuilder();
+
+		while ((line = bufferedStoryReader.readLine()) != null) {
+			if (!line.isEmpty()) {
+				sb.append(line).append("\n");
+			}
+		}
+		String story = sb.toString();
+		bufferedStoryReader.close();
+		StoryReader.close();
+		return story;
+
+	}
+
 	private static Integer FindEqual(List<EmotionElement> EmoLex, String name) throws IOException {
 		for (int i = 0; i < EmoLex.size(); i++) {
 			if (EmoLex.get(i).getName().equals(name)) {
@@ -441,30 +466,30 @@ public class NEREmotionProcessor {
 		}
 		return SeEl;
 	}
-	
+
 	public List<String> nameDetection() {
 		create_xml(mSrcFileName);
 		analyze_xml(mSrcFileName, NNList, NNPList, AdjList);
-		
+
 		// Put the names to map
-		Map<String, Integer> map = new HashMap<String, Integer>(); 
+		Map<String, Integer> map = new HashMap<String, Integer>();
 		for (NERElement nerElement : NNPList) {
 			String name = nerElement.getName();
 			if (map.containsKey(name)) {
 				int count = map.get(name);
-				map.put(name, count+1);
+				map.put(name, count + 1);
 			} else {
 				map.put(name, 1);
 			}
 		}
-		
+
 		// Filter the map and delete names that occured less than 4 times
-		map.entrySet().removeIf(entry -> entry.getValue()<4);
-		
+		map.entrySet().removeIf(entry -> entry.getValue() < 4);
+
 		// Store the reduced names to a new list
 		List<String> names = new ArrayList<String>(map.keySet());
 		System.out.println(names.toString());
-		
+
 		return names;
 	}
 
@@ -480,12 +505,14 @@ public class NEREmotionProcessor {
 		// prepareText(mSrcFileName, tempSrc);
 		System.out.println("prepare Text done");
 		create_xml(tempSrc);
-		//classify(tempSrc);
+		// classify(tempSrc);
 		System.out.println("classify done");
 		analyze_xml(tempSrc, NNList, NNPList, AdjList);
 		System.out.println("xml done");
 
-		EmotionResult EmotionResults = AssessEmotion(AdjList, sections);
+		String StoryString = txt2string(mSrcFileName);
+
+		EmotionResult EmotionResults = AssessEmotion(StoryString, sections);
 		System.out.println("emotion done");
 		EmotionResults.printResult();
 
