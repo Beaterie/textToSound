@@ -297,12 +297,12 @@ public class NEREmotionProcessor {
 		}
 
 		for (int i = 0; i < sections; i++) {
-			Density = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-			for (int j = 0; j < 16; j++) {
+			Density = Arrays.asList(0.0, 0.0, 0.0, 0.0);
+			for (int j = 0; j < 4; j++) {
 				EmotionAmount = 0;
 
 				while (DensityPosition < /*AdjList.size()*/words.length -1
-						&& /*AdjList.get(DensityPosition).getRelativePosition()*/(DensityPosition/(0.01*words.length)) < ((i) * PpS + (j + 1) * PpS / 16)) {
+						&& /*AdjList.get(DensityPosition).getRelativePosition()*/(DensityPosition/(0.01*words.length)) < ((i) * PpS + (j + 1) * PpS / 4)) {
 					// rel. Position des Adj. in gsm Text <(IndexSektion* 100%/SummeSektionen
 					Index = FindEqual(EmoLex, words[DensityPosition]/*AdjList.get(ListPosition).getName()*/);
 					if (Index != null) {
@@ -311,7 +311,7 @@ public class NEREmotionProcessor {
 
 					DensityPosition++;
 				}
-				double D = EmotionAmount / (TextLength / (16D * sections));
+				double D = EmotionAmount / (TextLength / (4D * sections));
 				Density.set(j, D);
 			}
 			AllDensities.add(Density);
@@ -467,7 +467,7 @@ public class NEREmotionProcessor {
 		return SeEl;
 	}
 
-	public List<String> nameDetection() {
+	public List<String> nameDetection() throws IOException {
 		create_xml(mSrcFileName);
 		analyze_xml(mSrcFileName, NNList, NNPList, AdjList);
 
