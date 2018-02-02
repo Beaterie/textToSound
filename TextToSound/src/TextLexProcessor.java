@@ -265,7 +265,7 @@ public class TextLexProcessor {
 	
 	public static void main(String[] args) throws IOException {
 //		TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.csv");
-		TextLexProcessor processor1 = new TextLexProcessor("data/test-character.txt", "data/lexicon_people.csv");
+		TextLexProcessor processor1 = new TextLexProcessor("data/test-character.txt", "data/lexicon_environment.txt");
 //		TextLexProcessor processor1 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
 		ProcessedResult result = processor1.process();
 		result.printRes();

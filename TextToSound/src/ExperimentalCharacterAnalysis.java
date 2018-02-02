@@ -13,6 +13,10 @@ import java.util.regex.Pattern;
 
 public class ExperimentalCharacterAnalysis {
 	
+	// --------------------------------------------------------
+	// Members
+	// --------------------------------------------------------
+	
 	private StringBuilder mText = new StringBuilder();
 	private String[] mQuoteSpeakers;
 	private List<Integer> mQuoteIndexes = new ArrayList<Integer>();
@@ -22,6 +26,39 @@ public class ExperimentalCharacterAnalysis {
 	private String mFirstPerson = "";
 	private String mThirdPerson = "";
 	private Map<String, String> mGenderMap = new HashMap<String, String>();
+	
+	
+	// --------------------------------------------------------
+	// Primary Methods
+	// --------------------------------------------------------
+	
+	/**
+	 * Check if the given number is even.
+	 */
+	private boolean isEven(int x) {
+		return x%2 == 0;
+	}
+	
+	/**
+	 * Return the bigger number of the 2 given numbers.
+	 */
+	private int max(int a, int b) {
+		int x = a>b ? a:b;
+		return x;
+	}
+	
+	/**
+	 * Return the smaller number of the 2 given numbers.
+	 */
+	private int min(int a, int b) {
+		int x = a<b ? a:b;
+		return x;
+	}
+	
+	
+	// --------------------------------------------------------
+	// Preparation for analysis
+	// --------------------------------------------------------
 	
 	/**
 	 * Read the text and store the text in the member mText.
@@ -129,6 +166,11 @@ public class ExperimentalCharacterAnalysis {
 //	private static String discardSubConjunctions(String substring) {
 //		return substring;
 //	}
+	
+	
+	// --------------------------------------------------------
+	// Analysis methods
+	// --------------------------------------------------------
 	
 	/**
 	 * Determine the speaker of the quote by analyzing the text before or after the quote.
@@ -251,13 +293,11 @@ public class ExperimentalCharacterAnalysis {
 			if (isEven(i)) {	// If i is even, it indicates this index is the start pos of a quote
 				// Save the quote into mQuoteList
 				mQuoteList.add(new StringBuilder(substring));
-//				characterAnalysis();
 			}
 			// Search outside of quotes
 			else {
 				subject = determineSpeaker(substring);
 				saveQuoteSpeaker(substring, subject, i);
-//				characterAnalysis(); 
 			}
 			System.out.println("Subject: " + subject + "\n");
 		}
@@ -388,29 +428,10 @@ public class ExperimentalCharacterAnalysis {
 		}
 	}
 	
-	/**
-	 * Check if the given number is even.
-	 */
-	private boolean isEven(int x) {
-		return x%2 == 0;
-	}
 	
-	/**
-	 * Return the bigger number of the 2 given numbers.
-	 */
-	private int max(int a, int b) {
-		int x = a>b ? a:b;
-		return x;
-	}
-	
-	/**
-	 * Return the smaller number of the 2 given numbers.
-	 */
-	private int min(int a, int b) {
-		int x = a<b ? a:b;
-		return x;
-	}
-	
+	// --------------------------------------------------------
+	// The main function for testing
+	// --------------------------------------------------------
 	
 	public static void main(String[] args) throws IOException {
 		
