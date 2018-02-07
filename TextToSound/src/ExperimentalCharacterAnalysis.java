@@ -81,7 +81,7 @@ public class ExperimentalCharacterAnalysis {
 	 * including the start and end indexes, in a list.
 	 */
 	private void findQuotes() {
-		Pattern p = Pattern.compile("‘([^‘]*|[^’]*)’|\"([^\"]*|[^\"]*)\"");
+		Pattern p = Pattern.compile("‘([^‘]*|[^’]*)’|“([^“]*|[^”]*)”|\"([^\"]*|[^\"]*)\"");
 		Matcher m = p.matcher(mText);
 		while (m.find()) {
 			mQuoteIndexes.add(m.start());
@@ -270,16 +270,18 @@ public class ExperimentalCharacterAnalysis {
 			if (i == mQuoteIndexes.size()-1) {
 				substring = mText.substring(txtIndex, min(txtIndex + 50, mText.length()-1)).trim();
 				System.out.println("From " + i + "\n" + substring);
-				char firstChar = substring.charAt(0);
-				// If the following text isn't a part of the previous sentence, disregard.
-				if (Character.isLowerCase(firstChar)) {
-					subject = determineSpeaker(substring);
-					saveQuoteSpeaker(substring, subject, i);
-				}
-				
-				System.out.println();
-				for (String index : mQuoteSpeakers) {
-					System.out.print(index + ", ");
+				if (substring != null && substring.length() > 0) {
+					char firstChar = substring.charAt(0);
+					// If the following text isn't a part of the previous sentence, disregard.
+					if (Character.isLowerCase(firstChar)) {
+						subject = determineSpeaker(substring);
+						saveQuoteSpeaker(substring, subject, i);
+					}
+					
+					System.out.println();
+					for (String index : mQuoteSpeakers) {
+						System.out.print(index + ", ");
+					}
 				}
 				return;
 			}
@@ -420,12 +422,19 @@ public class ExperimentalCharacterAnalysis {
 	 * This function's goal is to find out which emotions the characters are most related to.
 	 * @throws IOException 
 	 */
-	private void characterAnalysis(NEREmotionProcessor NERprocessor) throws IOException {
-		List<NERElement> AdjList = NERprocessor.getAdjList();
+	private Map<String, EmotionResult> characterAnalysis(NEREmotionProcessor NERprocessor) throws IOException {
+		Map<String, EmotionResult> characterEmotionRes = new HashMap<>();
 		for (Entry<String, StringBuilder> entry : mQuoteMap.entrySet()) {
 			String person = entry.getKey();
 			StringBuilder quotes = entry.getValue();
+			EmotionResult EmotionResults = NERprocessor.AssessEmotion(quotes.toString(), 1);
+			characterEmotionRes.put(person, EmotionResults);
+			
+			System.out.println(person);
+			EmotionResults.printResult();
+			System.out.println();
 		}
+		return characterEmotionRes;
 	}
 	
 	
@@ -435,7 +444,7 @@ public class ExperimentalCharacterAnalysis {
 	
 	public static void main(String[] args) throws IOException {
 		
-		String sourceFile = "data/little-red-riding-hood.txt";
+		String sourceFile = "data/pride-and-prejudice-test.txt";
 //		String sourceFile = "data/test-character.txt";
 		TextLexProcessor proc = new TextLexProcessor(sourceFile, "data/lexicon_people_and_animal.csv");
 		ProcessedResult result = proc.process();
@@ -456,15 +465,15 @@ public class ExperimentalCharacterAnalysis {
 			System.out.print(index + ", ");
 		}System.out.println();
 		
-//		exp.characterAnalysis(NERprocessor1);
+		Map<String, EmotionResult> characterEmoRes = exp.characterAnalysis(NERprocessor1);
 		
 		
-		// Presentation
-		System.out.println("\n============================================================");
-		System.out.println("============================================================\n");
-		for (Entry<String, StringBuilder> entry : exp.mQuoteMap.entrySet()) {
-			System.out.println(entry.getKey());
-			System.out.println("[" + entry.getValue() + "]\n");
-		}
+//		// Presentation
+//		System.out.println("\n============================================================");
+//		System.out.println("============================================================\n");
+//		for (Entry<String, StringBuilder> entry : exp.mQuoteMap.entrySet()) {
+//			System.out.println(entry.getKey());
+//			System.out.println("[" + entry.getValue() + "]\n");
+//		}
 	}
 }
