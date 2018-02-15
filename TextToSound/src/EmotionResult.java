@@ -1,10 +1,19 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmotionResult {
+	private List<NERElement> NameList;
 	private List<List<Double>> SectionEmotion;
 	private List<List<Double>> Density;
 	private Integer PosSum;
 	private Integer NegSum;
+	
+	public  List<NERElement> getNameList() {
+        return NameList;
+    }
+    public void setNameList( List<NERElement> SectionEmotion) {
+        this.NameList = NameList;
+    }
 	
 	public  List<List<Double>> getSectionEmotion() {
         return SectionEmotion;
@@ -36,6 +45,8 @@ public class EmotionResult {
     
     
     public void printResult() {
+    	System.out.println("List of named characters:");
+    	System.out.println(NameList);
     	System.out.println("Emotion Analysis:");
     	System.out.println(SectionEmotion);
     	System.out.println("Density Analysis:");

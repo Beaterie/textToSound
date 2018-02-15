@@ -41,7 +41,7 @@ public class NEREmotionProcessor {
 	private Integer sections;
 	private static Integer TextLength;
 
-	private List<NERElement> NNList = new ArrayList<>(); // List with Nouns
+	//private List<NERElement> NNList = new ArrayList<>(); // List with Nouns
 	private List<NERElement> NNPList = new ArrayList<>(); // List with Proper Nouns (Names)
 	private List<NERElement> AdjList = new ArrayList<>(); // List with Adjectives
 
@@ -139,8 +139,7 @@ public class NEREmotionProcessor {
 	}
 
 	// *Get important information from xml-file
-	public static void analyze_xml(String story, List<NERElement> NNList, List<NERElement> NNPList,
-			List<NERElement> AdjList) {
+	public static void analyze_xml(String story, List<NERElement> NNPList) {
 		Integer iSentence = 0; // number of sentences
 		Integer iToken = 0; // number of words
 		Attribute SidAttr = null; // Sentence ID
@@ -184,13 +183,8 @@ public class NEREmotionProcessor {
 						category = String.valueOf(event.asCharacters().getData());
 						// System.out.println(category);
 
-						if (Objects.equals(category, "NN")) {
-							NNList.add(NEREle);
-						} else if (Objects.equals(category, "NNP")) {
+						if (Objects.equals(category, "NNP")) {
 							NNPList.add(NEREle);
-						} else if (Objects.equals(category, "JJ") || Objects.equals(category, "JJR")
-								|| Objects.equals(category, "JJS")) {
-							AdjList.add(NEREle);
 						} else if (Objects.equals(category, ".") || Objects.equals(category, ",")
 								|| Objects.equals(category, "``") || Objects.equals(category, "''")
 								|| Objects.equals(category, "\"") || Objects.equals(category, "POS")
@@ -210,11 +204,6 @@ public class NEREmotionProcessor {
 			}
 			TextLength = iToken;
 			// System.out.println(TextLength);
-
-			for (NERElement Element : NNList) {
-				Element.setRelativePosition(Math.round(Element.getTotalPosition() / TextLength * 10000D) / 100D);
-				// NNList.get(Element)
-			}
 
 			for (int Element = 0; Element < NNPList.size(); Element++) {
 				NNPList.get(Element).setRelativePosition(
@@ -239,10 +228,6 @@ public class NEREmotionProcessor {
 
 			}
 
-			for (NERElement Element : AdjList) {
-				Element.setRelativePosition(Math.round(Element.getTotalPosition() / TextLength * 10000D) / 100D);
-				// NNList.get(Element)
-			}
 
 			// System.out.println(NNList);
 			// System.out.println(NNPList);
@@ -469,7 +454,7 @@ public class NEREmotionProcessor {
 
 	public List<String> nameDetection() throws IOException {
 		create_xml(mSrcFileName);
-		analyze_xml(mSrcFileName, NNList, NNPList, AdjList);
+		analyze_xml(mSrcFileName, NNPList);
 
 		// Put the names to map
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -495,8 +480,6 @@ public class NEREmotionProcessor {
 
 	public EmotionResult main(String[] args) throws IOException {
 
-		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/little-red-riding-hood.txt", 10);
-
 		String tempSrc = mSrcFileName;
 		// String tempSrc = mSrcFileName.substring(0, mSrcFileName.length() - 4) +
 		// "temp.txt";
@@ -507,13 +490,14 @@ public class NEREmotionProcessor {
 		create_xml(tempSrc);
 		// classify(tempSrc);
 		System.out.println("classify done");
-		analyze_xml(tempSrc, NNList, NNPList, AdjList);
+		analyze_xml(tempSrc, NNPList);
 		System.out.println("xml done");
 
 		String StoryString = txt2string(mSrcFileName);
 
 		EmotionResult EmotionResults = AssessEmotion(StoryString, sections);
 		System.out.println("emotion done");
+		EmotionResults.setNameList(NNPList);
 		EmotionResults.printResult();
 
 		try {
