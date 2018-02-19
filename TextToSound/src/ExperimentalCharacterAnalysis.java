@@ -13,6 +13,10 @@ import java.util.regex.Pattern;
 
 public class ExperimentalCharacterAnalysis {
 	
+	// --------------------------------------------------------
+	// Members
+	// --------------------------------------------------------
+	
 	private StringBuilder mText = new StringBuilder();
 	private String[] mQuoteSpeakers;
 	private List<Integer> mQuoteIndexes = new ArrayList<Integer>();
@@ -22,6 +26,39 @@ public class ExperimentalCharacterAnalysis {
 	private String mFirstPerson = "";
 	private String mThirdPerson = "";
 	private Map<String, String> mGenderMap = new HashMap<String, String>();
+	
+	
+	// --------------------------------------------------------
+	// Primary Methods
+	// --------------------------------------------------------
+	
+	/**
+	 * Check if the given number is even.
+	 */
+	private boolean isEven(int x) {
+		return x%2 == 0;
+	}
+	
+	/**
+	 * Return the bigger number of the 2 given numbers.
+	 */
+	private int max(int a, int b) {
+		int x = a>b ? a:b;
+		return x;
+	}
+	
+	/**
+	 * Return the smaller number of the 2 given numbers.
+	 */
+	private int min(int a, int b) {
+		int x = a<b ? a:b;
+		return x;
+	}
+	
+	
+	// --------------------------------------------------------
+	// Preparation for analysis
+	// --------------------------------------------------------
 	
 	/**
 	 * Read the text and store the text in the member mText.
@@ -44,7 +81,7 @@ public class ExperimentalCharacterAnalysis {
 	 * including the start and end indexes, in a list.
 	 */
 	private void findQuotes() {
-		Pattern p = Pattern.compile("‘([^‘]*|[^’]*)’|\"([^\"]*|[^\"]*)\"");
+		Pattern p = Pattern.compile("‘([^‘]*|[^’]*)’|“([^“]*|[^”]*)”|\"([^\"]*|[^\"]*)\"");
 		Matcher m = p.matcher(mText);
 		while (m.find()) {
 			mQuoteIndexes.add(m.start());
@@ -129,6 +166,11 @@ public class ExperimentalCharacterAnalysis {
 //	private static String discardSubConjunctions(String substring) {
 //		return substring;
 //	}
+	
+	
+	// --------------------------------------------------------
+	// Analysis methods
+	// --------------------------------------------------------
 	
 	/**
 	 * Determine the speaker of the quote by analyzing the text before or after the quote.
@@ -228,16 +270,18 @@ public class ExperimentalCharacterAnalysis {
 			if (i == mQuoteIndexes.size()-1) {
 				substring = mText.substring(txtIndex, min(txtIndex + 50, mText.length()-1)).trim();
 				System.out.println("From " + i + "\n" + substring);
-				char firstChar = substring.charAt(0);
-				// If the following text isn't a part of the previous sentence, disregard.
-				if (Character.isLowerCase(firstChar)) {
-					subject = determineSpeaker(substring);
-					saveQuoteSpeaker(substring, subject, i);
-				}
-				
-				System.out.println();
-				for (String index : mQuoteSpeakers) {
-					System.out.print(index + ", ");
+				if (substring != null && substring.length() > 0) {
+					char firstChar = substring.charAt(0);
+					// If the following text isn't a part of the previous sentence, disregard.
+					if (Character.isLowerCase(firstChar)) {
+						subject = determineSpeaker(substring);
+						saveQuoteSpeaker(substring, subject, i);
+					}
+					
+					System.out.println();
+					for (String index : mQuoteSpeakers) {
+						System.out.print(index + ", ");
+					}
 				}
 				return;
 			}
@@ -251,13 +295,11 @@ public class ExperimentalCharacterAnalysis {
 			if (isEven(i)) {	// If i is even, it indicates this index is the start pos of a quote
 				// Save the quote into mQuoteList
 				mQuoteList.add(new StringBuilder(substring));
-//				characterAnalysis();
 			}
 			// Search outside of quotes
 			else {
 				subject = determineSpeaker(substring);
 				saveQuoteSpeaker(substring, subject, i);
-//				characterAnalysis(); 
 			}
 			System.out.println("Subject: " + subject + "\n");
 		}
@@ -380,41 +422,29 @@ public class ExperimentalCharacterAnalysis {
 	 * This function's goal is to find out which emotions the characters are most related to.
 	 * @throws IOException 
 	 */
-	private void characterAnalysis(NEREmotionProcessor NERprocessor) throws IOException {
-		List<NERElement> AdjList = NERprocessor.getAdjList();
+	private Map<String, EmotionResult> characterAnalysis(NEREmotionProcessor NERprocessor) throws IOException {
+		Map<String, EmotionResult> characterEmotionRes = new HashMap<>();
 		for (Entry<String, StringBuilder> entry : mQuoteMap.entrySet()) {
 			String person = entry.getKey();
 			StringBuilder quotes = entry.getValue();
+			EmotionResult EmotionResults = NERprocessor.AssessEmotion(quotes.toString(), 1);
+			characterEmotionRes.put(person, EmotionResults);
+			
+			System.out.println(person);
+			EmotionResults.printResult();
+			System.out.println();
 		}
+		return characterEmotionRes;
 	}
 	
-	/**
-	 * Check if the given number is even.
-	 */
-	private boolean isEven(int x) {
-		return x%2 == 0;
-	}
 	
-	/**
-	 * Return the bigger number of the 2 given numbers.
-	 */
-	private int max(int a, int b) {
-		int x = a>b ? a:b;
-		return x;
-	}
-	
-	/**
-	 * Return the smaller number of the 2 given numbers.
-	 */
-	private int min(int a, int b) {
-		int x = a<b ? a:b;
-		return x;
-	}
-	
+	// --------------------------------------------------------
+	// The main function for testing
+	// --------------------------------------------------------
 	
 	public static void main(String[] args) throws IOException {
 		
-		String sourceFile = "data/little-red-riding-hood.txt";
+		String sourceFile = "data/pride-and-prejudice-test.txt";
 //		String sourceFile = "data/test-character.txt";
 		TextLexProcessor proc = new TextLexProcessor(sourceFile, "data/lexicon_people_and_animal.csv");
 		ProcessedResult result = proc.process();
@@ -435,15 +465,15 @@ public class ExperimentalCharacterAnalysis {
 			System.out.print(index + ", ");
 		}System.out.println();
 		
-//		exp.characterAnalysis(NERprocessor1);
+		Map<String, EmotionResult> characterEmoRes = exp.characterAnalysis(NERprocessor1);
 		
 		
-		// Presentation
-		System.out.println("\n============================================================");
-		System.out.println("============================================================\n");
-		for (Entry<String, StringBuilder> entry : exp.mQuoteMap.entrySet()) {
-			System.out.println(entry.getKey());
-			System.out.println("[" + entry.getValue() + "]\n");
-		}
+//		// Presentation
+//		System.out.println("\n============================================================");
+//		System.out.println("============================================================\n");
+//		for (Entry<String, StringBuilder> entry : exp.mQuoteMap.entrySet()) {
+//			System.out.println(entry.getKey());
+//			System.out.println("[" + entry.getValue() + "]\n");
+//		}
 	}
 }
