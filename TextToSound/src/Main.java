@@ -20,18 +20,20 @@ public class Main {
 //		        ex.getStackTrace();
 //		    }
 	
-		TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.csv");
+		//TextLexProcessor processor1 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_animals.csv");
 		//TextLexProcessor processor2 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_environment.txt");
-		//TextLexProcessor processor3 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
+		//TextLexProcessor processor3 = new TextLexProcessor("data/little-red-riding-hood.txt", "data/lexicon_animals.csv");
+		TextLexProcessor processor4 = new TextLexProcessor("data/hansel-and-gretel.txt", "data/lexicon_animals.csv");
 		
-		MusicProcessor mp = new MusicProcessor(processor1.process());
-		mp.setM_numOfSections(20);
+		MusicProcessor mp = new MusicProcessor(processor4.process());
+		//mp.setM_numOfSections(10);
 		
-		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt", mp.getM_numOfSections());
-		//NEREmotionProcessor NERprocessor2 = new NEREmotionProcessor("data/the-fox-and-the-crow.txt", mp.getM_numOfSections());
+		//NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/the-happy-prince.txt", mp.getM_numOfSections());
+		NEREmotionProcessor NERprocessor2 = new NEREmotionProcessor("data/hansel-and-gretel.txt", mp.getM_numOfSections());
+		//NEREmotionProcessor NERprocessor2 = new NEREmotionProcessor("data/little-red-riding-hood.txt", mp.getM_numOfSections());
 		
 		//NERprocessor1.main(args);
-		EmotionResult EmotionResults = NERprocessor1.main(args);
+		EmotionResult EmotionResults = NERprocessor2.main(args);
 	
 		mp.process(EmotionResults);
 		
