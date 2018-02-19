@@ -11,7 +11,6 @@ public class EmotionElement {
 	private boolean trust = false;
 	private boolean positive = false;
 	private boolean negative = false;
-	private double RelativePosition;
 	
 	
 	//THE WORD ITSELF
@@ -112,14 +111,6 @@ public class EmotionElement {
     	this.negative = negative;
     }
     
-   //RELATIVE POSITION
-    public double getRelativePosition() {
-        return RelativePosition;
-    }
-    
-    public void setRelativePosition(double RelativePosition) {
-        this.RelativePosition = RelativePosition;
-    }
     
     @Override
     public String toString() {

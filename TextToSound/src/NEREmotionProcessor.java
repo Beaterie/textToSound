@@ -21,16 +21,8 @@ import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
-import edu.stanford.nlp.coref.CorefCoreAnnotations;
-import edu.stanford.nlp.coref.data.CorefChain;
 import edu.stanford.nlp.io.*;
-import edu.stanford.nlp.ling.*;
 import edu.stanford.nlp.pipeline.*;
-import edu.stanford.nlp.semgraph.SemanticGraph;
-import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations;
-import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
-import edu.stanford.nlp.trees.*;
-import edu.stanford.nlp.util.*;
 
 public class NEREmotionProcessor {
 
@@ -39,7 +31,7 @@ public class NEREmotionProcessor {
 	// --------------------------------------------------------
 	private String mSrcFileName;
 	private Integer sections;
-	private static Integer TextLength;
+	private static Integer TextLength = 0;
 
 	//private List<NERElement> NNList = new ArrayList<>(); // List with Nouns
 	private List<NERElement> NNPList = new ArrayList<>(); // List with Proper Nouns (Names)
@@ -128,7 +120,7 @@ public class NEREmotionProcessor {
 			Runtime rt = Runtime.getRuntime();
 			Process pr = rt.exec(
 					"java -cp \"data/stanford-corenlp/*\" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner -file "
-							+ story + " -outputDirectory data/");
+							+ story + " -outputDirectory data/lit/");
 
 			int exitVal = pr.waitFor();
 			System.out.println("Exited with error code " + exitVal);
@@ -139,7 +131,7 @@ public class NEREmotionProcessor {
 	}
 
 	// *Get important information from xml-file
-	public static void analyze_xml(String story, List<NERElement> NNPList) {
+	public static Integer analyze_xml(String story, List<NERElement> NNPList, Integer TextLength) {
 		Attribute SidAttr = null; // Sentence ID
 		Attribute TidAttr = null; // Word ID
 		String TName = null; // Word Name
@@ -198,7 +190,7 @@ public class NEREmotionProcessor {
 					}
 				}
 			}
-			System.out.println("TExtlengt:"+ TextLength);
+			System.out.println("Textlength:"+ TextLength);
 
 			for (int Element = 0; Element < NNPList.size(); Element++) {
 				NNPList.get(Element).setRelativePosition(
@@ -227,13 +219,15 @@ public class NEREmotionProcessor {
 			// System.out.println(NNList);
 			 System.out.println(NNPList);
 			// System.out.println(AdjList);
+			 
+			 
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (XMLStreamException e) {
 			e.printStackTrace();
 		}
-
+		return TextLength;
 	}
 
 	// **************
@@ -264,7 +258,7 @@ public class NEREmotionProcessor {
 		EmotionResult EmotionResult = new EmotionResult();
 		for (int i = 0; i < sections; i++) { // Interation  über jede Textsektion
 			SeEl = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-			while (ListPosition < words.length -1 && (ListPosition/(0.01*words.length))/*AdjList.get(ListPosition).getRelativePosition()*/ < (i + 1) * PpS) {
+			while (ListPosition < words.length -1 && (ListPosition/(0.01*words.length)) < (i + 1) * PpS) {
 				// solang nicht an alle Elemente aus AdjList und Prozentsatz des Textes pro
 				// Sektion abgearbeitet
 				Index = FindEqual(EmoLex, words[ListPosition]/*AdjList.get(ListPosition).getName()*/);
@@ -285,8 +279,9 @@ public class NEREmotionProcessor {
 
 				while (DensityPosition < /*AdjList.size()*/words.length -1
 						&& /*AdjList.get(DensityPosition).getRelativePosition()*/(DensityPosition/(0.01*words.length)) < ((i) * PpS + (j + 1) * PpS / 1)) {
+
 					// rel. Position des Adj. in gsm Text <(IndexSektion* 100%/SummeSektionen
-					Index = FindEqual(EmoLex, words[DensityPosition]/*AdjList.get(ListPosition).getName()*/);
+					Index = FindEqual(EmoLex, words[DensityPosition]);
 					if (Index != null) {
 						EmotionAmount++;
 					}
@@ -451,7 +446,7 @@ public class NEREmotionProcessor {
 
 	public List<String> nameDetection() throws IOException {
 		create_xml(mSrcFileName);
-		analyze_xml(mSrcFileName, NNPList);
+		analyze_xml(mSrcFileName, NNPList, TextLength);
 
 		// Put the names to map
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -487,7 +482,7 @@ public class NEREmotionProcessor {
 		create_xml(tempSrc);
 		// classify(tempSrc);
 		System.out.println("classify done");
-		analyze_xml(tempSrc, NNPList);
+		TextLength = analyze_xml(tempSrc, NNPList, TextLength);
 		System.out.println("xml done");
 
 		EmotionResult EmotionResults = AssessEmotion(mSrcFileName, sections);
