@@ -237,8 +237,8 @@ public class NEREmotionProcessor {
 	// **************
 	//public static EmotionResult AssessEmotion(List<NERElement> AdjList, Integer sections) throws IOException {
 	public static EmotionResult AssessEmotion(String mSrcFileName, Integer sections) throws IOException {
-		String text = txt2string(mSrcFileName);
-		String[] words= text.split("\\s+");
+//		String text = txt2string(mSrcFileName);
+		String[] words= mSrcFileName.split("\\s+");
 		List<EmotionElement> EmoLex;
 		EmoLex = ReadLexicon();
 		
