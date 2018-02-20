@@ -217,7 +217,7 @@ public class NEREmotionProcessor {
 
 
 			// System.out.println(NNList);
-			 System.out.println(NNPList);
+			 //System.out.println(NNPList);
 			// System.out.println(AdjList);
 			 
 			 
@@ -236,9 +236,8 @@ public class NEREmotionProcessor {
 	// *
 	// **************
 	//public static EmotionResult AssessEmotion(List<NERElement> AdjList, Integer sections) throws IOException {
-	public static EmotionResult AssessEmotion(String mSrcFileName, Integer sections) throws IOException {
-//		String text = txt2string(mSrcFileName);
-		String[] words= mSrcFileName.split("\\s+");
+	public static EmotionResult AssessEmotion(String text, Integer sections) throws IOException {
+		String[] words= text.split("\\s+");
 		List<EmotionElement> EmoLex;
 		EmoLex = ReadLexicon();
 		
@@ -302,6 +301,19 @@ public class NEREmotionProcessor {
 			PosSum = PosSum + Element.get(8).intValue();
 			NegSum = NegSum + Element.get(9).intValue();
 		}
+		int  anger, anticipation,  disgust, fear, joy, sadness, surprise, trust;
+		anger = anticipation =  disgust = fear = joy = sadness = surprise = trust = 0 ;
+		for (List<Double> Element : SectionEmotion) {
+			anger = anger + Element.get(0).intValue();
+			anticipation = anticipation + Element.get(1).intValue();
+			disgust = disgust + Element.get(2).intValue();
+			fear = fear + Element.get(3).intValue();
+			joy = joy + Element.get(4).intValue();
+			sadness = sadness + Element.get(5).intValue();
+			surprise = surprise + Element.get(6).intValue();
+			trust = trust + Element.get(7).intValue();
+		}
+		System.out.println("Emotions:" + anger +"; " + anticipation+"; " +  disgust+"; " + fear+"; " + joy+"; " + sadness+"; " + surprise+"; " + trust+"; " + PosSum+"; " + NegSum);
 
 		EmotionResult.setNegSum(NegSum);
 		EmotionResult.setPosSum(PosSum);
@@ -485,7 +497,8 @@ public class NEREmotionProcessor {
 		TextLength = analyze_xml(tempSrc, NNPList, TextLength);
 		System.out.println("xml done");
 
-		EmotionResult EmotionResults = AssessEmotion(mSrcFileName, sections);
+		String text = txt2string(mSrcFileName);
+		EmotionResult EmotionResults = AssessEmotion(text, sections);
 		System.out.println("emotion done");
 		EmotionResults.setNameList(NNPList);
 		EmotionResults.printResult();
