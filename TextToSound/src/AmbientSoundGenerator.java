@@ -1,6 +1,13 @@
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  * This class generates ambient sound background for the MIDI music.
@@ -63,6 +70,78 @@ public class AmbientSoundGenerator {
 		EnvironmentSoundMap.put("mountain", new String[] {"forest-woods-mountain.mp3"});
 	}
 	
+	private final String EnvironmentSoundLibPath = "data/EnvironmentSoundLib/";
+	
+	
+	// --------------------------------------------------------
+	// Methods
+	// --------------------------------------------------------
+	
+	/**
+	 * Store the relative occurrence info of the environment into sections
+	 * for further computing.
+	 */
+	private ArrayList<ArrayList<Float>> genSectionInfo(ArrayList<Float> relativOccPos) {
+		ArrayList<ArrayList<Float>> occInfoInSections = new ArrayList<>();
+		for (int j = 0; j < 100; j+=100/mNumSections) {
+			ArrayList<Float> section = new ArrayList<>();
+			for (Float position : relativOccPos) {
+				if (position < j || position == j) {
+					section.add(position);
+				}
+			}
+		}
+		return occInfoInSections;
+	}
+	
+	/**
+	 * Generate an audio file for a single environment.
+	 * (If this environment occurs in a section, the corresponding sound will 
+	 * be played in this section.)
+	 * @return name of the newly mixed file
+	 * @throws IOException 
+	 * @throws UnsupportedAudioFileException 
+	 */
+	private String mixAmbientSound(String environmentName, ArrayList<ArrayList<Float>> occInfoSections) 
+			throws UnsupportedAudioFileException, IOException {
+		AudioInputStream sound = AudioSystem.getAudioInputStream( new File(
+				EnvironmentSoundLibPath + 
+				EnvironmentSoundMap.get(environmentName)[new Random().nextBoolean()? 0:1]));
+		
+		return "";
+	}
+	
+	/**
+	 * Merge the generated mp3 files for each environment into a new file
+	 */
+	private void mergeParts() {
+		
+	}
+	
+	/**
+	 * Generate ambient sound mix for the text.
+	 * @throws IOException 
+	 * @throws UnsupportedAudioFileException 
+	 */
+	public void generateAmbient(ProcessedResult result, int numSections) 
+			throws UnsupportedAudioFileException, IOException {
+		// Initialize ArrayList containing the generated audio file Paths
+		ArrayList<String> audioFiles = new ArrayList<>();
+		// Generate a new audio file for all environments found according to their occurrence info
+		for (Map.Entry<String, TargetInfo> entry : result.getOccurenceInfos().entrySet()) {
+			
+			String environment = entry.getKey();
+			// The relative occurrence info of current environment entry
+			ArrayList<Float> relOccInfo = entry.getValue().getRelativPosOccurence();
+			// Store the occurrence info into sections 
+			ArrayList<ArrayList<Float>> occInfoInSections = genSectionInfo(relOccInfo);
+			String newFileName = mixAmbientSound(environment, occInfoInSections);
+			audioFiles.add(newFileName);
+		}
+		
+		mergeParts();
+	}
+	
 	
 	// --------------------------------------------------------
 	// Main method for testing
@@ -74,5 +153,7 @@ public class AmbientSoundGenerator {
 		result.printRes();
 		
 		AmbientSoundGenerator soundGenerator  = new AmbientSoundGenerator(srcFile, 10);
+		//soundGenerator.generateAmbient();
+		
 	}
 }
