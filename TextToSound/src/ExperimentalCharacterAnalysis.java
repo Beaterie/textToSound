@@ -431,7 +431,7 @@ public class ExperimentalCharacterAnalysis {
 			characterEmotionRes.put(person, EmotionResults);
 			
 			System.out.println(person);
-			EmotionResults.printResult();
+//			EmotionResults.printResult();
 			System.out.println();
 		}
 		return characterEmotionRes;
