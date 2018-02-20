@@ -442,9 +442,10 @@ public class ExperimentalCharacterAnalysis {
 	// The main function for testing
 	// --------------------------------------------------------
 	
-	public static void main(String[] args) throws IOException {
+	public static Map<String, EmotionResult> main(String arg) throws IOException {
 		
-		String sourceFile = "data/pride-and-prejudice-test.txt";
+		//String sourceFile = "data/pride-and-prejudice-test.txt";
+		String sourceFile = arg;
 //		String sourceFile = "data/test-character.txt";
 		TextLexProcessor proc = new TextLexProcessor(sourceFile, "data/lexicon_people_and_animal.csv");
 		ProcessedResult result = proc.process();
@@ -465,10 +466,11 @@ public class ExperimentalCharacterAnalysis {
 			System.out.print(index + ", ");
 		}System.out.println();
 		
-		Map<String, EmotionResult> characterEmoRes = exp.characterAnalysis(NERprocessor1);
+//		Map<String, EmotionResult> characterEmoRes = exp.characterAnalysis(NERprocessor1);
+		return exp.characterAnalysis(NERprocessor1);
 		
 		
-//		// Presentation
+		// Presentation
 //		System.out.println("\n============================================================");
 //		System.out.println("============================================================\n");
 //		for (Entry<String, StringBuilder> entry : exp.mQuoteMap.entrySet()) {
