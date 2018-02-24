@@ -301,7 +301,7 @@ public class NEREmotionProcessor {
 			PosSum = PosSum + Element.get(8).intValue();
 			NegSum = NegSum + Element.get(9).intValue();
 		}
-		int  anger, anticipation,  disgust, fear, joy, sadness, surprise, trust;
+		/*int  anger, anticipation,  disgust, fear, joy, sadness, surprise, trust;
 		anger = anticipation =  disgust = fear = joy = sadness = surprise = trust = 0 ;
 		for (List<Double> Element : SectionEmotion) {
 			anger = anger + Element.get(0).intValue();
@@ -314,7 +314,7 @@ public class NEREmotionProcessor {
 			trust = trust + Element.get(7).intValue();
 		}
 		System.out.println("Emotions:" + anger +"; " + anticipation+"; " +  disgust+"; " + fear+"; " + joy+"; " + sadness+"; " + surprise+"; " + trust+"; " + PosSum+"; " + NegSum);
-
+*/
 		EmotionResult.setNegSum(NegSum);
 		EmotionResult.setPosSum(PosSum);
 		return EmotionResult;

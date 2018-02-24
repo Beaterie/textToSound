@@ -20,14 +20,14 @@ public class Main {
 //		        ex.getStackTrace();
 //		    }
 	
-		TextLexProcessor processor1 = new TextLexProcessor("data/The-Wolf-and-the-Seven-Kids.txt", "data/lexicon_animals.csv");
+		TextLexProcessor processor1 = new TextLexProcessor("data/lit/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
 		//TextLexProcessor processor2 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_environment.txt");
 		//TextLexProcessor processor3 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
 		
 		MusicProcessor mp = new MusicProcessor(processor1.process());
 		mp.setM_numOfSections(20);
 		
-		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/The-Wolf-and-the-Seven-Kids.txt", mp.getM_numOfSections());
+		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/lit/the-fox-and-the-crow.txt", mp.getM_numOfSections());
 		//NEREmotionProcessor NERprocessor2 = new NEREmotionProcessor("data/the-fox-and-the-crow.txt", mp.getM_numOfSections());
 		
 		//NERprocessor1.main(args);
