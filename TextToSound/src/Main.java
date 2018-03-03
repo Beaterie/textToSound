@@ -7,6 +7,7 @@ import java.util.Map;
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
+
 		System.out.println("Start analysing and generating music.");
 		
 		FilenameFilter filter = new FilenameFilter(){
@@ -48,12 +49,6 @@ public class Main {
 //		Map<String, EmotionResult> animal_emotion_vecs = ExperimentalCharacterAnalysis.main(lex_path);
 //		
 //		TextLexProcessor processor1 = new TextLexProcessor(lex_path, "data/lexicon_people_and_animal_individual.csv");
-		
-		//TextLexProcessor processor2 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_environment.txt");
-		//TextLexProcessor processor3 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
-		
-//		MusicProcessor mp = new MusicProcessor(processor1.process(), fairytale);
-		//mp.setM_numOfSections(20);
 		
 //		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor(lex_path, mp.getM_numOfSections());
 		
