@@ -1,6 +1,15 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -160,7 +169,7 @@ public class ExperimentalCharacterAnalysis {
 		mFirstPerson = mFirstPerson.substring(1, mFirstPerson.length()-1);
 		mThirdPerson = mThirdPerson.substring(1, mThirdPerson.length()-1);
 		
-		System.out.println(mFirstPerson + "\t" + mThirdPerson);
+		//System.out.println(mFirstPerson + "\t" + mThirdPerson);
 	}
 	
 //	private static String discardSubConjunctions(String substring) {
@@ -257,7 +266,7 @@ public class ExperimentalCharacterAnalysis {
 			// Search in the previous 50 characters before the first quote
 			if (i == 0) {
 				substring = mText.substring(max(0, txtIndex - 50), txtIndex).trim();
-				System.out.println("From -1 to 0: \n" + substring + "\n");
+				//System.out.println("From -1 to 0: \n" + substring + "\n");
 				String lastPunctuation = Character.toString(substring.charAt(substring.length()-1));
 				// If the preceding text isn't a part of the whole sentence including the quote,
 				// disregard. Otherwise determine the speaker.
@@ -269,7 +278,7 @@ public class ExperimentalCharacterAnalysis {
 			// Search in the following 50 characters after the last quote
 			if (i == mQuoteIndexes.size()-1) {
 				substring = mText.substring(txtIndex, min(txtIndex + 50, mText.length()-1)).trim();
-				System.out.println("From " + i + "\n" + substring);
+				//System.out.println("From " + i + "\n" + substring);
 				if (substring != null && substring.length() > 0) {
 					char firstChar = substring.charAt(0);
 					// If the following text isn't a part of the previous sentence, disregard.
@@ -278,9 +287,9 @@ public class ExperimentalCharacterAnalysis {
 						saveQuoteSpeaker(substring, subject, i);
 					}
 					
-					System.out.println();
+					//System.out.println();
 					for (String index : mQuoteSpeakers) {
-						System.out.print(index + ", ");
+						//System.out.print(index + ", ");
 					}
 				}
 				return;
@@ -289,7 +298,7 @@ public class ExperimentalCharacterAnalysis {
 			int next = mQuoteIndexes.get(i+1);
 			substring = mText.substring(txtIndex, next);
 			
-			System.out.println("From " + i + "\n" + substring);
+			//System.out.println("From " + i + "\n" + substring);
 			
 			// Search the span of quotes
 			if (isEven(i)) {	// If i is even, it indicates this index is the start pos of a quote
@@ -301,7 +310,7 @@ public class ExperimentalCharacterAnalysis {
 				subject = determineSpeaker(substring);
 				saveQuoteSpeaker(substring, subject, i);
 			}
-			System.out.println("Subject: " + subject + "\n");
+			//System.out.println("Subject: " + subject + "\n");
 		}
 	}
 	
@@ -430,9 +439,9 @@ public class ExperimentalCharacterAnalysis {
 			EmotionResult EmotionResults = NERprocessor.AssessEmotion(quotes.toString(), 1);
 			characterEmotionRes.put(person, EmotionResults);
 			
-			System.out.println(person);
+			//System.out.println(person);
 //			EmotionResults.printResult();
-			System.out.println();
+			//System.out.println();
 		}
 		return characterEmotionRes;
 	}
@@ -442,16 +451,23 @@ public class ExperimentalCharacterAnalysis {
 	// The main function for testing
 	// --------------------------------------------------------
 	
-	public static Map<String, EmotionResult> main(String arg) throws IOException {
+	public static Map<String, EmotionResult> main(String sourceFile) throws IOException {
 		
 		//String sourceFile = "data/pride-and-prejudice-test.txt";
-		String sourceFile = arg;
 //		String sourceFile = "data/test-character.txt";
-		TextLexProcessor proc = new TextLexProcessor(sourceFile, "data/lexicon_people_and_animal.csv");
-		ProcessedResult result = proc.process();
 		
 		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor(sourceFile, 10);
 		List<String> nameList = NERprocessor1.nameDetection();
+		
+//		System.out.println("CHARACTERS:");
+//		for (int i = 0; i < nameList.size(); i++) {
+//			System.out.print(nameList.get(i) + " ");
+//		}
+//		System.out.println();
+
+		
+		TextLexProcessor proc = new TextLexProcessor(sourceFile, "data/lexicon_people_and_animal_basic.csv");
+		ProcessedResult result = proc.process();
 		
 		
 		ExperimentalCharacterAnalysis exp = new ExperimentalCharacterAnalysis();
@@ -461,12 +477,28 @@ public class ExperimentalCharacterAnalysis {
 		exp.determineSpeakersOfQuotes();
 		exp.mapQuoteToSpeaker();
 		
-		System.out.println("\n" + exp.mQuoteMap.keySet());
-		for (String index : exp.mQuoteSpeakers) {
-			System.out.print(index + ", ");
-		}System.out.println();
+//		System.out.println("\n" + exp.mQuoteMap.keySet());
+//		for (String index : exp.mQuoteSpeakers) {
+//			System.out.print(index + ", ");
+//		}System.out.println();
+		
 		
 //		Map<String, EmotionResult> characterEmoRes = exp.characterAnalysis(NERprocessor1);
+		
+		// edit lexicon with new characters
+		Files.copy(Paths.get("data/lexicon_people_and_animal_basic.csv"), Paths.get("data/lexicon_people_and_animal_individual.csv"), StandardCopyOption.REPLACE_EXISTING);
+		try (FileWriter fw = new FileWriter("data/lexicon_people_and_animal_individual.csv", true);
+			    BufferedWriter bw = new BufferedWriter(fw);
+			    PrintWriter out = new PrintWriter(bw)) {
+			for (int i = 0; i < nameList.size(); i++) {
+				out.println(nameList.get(i).toLowerCase() + ",5,0,");
+			}
+			System.out.println("Lexicon updated.");
+		} catch (IOException e) {
+			//exception handling left as an exercise for the reader
+			System.out.println("Error while writing new lexicon.");
+		}
+		
 		return exp.characterAnalysis(NERprocessor1);
 		
 		

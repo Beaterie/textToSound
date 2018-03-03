@@ -1,17 +1,16 @@
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.commons.math3.stat.regression.SimpleRegression;
+//import org.apache.commons.math3.stat.regression.SimpleRegression;
 import org.jfugue.midi.MidiFileManager;
 import org.jfugue.pattern.Pattern;
 import org.jfugue.pattern.PatternProducer;
 import org.jfugue.player.Player;
-//import javax.sound.midi.*;
+
 
 public class MusicProcessor {
 	
@@ -23,20 +22,23 @@ public class MusicProcessor {
 	// <animal, index of appear, percent>
 	private Map<String, TargetInfo> m_textInput;
 	// animals
-	//private List<String> m_animals;
+	private String m_nameOfLiterature;
 	// music string
 	private String m_musicstring;
 	// number of characters of the text
 	private int m_textLength;
 	// number of sections
 	private int m_numOfSections;
-	// major and minor key
+	// major and minor key alphabets
 	private int[] m_majorKey = {60, 62, 64, 65, 67, 69, 71};
 	private int[] m_minorKey = {60, 62, 63, 65, 67, 68, 70};
 
-	private Double m_tempo = 120.0;
+	// tempo with default value
+	private Double m_tempo = 80.0;
+	// which emotion has which tempo value
+	private Double[] m_emotionTemp = {130.0, 150.0, 110.0, 120.0, 100.0, 80.0, 140.0, 90.0};
 	// emotions to minor and major keys - 0=minor, 1=major
-	private int[] m_emotionKeys = {0,1,0,0,1,0,1,1};
+	private int[] m_emotionKeys = {0, 1, 0, 0, 1, 0, 1, 1};
 	// most major or minor?
 	private int m_key;
 	// which scale for which size/age of a animal/person?
@@ -44,18 +46,13 @@ public class MusicProcessor {
 	// stimuli - 0=quiet, 1=alive, 2=aroused
 	private String[] m_stimuli = {"quiet","alive","aroused"};
 	// emotions to stimuli
-	private int[] m_emotionStim = {1,2,1,1,1,0,2,0};
-	// possible note durations for the stimuli
-	private int[] m_ambient_quiet = {1, 2};
-	private int[] m_ambient_alive = {1, 2};
-	private int[] m_ambient_aroused = {4};
-	
-	private int[] m_theme_quiet = {0, 1};
-	private int[] m_theme_alive = {1, 2, 3};
-	private int[] m_theme_aroused = {3, 4};
+	private int[] m_emotionStim = {1, 2, 1, 1, 1, 0, 2, 0};
+	// array for section information (filled later)
+	private Double[][] m_highestEmotions;
 	// emotions
 	private String[] m_emotions = {"Anger", "Anticipation",
 			"Disgust", "Fear", "Joy", "Sadness", "Surprise", "Trust"};
+	
 	// emotion chords
 	private String[] m_angerChords = {
 			"(60+64+67+71)/1.0", "(62+70)/0.5 (62+65+69+72)/0.5" };
@@ -84,21 +81,27 @@ public class MusicProcessor {
 	
 
 	
-	
 	// --------------------------------------------------------
 	// Constructors
 	// --------------------------------------------------------
 		
 	public MusicProcessor() {};
 
-	public MusicProcessor(ProcessedResult txtRes) throws IOException {
+	public MusicProcessor(ProcessedResult txtRes, String litName) throws IOException {
 		m_textInput = txtRes.getOccurenceInfos();
-		//m_animals = Files.readAllLines(Paths.get("data/lexicon_animals.csv"), StandardCharsets.UTF_8);
+		m_nameOfLiterature = litName;
 		m_musicstring = "";
 		m_textLength = txtRes.getTextLength();
 		m_numOfSections = genereateNumOfSections();
+		m_highestEmotions = new Double[4][m_numOfSections];
 	}
 
+	
+	
+	
+	// --------------------------------------------------------
+	// Getters
+	// --------------------------------------------------------
 	
 	// --------------------------------------------------------
 	// Getter
@@ -108,6 +111,7 @@ public class MusicProcessor {
 		return m_numOfSections;
 	}
 	
+	
 	public Double getSecondsPerSection() {
 		return 60.0/(m_tempo/8.0);
 	}
@@ -116,106 +120,79 @@ public class MusicProcessor {
 	// Setter
 	// --------------------------------------------------------
 
+
+
+	
+	// --------------------------------------------------------
+	// Setters
+	// --------------------------------------------------------
+	
 	public void setM_numOfSections(int m_numOfSections) {
 		this.m_numOfSections = m_numOfSections;
 	}
 	
 	
+	
+	
+	// --------------------------------------------------------
+	// General Methods
+	// --------------------------------------------------------
+	
+	/**
+	 * Main method which calls every single step/method for generating the music.
+	 * Allows to auto-play the generated midi-file (activated by default).
+	 * Saves the midi-files in the music-folder.
+	 */
 	// --------------------------------------------------------
 	// music-processing methods
 	// --------------------------------------------------------
 	
-	public void process(EmotionResult EmotionResults) {
+	public void process(EmotionResult EmotionResults, Map<String, EmotionResult> AnimalEmotionResults) {
+		
+		System.out.println();
+		System.out.println("-----------------------------------------------------------------");
+		System.out.println("---------------------- General Information ----------------------");
+		System.out.println();
+		
 		System.out.println("Number of Sections: " + m_numOfSections);
-		int counter = 0;
-		// tempo definition
-		m_musicstring += getTempo();
-		
-//		majorKey.put(0,60); // C
-//		majorKey.put(1,67); // G
-//		majorKey.put(2,64); // E
-//		majorKey.put(3,69); // A
-//		majorKey.put(4,62); // D
-//		majorKey.put(5,65); // F
-//		majorKey.put(6,71); // B
-//		
-//		minorKey.put(0,60); // C
-//		minorKey.put(1,67); // G
-//		minorKey.put(2,63); // Eb
-//		minorKey.put(3,68); // Ab
-//		minorKey.put(4,62); // D
-//		minorKey.put(5,65); // F
-//		minorKey.put(6,70); // Bb
-		
-		// for each appearing animal
-//		for (Entry<String, TargetInfo> e : m_textInput.entrySet()) {
-//			// check animal preset list
-//			for (int i = 0; i < m_animals.size(); i++) {
-//				// if existing
-//				if (e.getKey().equals(m_animals.get(i))) {
-//					counter += 1;
-//					int[] appearance = new int[numOfSections];
-//					List<Float> percentList = e.getValue().getRelativPosOccurence();
-//					// for each section
-//					for (int j = 0; j < numOfSections; j++) {
-//						for (int k = 0; k < percentList.size(); k++) {
-//							// match appearance?
-//							//System.out.print((j+1)*(100.0/(float)numOfSections) + " ");
-//							if (	percentList.get(k) < (j+1)*(100.0/(float)numOfSections) &&
-//									percentList.get(k) > (j)*(100.0/(float)numOfSections)	) {
-//								appearance[j] = ++appearance[j];
-//							}
-//						}
-//						//System.out.print(appearance[j] + " ");
-//					}
-//					// now the appearance of the animal i is saved
-//					// generate music for the animal i
-//					//m_musicstring += generateLayer(counter, appearance, e.getKey());
-//					//System.out.println(generateLayer(counter, appearance, e.getKey()));
-//					// search can end
-//					//i = m_animals.size();
-//				}
-//			}
-//		}
 		generateKey(EmotionResults);
+		generateTempo(EmotionResults);
+		
+		m_musicstring += jFugueTempo();
 		m_musicstring += generateMusicalAmbient(EmotionResults);
-//		for (int y = 1; y < 16.0; y++)
-//		for (Double z = 1.0; z < 16.0; z++) {
-//			System.out.print("Times " + z + ", Size " + y + " --> ");
-//			generateTheme(z, 2.0, y);
-//		}
-
-		//m_musicstring = "T120 L1 " + foxTheme();
-		Player player = new Player();
+		m_musicstring += generateThemeLayers(AnimalEmotionResults);
+		
+		//Player player = new Player();
 		Pattern pattern = new Pattern(m_musicstring);
-		System.out.println(m_musicstring);
-		//player.saveMidi(pattern, new File("music-file.mid"));
-		// play stuff
-		//pattern.save(new File("twinkle.jfugue"));
+		//System.out.println(m_musicstring);
+
 	    try {
-	        MidiFileManager.savePatternToMidi((PatternProducer) pattern, new File("Ambientmusic.midi"));
-	        System.out.println("Midi saved as \"Ambientmusic.midi\". ");
+	        MidiFileManager.savePatternToMidi((PatternProducer) pattern,
+	        		new File("music/" + m_nameOfLiterature + "-music.midi"));
+	        System.out.println("Midi saved as " + m_nameOfLiterature + "-music.midi !");
 	    } catch (Exception ex) {
 	        ex.getStackTrace();
 	    }
-		player.play(pattern);
+		//player.play(pattern);
 	}
+	
+	/**
+	 * Generates the number of sections subject to the number of characters of the novel.
+	 */
 	
 	// generate the number of sections subject to
 	// the number of characters of the text
 	public int genereateNumOfSections() {
-		int numOfSections = 10 + (int) Math.log10(m_textLength);
+		int numOfSections = 8 + (int) Math.log10(m_textLength);
 		return numOfSections;
 	}
 	
-	// get the tempo
-	private String getTempo() {
-		return "T" + Integer.toString((int) Math.round(m_tempo)) + " ";
-	}
+	/**
+	 * Generates the key for the whole piece of music (minor/major).
+	 * The emotion with the highest frequency sets the key.
+	 */
 	
-	// --------
 	// find and set key - minor/major
-	// --------
 	private void generateKey(EmotionResult EmotionResults) {
 		int key = 0;
 		Double counter = 0.0;
@@ -224,6 +201,8 @@ public class MusicProcessor {
 		for (int i = 0; i < emotionSum.length; i++) {
 			emotionSum[i] = 0.0;
 		}
+		
+		// find highest frequency
 		for (List<Double> i : EmotionResults.getSectionEmotion()) {
 			for (int j = 0; j < 8; j++) {
 				emotionSum[j] += i.get(j);
@@ -236,100 +215,343 @@ public class MusicProcessor {
 				emotion = i;
 			}
 		}
+		
+		// set the key of the emotion to overall key
 		m_key = key;
 		if (m_key == 0) {
-			System.out.println("Key: Minor");
+			System.out.print("Key: Minor ");
 		}
 		else if (m_key == 1) {
-			System.out.println("Key: Major");
+			System.out.print("Key: Major ");
 		}
 		else {
 			System.out.println("Failure while key generation!");
 		}
-		System.out.println("Based on the most appeared emotion: " + m_emotions[emotion] +
-				" (Times: " + emotionSum[emotion] + ")");
+		System.out.println(" --> Based on the most appeared emotion: " + m_emotions[emotion] +
+				" (Frequency: " + emotionSum[emotion] + ")");
 	}
 	
-	private void generateAnimalMusic() {
-		for (Entry<String, TargetInfo> e : m_textInput.entrySet()) {
-			generateThemeLayer(e.getValue());
+	/**
+	 * Generates the tempo for the whole piece of music (90-150 BPM).
+	 * The emotion with the highest frequency sets the tempo.
+	 */
+
+	private void generateTempo(EmotionResult EmotionResults) {
+		Double tempo = 80.0;
+		Double counter = 0.0;
+		int emotion = 0;
+		Double[] emotionSum = new Double[8];
+		for (int i = 0; i < emotionSum.length; i++) {
+			emotionSum[i] = 0.0;
 		}
-	}
-	
-	// generate musical animal theme
-	private void generateThemeLayer(TargetInfo animal) {
-		String theme = "";
-		Boolean animal_character = animal.getTargetCharacter();
-		int animal_size = animal.getTargetPhys();
-		String animal_name = animal.getTarget();
 		
-		animal.setTheme(theme);
+		// find highest frequency
+		for (List<Double> i : EmotionResults.getSectionEmotion()) {
+			for (int j = 0; j < 8; j++) {
+				emotionSum[j] += i.get(j);
+			}
+		}
+		for (int i = 0; i < 8; i++) {
+			if (emotionSum[i] > counter) {
+				counter = emotionSum[i];
+				tempo = m_emotionTemp[i];
+				emotion = i;
+			}
+		}
+		
+		// set the new tempo
+		m_tempo = tempo;
+		System.out.println("Tempo " + m_tempo + " --> Based on the most appeared emotion: " + m_emotions[emotion] +
+				" (Frequency: " + emotionSum[emotion] + ")");
 	}
 	
-	private void generateTheme(Double times1, Double stimulus1, int size1,
-			Double times2, Double stimulus2, int size2) {
-		String durations = full(times1, stimulus1, size1) + full(times2, stimulus2, size2);
-		System.out.println("Thema 1: " + durations);
+	
+	/**
+	 * Returns the tempo in the necessary JFugue-MusicString-format.
+	 */
+	private String jFugueTempo() {
+		return "T" + Integer.toString((int) Math.round(m_tempo)) + " ";
 	}
 	
+	
+	// --------------------------------------------------------
+	// Methods for the animals/persons themes
+	// --------------------------------------------------------
+	
+	/**
+	 * Starts the whole generation of the themes and the theme layers.
+	 * Prints some information about the input parameters.
+	 * Generates the theme layers subject to the occurrences of the
+	 * animals/persons with their themes.
+	 */
+	private String generateThemeLayers(Map<String, EmotionResult> AnimalEmotionResults) {
+		
+		String music = "";
+		Map<String, String> ranking = new HashMap<String, String>();
+		
+		System.out.println("------------------------------------------------------------------");
+		System.out.println("---------------------- Animal/Person Themes ----------------------");
+		System.out.println();
+		
+		// iterate over the found animal/person emotion vectors,
+		// generate the themes and save them in a map named "ranking"
+		int num = 0;
+		Double[] values = new Double[6];
+		for (Entry<String, EmotionResult> e : AnimalEmotionResults.entrySet()) {
+			if (ranking.size() < 15) {			
+				
+				// get the necessary parameters of the animal/person
+				values = importantThemeParameters(e.getValue().getSectionEmotion().get(0));
+				
+				if (m_textInput.containsKey(e.getKey().toLowerCase())) {
+					System.out.println("Animal/Person #" + num + ":   " + e.getKey().toLowerCase());
+					System.out.print("    Emotion Vector: ............ (");
+					for (int i = 0; i < e.getValue().getSectionEmotion().get(0).size()-2; i++) {
+						System.out.print(e.getValue().getSectionEmotion().get(0).get(i));
+						if (i != e.getValue().getSectionEmotion().get(0).size()-3) {
+							System.out.print(", ");
+						}
+					}
+					System.out.println(")");
+					
+					// generate theme
+					ranking.put(e.getKey().toLowerCase(), generateAnimalTheme(
+							values[0], values[1], values[2], values[3], values[4], values[5],
+							m_textInput.get(e.getKey().toLowerCase()).getTargetPhys(),
+							e.getKey().toLowerCase(), num)
+							);
+					
+					System.out.println();
+					num++;
+				}
+			}
+		}
+		
+		int counter = 1;
+		Double steps = 100.0/m_numOfSections;
+		Double limitDown = 0.0;
+		Double limitUp = steps;
+		Boolean check = false;
+		String themeLayer = "";
+		
+		// generate the full theme layers
+		for (Entry<String, String> e : ranking.entrySet()) {
+			m_textInput.get(e.getKey()).setTheme(e.getValue());
+			themeLayer = "V" + counter + " ";
+			
+			// find the position of the animals/persons and
+			// set the themes at the same position in the MusicString
+			limitDown = 0.0;
+			limitUp = steps;
+			for (int i = 0; i < m_numOfSections; i++) {
+				for (int j = 0; j < m_textInput.get(e.getKey()).getRelativPosOccurence().size(); j++) {
+					if (m_textInput.get(e.getKey()).getRelativPosOccurence().get(j) < limitUp &&
+							m_textInput.get(e.getKey()).getRelativPosOccurence().get(j) > limitDown) {
+						check = true;
+						break;
+					}
+				}
+				if (check == true) {
+					themeLayer += e.getValue();
+				}
+				// if no occurrence, set rests in the MusicString 
+				else {
+					themeLayer += "R/1.0 R/1.0 ";
+				}
+				check = false;
+				limitDown += steps;
+				limitUp += steps;
+			}
+			// last rest for ending chord
+			themeLayer += "R/1.0 ";
+	
+			//System.out.println(e.getKey()  + " theme:");
+			//System.out.println(themeLayer);
+			music += themeLayer;
+			counter++;
+		}
+		System.out.println("---------------------------");
+		
+		return music;
+	}
+	
+	/**
+	 * Returns the important parameters of the animals/persons emotion vector.
+	 * (emotion with the highest frequency,
+	 * emotion with the second highest frequency,
+	 * stimuli of these both emotions)
+	 */
+	private Double[] importantThemeParameters(List<Double> emotionvector) {
+		Double emotion1 = 0.0;
+		Double emotion2 = 0.0;
+		Double frequency1 = 0.0;
+		Double frequency2 = 0.0;
+		Double stimulus1 = 0.0;
+		Double stimulus2 = 0.0;
+		int index = 0;
+		for (int i = 0; i < emotionvector.size()-2; i++) {
+			if (frequency1 < emotionvector.get(i)) {
+				frequency1 = emotionvector.get(i);
+				stimulus1 = (double) m_emotionStim[i];
+				index = i;
+				emotion1 = (double) i;
+			}
+			if (frequency2 < emotionvector.get(i) && index != i) {
+				frequency2 = emotionvector.get(i);
+				stimulus2 = (double) m_emotionStim[i];
+				emotion2 = (double) i;
+			}
+		}
+		return new Double[] {emotion1, frequency1, stimulus1, emotion2, frequency2, stimulus2};
+	}
+	
+	
+	/**
+	 * Generates the animals/persons theme based on the important parameters
+	 * found with "importantThemeParameters" and prints these information
+	 * with the generated theme layer.
+	 */
+	private String generateAnimalTheme(Double emotion1, Double times1, Double stimulus1,
+			Double emotion2, Double times2, Double stimulus2, int size, String name, int number) {
+		
+		//System.out.println("Animal/Person #" + number + ":   " + name);
+		System.out.println("    Size/Age: .................. " + size);
+		System.out.println("    Emotion 1: ................. " + m_emotions[(int) Math.round(emotion1)]);
+		System.out.println("    Frequency 1: ............... " + (int) Math.round(times1));
+		System.out.println("    Agitation State 1: ......... " + m_stimuli[(int) Math.round(stimulus1)]);
+		System.out.println("    Emotion 2: ................. " + m_emotions[(int) Math.round(emotion2)]);
+		System.out.println("    Frequency 2: ............... " + (int) Math.round(times2));
+		System.out.println("    Agitation State 2: ......... " + m_stimuli[(int) Math.round(stimulus2)]);
+		
+		// find the duration of the notes of the theme
+		String[] duration1 = full(times1, stimulus1, size).split(" ");
+		String[] duration2 = full(times2, stimulus2, size).split(" ");
+		
+		String music = "";
+		int[] alphabet = new int[7];
+		
+		// set alphabet of usable notes subject to the overall key
+		if (m_key == 0) {
+			for (int i = 0; i < m_minorKey.length; i++) {
+				alphabet[i] = m_minorKey[i] + 12 * m_scales[size];
+			}
+		}
+		else {
+			for (int i = 0; i < m_majorKey.length; i++) {
+				alphabet[i] = m_majorKey[i] + 12 * m_scales[size];
+			}
+		}
+		
+		// give the notes of the theme their individual pitch
+		// and add generate the theme as MusicString
+		for (int i = 0; i < duration1.length; i++) {
+			music += Integer.toString(alphabet[(int) ((times1+stimulus1)*m_highestEmotions[1][i%m_numOfSections])%7]) + duration1[i] + " ";
+		}
+		for (int i = 0; i < duration2.length; i++) {
+			music += Integer.toString(alphabet[(int) ((times2+stimulus2)*m_highestEmotions[1][i%m_numOfSections])%7]) + duration2[i] + " ";
+		}
+		
+		System.out.println("    Musical Theme: ............. " + music);
+		
+		return music;
+	}
+
+	/**
+	 * Generates note duration based on the threshold, the stimulus and the size.
+	 * Can go deeper into shorter durations if the stimulus allows it and calls "half(..)".
+	 * Can return full notes.
+	 */
 	private String full(Double threshold, Double stimulus, int size) {
 		if (stimulus != 0.0) {
 			return half(threshold, stimulus, size) + half(threshold+1, stimulus, size);
 		}
 		
 		if (threshold%2 == 0) {
-			return "/1.0 ";
+			return "/1.0000 ";
 		}
 		else {
 			return half(threshold+1, stimulus, size) + half(threshold, stimulus, size);
 		}
 	}
 	
+	
+	/**
+	 * Generates note duration based on the threshold, the stimulus and the size.
+	 * Can go deeper into shorter durations if the stimulus allows it and calls "quarter(..)".
+	 * Can return half notes.
+	 */
 	private String half(Double threshold, Double stimulus, int size) {
 		if (stimulus == 2.0) {
 			return quarter(size+(int) Math.round(threshold), stimulus) + quarter(size+1, stimulus);
 		}
 		if (stimulus == 0.0) {
-			return "/0.5 ";
+			return "/0.5000 ";
 		}
 		
 		if (threshold%3 == 0) {
-			return "/0.5 ";
+			return "/0.5000 ";
 		}
 		else {
 			return quarter(size+(int) Math.round(threshold), stimulus) + quarter(size, stimulus);
 		}
 	}
 	
+	
+	/**
+	 * Generates note duration based on the threshold, the stimulus and the size.
+	 * Can go deeper into shorter durations if the stimulus allows it and calls "eighth(..)".
+	 * Can return quarter notes.
+	 */
 	private String quarter(int threshold, Double stimulus) {
+		if (stimulus == 1.0) {
+			return "/0.2500 ";
+		}
 		if (threshold%2 == 0) {
-			return "/0.25 ";
+			return "/0.2500 ";
 		}
 		else {
 			return eighth(threshold+1, stimulus) + eighth(threshold, stimulus);
 		}
 	}
 	
+	
+	/**
+	 * Generates note duration based on the threshold, the stimulus and the size.
+	 * Can't go deeper into shorter durations and builds the end of the possible duration-tree.
+	 * Can return eighth and sixteenth notes.
+	 */
 	private String eighth(int threshold, Double stimulus) {
-		if (stimulus == 1.0) {
-			return "/0.125 ";
-		}
-		
 		if (threshold%3 == 0) {
-			return "/0.125 ";
+			return "/0.1250 ";
 		}
 		else {
 			return "/0.0625 /0.0625 ";
 		}
 	}
 	
-	
-	
+	// ---------------------------------------------------------------------------------------------------------
+	// BASIS MELODIE:
 	
 	// generate musical ambient layer
+	
+	
+	// --------------------------------------------------------
+	// Methods for the musical ambient (the base melody)
+	// --------------------------------------------------------
+		
+	/**
+	 * Starts the whole generation of the musical ambient layer (the base melody).
+	 * Prints the full generated layer.
+	 * Fills the "m_highestEmotions[][]"-Member with the important data
+	 * for the generation of the musical ambient layer. 
+	 */
 	private String generateMusicalAmbient(EmotionResult EmotionResults) {
+		
+		System.out.println();
+		System.out.println("-----------------------------------------------------------------");
+		System.out.println("---------------------- Ambient Music Layer ----------------------");
+		
 		String musicalAmbient = "";
-		Double[][] highestEmotions = new Double[4][m_numOfSections];
 		Double counter = 0.0;
 		int index = 0;
 		int k = 0;
@@ -343,129 +565,56 @@ public class MusicProcessor {
 				}
 			}
 			// index -> highest emotion in this section
-			highestEmotions[0][k] = (double) index;
-			System.out.print("Emotion: " + m_emotions[index]);
+			m_highestEmotions[0][k] = (double) index;
 			// counter -> appearance of this emotion in this section
-			highestEmotions[1][k] = counter;
-			System.out.print(" (Times: " + counter + ")");
-			highestEmotions[2][k] = (double) m_emotionStim[index];
-			System.out.println(" (Character: " + m_stimuli[m_emotionStim[index]] + ")");
+			m_highestEmotions[1][k] = counter;
+			m_highestEmotions[2][k] = (double) m_emotionStim[index];
 			counter = 0.0;
 			k++;
 		}
 		
 		for (int j = 0; j < m_numOfSections; j++) {
-			highestEmotions[3][j] = EmotionResults.getDensity().get(j).get(0);
+			m_highestEmotions[3][j] = EmotionResults.getDensity().get(j).get(0);
 		}
 		
-		// find min and max for each character (alive, quiet, neutral)
-//		Double quietMax = 0.0;
-//		Double quietMin = 0.0;
-//		Double aliveMax = 0.0;
-//		Double aliveMin = 0.0;
-//		Double arousedMax = 0.0;
-//		Double arousedMin = 0.0;
-//		for (int i = 0; i < m_numOfSections; i++) {
-//			if (highestEmotions[2][i] == 0.0) {
-//				quietMin = highestEmotions[1][i];
-//				quietMax = highestEmotions[1][i];
-//			}
-//			if (highestEmotions[2][i] == 1.0) {
-//				aliveMin = highestEmotions[1][i];
-//				aliveMax = highestEmotions[1][i];
-//			}
-//			if (highestEmotions[2][i] == 2.0) {
-//				arousedMin = highestEmotions[1][i];
-//				arousedMax = highestEmotions[1][i];
-//			}
-//		}
-//		for (int i = 0; i < m_numOfSections; i++) {
-//			if (highestEmotions[2][i] == 0.0) {
-//				if (quietMin > highestEmotions[1][i]) {
-//					quietMin = highestEmotions[1][i];
-//				}
-//				if (quietMax < highestEmotions[1][i]) {
-//					quietMax = highestEmotions[1][i];
-//				}
-//			}
-//			if (highestEmotions[2][i] == 1.0) {
-//				if (aliveMin > highestEmotions[1][i]) {
-//					aliveMin = highestEmotions[1][i];
-//				}
-//				if (aliveMax < highestEmotions[1][i]) {
-//					aliveMax = highestEmotions[1][i];
-//				}
-//			}
-//			if (highestEmotions[2][i] == 2.0) {
-//				if (arousedMin > highestEmotions[1][i]) {
-//					arousedMin = highestEmotions[1][i];
-//				}
-//				if (arousedMax < highestEmotions[1][i]) {
-//					arousedMax = highestEmotions[1][i];
-//				}
-//			}
-//		}
-//		System.out.println("quietMin: " + quietMin);
-//		System.out.println("quietMax: " + quietMax);
-//		System.out.println("aliveMin: " + aliveMin);
-//		System.out.println("aliveMax: " + aliveMax);
-//		System.out.println("arousedMin: " + arousedMin);
-//		System.out.println("arousedMax: " + arousedMax);
-		
-//		SimpleRegression aliveRegression = new SimpleRegression(true);
-//		aliveRegression.addData(new double[][] {
-//            {quietMin, 0},
-//            {quietMax, m_ambient_quiet.length-1}
-//		});
-//		SimpleRegression quietRegression = new SimpleRegression(true);
-//		quietRegression.addData(new double[][] {
-//            {aliveMin, 0},
-//            {aliveMax, m_ambient_alive.length-1}
-//		});
-//		SimpleRegression neutralRegression = new SimpleRegression(true);
-//		neutralRegression.addData(new double[][] {
-//            {arousedMin, 0},
-//            {arousedMax, m_ambient_aroused.length-1}
-//		});
-		
-		printAmbient(highestEmotions);
-		musicalAmbient += "L0 ";
+		printAmbient();
+		musicalAmbient += "V0 ";
 		for (int i = 0; i < m_numOfSections; i++) {
-			musicalAmbient += setChord(highestEmotions[0][i], highestEmotions[1][i], highestEmotions[3][i]);
+			musicalAmbient += setChord(m_highestEmotions[0][i], m_highestEmotions[1][i]);//, m_highestEmotions[3][i]);
 		}
+		musicalAmbient += "(60+64+67)/1.0 ";
 		
-		System.out.println("String: " + musicalAmbient);
 		if (m_key == 0) {
 			musicalAmbient = convertToMinor(musicalAmbient);
-			System.out.println("String in minor: " + musicalAmbient);
+			System.out.println("String converted to Minor-Key.");
 		}
+		System.out.println("Musical Ambient Layer (Base Melody): " + musicalAmbient);
 		
 		return musicalAmbient;
 	}
 	
-	private String setChord(Double emotion, Double times, Double density) {
+	
+	/**
+	 * Determinates the chords of a section by given parameters:
+	 * The emotion with the highest frequency and the frequency itself.
+	 */
+	private String setChord(Double emotion, Double times) {
 		String section = "";
-		//System.out.println("Duration: " + (int) Math.round(noteDuration));
-		//System.out.println("Emotion: " + m_emotions[(int) Math.round(emotion)]);
-		// Anzahl möglicher Muster
+		// number of possible chord pattern
 		int selection = m_emotionChords[(int) Math.round(emotion)].length;
-		// Auswahl eines Musters
+		// determinate which pattern to use
 		Double rest = times%selection;
 		section = m_emotionChords[(int) Math.round(emotion)][(int) Math.round(rest)] + " ";
-		//System.out.println("Töne: " + section);
 		
-		// für Dauer von zwei Takten
+		// do it again to fill the second time (each section covers two 4/4 times)
 		rest = (times*times)%selection;
 		section = section + m_emotionChords[(int) Math.round(emotion)][(int) Math.round(rest)] + " ";
 		return section;
-	}
-	
-	private Double noteDuration(SimpleRegression reg, int[] durations, Double times) {
-		long noteDuration = Math.round(reg.predict(times));
-		Double d = (double)((int) noteDuration);
-		return d;
-	}
-	
+	}	
+
+	/**
+	 * Converts a given MusicString into Minor if necessary.
+	 */
 	private String convertToMinor(String input) {
 		int note_E = 40;
 		int note_Eb = 39;
@@ -488,33 +637,28 @@ public class MusicProcessor {
 		return output;
 	}
 	
-	private void printAmbient(Double[][] info) {
+	
+	/**
+	 * Prints the important parameters of each section
+	 * which are used for the musical ambient generation.
+	 */
+	private void printAmbient() {
 		System.out.println();
-		for (int i = 0; i < info[0].length; i++) {
-			System.out.println("Sektion " + i + ":");
-			for (int j = 0; j < info.length; j++) {
+		for (int i = 0; i < m_highestEmotions[0].length; i++) {
+			System.out.println("Section #" + i + ":");
+			for (int j = 0; j < m_highestEmotions.length; j++) {
 				if (j == 0) {
-					System.out.println("   Emotion: "+m_emotions[(int) Math.round(info[j][i])]);
+					System.out.println("   Emotion: ............. "+m_emotions[(int) Math.round(m_highestEmotions[j][i])]);
 				}
 				if (j == 1) {
-					System.out.println("   Häufigkeit: "+(int) Math.round(info[j][i]));
+					System.out.println("   Frequency: ........... "+(int) Math.round(m_highestEmotions[j][i]));
 				}
 				if (j == 2) {
-					System.out.println("   Erregungszustand: "+m_stimuli[(int) Math.round(info[j][i])]);
+					System.out.println("   Agitation State: ..... "+m_stimuli[(int) Math.round(m_highestEmotions[j][i])]);
 				}
 				if (j == 3) {
-					System.out.println("   Emotionsdichte: "+info[j][i]);
-//					if (Math.round(info[2][i]) == 0) {
-//						System.out.println("   Note duration: "+m_ambient_quiet[(int) Math.round(info[j][i])]);
-//					}
-//					if (Math.round(info[2][i]) == 1) {
-//						System.out.println("   Note duration: "+m_ambient_alive[(int) Math.round(info[j][i])]);
-//					}
-//					if (Math.round(info[2][i]) == 2) {
-//						System.out.println("   Note duration: "+m_ambient_aroused[(int) Math.round(info[j][i])]);
-//					}
+					System.out.println("   Emotion Density: ..... "+m_highestEmotions[j][i]);
 				}
-				//System.out.print(i+": "+j+" = "+info[i][j]);
 			}
 			System.out.println();
 		}

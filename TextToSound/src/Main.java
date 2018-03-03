@@ -1,43 +1,68 @@
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
 import java.io.IOException;
+import java.util.Map;
 
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		String s = "Start";
-		s+= "NOW";
-		System.out.println(s);
-		//MusicProcessor mp = new MusicProcessor("wolf", 1, 4);
-//		Player player = new Player();
-//		Pattern pattern = new Pattern("T60 V1 I0 (60+63+56)/1.0a127d127 (60+63+55)/1.0a127d127 " +
-//				"V2 I0 48/0.5a127d127 48/0.5a127d127 R/0.5 43/0.5a127d127");
-//		player.play(pattern);
-		//pattern.save(new File("twinkle.jfugue"));
-//		    try {
-//		        MidiFileManager.savePatternToMidi((PatternProducer) pattern, new File("hi.midi"));
-//		        System.out.println("worked");
-//		    } catch (Exception ex) {
-//		        ex.getStackTrace();
-//		    }
-	
-		TextLexProcessor processor1 = new TextLexProcessor("data/The-Wolf-and-the-Seven-Kids.txt", "data/lexicon_animals.csv");
+		System.out.println("Start analysing and generating music.");
+		
+		FilenameFilter filter = new FilenameFilter(){
+			@Override
+		    public boolean accept(File directory, String fileName) {
+				if (fileName.endsWith(".txt")) {
+		            return true;
+		        }
+		        return false;
+		    }
+		};
+		
+		File directory = new File("data/lit");
+		String[] fairytales = directory.list(filter);
+		int count = fairytales.length;
+		String lex_path = "";
+		
+		for (int i = 0; i < count; i++) {
+			System.out.println("Fairytale " + i + ": " + fairytales[i]);
+			lex_path = "data/lit/" + fairytales[i];
+			
+			// DO THE MAGIC HERE
+			Map<String, EmotionResult> animal_emotion_vecs = ExperimentalCharacterAnalysis.main(lex_path);
+			TextLexProcessor processor1 = new TextLexProcessor(lex_path, "data/lexicon_people_and_animal_individual.csv");
+			MusicProcessor mp = new MusicProcessor(processor1.process(), fairytales[i]);
+			NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor(lex_path, mp.getM_numOfSections());
+			EmotionResult EmotionResults = NERprocessor1.main(args);
+			mp.process(EmotionResults, animal_emotion_vecs);
+			
+			System.out.println("Fairytale " + i + " (" + fairytales[i] + ") completely analysed and set to music.");
+			System.out.println("--------------------------------------------");
+			System.out.println();
+			System.out.println();
+		}
+		
+//		fairytale = "Hansel-and-Gretel";
+//		fairytale = "little-red-riding-hood";
+		
+//		Map<String, EmotionResult> animal_emotion_vecs = ExperimentalCharacterAnalysis.main(lex_path);
+//		
+//		TextLexProcessor processor1 = new TextLexProcessor(lex_path, "data/lexicon_people_and_animal_individual.csv");
+		
 		//TextLexProcessor processor2 = new TextLexProcessor("data/the-happy-prince.txt", "data/lexicon_environment.txt");
 		//TextLexProcessor processor3 = new TextLexProcessor("data/the-fox-and-the-crow.txt", "data/lexicon_animals.csv");
 		
-		MusicProcessor mp = new MusicProcessor(processor1.process());
-		mp.setM_numOfSections(20);
+//		MusicProcessor mp = new MusicProcessor(processor1.process(), fairytale);
+		//mp.setM_numOfSections(20);
 		
-		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor("data/The-Wolf-and-the-Seven-Kids.txt", mp.getM_numOfSections());
-		//NEREmotionProcessor NERprocessor2 = new NEREmotionProcessor("data/the-fox-and-the-crow.txt", mp.getM_numOfSections());
+//		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor(lex_path, mp.getM_numOfSections());
 		
 		//NERprocessor1.main(args);
-		EmotionResult EmotionResults = NERprocessor1.main(args);
-	
-		mp.process(EmotionResults);
+//		EmotionResult EmotionResults = NERprocessor1.main(args);
+//		
+//		mp.process(EmotionResults, animal_emotion_vecs);
 		
-		s = "done";
-		s+= "ok";
-		System.out.println(s);
+		System.out.println("FINISHED!");
 //		mp = new MusicProcessor(processor2.process());
 //		mp.process();
 //		mp = new MusicProcessor(processor3.process());
