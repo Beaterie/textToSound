@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-//import org.apache.commons.math3.stat.regression.SimpleRegression;
 import org.jfugue.midi.MidiFileManager;
 import org.jfugue.pattern.Pattern;
 import org.jfugue.pattern.PatternProducer;
 import org.jfugue.player.Player;
 
+// Coded by Josef Roth, 115850
 
 public class MusicProcessor {
 	
@@ -102,12 +102,7 @@ public class MusicProcessor {
 		m_highestEmotions = new Double[4][m_numOfSections];
 	}
 
-	
-	
-	
-	// --------------------------------------------------------
-	// Getters
-	// --------------------------------------------------------
+
 	
 	// --------------------------------------------------------
 	// Getter
@@ -117,20 +112,14 @@ public class MusicProcessor {
 		return m_numOfSections;
 	}
 	
-	
 	public Double getSecondsPerSection() {
 		return 60.0/(m_tempo/8.0);
 	}
 	
-	// --------------------------------------------------------
-	// Setter
-	// --------------------------------------------------------
-
-
-
+	
 	
 	// --------------------------------------------------------
-	// Setters
+	// Setter
 	// --------------------------------------------------------
 	
 	public void setM_numOfSections(int m_numOfSections) {
@@ -149,10 +138,6 @@ public class MusicProcessor {
 	 * Allows to auto-play the generated midi-file (activated by default).
 	 * Saves the midi-files in the music-folder.
 	 */
-	// --------------------------------------------------------
-	// music-processing methods
-	// --------------------------------------------------------
-	
 	public void process(EmotionResult EmotionResults, Map<String, EmotionResult> AnimalEmotionResults) {
 		
 		System.out.println();
@@ -188,11 +173,8 @@ public class MusicProcessor {
 	}
 	
 	/**
-	 * Generates the number of sections subject to the number of characters of the novel.
+	 * Generates the number of sections subject to the number of characters of the novel/fairytale.
 	 */
-	
-	// generate the number of sections subject to
-	// the number of characters of the text
 	public int genereateNumOfSections() {
 		int numOfSections = 8 + (int) Math.log10(m_textLength);
 		return numOfSections;
@@ -202,8 +184,6 @@ public class MusicProcessor {
 	 * Generates the key for the whole piece of music (minor/major).
 	 * The emotion with the highest frequency sets the key.
 	 */
-	
-	// find and set key - minor/major
 	private void generateKey(EmotionResult EmotionResults) {
 		int key = 0;
 		Double counter = 0.0;
@@ -246,7 +226,6 @@ public class MusicProcessor {
 	 * Generates the tempo for the whole piece of music (90-150 BPM).
 	 * The emotion with the highest frequency sets the tempo.
 	 */
-
 	private void generateTempo(EmotionResult EmotionResults) {
 		Double tempo = 80.0;
 		Double counter = 0.0;
@@ -276,7 +255,6 @@ public class MusicProcessor {
 				" (Frequency: " + emotionSum[emotion] + ")");
 	}
 	
-	
 	/**
 	 * Returns the tempo in the necessary JFugue-MusicString-format.
 	 */
@@ -286,7 +264,7 @@ public class MusicProcessor {
 	
 	
 	// --------------------------------------------------------
-	// Methods for the animals/persons themes
+	// Methods for the animal-/person-themes
 	// --------------------------------------------------------
 	
 	/**
@@ -416,7 +394,6 @@ public class MusicProcessor {
 		return new Double[] {emotion1, frequency1, stimulus1, emotion2, frequency2, stimulus2};
 	}
 	
-	
 	/**
 	 * Generates the animals/persons theme based on the important parameters
 	 * found with "importantThemeParameters" and prints these information
@@ -485,7 +462,6 @@ public class MusicProcessor {
 		}
 	}
 	
-	
 	/**
 	 * Generates note duration based on the threshold, the stimulus and the size.
 	 * Can go deeper into shorter durations if the stimulus allows it and calls "quarter(..)".
@@ -507,7 +483,6 @@ public class MusicProcessor {
 		}
 	}
 	
-	
 	/**
 	 * Generates note duration based on the threshold, the stimulus and the size.
 	 * Can go deeper into shorter durations if the stimulus allows it and calls "eighth(..)".
@@ -525,7 +500,6 @@ public class MusicProcessor {
 		}
 	}
 	
-	
 	/**
 	 * Generates note duration based on the threshold, the stimulus and the size.
 	 * Can't go deeper into shorter durations and builds the end of the possible duration-tree.
@@ -539,11 +513,6 @@ public class MusicProcessor {
 			return "/0.0625 /0.0625 ";
 		}
 	}
-	
-	// ---------------------------------------------------------------------------------------------------------
-	// BASIS MELODIE:
-	
-	// generate musical ambient layer
 	
 	
 	// --------------------------------------------------------
@@ -604,7 +573,6 @@ public class MusicProcessor {
 		return musicalAmbient;
 	}
 	
-	
 	/**
 	 * Determinates the chords of a section by given parameters:
 	 * The emotion with the highest frequency and the frequency itself.
@@ -647,7 +615,6 @@ public class MusicProcessor {
 		}
 		return output;
 	}
-	
 	
 	/**
 	 * Prints the important parameters of each section

@@ -161,7 +161,7 @@ public class Main {
 			}
 		}
 		
-		System.out.println("Programm has finished.");
+		System.out.println("Programme has finished.");
 			
 	}
 	
