@@ -111,11 +111,6 @@ public class NEREmotionProcessor {
 	}
 
 	public static void classify(String story) {
-		System.out.println(story);// just a test
-		// $ java -cp 'data/stanford-corenlp/*' -Xmx2g
-		// edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators
-		// tokenize,ssplit,pos,lemma,ner -file data/the-fox-and-the-crowtemp.txt
-		// -outputDirectory data/
 		try {
 			Runtime rt = Runtime.getRuntime();
 			Process pr = rt.exec(
@@ -164,7 +159,6 @@ public class NEREmotionProcessor {
 						event = eventReader.nextEvent();
 						category = String.valueOf(event.asCharacters().getData());
 						
-						// System.out.println(category);
 
 						if (Objects.equals(category, "NNP")) {
 							NEREle = new NERElement();
@@ -190,7 +184,6 @@ public class NEREmotionProcessor {
 					}
 				}
 			}
-			System.out.println("Textlength:"+ TextLength);
 
 			for (int Element = 0; Element < NNPList.size(); Element++) {
 				NNPList.get(Element).setRelativePosition(
@@ -214,13 +207,6 @@ public class NEREmotionProcessor {
 				}
 
 			}
-
-
-			// System.out.println(NNList);
-			 //System.out.println(NNPList);
-			// System.out.println(AdjList);
-			 
-			 
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -292,7 +278,6 @@ public class NEREmotionProcessor {
 			}
 			AllDensities.add(Density);
 		}
-		System.out.println("Number of Sections: " + sections);
 
 		EmotionResult.setSectionEmotion(SectionEmotion);
 		EmotionResult.setDensity(AllDensities);
@@ -477,7 +462,6 @@ public class NEREmotionProcessor {
 
 		// Store the reduced names to a new list
 		List<String> names = new ArrayList<String>(map.keySet());
-		System.out.println(names.toString());
 
 		return names;
 	}
@@ -490,16 +474,12 @@ public class NEREmotionProcessor {
 		String tempSrc = mSrcFileName;
 
 		// prepareText(mSrcFileName, tempSrc);
-		System.out.println("prepare Text done");
 		create_xml(tempSrc);
 		// classify(tempSrc);
-		System.out.println("classify done");
 		TextLength = analyze_xml(tempSrc, NNPList, TextLength);
-		System.out.println("xml done");
 
 		String text = txt2string(mSrcFileName);
 		EmotionResult EmotionResults = AssessEmotion(text, sections);
-		System.out.println("emotion done");
 		EmotionResults.setNameList(NNPList);
 		EmotionResults.printResult();
 		
@@ -507,6 +487,7 @@ public class NEREmotionProcessor {
 		long endTime = System.nanoTime();
 		// show total runtime in seconds
 		System.out.println("Took " + (endTime - startTime) / 1000000000.0 + " seconds");
+		TextLength = 0;
 
 		try {
 		File file = new File(mSrcFileName+".xml");
