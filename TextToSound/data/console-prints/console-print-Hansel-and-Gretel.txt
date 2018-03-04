@@ -1,0 +1,318 @@
+Fairytale 4: Hansel-and-Gretel.txt
+Textlength:6513
+[Hansel, Gretel]
+People-and-Animal-Lexicon updated.
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+prepare Text done
+classify done
+Textlength:6513
+xml done
+Number of Sections: 12
+emotion done
+List of named characters:
+Hansel
+Gretel
+Gretel
+Hansel
+Gretel
+Hansel
+Hansel
+Gretel
+God
+Gretel
+Hansel
+Hansel
+Hansel
+Hansel
+Fool
+Hansel
+Hansel
+Gretel
+Hansel
+Gretel
+Gretel
+Hansel
+Hansel
+Hansel
+Gretel
+Hansel
+Hansel
+Gretel
+God
+Hansel
+Hansel
+Hansel
+Hansel
+Gretel
+Hansel
+Hansel
+Gretel
+Hansel
+Gretel
+Hansel
+Gretel
+Hansel
+Gretel
+Hansel
+Gretel
+Hansel
+Gretel
+Hansel
+Gretel
+Hansel
+Gretel
+Hansel
+Gretel
+Gretel
+Hansel
+Gretel
+Hansel
+Hansel
+Hansel
+Hansel
+Gretel
+Hansel
+Dear God
+Gretel
+Gretel
+Creep
+Gretel
+Gretel
+Gretel
+Gretel
+Gretel
+Hansel
+Hansel
+Hansel
+Hansel
+Gretel
+Hansel
+Hansel
+Gretel
+Hansel
+Gretel
+Hansel
+Gretel
+Gretel
+Hansel
+Emotion Analysis:
+[[1.0, 4.0, 1.0, 3.0, 1.0, 4.0, 3.0, 1.0, 2.0, 7.0], [1.0, 2.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 5.0, 2.0], [0.0, 4.0, 0.0, 2.0, 4.0, 0.0, 1.0, 6.0, 4.0, 1.0], [1.0, 7.0, 3.0, 0.0, 1.0, 4.0, 3.0, 3.0, 2.0, 7.0], [0.0, 5.0, 1.0, 0.0, 3.0, 1.0, 1.0, 3.0, 4.0, 2.0], [0.0, 3.0, 0.0, 1.0, 3.0, 3.0, 1.0, 3.0, 3.0, 5.0], [1.0, 1.0, 1.0, 1.0, 3.0, 3.0, 1.0, 2.0, 4.0, 3.0], [0.0, 5.0, 0.0, 3.0, 5.0, 3.0, 3.0, 5.0, 9.0, 4.0], [1.0, 7.0, 0.0, 2.0, 3.0, 1.0, 1.0, 3.0, 6.0, 7.0], [1.0, 3.0, 3.0, 5.0, 1.0, 4.0, 1.0, 1.0, 3.0, 11.0], [5.0, 3.0, 4.0, 5.0, 3.0, 3.0, 4.0, 4.0, 6.0, 7.0], [1.0, 3.0, 0.0, 1.0, 3.0, 0.0, 2.0, 2.0, 4.0, 1.0]]
+Density Analysis:
+[[0.05158912943344081], [0.04974666052510364], [0.05711653615845232], [0.06632888070013819], [0.04237678489175495], [0.055274067250115154], [0.05711653615845232], [0.0589590050667895], [0.06448641179180101], [0.05158912943344081], [0.06080147397512667], [0.027637033625057577]]
+Negative Words:57
+Positive Words:52
+Took 3.353579586 seconds
+
+-----------------------------------------------------------------
+---------------------- General Information ----------------------
+
+Number of Sections: 12
+Key: Major  --> Based on the most appeared emotion: Anticipation (Frequency: 47.0)
+Tempo 150.0 --> Based on the most appeared emotion: Anticipation (Frequency: 47.0)
+
+-----------------------------------------------------------------
+---------------------- Ambient Music Layer ----------------------
+
+Section #0:
+   Emotion: ............. Anticipation
+   Frequency: ........... 4
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.05158912943344081
+
+Section #1:
+   Emotion: ............. Trust
+   Frequency: ........... 3
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.04974666052510364
+
+Section #2:
+   Emotion: ............. Trust
+   Frequency: ........... 6
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.05711653615845232
+
+Section #3:
+   Emotion: ............. Anticipation
+   Frequency: ........... 7
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.06632888070013819
+
+Section #4:
+   Emotion: ............. Anticipation
+   Frequency: ........... 5
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.04237678489175495
+
+Section #5:
+   Emotion: ............. Anticipation
+   Frequency: ........... 3
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.055274067250115154
+
+Section #6:
+   Emotion: ............. Joy
+   Frequency: ........... 3
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.05711653615845232
+
+Section #7:
+   Emotion: ............. Anticipation
+   Frequency: ........... 5
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.0589590050667895
+
+Section #8:
+   Emotion: ............. Anticipation
+   Frequency: ........... 7
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.06448641179180101
+
+Section #9:
+   Emotion: ............. Fear
+   Frequency: ........... 5
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.05158912943344081
+
+Section #10:
+   Emotion: ............. Anger
+   Frequency: ........... 5
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.06080147397512667
+
+Section #11:
+   Emotion: ............. Anticipation
+   Frequency: ........... 3
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.027637033625057577
+
+Musical Ambient Layer (Base Melody): V0 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (59+63+66)/0.5 (64+67+71)/0.5 (69+73+76)/0.5 (62+65+69)/0.5 (53+57+60+62)/1.0 (53+57+60+62)/1.0 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (59+63+66)/0.5 (64+67+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (65+73)/0.5 (65+71)/0.5 (65+73)/0.5 (65+71)/0.5 (62+70)/0.5 (62+65+69+72)/0.5 (62+70)/0.5 (62+65+69+72)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (60+64+67)/1.0 
+------------------------------------------------------------------
+---------------------- Animal/Person Themes ----------------------
+
+Animal/Person #0:   hansel
+    Emotion Vector: ............ (0.0, 2.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Anticipation
+    Frequency 1: ............... 2
+    Agitation State 1: ......... aroused
+    Emotion 2: ................. Fear
+    Frequency 2: ............... 1
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 64/0.0625 69/0.0625 65/0.0625 60/0.0625 71/0.2500 69/0.2500 69/0.2500 62/0.2500 71/0.2500 69/0.2500 60/0.2500 
+
+Animal/Person #1:   woman
+    Emotion Vector: ............ (0.0, 4.0, 1.0, 1.0, 3.0, 2.0, 2.0, 2.0)
+    Size/Age: .................. 3
+    Emotion 1: ................. Anticipation
+    Frequency 1: ............... 4
+    Agitation State 1: ......... aroused
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 3
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 77/0.0625 79/0.0625 74/0.0625 72/0.0625 76/0.2500 79/0.2500 79/0.2500 76/0.5000 81/0.2500 77/0.2500 
+
+Animal/Person #2:   wife
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 3
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 72/1.0000 72/1.0000 
+
+Animal/Person #3:   goose
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 3
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 72/1.0000 72/1.0000 
+
+Animal/Person #4:   father
+    Emotion Vector: ............ (1.0, 4.0, 4.0, 0.0, 3.0, 3.0, 2.0, 7.0)
+    Size/Age: .................. 4
+    Emotion 1: ................. Trust
+    Frequency 1: ............... 7
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Disgust
+    Frequency 2: ............... 4
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 60/0.5000 60/0.5000 71/0.2500 62/0.2500 64/0.2500 60/0.2500 
+
+Animal/Person #5:   husband
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 3
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 72/1.0000 72/1.0000 
+
+Animal/Person #6:   children
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 0
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 84/1.0000 84/1.0000 
+
+Animal/Person #7:   man
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 3
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 72/1.0000 72/1.0000 
+
+Animal/Person #8:   sister
+    Emotion Vector: ............ (0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 2.0)
+    Size/Age: .................. 2
+    Emotion 1: ................. Trust
+    Frequency 1: ............... 2
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 1
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 74/1.0000 74/0.2500 83/0.2500 81/0.2500 72/0.2500 
+
+Animal/Person #9:   gretel
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 60/1.0000 60/1.0000 
+
+---------------------------
+Midi saved as Hansel-and-Gretel-music.midi !
+Fairytale 4 (Hansel-and-Gretel.txt) completely analysed and set to music.
+--------------------------------------------
+

@@ -466,7 +466,7 @@ public class ExperimentalCharacterAnalysis {
 //		System.out.println();
 
 		
-		TextLexProcessor proc = new TextLexProcessor(sourceFile, "data/lexicon_people_and_animal_basic.csv");
+		TextLexProcessor proc = new TextLexProcessor(sourceFile, "data/lexica/lexicon_people_and_animal_basic.csv");
 		ProcessedResult result = proc.process();
 		
 		
@@ -486,14 +486,14 @@ public class ExperimentalCharacterAnalysis {
 //		Map<String, EmotionResult> characterEmoRes = exp.characterAnalysis(NERprocessor1);
 		
 		// edit lexicon with new characters
-		Files.copy(Paths.get("data/lexicon_people_and_animal_basic.csv"), Paths.get("data/lexicon_people_and_animal_individual.csv"), StandardCopyOption.REPLACE_EXISTING);
-		try (FileWriter fw = new FileWriter("data/lexicon_people_and_animal_individual.csv", true);
+		Files.copy(Paths.get("data/lexica/lexicon_people_and_animal_basic.csv"), Paths.get("data/lexica/lexicon_people_and_animal_individual.csv"), StandardCopyOption.REPLACE_EXISTING);
+		try (FileWriter fw = new FileWriter("data/lexica/lexicon_people_and_animal_individual.csv", true);
 			    BufferedWriter bw = new BufferedWriter(fw);
 			    PrintWriter out = new PrintWriter(bw)) {
 			for (int i = 0; i < nameList.size(); i++) {
 				out.println(nameList.get(i).toLowerCase() + ",5,0,");
 			}
-			System.out.println("Lexicon updated.");
+			System.out.println("People-and-Animal-Lexicon updated.");
 		} catch (IOException e) {
 			//exception handling left as an exercise for the reader
 			System.out.println("Error while writing new lexicon.");

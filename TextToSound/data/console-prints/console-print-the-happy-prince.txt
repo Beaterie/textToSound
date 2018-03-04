@@ -1,0 +1,341 @@
+Fairytale 11: the-happy-prince.txt
+Textlength:30526
+[Mayor, Egypt, Prince, Reed, Town Councillors, Swallow]
+People-and-Animal-Lexicon updated.
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+prepare Text done
+classify done
+Textlength:30526
+xml done
+Number of Sections: 12
+emotion done
+List of named characters:
+Prince
+Town Councillors
+Prince
+Prince
+Charity Children
+Mathematical Master
+Egypt
+Reed
+Swallow
+Reed
+Reed
+Reed
+Prince
+Europe
+Reed
+Prince
+Prince
+Sans
+Souci
+Great Hall
+Round
+Prince
+Queen
+Egypt
+Swallow
+Nile
+King
+King
+Round
+Prince
+Swallow
+Prince
+Prince
+Swallow
+Prince
+Ghetto
+Swallow
+Prince
+Prince
+Professor
+Ornithology
+Egypt
+Swallow
+Wherever
+Sparrows
+Prince
+Egypt
+Prince
+Egypt
+Swallow
+God Memnon
+Prince
+Theatre
+Swallow
+Prince
+India
+Dear Prince
+Swallow
+Prince
+Prince
+Swallow
+Egypt
+Swallow
+Prince
+Prince
+Swallow
+Egypt
+Temple
+Baalbec
+Dear Prince
+Prince
+Swallow
+Prince
+Prince
+Prince
+Prince
+Egypt
+Swallow
+Prince
+Prince
+Nile
+King
+Moon
+Dear
+Prince
+Swallow
+Watchman
+Prince
+Prince
+Swallow
+Prince
+Prince
+Prince
+Prince
+Egypt
+Prince
+Egypt
+Swallow
+House
+Death
+Sleep
+Mayor
+Town Councillors
+Dear
+Prince
+Town Councillors
+Mayor
+Mayor
+Town Councillors
+Mayor
+Town Clerk
+Prince
+Art Professor
+University
+Mayor
+Corporation
+Town Councillors
+God
+Angel
+God
+Paradise
+Prince
+Emotion Analysis:
+[[1.0, 4.0, 2.0, 2.0, 11.0, 4.0, 1.0, 6.0, 15.0, 6.0], [1.0, 3.0, 2.0, 1.0, 5.0, 0.0, 2.0, 2.0, 9.0, 2.0], [0.0, 3.0, 0.0, 1.0, 5.0, 3.0, 1.0, 4.0, 8.0, 3.0], [3.0, 3.0, 4.0, 3.0, 3.0, 5.0, 1.0, 5.0, 9.0, 6.0], [1.0, 5.0, 2.0, 0.0, 8.0, 1.0, 3.0, 7.0, 9.0, 5.0], [3.0, 11.0, 2.0, 2.0, 7.0, 4.0, 4.0, 6.0, 11.0, 6.0], [0.0, 5.0, 1.0, 1.0, 4.0, 1.0, 2.0, 5.0, 5.0, 4.0], [1.0, 2.0, 2.0, 1.0, 6.0, 1.0, 2.0, 4.0, 6.0, 3.0], [1.0, 2.0, 1.0, 0.0, 3.0, 5.0, 2.0, 5.0, 4.0, 7.0], [1.0, 3.0, 3.0, 3.0, 4.0, 4.0, 1.0, 2.0, 4.0, 8.0], [1.0, 5.0, 1.0, 0.0, 3.0, 3.0, 3.0, 2.0, 10.0, 3.0], [0.0, 0.0, 3.0, 2.0, 2.0, 3.0, 1.0, 3.0, 6.0, 6.0]]
+Density Analysis:
+[[0.01493808556640241], [0.012972547991875777], [0.013365655506781104], [0.014544978051497084], [0.012972547991875777], [0.014151870536591758], [0.017689838170739696], [0.014544978051497084], [0.01493808556640241], [0.014151870536591758], [0.013365655506781104], [0.011400117932254471]]
+Negative Words:59
+Positive Words:96
+Took 4.075240022 seconds
+
+-----------------------------------------------------------------
+---------------------- General Information ----------------------
+
+Number of Sections: 12
+Key: Major  --> Based on the most appeared emotion: Joy (Frequency: 61.0)
+Tempo 100.0 --> Based on the most appeared emotion: Joy (Frequency: 61.0)
+
+-----------------------------------------------------------------
+---------------------- Ambient Music Layer ----------------------
+
+Section #0:
+   Emotion: ............. Joy
+   Frequency: ........... 11
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.01493808556640241
+
+Section #1:
+   Emotion: ............. Joy
+   Frequency: ........... 5
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.012972547991875777
+
+Section #2:
+   Emotion: ............. Joy
+   Frequency: ........... 5
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.013365655506781104
+
+Section #3:
+   Emotion: ............. Sadness
+   Frequency: ........... 5
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.014544978051497084
+
+Section #4:
+   Emotion: ............. Joy
+   Frequency: ........... 8
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.012972547991875777
+
+Section #5:
+   Emotion: ............. Anticipation
+   Frequency: ........... 11
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.014151870536591758
+
+Section #6:
+   Emotion: ............. Anticipation
+   Frequency: ........... 5
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.017689838170739696
+
+Section #7:
+   Emotion: ............. Joy
+   Frequency: ........... 6
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.014544978051497084
+
+Section #8:
+   Emotion: ............. Sadness
+   Frequency: ........... 5
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.01493808556640241
+
+Section #9:
+   Emotion: ............. Joy
+   Frequency: ........... 4
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.014151870536591758
+
+Section #10:
+   Emotion: ............. Anticipation
+   Frequency: ........... 5
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.013365655506781104
+
+Section #11:
+   Emotion: ............. Disgust
+   Frequency: ........... 3
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.011400117932254471
+
+Musical Ambient Layer (Base Melody): V0 (65+69+72)/1.0 (65+69+72)/1.0 (60+64+67)/1.0 (60+64+67)/1.0 (60+64+67)/1.0 (60+64+67)/1.0 (57+60+64+65)/1.0 (57+60+64+65)/1.0 (59+63+66)/0.5 (64+67+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (65+69+72)/1.0 (65+69+72)/1.0 (57+60+64+65)/1.0 (57+60+64+65)/1.0 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (59+62+65+69)/0.5 (70)/0.5 (59+62+65+69)/0.5 (70)/0.5 (60+64+67)/1.0 
+------------------------------------------------------------------
+---------------------- Animal/Person Themes ----------------------
+
+Animal/Person #0:   professor
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0)
+    Size/Age: .................. 6
+    Emotion 1: ................. Joy
+    Frequency 1: ............... 1
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Surprise
+    Frequency 2: ............... 1
+    Agitation State 2: ......... aroused
+    Musical Theme: ............. 50/0.2500 53/0.2500 53/0.2500 53/0.2500 57/0.0625 50/0.0625 50/0.0625 50/0.0625 53/0.0625 57/0.0625 50/0.0625 55/0.0625 50/0.2500 57/0.0625 50/0.0625 52/0.0625 57/0.0625 
+
+Animal/Person #1:   mother
+    Emotion Vector: ............ (0.0, 3.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0)
+    Size/Age: .................. 4
+    Emotion 1: ................. Anticipation
+    Frequency 1: ............... 3
+    Agitation State 1: ......... aroused
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 1
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 71/0.0625 67/0.0625 67/0.0625 67/0.0625 69/0.1250 71/0.0625 67/0.0625 64/0.2500 67/0.1250 71/0.0625 67/0.0625 62/0.2500 65/0.2500 65/0.2500 65/0.2500 
+
+Animal/Person #2:   prince
+    Emotion Vector: ............ (1.0, 4.0, 1.0, 0.0, 4.0, 2.0, 1.0, 5.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Trust
+    Frequency 1: ............... 5
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 4
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 71/0.5000 67/0.5000 71/0.2500 67/0.2500 67/0.2500 67/0.2500 
+
+Animal/Person #3:   children
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 0
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 84/1.0000 84/1.0000 
+
+Animal/Person #4:   town councillors
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Joy
+    Frequency 1: ............... 1
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Sadness
+    Frequency 2: ............... 1
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 62/0.2500 65/0.2500 65/0.2500 65/0.2500 67/0.5000 69/0.5000 
+
+Animal/Person #5:   swallow
+    Emotion Vector: ............ (0.0, 0.0, 1.0, 1.0, 1.0, 4.0, 1.0, 2.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Sadness
+    Frequency 1: ............... 4
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Trust
+    Frequency 2: ............... 2
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 64/1.0000 62/1.0000 
+
+Animal/Person #6:   man
+    Emotion Vector: ............ (0.0, 3.0, 0.0, 1.0, 5.0, 0.0, 2.0, 2.0)
+    Size/Age: .................. 3
+    Emotion 1: ................. Joy
+    Frequency 1: ............... 5
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Surprise
+    Frequency 2: ............... 2
+    Agitation State 2: ......... aroused
+    Musical Theme: ............. 77/0.2500 76/0.2500 76/0.5000 76/0.1250 83/0.0625 83/0.0625 83/0.2500 79/0.2500 76/0.2500 
+
+Animal/Person #7:   children
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 0
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 84/1.0000 84/1.0000 
+
+Animal/Person #8:   boy
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 1
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 84/1.0000 84/1.0000 
+
+---------------------------
+Midi saved as the-happy-prince-music.midi !
+Fairytale 11 (the-happy-prince.txt) completely analysed and set to music.
+--------------------------------------------
+

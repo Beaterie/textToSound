@@ -21,14 +21,18 @@ public class MusicProcessor {
 	
 	// <animal, index of appear, percent>
 	private Map<String, TargetInfo> m_textInput;
-	// animals
+	// name of the fairytale.txt
 	private String m_nameOfLiterature;
+	// where to save the midi
+	private String m_savePath;
 	// music string
 	private String m_musicstring;
 	// number of characters of the text
 	private int m_textLength;
 	// number of sections
 	private int m_numOfSections;
+	// autoplay
+	private Boolean m_autoplay;
 	// major and minor key alphabets
 	private int[] m_majorKey = {60, 62, 64, 65, 67, 69, 71};
 	private int[] m_minorKey = {60, 62, 63, 65, 67, 68, 70};
@@ -87,12 +91,14 @@ public class MusicProcessor {
 		
 	public MusicProcessor() {};
 
-	public MusicProcessor(ProcessedResult txtRes, String litName) throws IOException {
+	public MusicProcessor(ProcessedResult txtRes, String litName, String savePath, Boolean ap) throws IOException {
 		m_textInput = txtRes.getOccurenceInfos();
 		m_nameOfLiterature = litName;
+		m_savePath = savePath;
 		m_musicstring = "";
 		m_textLength = txtRes.getTextLength();
 		m_numOfSections = genereateNumOfSections();
+		m_autoplay = ap;
 		m_highestEmotions = new Double[4][m_numOfSections];
 	}
 
@@ -162,18 +168,23 @@ public class MusicProcessor {
 		m_musicstring += generateMusicalAmbient(EmotionResults);
 		m_musicstring += generateThemeLayers(AnimalEmotionResults);
 		
-		//Player player = new Player();
+		
 		Pattern pattern = new Pattern(m_musicstring);
 		//System.out.println(m_musicstring);
 
 	    try {
-	        MidiFileManager.savePatternToMidi((PatternProducer) pattern,
-	        		new File("music/" + m_nameOfLiterature + "-music.midi"));
-	        System.out.println("Midi saved as " + m_nameOfLiterature + "-music.midi !");
+	        MidiFileManager.savePatternToMidi((PatternProducer) pattern, new File(m_savePath +
+	        		m_nameOfLiterature.substring(0, m_nameOfLiterature.length()-4) + "-music.midi"));
+	        System.out.println("Midi saved as " +
+	        		m_nameOfLiterature.substring(0, m_nameOfLiterature.length()-4) + "-music.midi !");
 	    } catch (Exception ex) {
 	        ex.getStackTrace();
 	    }
-		//player.play(pattern);
+	    
+	    if (m_autoplay == true) {
+			Player player = new Player();
+			player.play(pattern);
+		}
 	}
 	
 	/**

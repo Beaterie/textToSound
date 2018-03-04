@@ -1,0 +1,181 @@
+Fairytale 5: The-Story-of-the-Youth-Who-Went-Forth-to-Learn-Wha-Fear-Was.txt
+Textlength:10270
+[]
+People-and-Animal-Lexicon updated.
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+prepare Text done
+classify done
+Textlength:10270
+xml done
+Number of Sections: 12
+emotion done
+List of named characters:
+Hearken
+Goodness
+devil
+Father
+Enough
+Au
+Comrade
+Hullo
+Money
+Hurrah
+Emotion Analysis:
+[[0.0, 5.0, 2.0, 3.0, 2.0, 2.0, 2.0, 13.0, 19.0, 3.0], [1.0, 7.0, 5.0, 1.0, 6.0, 1.0, 0.0, 9.0, 19.0, 5.0], [5.0, 3.0, 5.0, 6.0, 1.0, 6.0, 0.0, 4.0, 5.0, 10.0], [2.0, 5.0, 3.0, 2.0, 3.0, 3.0, 3.0, 1.0, 9.0, 7.0], [4.0, 4.0, 4.0, 5.0, 2.0, 3.0, 2.0, 0.0, 2.0, 8.0], [5.0, 7.0, 1.0, 8.0, 9.0, 4.0, 6.0, 2.0, 14.0, 6.0], [4.0, 6.0, 1.0, 8.0, 5.0, 4.0, 5.0, 3.0, 9.0, 6.0], [1.0, 2.0, 0.0, 1.0, 1.0, 2.0, 1.0, 0.0, 1.0, 3.0], [3.0, 5.0, 3.0, 5.0, 3.0, 5.0, 2.0, 1.0, 7.0, 9.0], [1.0, 1.0, 0.0, 3.0, 2.0, 6.0, 3.0, 1.0, 4.0, 6.0], [2.0, 5.0, 2.0, 5.0, 1.0, 3.0, 1.0, 2.0, 5.0, 5.0], [4.0, 7.0, 0.0, 4.0, 8.0, 1.0, 6.0, 6.0, 12.0, 1.0]]
+Density Analysis:
+[[0.04790652385589094], [0.0560856864654333], [0.04089581304771178], [0.03972736124634858], [0.0373904576436222], [0.03972736124634858], [0.051411879259980524], [0.030379746835443037], [0.042064264849074974], [0.0373904576436222], [0.03855890944498539], [0.03855890944498539]]
+Negative Words:69
+Positive Words:106
+Took 5.25574195 seconds
+
+-----------------------------------------------------------------
+---------------------- General Information ----------------------
+
+Number of Sections: 12
+Key: Major  --> Based on the most appeared emotion: Anticipation (Frequency: 57.0)
+Tempo 150.0 --> Based on the most appeared emotion: Anticipation (Frequency: 57.0)
+
+-----------------------------------------------------------------
+---------------------- Ambient Music Layer ----------------------
+
+Section #0:
+   Emotion: ............. Trust
+   Frequency: ........... 13
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.04790652385589094
+
+Section #1:
+   Emotion: ............. Trust
+   Frequency: ........... 9
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.0560856864654333
+
+Section #2:
+   Emotion: ............. Fear
+   Frequency: ........... 6
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.04089581304771178
+
+Section #3:
+   Emotion: ............. Anticipation
+   Frequency: ........... 5
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.03972736124634858
+
+Section #4:
+   Emotion: ............. Fear
+   Frequency: ........... 5
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.0373904576436222
+
+Section #5:
+   Emotion: ............. Joy
+   Frequency: ........... 9
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.03972736124634858
+
+Section #6:
+   Emotion: ............. Fear
+   Frequency: ........... 8
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.051411879259980524
+
+Section #7:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.030379746835443037
+
+Section #8:
+   Emotion: ............. Anticipation
+   Frequency: ........... 5
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.042064264849074974
+
+Section #9:
+   Emotion: ............. Sadness
+   Frequency: ........... 6
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.0373904576436222
+
+Section #10:
+   Emotion: ............. Anticipation
+   Frequency: ........... 5
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.03855890944498539
+
+Section #11:
+   Emotion: ............. Joy
+   Frequency: ........... 8
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.03855890944498539
+
+Musical Ambient Layer (Base Melody): V0 (59+63+66)/0.5 (64+67+71)/0.5 (69+73+76)/0.5 (62+65+69)/0.5 (69+73+76)/0.5 (62+65+69)/0.5 (53+57+60+62)/1.0 (62+68)/1.0 (62+68)/1.0 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (65+73)/0.5 (65+71)/0.5 (65+73)/0.5 (65+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (62+68)/1.0 (62+68)/1.0 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (64+67+71)/0.5 (57+60+64)/0.5 (53+57+60+64)/1.0 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (59+63+66)/0.5 (64+67+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (60+64+67)/1.0 
+------------------------------------------------------------------
+---------------------- Animal/Person Themes ----------------------
+
+Animal/Person #0:   king
+    Emotion Vector: ............ (0.0, 3.0, 0.0, 3.0, 2.0, 1.0, 1.0, 2.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Anticipation
+    Frequency 1: ............... 3
+    Agitation State 1: ......... aroused
+    Emotion 2: ................. Fear
+    Frequency 2: ............... 3
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 64/0.2500 65/0.2500 64/0.0625 67/0.0625 67/0.1250 65/0.2500 65/0.5000 62/0.2500 65/0.2500 
+
+Animal/Person #1:   father
+    Emotion Vector: ............ (0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 2.0)
+    Size/Age: .................. 4
+    Emotion 1: ................. Trust
+    Frequency 1: ............... 2
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 69/1.0000 60/1.0000 
+
+Animal/Person #2:   man
+    Emotion Vector: ............ (3.0, 2.0, 2.0, 2.0, 3.0, 4.0, 4.0, 4.0)
+    Size/Age: .................. 3
+    Emotion 1: ................. Sadness
+    Frequency 1: ............... 4
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Surprise
+    Frequency 2: ............... 4
+    Agitation State 2: ......... aroused
+    Musical Theme: ............. 77/1.0000 74/0.0625 81/0.0625 74/0.0625 76/0.0625 76/0.2500 81/0.2500 83/0.2500 
+
+Animal/Person #3:   brother
+    Emotion Vector: ............ (0.0, 2.0, 0.0, 0.0, 1.0, 0.0, 1.0, 2.0)
+    Size/Age: .................. 2
+    Emotion 1: ................. Anticipation
+    Frequency 1: ............... 2
+    Agitation State 1: ......... aroused
+    Emotion 2: ................. Trust
+    Frequency 2: ............... 2
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 77/0.2500 74/0.0625 77/0.0625 83/0.1250 83/0.1250 74/0.0625 79/0.0625 74/0.0625 83/0.0625 77/0.1250 81/1.0000 
+
+Animal/Person #4:   boy
+    Emotion Vector: ............ (6.0, 4.0, 4.0, 6.0, 4.0, 3.0, 2.0, 2.0)
+    Size/Age: .................. 1
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 6
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Fear
+    Frequency 2: ............... 6
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 84/0.5000 84/0.2500 84/0.2500 84/0.5000 84/0.2500 84/0.2500 
+
+---------------------------
+Midi saved as The-Story-of-the-Youth-Who-Went-Forth-to-Learn-Wha-Fear-Was-music.midi !
+Fairytale 5 (The-Story-of-the-Youth-Who-Went-Forth-to-Learn-Wha-Fear-Was.txt) completely analysed and set to music.
+--------------------------------------------
+

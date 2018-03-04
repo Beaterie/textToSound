@@ -1,0 +1,125 @@
+Fairytale 1: The-Little-Match-Girl.txt
+Textlength:1307
+[]
+People-and-Animal-Lexicon updated.
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+prepare Text done
+classify done
+Textlength:1307
+xml done
+Number of Sections: 11
+emotion done
+List of named characters:
+New Year
+Eve
+Christmas
+Christmas
+God
+Christmas
+God
+Emotion Analysis:
+[[1.0, 2.0, 0.0, 1.0, 2.0, 4.0, 1.0, 2.0, 2.0, 6.0], [0.0, 2.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 2.0, 1.0], [0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 2.0, 3.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0], [0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 2.0, 4.0, 0.0], [0.0, 0.0, 1.0, 2.0, 1.0, 1.0, 0.0, 1.0, 2.0, 3.0], [0.0, 1.0, 0.0, 0.0, 2.0, 0.0, 2.0, 1.0, 3.0, 0.0], [1.0, 2.0, 1.0, 0.0, 2.0, 1.0, 1.0, 2.0, 3.0, 1.0], [0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0], [0.0, 2.0, 0.0, 0.0, 5.0, 0.0, 1.0, 2.0, 8.0, 0.0], [1.0, 3.0, 1.0, 2.0, 4.0, 1.0, 2.0, 2.0, 6.0, 4.0]]
+Density Analysis:
+[[0.13465952563121653], [0.11782708492731446], [0.11782708492731446], [0.06732976281560826], [0.08416220351951033], [0.16832440703902066], [0.1767406273909717], [0.11782708492731446], [0.0504973221117062], [0.10941086457536343], [0.14307574598316758]]
+Negative Words:19
+Positive Words:34
+Took 1.88308455 seconds
+
+-----------------------------------------------------------------
+---------------------- General Information ----------------------
+
+Number of Sections: 11
+Key: Major  --> Based on the most appeared emotion: Joy (Frequency: 20.0)
+Tempo 100.0 --> Based on the most appeared emotion: Joy (Frequency: 20.0)
+
+-----------------------------------------------------------------
+---------------------- Ambient Music Layer ----------------------
+
+Section #0:
+   Emotion: ............. Sadness
+   Frequency: ........... 4
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.13465952563121653
+
+Section #1:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.11782708492731446
+
+Section #2:
+   Emotion: ............. Anticipation
+   Frequency: ........... 1
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.11782708492731446
+
+Section #3:
+   Emotion: ............. Trust
+   Frequency: ........... 1
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.06732976281560826
+
+Section #4:
+   Emotion: ............. Trust
+   Frequency: ........... 2
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.08416220351951033
+
+Section #5:
+   Emotion: ............. Fear
+   Frequency: ........... 2
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.16832440703902066
+
+Section #6:
+   Emotion: ............. Joy
+   Frequency: ........... 2
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.1767406273909717
+
+Section #7:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.11782708492731446
+
+Section #8:
+   Emotion: ............. Anticipation
+   Frequency: ........... 1
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.0504973221117062
+
+Section #9:
+   Emotion: ............. Joy
+   Frequency: ........... 5
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.10941086457536343
+
+Section #10:
+   Emotion: ............. Joy
+   Frequency: ........... 4
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.14307574598316758
+
+Musical Ambient Layer (Base Melody): V0 (53+57+60+64)/1.0 (53+57+60+64)/1.0 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (53+57+60+62)/1.0 (53+57+60+62)/1.0 (67+71+74)/1.0 (69+73+76)/0.5 (62+65+69)/0.5 (62+68)/1.0 (62+68)/1.0 (62+66+69)/0.5 (67+71+74)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (60+64+67)/1.0 (60+64+67)/1.0 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (60+64+67)/1.0 
+------------------------------------------------------------------
+---------------------- Animal/Person Themes ----------------------
+
+Animal/Person #0:   girl
+    Emotion Vector: ............ (0.0, 1.0, 0.0, 0.0, 2.0, 0.0, 2.0, 1.0)
+    Size/Age: .................. 1
+    Emotion 1: ................. Joy
+    Frequency 1: ............... 2
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Surprise
+    Frequency 2: ............... 2
+    Agitation State 2: ......... aroused
+    Musical Theme: ............. 93/0.2500 95/0.2500 89/0.5000 88/0.0625 86/0.0625 91/0.1250 91/0.2500 86/0.2500 86/0.2500 
+
+---------------------------
+Midi saved as The-Little-Match-Girl-music.midi !
+Fairytale 1 (The-Little-Match-Girl.txt) completely analysed and set to music.
+--------------------------------------------
+

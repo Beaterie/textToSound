@@ -1,0 +1,156 @@
+Fairytale 3: The-Frog-Prince.txt
+Textlength:3587
+[]
+People-and-Animal-Lexicon updated.
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+prepare Text done
+classify done
+Textlength:3587
+xml done
+Number of Sections: 11
+emotion done
+List of named characters:
+Princess
+Stay
+Heinrich
+Emotion Analysis:
+[[0.0, 2.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 4.0, 0.0], [1.0, 0.0, 1.0, 1.0, 0.0, 4.0, 0.0, 0.0, 1.0, 4.0], [0.0, 1.0, 0.0, 0.0, 2.0, 0.0, 0.0, 0.0, 3.0, 1.0], [0.0, 2.0, 0.0, 0.0, 2.0, 0.0, 1.0, 0.0, 4.0, 0.0], [1.0, 1.0, 0.0, 0.0, 2.0, 1.0, 0.0, 1.0, 5.0, 2.0], [1.0, 0.0, 1.0, 2.0, 0.0, 1.0, 1.0, 0.0, 1.0, 2.0], [1.0, 1.0, 0.0, 0.0, 3.0, 1.0, 1.0, 2.0, 6.0, 2.0], [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 0.0], [1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 0.0, 1.0, 6.0, 1.0], [3.0, 1.0, 1.0, 3.0, 3.0, 2.0, 1.0, 2.0, 6.0, 3.0], [0.0, 4.0, 0.0, 0.0, 4.0, 1.0, 2.0, 4.0, 8.0, 2.0]]
+Density Analysis:
+[[0.05213270142180095], [0.03986618344020073], [0.03986618344020073], [0.03986618344020073], [0.05519933091720101], [0.027599665458600504], [0.05826596041260106], [0.03066629495400056], [0.06133258990800112], [0.049066071926400896], [0.06439921940340118]]
+Negative Words:17
+Positive Words:46
+Took 2.042880401 seconds
+
+-----------------------------------------------------------------
+---------------------- General Information ----------------------
+
+Number of Sections: 11
+Key: Major  --> Based on the most appeared emotion: Joy (Frequency: 19.0)
+Tempo 100.0 --> Based on the most appeared emotion: Joy (Frequency: 19.0)
+
+-----------------------------------------------------------------
+---------------------- Ambient Music Layer ----------------------
+
+Section #0:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.05213270142180095
+
+Section #1:
+   Emotion: ............. Sadness
+   Frequency: ........... 4
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.03986618344020073
+
+Section #2:
+   Emotion: ............. Joy
+   Frequency: ........... 2
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.03986618344020073
+
+Section #3:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.03986618344020073
+
+Section #4:
+   Emotion: ............. Joy
+   Frequency: ........... 2
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.05519933091720101
+
+Section #5:
+   Emotion: ............. Fear
+   Frequency: ........... 2
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.027599665458600504
+
+Section #6:
+   Emotion: ............. Joy
+   Frequency: ........... 3
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.05826596041260106
+
+Section #7:
+   Emotion: ............. Anticipation
+   Frequency: ........... 1
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.03066629495400056
+
+Section #8:
+   Emotion: ............. Joy
+   Frequency: ........... 2
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.06133258990800112
+
+Section #9:
+   Emotion: ............. Anger
+   Frequency: ........... 3
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.049066071926400896
+
+Section #10:
+   Emotion: ............. Anticipation
+   Frequency: ........... 4
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.06439921940340118
+
+Musical Ambient Layer (Base Melody): V0 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (53+57+60+64)/1.0 (53+57+60+64)/1.0 (62+66+69)/0.5 (67+71+74)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (62+66+69)/0.5 (67+71+74)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (62+68)/1.0 (62+68)/1.0 (59+63+66)/0.5 (64+67+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+66+69)/0.5 (67+71+74)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (62+70)/0.5 (62+65+69+72)/0.5 (62+70)/0.5 (62+65+69+72)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (60+64+67)/1.0 
+------------------------------------------------------------------
+---------------------- Animal/Person Themes ----------------------
+
+Animal/Person #0:   frog
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 1
+    Emotion 1: ................. Joy
+    Frequency 1: ............... 1
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 91/0.2500 86/0.2500 91/0.2500 91/0.2500 84/1.0000 
+
+Animal/Person #1:   king
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Trust
+    Frequency 1: ............... 1
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 64/0.5000 67/0.5000 60/1.0000 
+
+Animal/Person #2:   princess
+    Emotion Vector: ............ (4.0, 0.0, 1.0, 1.0, 7.0, 1.0, 0.0, 3.0)
+    Size/Age: .................. 2
+    Emotion 1: ................. Joy
+    Frequency 1: ............... 7
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Trust
+    Frequency 2: ............... 3
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 76/0.2500 79/0.2500 76/0.2500 76/0.2500 83/0.5000 81/0.5000 
+
+Animal/Person #3:   prince
+    Emotion Vector: ............ (2.0, 2.0, 1.0, 3.0, 2.0, 2.0, 1.0, 1.0)
+    Size/Age: .................. 2
+    Emotion 1: ................. Fear
+    Frequency 1: ............... 3
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Anticipation
+    Frequency 2: ............... 2
+    Agitation State 2: ......... aroused
+    Musical Theme: ............. 74/0.5000 76/0.2500 74/0.2500 74/0.2500 76/0.0625 74/0.0625 74/0.1250 74/0.1250 74/0.0625 81/0.0625 79/0.0625 74/0.0625 81/0.1250 
+
+---------------------------
+Midi saved as The-Frog-Prince-music.midi !
+Fairytale 3 (The-Frog-Prince.txt) completely analysed and set to music.
+--------------------------------------------
+

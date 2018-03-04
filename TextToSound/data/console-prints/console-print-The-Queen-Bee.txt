@@ -1,0 +1,117 @@
+Fairytale 8: The-Queen-Bee.txt
+Textlength:14531
+[]
+People-and-Animal-Lexicon updated.
+Number of Sections: 1
+Number of Sections: 1
+prepare Text done
+classify done
+Textlength:14531
+xml done
+Number of Sections: 11
+emotion done
+List of named characters:
+Emotion Analysis:
+[[2.0, 4.0, 1.0, 0.0, 2.0, 3.0, 1.0, 1.0, 2.0, 4.0], [0.0, 2.0, 0.0, 2.0, 2.0, 1.0, 1.0, 2.0, 3.0, 3.0], [1.0, 2.0, 1.0, 2.0, 2.0, 2.0, 2.0, 2.0, 3.0, 2.0], [0.0, 2.0, 0.0, 1.0, 2.0, 1.0, 0.0, 2.0, 3.0, 1.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [1.0, 1.0, 1.0, 0.0, 2.0, 1.0, 1.0, 2.0, 2.0, 1.0], [1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 3.0, 3.0, 2.0], [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0], [0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 2.0, 0.0], [0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 2.0, 1.0, 1.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 0.0]]
+Density Analysis:
+[[0.009084027252081756], [0.008327024981074944], [0.00984102952308857], [0.00757002271006813], [0.005299015897047691], [0.00984102952308857], [0.008327024981074944], [0.006056018168054504], [0.006813020439061317], [0.004542013626040878], [0.004542013626040878]]
+Negative Words:14
+Positive Words:23
+Took 1.310215919 seconds
+
+-----------------------------------------------------------------
+---------------------- General Information ----------------------
+
+Number of Sections: 11
+Key: Major  --> Based on the most appeared emotion: Trust (Frequency: 14.0)
+Tempo 90.0 --> Based on the most appeared emotion: Trust (Frequency: 14.0)
+
+-----------------------------------------------------------------
+---------------------- Ambient Music Layer ----------------------
+
+Section #0:
+   Emotion: ............. Anticipation
+   Frequency: ........... 4
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.009084027252081756
+
+Section #1:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.008327024981074944
+
+Section #2:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.00984102952308857
+
+Section #3:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.00757002271006813
+
+Section #4:
+   Emotion: ............. Anticipation
+   Frequency: ........... 0
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.005299015897047691
+
+Section #5:
+   Emotion: ............. Joy
+   Frequency: ........... 2
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.00984102952308857
+
+Section #6:
+   Emotion: ............. Trust
+   Frequency: ........... 3
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.008327024981074944
+
+Section #7:
+   Emotion: ............. Anger
+   Frequency: ........... 1
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.006056018168054504
+
+Section #8:
+   Emotion: ............. Anticipation
+   Frequency: ........... 1
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.006813020439061317
+
+Section #9:
+   Emotion: ............. Surprise
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.004542013626040878
+
+Section #10:
+   Emotion: ............. Surprise
+   Frequency: ........... 0
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.004542013626040878
+
+Musical Ambient Layer (Base Melody): V0 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (62+66+69)/0.5 (67+71+74)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (59+63+66)/0.5 (64+67+71)/0.5 (69+73+76)/0.5 (62+65+69)/0.5 (62+70)/0.5 (62+65+69+72)/0.5 (62+70)/0.5 (62+65+69+72)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+72)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+72)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+72)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+72)/0.25 (60+64+67)/1.0 
+------------------------------------------------------------------
+---------------------- Animal/Person Themes ----------------------
+
+Animal/Person #0:   man
+    Emotion Vector: ............ (2.0, 0.0, 1.0, 1.0, 1.0, 2.0, 0.0, 3.0)
+    Size/Age: .................. 3
+    Emotion 1: ................. Trust
+    Frequency 1: ............... 3
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Sadness
+    Frequency 2: ............... 2
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 81/0.5000 83/0.5000 74/1.0000 
+
+---------------------------
+Midi saved as The-Queen-Bee-music.midi !
+Fairytale 8 (The-Queen-Bee.txt) completely analysed and set to music.
+--------------------------------------------
+

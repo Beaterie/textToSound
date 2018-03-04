@@ -1,0 +1,189 @@
+Fairytale 7: The-Emperors-New-Clothes.txt
+Textlength:13696
+[Emperor, Majesty]
+People-and-Animal-Lexicon updated.
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+prepare Text done
+classify done
+Textlength:13696
+xml done
+Number of Sections: 11
+emotion done
+List of named characters:
+Emperor
+Emperor
+Time
+Emperor
+Emperor
+Emperor
+Sir Minister
+Emperor
+Emperor
+Emperor
+Emperor
+Imperial Majesty
+Emperor
+Emperor
+Emperor
+Majesty
+Emperor
+Emperor
+Emperor
+Gentlemen Weavers
+Emperor
+Emperor
+Emperor
+Majesty
+Imperial Majesty
+Emperor
+Emperor
+Majesty
+Majesty
+Emperor
+Majesty
+Emperor
+Emperor
+Emperor
+Emperor
+Emperor
+Emotion Analysis:
+[[1.0, 1.0, 0.0, 0.0, 3.0, 0.0, 2.0, 2.0, 4.0, 1.0], [1.0, 3.0, 0.0, 0.0, 2.0, 1.0, 2.0, 1.0, 5.0, 3.0], [0.0, 4.0, 0.0, 3.0, 2.0, 1.0, 1.0, 5.0, 9.0, 3.0], [1.0, 5.0, 0.0, 0.0, 3.0, 0.0, 2.0, 3.0, 4.0, 2.0], [1.0, 2.0, 0.0, 2.0, 1.0, 0.0, 0.0, 3.0, 5.0, 2.0], [0.0, 3.0, 1.0, 0.0, 4.0, 0.0, 2.0, 2.0, 5.0, 1.0], [2.0, 1.0, 2.0, 2.0, 4.0, 2.0, 1.0, 1.0, 5.0, 1.0], [2.0, 3.0, 0.0, 2.0, 3.0, 2.0, 2.0, 5.0, 6.0, 3.0], [0.0, 1.0, 0.0, 0.0, 3.0, 0.0, 0.0, 1.0, 5.0, 1.0], [1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 2.0, 0.0, 3.0, 3.0], [0.0, 3.0, 0.0, 0.0, 4.0, 1.0, 2.0, 1.0, 6.0, 0.0]]
+Density Analysis:
+[[0.020078855140186917], [0.02168516355140187], [0.02168516355140187], [0.015259929906542057], [0.017669392523364486], [0.014456775700934581], [0.015259929906542057], [0.01686623831775701], [0.015259929906542057], [0.020078855140186917], [0.01204731308411215]]
+Negative Words:20
+Positive Words:57
+Took 1.633918592 seconds
+
+-----------------------------------------------------------------
+---------------------- General Information ----------------------
+
+Number of Sections: 11
+Key: Major  --> Based on the most appeared emotion: Joy (Frequency: 30.0)
+Tempo 100.0 --> Based on the most appeared emotion: Joy (Frequency: 30.0)
+
+-----------------------------------------------------------------
+---------------------- Ambient Music Layer ----------------------
+
+Section #0:
+   Emotion: ............. Joy
+   Frequency: ........... 3
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.020078855140186917
+
+Section #1:
+   Emotion: ............. Anticipation
+   Frequency: ........... 3
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.02168516355140187
+
+Section #2:
+   Emotion: ............. Trust
+   Frequency: ........... 5
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.02168516355140187
+
+Section #3:
+   Emotion: ............. Anticipation
+   Frequency: ........... 5
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.015259929906542057
+
+Section #4:
+   Emotion: ............. Trust
+   Frequency: ........... 3
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.017669392523364486
+
+Section #5:
+   Emotion: ............. Joy
+   Frequency: ........... 4
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.014456775700934581
+
+Section #6:
+   Emotion: ............. Joy
+   Frequency: ........... 4
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.015259929906542057
+
+Section #7:
+   Emotion: ............. Trust
+   Frequency: ........... 5
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.01686623831775701
+
+Section #8:
+   Emotion: ............. Joy
+   Frequency: ........... 3
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.015259929906542057
+
+Section #9:
+   Emotion: ............. Surprise
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.020078855140186917
+
+Section #10:
+   Emotion: ............. Joy
+   Frequency: ........... 4
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.01204731308411215
+
+Musical Ambient Layer (Base Melody): V0 (59+63+66)/0.5 (64+67+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (53+57+60)/1.0 (53+57+60)/1.0 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (59+63+66)/0.5 (64+67+71)/0.5 (69+73+76)/0.5 (62+65+69)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (53+57+60)/1.0 (53+57+60)/1.0 (59+63+66)/0.5 (64+67+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+72)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+72)/0.25 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (60+64+67)/1.0 
+------------------------------------------------------------------
+---------------------- Animal/Person Themes ----------------------
+
+Animal/Person #0:   emperor
+    Emotion Vector: ............ (0.0, 2.0, 1.0, 0.0, 5.0, 0.0, 1.0, 4.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Joy
+    Frequency 1: ............... 5
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Trust
+    Frequency 2: ............... 4
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 67/0.2500 67/0.2500 64/0.5000 69/1.0000 
+
+Animal/Person #1:   king
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 60/1.0000 60/1.0000 
+
+Animal/Person #2:   father
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 4
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 60/1.0000 60/1.0000 
+
+Animal/Person #3:   man
+    Emotion Vector: ............ (1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0)
+    Size/Age: .................. 3
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 1
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Disgust
+    Frequency 2: ............... 1
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 83/0.2500 83/0.2500 77/0.2500 77/0.2500 83/0.2500 83/0.2500 77/0.2500 77/0.2500 
+
+---------------------------
+Midi saved as The-Emperors-New-Clothes-music.midi !
+Fairytale 7 (The-Emperors-New-Clothes.txt) completely analysed and set to music.
+--------------------------------------------
+

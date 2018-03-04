@@ -1,0 +1,617 @@
+Fairytale 9: The-Snow-Queen.txt
+Textlength:26395
+[Kay, Farewell, Princess, Prince, Lapland, Poor, Gerda, Snow Queen, Finland, Reindeer]
+People-and-Animal-Lexicon updated.
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+prepare Text done
+classify done
+Textlength:26395
+xml done
+Number of Sections: 12
+emotion done
+List of named characters:
+Kay
+Gerda
+Kay
+Snow Queen
+Kay
+Kay
+Gerda
+Kay
+Kay
+Gerda
+Kay
+Gerda
+Gerda
+Kay
+Kay
+Gerda
+Kay
+Kay
+Kay
+Lord
+Snow Queen
+Snow Queen
+Kay
+Gerda
+Kay
+Kay
+Snow Queen
+Gerda
+Kay
+Gerda
+Kay
+Gerda
+Sunshine
+Kay
+Gerda
+Kay
+Kay
+Gerda
+Gerda
+Gerda
+Kay
+Gerda
+Gerda
+Poor
+Gerda
+Gerda
+Gerda
+Gerda
+Kay
+Gerda
+Gerda
+Gerda
+Kay
+Gerda
+Gerda
+Kay
+Gerda
+Gerda
+Gerda
+Gerda
+Gerda
+Gerda
+Kay
+Kay
+Kay
+Gerda
+Kay
+Kay
+Tiger-Lily
+Bum
+Bum
+Bum
+Hark
+Hindoo
+Hindoo
+Gerda
+Lily
+Convolvulus
+Kay
+Gerda
+Kay
+Gerda
+Kay
+Ding
+Hyacinth
+Kay
+Gerda
+Gerda
+Gerda
+Kay
+Gerda
+Kay
+Kay
+Narcissus
+Narcissus
+Gerda
+Gerda
+Dear
+Gerda
+Gerda
+Gerda
+Gerda
+Kay
+Kay
+Princess
+Princess
+Gerda
+Gerda
+Princess
+Princess
+Princess
+Princess
+Princess
+Princess
+Kay
+Kay
+Gerda
+Kay
+Gerda
+Gerda
+Kay
+Gerda
+Princess
+Gerda
+Kay
+Princess
+Princess
+Princess
+Kay
+Gerda
+Gerda
+Kay
+Caw
+Gerda
+Gerda
+Kay
+Gerda
+Gerda
+Gerda
+Princess
+Gerda
+Kay
+Kay
+Kay
+Prince
+Princess
+Gerda
+Poor
+Prince
+Princess
+Princess
+Prince
+Gerda
+Kay
+Kay
+Prince
+Princess
+Prince
+Princess
+Gerda
+Gerda
+Farewell
+Farewell
+Prince
+Princess
+Gerda
+Gerda
+Gerda
+Gerda
+Gerda
+Gerda
+Princess
+Gerda
+Kay
+Gerda
+Gerda
+Reindeer
+Gerda
+Gerda
+Kay
+Gerda
+Gerda
+Gerda
+Gerda
+Kay
+Snow Queen
+Gerda
+Snow Queen
+Lapland
+Reindeer
+Reindeer
+Snow Queen
+North Pole
+Spitzbergen
+Kay
+Poor
+Kay
+Gerda
+Gerda
+Lapland
+Reindeer
+Gerda
+Reindeer
+Lapland
+Snow Queen
+Reindeer
+Gerda
+Reindeer
+Gerda
+Reindeer
+Gerda
+Farewell
+Reindeer
+Reindeer
+Lapland
+Lapland
+Reindeer
+Gerda
+Gerda
+Poor
+Lapland
+Finland
+Snow Queen
+Finland
+Gerda
+Lapland
+Gerda
+Reindeer
+Finland
+Finland
+Finland
+Gerda
+Reindeer
+Reindeer
+Gerda
+Finland
+Reindeer
+Snow Queen
+Finland
+Finland
+Reindeer
+Gerda
+Gerda
+Finland
+Reindeer
+Kay
+Snow Queen
+Snow Queen
+Gerda
+Snow Queen
+Kay
+Snow Queen
+Finland
+Gerda
+Reindeer
+Gerda
+Reindeer
+Gerda
+Gerda
+Aurora Borealis
+Gerda
+Snow Queen
+Gerda
+Lord
+Gerda
+Lord
+Gerda
+Snow Queen
+Kay
+Gerda
+Aurora Borealis
+Snow Queen
+Snow Queen
+Mirror
+Kay
+Kay
+Snow Queen
+Snow Queen
+Vesuvius
+Etna
+Kay
+Gerda
+Gerda
+Kay
+Kay
+Kay
+Gerda
+Hereupon Kay
+Gerda
+Gerda
+Gerda
+Snow Queen
+Gerda
+Snow Queen
+Reindeer
+Kay
+Gerda
+Finland
+Lapland
+Reindeer
+Kay
+Gerda
+Lapland
+Farewell
+Farewell
+Gerda
+Gerda
+Gerda
+Kay
+Gerda
+Prince
+Princess
+Gerda
+Gerda
+Kay
+Kay
+Gerda
+Kay
+Gerda
+Snow Queen
+Bible
+Kay
+Gerda
+Emotion Analysis:
+[[5.0, 16.0, 11.0, 9.0, 14.0, 7.0, 8.0, 12.0, 20.0, 21.0], [5.0, 14.0, 5.0, 4.0, 13.0, 11.0, 8.0, 13.0, 27.0, 15.0], [5.0, 17.0, 4.0, 3.0, 12.0, 4.0, 8.0, 11.0, 15.0, 11.0], [2.0, 15.0, 1.0, 4.0, 16.0, 10.0, 8.0, 11.0, 21.0, 8.0], [6.0, 23.0, 4.0, 7.0, 15.0, 17.0, 10.0, 12.0, 24.0, 15.0], [4.0, 13.0, 2.0, 7.0, 12.0, 11.0, 3.0, 11.0, 26.0, 11.0], [2.0, 6.0, 1.0, 2.0, 9.0, 4.0, 0.0, 12.0, 23.0, 9.0], [7.0, 18.0, 4.0, 6.0, 15.0, 7.0, 9.0, 15.0, 24.0, 11.0], [8.0, 15.0, 14.0, 21.0, 9.0, 9.0, 5.0, 10.0, 23.0, 27.0], [4.0, 8.0, 8.0, 8.0, 7.0, 6.0, 3.0, 8.0, 17.0, 19.0], [5.0, 9.0, 10.0, 8.0, 9.0, 8.0, 5.0, 14.0, 20.0, 17.0], [6.0, 16.0, 3.0, 7.0, 19.0, 8.0, 12.0, 17.0, 27.0, 20.0]]
+Density Analysis:
+[[0.05728357643493085], [0.04591778745974616], [0.056828944875923465], [0.05228262928584959], [0.055010418639893914], [0.04364462966470922], [0.04091684031066489], [0.05273726084485698], [0.05273726084485698], [0.04182610342867967], [0.05228262928584959], [0.05319189240386436]]
+Negative Words:184
+Positive Words:267
+Took 13.460088955 seconds
+
+-----------------------------------------------------------------
+---------------------- General Information ----------------------
+
+Number of Sections: 12
+Key: Major  --> Based on the most appeared emotion: Anticipation (Frequency: 170.0)
+Tempo 150.0 --> Based on the most appeared emotion: Anticipation (Frequency: 170.0)
+
+-----------------------------------------------------------------
+---------------------- Ambient Music Layer ----------------------
+
+Section #0:
+   Emotion: ............. Anticipation
+   Frequency: ........... 16
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.05728357643493085
+
+Section #1:
+   Emotion: ............. Anticipation
+   Frequency: ........... 14
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.04591778745974616
+
+Section #2:
+   Emotion: ............. Anticipation
+   Frequency: ........... 17
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.056828944875923465
+
+Section #3:
+   Emotion: ............. Joy
+   Frequency: ........... 16
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.05228262928584959
+
+Section #4:
+   Emotion: ............. Anticipation
+   Frequency: ........... 23
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.055010418639893914
+
+Section #5:
+   Emotion: ............. Anticipation
+   Frequency: ........... 13
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.04364462966470922
+
+Section #6:
+   Emotion: ............. Trust
+   Frequency: ........... 12
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.04091684031066489
+
+Section #7:
+   Emotion: ............. Anticipation
+   Frequency: ........... 18
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.05273726084485698
+
+Section #8:
+   Emotion: ............. Fear
+   Frequency: ........... 21
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.05273726084485698
+
+Section #9:
+   Emotion: ............. Anticipation
+   Frequency: ........... 8
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.04182610342867967
+
+Section #10:
+   Emotion: ............. Trust
+   Frequency: ........... 14
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.05228262928584959
+
+Section #11:
+   Emotion: ............. Joy
+   Frequency: ........... 19
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.05319189240386436
+
+Musical Ambient Layer (Base Melody): V0 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (65+69+72)/1.0 (65+69+72)/1.0 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (67+71+74)/1.0 (69+73+76)/0.5 (62+65+69)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (65+73)/0.5 (65+71)/0.5 (65+73)/0.5 (65+71)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (69+73+76)/0.5 (62+65+69)/0.5 (53+57+60+62)/1.0 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (60+64+67)/1.0 
+------------------------------------------------------------------
+---------------------- Animal/Person Themes ----------------------
+
+Animal/Person #0:   kay
+    Emotion Vector: ............ (0.0, 2.0, 0.0, 0.0, 2.0, 0.0, 1.0, 2.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Anticipation
+    Frequency 1: ............... 2
+    Agitation State 1: ......... aroused
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 2
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 62/0.0625 60/0.0625 69/0.0625 62/0.0625 62/0.2500 65/0.2500 71/0.2500 71/0.2500 60/0.2500 64/0.5000 
+
+Animal/Person #1:   woman
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 3
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 72/1.0000 72/1.0000 
+
+Animal/Person #2:   princess
+    Emotion Vector: ............ (2.0, 1.0, 0.0, 2.0, 0.0, 1.0, 0.0, 1.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 2
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Fear
+    Frequency 2: ............... 2
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 71/0.2500 60/0.2500 64/0.5000 71/0.2500 60/0.2500 64/0.5000 
+
+Animal/Person #3:   grandmother
+    Emotion Vector: ............ (0.0, 2.0, 2.0, 2.0, 1.0, 5.0, 2.0, 0.0)
+    Size/Age: .................. 8
+    Emotion 1: ................. Sadness
+    Frequency 1: ............... 5
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Disgust
+    Frequency 2: ............... 2
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 41/0.5000 36/0.5000 47/0.2500 36/0.2500 40/0.5000 
+
+Animal/Person #4:   gerda
+    Emotion Vector: ............ (2.0, 12.0, 2.0, 2.0, 13.0, 9.0, 3.0, 15.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Trust
+    Frequency 1: ............... 15
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Sadness
+    Frequency 2: ............... 9
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 64/0.5000 60/0.5000 67/0.5000 60/0.5000 
+
+Animal/Person #5:   snow queen
+    Emotion Vector: ............ (0.0, 2.0, 0.0, 0.0, 2.0, 0.0, 2.0, 2.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Anticipation
+    Frequency 1: ............... 2
+    Agitation State 1: ......... aroused
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 2
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 62/0.0625 60/0.0625 69/0.0625 62/0.0625 62/0.2500 65/0.2500 71/0.2500 71/0.2500 60/0.2500 64/0.5000 
+
+Animal/Person #6:   girl
+    Emotion Vector: ............ (2.0, 3.0, 1.0, 4.0, 2.0, 2.0, 2.0, 3.0)
+    Size/Age: .................. 1
+    Emotion 1: ................. Fear
+    Frequency 1: ............... 4
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Trust
+    Frequency 2: ............... 3
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 89/0.2500 84/0.2500 86/0.2500 89/0.2500 95/0.5000 84/0.5000 
+
+Animal/Person #7:   boy
+    Emotion Vector: ............ (1.0, 3.0, 1.0, 0.0, 2.0, 3.0, 0.0, 2.0)
+    Size/Age: .................. 1
+    Emotion 1: ................. Anticipation
+    Frequency 1: ............... 3
+    Agitation State 1: ......... aroused
+    Emotion 2: ................. Sadness
+    Frequency 2: ............... 3
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 89/0.2500 84/0.2500 86/0.1250 89/0.0625 89/0.0625 88/0.2500 95/0.5000 84/0.5000 
+
+Animal/Person #8:   maiden
+    Emotion Vector: ............ (3.0, 2.0, 3.0, 3.0, 1.0, 2.0, 1.0, 1.0)
+    Size/Age: .................. 1
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 3
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Disgust
+    Frequency 2: ............... 3
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 86/0.5000 84/0.2500 93/0.2500 86/0.5000 84/0.2500 93/0.2500 
+
+Animal/Person #9:   mother
+    Emotion Vector: ............ (1.0, 5.0, 0.0, 0.0, 4.0, 0.0, 2.0, 6.0)
+    Size/Age: .................. 4
+    Emotion 1: ................. Trust
+    Frequency 1: ............... 6
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 4
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 69/1.0000 65/0.2500 60/0.2500 62/0.2500 65/0.2500 
+
+Animal/Person #10:   prince
+    Emotion Vector: ............ (0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Anticipation
+    Frequency 1: ............... 1
+    Agitation State 1: ......... aroused
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 1
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 71/0.2500 60/0.2500 64/0.0625 71/0.0625 71/0.0625 67/0.0625 62/0.2500 67/0.2500 60/0.2500 71/0.2500 67/0.2500 
+
+Animal/Person #11:   children
+    Emotion Vector: ............ (0.0, 3.0, 0.0, 1.0, 4.0, 1.0, 3.0, 4.0)
+    Size/Age: .................. 0
+    Emotion 1: ................. Joy
+    Frequency 1: ............... 4
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Trust
+    Frequency 2: ............... 4
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 89/0.2500 84/0.2500 86/0.2500 89/0.2500 86/1.0000 
+
+Animal/Person #12:   finland
+    Emotion Vector: ............ (0.0, 1.0, 0.0, 1.0, 3.0, 1.0, 1.0, 6.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Trust
+    Frequency 1: ............... 6
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Fear
+    Frequency 2: ............... 1
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 69/1.0000 67/0.2500 60/0.2500 71/0.2500 67/0.2500 
+
+Animal/Person #13:   reindeer
+    Emotion Vector: ............ (0.0, 5.0, 0.0, 0.0, 5.0, 0.0, 3.0, 6.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Trust
+    Frequency 1: ............... 6
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 5
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 69/1.0000 69/0.2500 60/0.2500 67/0.5000 
+
+Animal/Person #14:   lapland
+    Emotion Vector: ............ (1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 1
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Sadness
+    Frequency 2: ............... 1
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 67/0.2500 60/0.2500 71/0.2500 67/0.2500 64/0.5000 60/0.5000 
+
+---------------------------
+Midi saved as The-Snow-Queen-music.midi !
+Fairytale 9 (The-Snow-Queen.txt) completely analysed and set to music.
+--------------------------------------------
+

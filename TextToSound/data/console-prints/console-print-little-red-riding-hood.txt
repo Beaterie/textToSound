@@ -1,0 +1,162 @@
+Fairytale 10: little-red-riding-hood.txt
+Textlength:27067
+[Little Red Riding Hood]
+People-and-Animal-Lexicon updated.
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+prepare Text done
+classify done
+Textlength:27067
+xml done
+Number of Sections: 11
+emotion done
+List of named characters:
+Red Riding Hood
+Little Red Riding Hood
+Little Red Riding Hood
+Little Red Riding Hood
+Little Red Riding Hood
+Little Red Riding Hood
+Little Red Riding Hood
+Little Red Riding Hood
+Little Red Riding Hood
+Little Red Riding Hood
+Emotion Analysis:
+[[1.0, 3.0, 2.0, 2.0, 2.0, 1.0, 1.0, 2.0, 3.0, 3.0], [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0], [0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 3.0, 1.0], [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0], [0.0, 2.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0], [0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0], [0.0, 3.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0], [0.0, 2.0, 0.0, 1.0, 1.0, 1.0, 0.0, 2.0, 3.0, 3.0], [0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 2.0, 0.0], [0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 2.0]]
+Density Analysis:
+[[0.005689585103631729], [0.0024383936158421694], [0.0024383936158421694], [0.0028447925518158643], [0.0028447925518158643], [0.0016255957438947796], [0.003657590423763254], [0.004470388295710644], [0.0032511914877895592], [0.003657590423763254], [0.0032511914877895592]]
+Negative Words:12
+Positive Words:19
+Took 1.059465286 seconds
+
+-----------------------------------------------------------------
+---------------------- General Information ----------------------
+
+Number of Sections: 11
+Key: Major  --> Based on the most appeared emotion: Anticipation (Frequency: 13.0)
+Tempo 150.0 --> Based on the most appeared emotion: Anticipation (Frequency: 13.0)
+
+-----------------------------------------------------------------
+---------------------- Ambient Music Layer ----------------------
+
+Section #0:
+   Emotion: ............. Anticipation
+   Frequency: ........... 3
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.005689585103631729
+
+Section #1:
+   Emotion: ............. Anticipation
+   Frequency: ........... 1
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.0024383936158421694
+
+Section #2:
+   Emotion: ............. Fear
+   Frequency: ........... 1
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.0024383936158421694
+
+Section #3:
+   Emotion: ............. Anticipation
+   Frequency: ........... 1
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.0028447925518158643
+
+Section #4:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.0028447925518158643
+
+Section #5:
+   Emotion: ............. Anticipation
+   Frequency: ........... 1
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.0016255957438947796
+
+Section #6:
+   Emotion: ............. Anticipation
+   Frequency: ........... 3
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.003657590423763254
+
+Section #7:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.004470388295710644
+
+Section #8:
+   Emotion: ............. Fear
+   Frequency: ........... 1
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.0032511914877895592
+
+Section #9:
+   Emotion: ............. Joy
+   Frequency: ........... 1
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.003657590423763254
+
+Section #10:
+   Emotion: ............. Fear
+   Frequency: ........... 1
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.0032511914877895592
+
+Musical Ambient Layer (Base Melody): V0 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (65+73)/0.5 (65+71)/0.5 (65+73)/0.5 (65+71)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (65+73)/0.5 (65+71)/0.5 (65+73)/0.5 (65+71)/0.5 (65+69+72)/1.0 (65+69+72)/1.0 (65+73)/0.5 (65+71)/0.5 (65+73)/0.5 (65+71)/0.5 (60+64+67)/1.0 
+------------------------------------------------------------------
+---------------------- Animal/Person Themes ----------------------
+
+Animal/Person #0:   little red riding hood
+    Emotion Vector: ............ (0.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Anticipation
+    Frequency 1: ............... 2
+    Agitation State 1: ......... aroused
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 1
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 69/0.0625 67/0.0625 67/0.0625 67/0.0625 62/0.2500 67/0.2500 69/0.2500 71/0.2500 64/0.2500 64/0.2500 64/0.2500 
+
+Animal/Person #1:   mother
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 4
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 60/1.0000 60/1.0000 
+
+Animal/Person #2:   wolf
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0)
+    Size/Age: .................. 6
+    Emotion 1: ................. Joy
+    Frequency 1: ............... 1
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Trust
+    Frequency 2: ............... 1
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 59/0.2500 52/0.2500 52/0.2500 52/0.2500 53/0.5000 50/0.5000 
+
+Animal/Person #3:   grandmother
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 8
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 36/1.0000 36/1.0000 
+
+---------------------------
+Midi saved as little-red-riding-hood-music.midi !
+Fairytale 10 (little-red-riding-hood.txt) completely analysed and set to music.
+--------------------------------------------
+

@@ -323,7 +323,7 @@ public class NEREmotionProcessor {
 
 	// *Create dictionary from NRC text file
 	private static List<EmotionElement> ReadLexicon() throws IOException {
-		String mFileLexicon = "data/NRC_emolex.txt";
+		String mFileLexicon = "data/lexica/NRC_emolex.txt";
 
 		FileReader lexReader = new FileReader(mFileLexicon);
 		BufferedReader bufferedLexReader = new BufferedReader(lexReader);

@@ -1,0 +1,129 @@
+Fairytale 0: the-fox-and-the-crow.txt
+Textlength:296
+[]
+People-and-Animal-Lexicon updated.
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+prepare Text done
+classify done
+Textlength:296
+xml done
+Number of Sections: 11
+emotion done
+List of named characters:
+Emotion Analysis:
+[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 2.0, 0.0, 0.0, 1.0, 0.0, 1.0, 2.0, 2.0, 0.0], [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0, 2.0, 0.0, 1.0, 2.0, 3.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 2.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0], [1.0, 2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+Density Analysis:
+[[0.2972972972972973], [0.2972972972972973], [0.14864864864864866], [0.14864864864864866], [0.037162162162162164], [0.1858108108108108], [0.07432432432432433], [0.1858108108108108], [0.07432432432432433], [0.07432432432432433], [0.14864864864864866]]
+Negative Words:3
+Positive Words:5
+Took 0.737117895 seconds
+
+-----------------------------------------------------------------
+---------------------- General Information ----------------------
+
+Number of Sections: 11
+Key: Major  --> Based on the most appeared emotion: Anticipation (Frequency: 8.0)
+Tempo 150.0 --> Based on the most appeared emotion: Anticipation (Frequency: 8.0)
+
+-----------------------------------------------------------------
+---------------------- Ambient Music Layer ----------------------
+
+Section #0:
+   Emotion: ............. Anger
+   Frequency: ........... 0
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.2972972972972973
+
+Section #1:
+   Emotion: ............. Anger
+   Frequency: ........... 0
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.2972972972972973
+
+Section #2:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.14864864864864866
+
+Section #3:
+   Emotion: ............. Anticipation
+   Frequency: ........... 1
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.14864864864864866
+
+Section #4:
+   Emotion: ............. Anticipation
+   Frequency: ........... 0
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.037162162162162164
+
+Section #5:
+   Emotion: ............. Joy
+   Frequency: ........... 2
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.1858108108108108
+
+Section #6:
+   Emotion: ............. Joy
+   Frequency: ........... 0
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.07432432432432433
+
+Section #7:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.1858108108108108
+
+Section #8:
+   Emotion: ............. Anticipation
+   Frequency: ........... 2
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.07432432432432433
+
+Section #9:
+   Emotion: ............. Sadness
+   Frequency: ........... 1
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.07432432432432433
+
+Section #10:
+   Emotion: ............. Sadness
+   Frequency: ........... 0
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.14864864864864866
+
+Musical Ambient Layer (Base Melody): V0 (60+64+67+71)/1.0 (60+64+67+71)/1.0 (60+64+67+71)/1.0 (60+64+67+71)/1.0 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (62+66+69)/0.5 (67+71+74)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (60+64+67)/1.0 (60+64+67)/1.0 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (57+60+64+65)/1.0 (57+60+64+65)/1.0 (53+57+60+64)/1.0 (53+57+60+64)/1.0 (60+64+67)/1.0 
+------------------------------------------------------------------
+---------------------- Animal/Person Themes ----------------------
+
+Animal/Person #0:   crow
+    Emotion Vector: ............ (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    Size/Age: .................. 1
+    Emotion 1: ................. Anger
+    Frequency 1: ............... 0
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Anger
+    Frequency 2: ............... 0
+    Agitation State 2: ......... quiet
+    Musical Theme: ............. 84/1.0000 84/1.0000 
+
+Animal/Person #1:   fox
+    Emotion Vector: ............ (0.0, 2.0, 0.0, 0.0, 2.0, 1.0, 1.0, 2.0)
+    Size/Age: .................. 5
+    Emotion 1: ................. Anticipation
+    Frequency 1: ............... 2
+    Agitation State 1: ......... aroused
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 2
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 60/0.0625 60/0.0625 62/0.0625 67/0.0625 60/0.2500 62/0.2500 60/0.2500 60/0.2500 60/0.2500 71/0.5000 
+
+---------------------------
+Midi saved as the-fox-and-the-crow-music.midi !
+Fairytale 0 (the-fox-and-the-crow.txt) completely analysed and set to music.
+--------------------------------------------
+

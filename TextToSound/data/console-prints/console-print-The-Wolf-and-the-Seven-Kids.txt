@@ -1,0 +1,145 @@
+Fairytale 2: The-Wolf-and-the-Seven-Kids.txt
+Textlength:2393
+[]
+People-and-Animal-Lexicon updated.
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+Number of Sections: 1
+prepare Text done
+classify done
+Textlength:2393
+xml done
+Number of Sections: 11
+emotion done
+List of named characters:
+Dear
+Dear
+Dear
+Emotion Analysis:
+[[1.0, 2.0, 1.0, 1.0, 2.0, 3.0, 0.0, 2.0, 3.0, 4.0], [0.0, 4.0, 0.0, 0.0, 3.0, 1.0, 2.0, 3.0, 4.0, 1.0], [0.0, 2.0, 0.0, 0.0, 2.0, 4.0, 0.0, 3.0, 3.0, 5.0], [3.0, 3.0, 2.0, 1.0, 2.0, 3.0, 0.0, 2.0, 2.0, 4.0], [0.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0, 3.0, 3.0, 1.0], [1.0, 1.0, 1.0, 1.0, 4.0, 0.0, 1.0, 3.0, 5.0, 0.0], [1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0], [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 0.0, 2.0, 1.0, 1.0, 1.0, 0.0, 3.0, 2.0], [0.0, 1.0, 3.0, 1.0, 1.0, 1.0, 0.0, 3.0, 1.0, 2.0], [0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]]
+Density Analysis:
+[[0.059757626410363564], [0.050564145424153786], [0.05516088591725867], [0.05516088591725867], [0.050564145424153786], [0.045967404931048894], [0.032177183451734225], [0.04137066443794401], [0.06895110739657334], [0.05516088591725867], [0.04137066443794401]]
+Negative Words:22
+Positive Words:25
+Took 1.357081938 seconds
+
+-----------------------------------------------------------------
+---------------------- General Information ----------------------
+
+Number of Sections: 11
+Key: Major  --> Based on the most appeared emotion: Trust (Frequency: 20.0)
+Tempo 90.0 --> Based on the most appeared emotion: Trust (Frequency: 20.0)
+
+-----------------------------------------------------------------
+---------------------- Ambient Music Layer ----------------------
+
+Section #0:
+   Emotion: ............. Sadness
+   Frequency: ........... 3
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.059757626410363564
+
+Section #1:
+   Emotion: ............. Anticipation
+   Frequency: ........... 4
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.050564145424153786
+
+Section #2:
+   Emotion: ............. Sadness
+   Frequency: ........... 4
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.05516088591725867
+
+Section #3:
+   Emotion: ............. Anger
+   Frequency: ........... 3
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.05516088591725867
+
+Section #4:
+   Emotion: ............. Trust
+   Frequency: ........... 3
+   Agitation State: ..... quiet
+   Emotion Density: ..... 0.050564145424153786
+
+Section #5:
+   Emotion: ............. Joy
+   Frequency: ........... 4
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.045967404931048894
+
+Section #6:
+   Emotion: ............. Anger
+   Frequency: ........... 1
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.032177183451734225
+
+Section #7:
+   Emotion: ............. Anger
+   Frequency: ........... 1
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.04137066443794401
+
+Section #8:
+   Emotion: ............. Fear
+   Frequency: ........... 2
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.06895110739657334
+
+Section #9:
+   Emotion: ............. Disgust
+   Frequency: ........... 3
+   Agitation State: ..... alive
+   Emotion Density: ..... 0.05516088591725867
+
+Section #10:
+   Emotion: ............. Anticipation
+   Frequency: ........... 1
+   Agitation State: ..... aroused
+   Emotion Density: ..... 0.04137066443794401
+
+Musical Ambient Layer (Base Melody): V0 (69+73+76)/0.5 (62+65+69)/0.5 (57+60+64+65)/1.0 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (53+57+60+64)/1.0 (53+57+60+64)/1.0 (62+70)/0.5 (62+65+69+72)/0.5 (62+70)/0.5 (62+65+69+72)/0.5 (59+63+66)/0.5 (64+67+71)/0.5 (69+73+76)/0.5 (62+65+69)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (62+70)/0.5 (62+65+69+72)/0.5 (62+70)/0.5 (62+65+69+72)/0.5 (62+70)/0.5 (62+65+69+72)/0.5 (62+70)/0.5 (62+65+69+72)/0.5 (62+68)/1.0 (62+68)/1.0 (59+62+65+69)/0.5 (70)/0.5 (59+62+65+69)/0.5 (70)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (60+64+67)/1.0 
+------------------------------------------------------------------
+---------------------- Animal/Person Themes ----------------------
+
+Animal/Person #0:   children
+    Emotion Vector: ............ (0.0, 2.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0)
+    Size/Age: .................. 0
+    Emotion 1: ................. Anticipation
+    Frequency 1: ............... 2
+    Agitation State 1: ......... aroused
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 1
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 93/0.2500 88/0.0625 88/0.0625 93/0.0625 93/0.0625 88/0.0625 91/0.0625 91/0.1250 86/0.0625 93/0.0625 91/0.0625 93/0.0625 95/0.2500 86/0.2500 86/0.2500 95/0.2500 
+
+Animal/Person #1:   wolf
+    Emotion Vector: ............ (1.0, 2.0, 0.0, 1.0, 2.0, 4.0, 0.0, 2.0)
+    Size/Age: .................. 6
+    Emotion 1: ................. Sadness
+    Frequency 1: ............... 4
+    Agitation State 1: ......... quiet
+    Emotion 2: ................. Joy
+    Frequency 2: ............... 2
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 57/1.0000 52/0.2500 57/0.2500 57/0.5000 
+
+Animal/Person #2:   monster
+    Emotion Vector: ............ (0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0)
+    Size/Age: .................. 8
+    Emotion 1: ................. Disgust
+    Frequency 1: ............... 1
+    Agitation State 1: ......... alive
+    Emotion 2: ................. Fear
+    Frequency 2: ............... 1
+    Agitation State 2: ......... alive
+    Musical Theme: ............. 47/0.2500 38/0.2500 38/0.2500 47/0.2500 47/0.2500 38/0.2500 38/0.2500 47/0.2500 
+
+---------------------------
+Midi saved as The-Wolf-and-the-Seven-Kids-music.midi !
+Fairytale 2 (The-Wolf-and-the-Seven-Kids.txt) completely analysed and set to music.
+--------------------------------------------
+
