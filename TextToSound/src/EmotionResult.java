@@ -45,10 +45,10 @@ public class EmotionResult {
     
     
     public void printResult() {
-    	System.out.println("List of named characters:");
-    	for (int Element = 0; Element < NameList.size(); Element++) {
-    	System.out.println(NameList.get(Element).getName());
-		}
+//    	System.out.println("List of named characters:");
+ //   	for (int Element = 0; Element < NameList.size(); Element++) {
+   // 	System.out.println(NameList.get(Element).getName());
+	//	}
     	System.out.println("Emotion Analysis:");
     	System.out.println(SectionEmotion);
     	System.out.println("Density Analysis:");
