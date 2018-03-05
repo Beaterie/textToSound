@@ -1,5 +1,24 @@
-Fairytale 2: The-Wolf-and-the-Seven-Kids.txt
+Fairytale 12: The-Wolf-and-the-Seven-Kids.txt
 People-and-Animal-Lexicon updated.
+
+============================================================
+============================================================
+
+
+["Dear mother, we will take good care of ourselves; you may go away without any anxiety.""Strew some white meal over my feet for me.""The wolf wants to deceive someone,""Open the door for me, children, your dear little mother has come home, and has brought every one of you something back from the forest with her.""First show us your paws that we may know if you are our dear little mother.""Dear mother, I am in the clock-case.""The wolf is dead! The wolf is dead!"]
+
+children
+["We will not open the door,""you are not our mother. She has a soft, pleasant voice, but your voice is rough; you are the wolf!""What rumbles and tumbles   Against my poor bones?   I thought 'twas six kids,   But it feels like big stones."]
+
+wolf
+["Open the door, dear children, your mother is here and has brought something back with her for each of you.""We will not open the door, our mother has not black feet like you: you are the wolf!""I have hurt my feet, rub some dough over them for me.""If you will not do it, I will devour you."]
+
+It
+["Open the door, dear children; your mother is here, and has brought something back with her for each of you."]
+
+monster
+["Now go and look for some big stones, and we will fill the wicked beast's stomach with them while he is still asleep."]
+
 List of named characters:
 Dear
 Dear
@@ -10,7 +29,7 @@ Density Analysis:
 [[0.13167587476979742], [0.11141804788213627], [0.12154696132596685], [0.12154696132596685], [0.11141804788213627], [0.1012891344383057], [0.070902394106814], [0.09116022099447513], [0.15193370165745856], [0.12154696132596685], [0.09116022099447513]]
 Negative Words:22
 Positive Words:25
-Took 1.745823961 seconds
+Took 2.569751788 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -127,6 +146,6 @@ Animal/Person #2:   monster
 
 ---------------------------
 Midi saved as The-Wolf-and-the-Seven-Kids-music.midi !
-Fairytale 2 (The-Wolf-and-the-Seven-Kids.txt) completely analysed and set to music.
+Fairytale 12 (The-Wolf-and-the-Seven-Kids.txt) completely analysed and set to music.
 --------------------------------------------
 

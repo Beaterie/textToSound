@@ -1,5 +1,21 @@
-Fairytale 12: Rapunzel.txt
+Fairytale 2: Rapunzel.txt
 People-and-Animal-Lexicon updated.
+
+============================================================
+============================================================
+
+
+[‘If the case be as you say, I will allow you to take away with you as much rampion as you will, only I make one condition, you must give me the child which your wife will bring into the world; it shall be well treated, and I will care for it like a mother.’‘If that is the ladder by which one mounts, I too will try my fortune,’‘Rapunzel, Rapunzel,   Let down your hair to me.’  Immediately the hair fell down and the king’s son climbed up.  At first Rapunzel was terribly frightened when a man, such as her eyes had never yet beheld, came to her; but the king’‘Tell me, Dame Gothel, how it happens that you are so much heavier for me to draw up than the young king’s son--he is with me in a moment.’‘Ah! you wicked child,’]
+
+son
+[‘Rapunzel, Rapunzel,   Let down your hair to me.’‘He will love me more than old Dame Gothel does’‘What do I hear you say! I thought I had separated you from all the world, and yet you have deceived me!’ In her anger she clutched Rapunzel’s beautiful tresses, wrapped them twice round her left hand, seized a pair of scissors with the right, and snip, snap, they were cut off, and the lovely braids lay on the ground. And she was so pitiless that she took poor Rapunzel into a desert where she had to live in great grief and misery.  On the same day that she cast out Rapunzel, however, the enchantress fastened the braids of hair, which she had cut off, to the hook of the window, and when the king’‘Rapunzel, Rapunzel,   Let down your hair to me.’  she let the hair down. The king’]
+
+husband
+[‘What ails you, dear wife?’]
+
+man
+[‘Sooner than let your wife die, bring her some of the rampion yourself, let it cost what it will.’‘Ah,’‘let mercy take the place of justice, I only made up my mind to do it out of necessity. My wife saw your rampion from the window, and felt such a longing for it that she would have died if she had not got some to eat.’‘Rapunzel, Rapunzel,   Let down your hair to me.’  Rapunzel had magnificent long hair, fine as spun gold, and when she heard the voice of the enchantress she unfastened her braided tresses, wound them round one of the hooks of the window above, and then the hair fell twenty ells down, and the enchantress climbed up by it.  After a year or two, it came to pass that the king’s son rode through the forest and passed by the tower. Then he heard a song, which was so charming that he stood still and listened. This was Rapunzel, who in her solitude passed her time in letting her sweet voice resound. The king’]
+
 List of named characters:
 God
 Rapunzel
@@ -32,7 +48,7 @@ Density Analysis:
 [[0.16535433070866143], [0.10236220472440945], [0.13385826771653545], [0.12598425196850394], [0.14173228346456693], [0.11023622047244094], [0.11023622047244094], [0.10236220472440945], [0.14960629921259844], [0.14960629921259844], [0.11811023622047244]]
 Negative Words:32
 Positive Words:39
-Took 1.737228209 seconds
+Took 3.751600019 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -149,6 +165,6 @@ Animal/Person #2:   man
 
 ---------------------------
 Midi saved as Rapunzel-music.midi !
-Fairytale 12 (Rapunzel.txt) completely analysed and set to music.
+Fairytale 2 (Rapunzel.txt) completely analysed and set to music.
 --------------------------------------------
 

@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="data/jfugue-5.0.7.jar"/>
 	<classpathentry kind="lib" path="data/commons-math3-3.6.1/commons-math3-3.6.1-javadoc.jar"/>
 	<classpathentry kind="lib" path="data/commons-math3-3.6.1/commons-math3-3.6.1-sources.jar"/>
 	<classpathentry kind="lib" path="data/commons-math3-3.6.1/commons-math3-3.6.1-test-sources.jar"/>
@@ -24,5 +23,6 @@
 	<classpathentry kind="lib" path="data/stanford-corenlp/stanford-corenlp-3.8.0.jar"/>
 	<classpathentry kind="lib" path="data/stanford-corenlp/xom-1.2.10-src.jar"/>
 	<classpathentry kind="lib" path="data/stanford-corenlp/xom.jar"/>
+	<classpathentry kind="lib" path="data/jFugue/jfugue-5.0.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

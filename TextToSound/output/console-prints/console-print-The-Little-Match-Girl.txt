@@ -1,5 +1,18 @@
-Fairytale 1: The-Little-Match-Girl.txt
+Fairytale 8: The-Little-Match-Girl.txt
 People-and-Animal-Lexicon updated.
+
+============================================================
+============================================================
+
+
+[“Grandmother!”“She wanted to warm herself,”]
+
+it
+[“Rischt!”]
+
+girl
+[“Someone is just dead!”“Oh, take me with you! You go away when the match burns out; you vanish like the warm stove, like the delicious roast goose, and like the magnificent Christmas tree!”]
+
 List of named characters:
 New Year
 Eve
@@ -14,7 +27,7 @@ Density Analysis:
 [[0.17408506429277942], [0.152324431256182], [0.152324431256182], [0.08704253214638971], [0.10880316518298715], [0.2176063303659743], [0.228486646884273], [0.152324431256182], [0.06528189910979229], [0.1414441147378833], [0.18496538081107813]]
 Negative Words:19
 Positive Words:34
-Took 1.990037449 seconds
+Took 2.339805749 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -109,6 +122,6 @@ Animal/Person #0:   girl
 
 ---------------------------
 Midi saved as The-Little-Match-Girl-music.midi !
-Fairytale 1 (The-Little-Match-Girl.txt) completely analysed and set to music.
+Fairytale 8 (The-Little-Match-Girl.txt) completely analysed and set to music.
 --------------------------------------------
 

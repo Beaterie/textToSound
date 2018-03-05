@@ -438,10 +438,6 @@ public class ExperimentalCharacterAnalysis {
 			StringBuilder quotes = entry.getValue();
 			EmotionResult EmotionResults = NERprocessor.AssessEmotion(quotes.toString(), 1);
 			characterEmotionRes.put(person, EmotionResults);
-			
-			//System.out.println(person);
-//			EmotionResults.printResult();
-			//System.out.println();
 		}
 		return characterEmotionRes;
 	}
@@ -453,17 +449,10 @@ public class ExperimentalCharacterAnalysis {
 	
 	public static Map<String, EmotionResult> main(String sourceFile) throws IOException {
 		
-		//String sourceFile = "data/pride-and-prejudice-test.txt";
 //		String sourceFile = "data/test-character.txt";
 		
 		NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor(sourceFile, 10);
 		List<String> nameList = NERprocessor1.nameDetection();
-		
-//		System.out.println("CHARACTERS:");
-//		for (int i = 0; i < nameList.size(); i++) {
-//			System.out.print(nameList.get(i) + " ");
-//		}
-//		System.out.println();
 
 		
 		TextLexProcessor proc = new TextLexProcessor(sourceFile, "data/lexica/lexicon_people_and_animal_basic.csv");
@@ -476,11 +465,6 @@ public class ExperimentalCharacterAnalysis {
 		exp.extractPeopleFromTxtLexProc(result, nameList);
 		exp.determineSpeakersOfQuotes();
 		exp.mapQuoteToSpeaker();
-		
-//		System.out.println("\n" + exp.mQuoteMap.keySet());
-//		for (String index : exp.mQuoteSpeakers) {
-//			System.out.print(index + ", ");
-//		}System.out.println();
 		
 		
 //		Map<String, EmotionResult> characterEmoRes = exp.characterAnalysis(NERprocessor1);
@@ -499,15 +483,16 @@ public class ExperimentalCharacterAnalysis {
 			System.out.println("Error while writing new lexicon.");
 		}
 		
+		// Presentation
+		System.out.println("\n============================================================");
+		System.out.println("============================================================\n");
+		for (Entry<String, StringBuilder> entry : exp.mQuoteMap.entrySet()) {
+			System.out.println(entry.getKey());
+			System.out.println("[" + entry.getValue() + "]\n");
+		}
+		
 		return exp.characterAnalysis(NERprocessor1);
 		
 		
-		// Presentation
-//		System.out.println("\n============================================================");
-//		System.out.println("============================================================\n");
-//		for (Entry<String, StringBuilder> entry : exp.mQuoteMap.entrySet()) {
-//			System.out.println(entry.getKey());
-//			System.out.println("[" + entry.getValue() + "]\n");
-//		}
 	}
 }

@@ -1,5 +1,21 @@
-Fairytale 10: little-red-riding-hood.txt
+Fairytale 1: little-red-riding-hood.txt
 People-and-Animal-Lexicon updated.
+
+============================================================
+============================================================
+
+Little Red Riding Hood
+["I am going to see my grandmother and carry her a cake and a little pot of butter from my mother.""Oh I say,""it is beyond that mill you see there, at the first house in the village.""Who's there?""It is your grandchild Little Red Riding Hood, who has brought you a cake and a little pot of butter mother sends you.""Put the cake and the little pot of butter upon the stool, and come get into bed with me.""Grandmother, what big arms you have!""Grandmother, what big legs you have!""Grandmother, what big ears you have!""Grandmother, what big eyes you have!""Grandmother, what big teeth you have got!"]
+
+mother
+["Go, my dear, and see how your grandmother is doing, for I hear she has been very ill. Take her a cake, and this little pot of butter."]
+
+wolf
+["Does she live far off?""Well,""and I'll go and see her too. I'll go this way and go you that, and we shall see who will be there first.""Your grandchild, Little Red Riding Hood,""who has brought you a cake and a little pot of butter sent you by mother.""Who's there?""Pull the bobbin, and the latch will go up.""All the better to hug you with, my dear.""All the better to run with, my child.""All the better to hear with, my child.""All the better to see with, my child.""All the better to eat you up with."]
+
+grandmother
+["Pull the bobbin, and the latch will go up."]
+
 List of named characters:
 Red Riding Hood
 Little Red Riding Hood
@@ -17,7 +33,7 @@ Density Analysis:
 [[0.22916666666666666], [0.09821428571428571], [0.09821428571428571], [0.11458333333333333], [0.11458333333333333], [0.06547619047619048], [0.14732142857142858], [0.1800595238095238], [0.13095238095238096], [0.14732142857142858], [0.13095238095238096]]
 Negative Words:12
 Positive Words:19
-Took 0.890039673 seconds
+Took 1.834174958 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -145,6 +161,6 @@ Animal/Person #3:   grandmother
 
 ---------------------------
 Midi saved as little-red-riding-hood-music.midi !
-Fairytale 10 (little-red-riding-hood.txt) completely analysed and set to music.
+Fairytale 1 (little-red-riding-hood.txt) completely analysed and set to music.
 --------------------------------------------
 

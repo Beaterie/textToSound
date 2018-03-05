@@ -1,5 +1,24 @@
-Fairytale 3: The-Frog-Prince.txt
+Fairytale 5: The-Frog-Prince.txt
 People-and-Animal-Lexicon updated.
+
+============================================================
+============================================================
+
+
+["Pray lift me upon chair,""and let me sit next to you.""Yes"]
+
+frog
+["I want not your pearls, and jewels, and fine clothes; but if you will love me, and let me live with you and eat from off your golden plate, and sleep upon your bed, I will bring you your ball again.""Stay, princess, and take me with you as you said,"]
+
+king
+["As you have given your word you must keep it; so go and let him in."]
+
+princess
+["What nonsense,""this silly frog is talking! He can never even get out of the spring to visit me, though he may be able to get my ball for me, and therefore I will tell him he shall have what he asks.""Well, if you will bring me my ball, I will do all you ask.""Open the door, my princess dear,   Open the door to thy true love here!   And mind the words that thou and I said   By the fountain cool, in the greenwood shade.""There is a nasty frog,""at the door, that lifted my ball for me out of the spring this morning: I told him that he should live with me here, thinking that he could never get out of the spring; but there he is at the door, and he wants to come in.""Open the door, my princess dear,   Open the door to thy true love here!   And mind the words that thou and I said   By the fountain cool, in the greenwood shade.""Put your plate nearer to me, that I may eat out of it.""Now I am tired; carry me upstairs, and put me into your bed.""Now, then,""at last he is gone, and I shall be troubled with him no more.""Open the door, my princess dear,   Open the door to thy true love here!   And mind the words that thou and I said   By the fountain cool, in the greenwood shade."]
+
+prince
+["You,""have broken his cruel charm, and now I have nothing to wish for but that you should go with me into my father's kingdom, where I will marry you, and love you as long as you live."]
+
 List of named characters:
 Princess
 Stay
@@ -10,7 +29,7 @@ Density Analysis:
 [[0.15661641541038526], [0.11976549413735343], [0.11976549413735343], [0.11976549413735343], [0.1658291457286432], [0.0829145728643216], [0.17504187604690116], [0.09212730318257957], [0.18425460636515914], [0.1474036850921273], [0.1934673366834171]]
 Negative Words:17
 Positive Words:46
-Took 2.69832431 seconds
+Took 3.060897119 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -138,6 +157,6 @@ Animal/Person #3:   prince
 
 ---------------------------
 Midi saved as The-Frog-Prince-music.midi !
-Fairytale 3 (The-Frog-Prince.txt) completely analysed and set to music.
+Fairytale 5 (The-Frog-Prince.txt) completely analysed and set to music.
 --------------------------------------------
 

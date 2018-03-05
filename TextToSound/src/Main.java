@@ -22,7 +22,7 @@ public class Main {
 		 */
 		
 		PrintStream stdout = System.out;
-		PrintStream printer = new PrintStream(new FileOutputStream("data/console-prints/console-print"));
+		PrintStream printer = new PrintStream(new FileOutputStream("output/console-prints/console-print"));
 		String lit_path = "";
 		Boolean autoplay = false;
 		
@@ -142,7 +142,7 @@ public class Main {
 				System.out.println("Fairytale " + i + ": " + fairytales[i]);
 				
 				printer = new PrintStream(new FileOutputStream(
-						"data/console-prints/console-print-" + fairytales[i]));
+						"output/console-prints/console-print-" + fairytales[i]));
 				System.setOut(printer);
 				
 				System.out.println("Fairytale " + i + ": " + fairytales[i]);
@@ -155,7 +155,7 @@ public class Main {
 				TextLexProcessor processor1 = new TextLexProcessor(lit_path,
 						"data/lexica/lexicon_people_and_animal_individual.csv");
 				MusicProcessor mp = new MusicProcessor(processor1.process(),
-						fairytales[i], "data/music/", false);
+						fairytales[i], "output/music/", false);
 				NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor(lit_path, mp.getM_numOfSections());
 				EmotionResult EmotionResults = NERprocessor1.main(args);
 				mp.process(EmotionResults, animal_emotion_vecs);
@@ -176,7 +176,8 @@ public class Main {
 			}
 		}
 		
-		System.out.println("Programme has finished.");
+		System.out.println("Program has finished.");
+		System.out.println("You can find the results in the folder 'output'");
 			
 	}
 	

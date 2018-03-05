@@ -1,5 +1,18 @@
-Fairytale 0: the-fox-and-the-crow.txt
+Fairytale 4: the-fox-and-the-crow.txt
 People-and-Animal-Lexicon updated.
+
+============================================================
+============================================================
+
+
+[“if only your brain was quite as sharp!”]
+
+crow
+[“caw craw craw!”]
+
+fox
+[“What a magnificent noble bird I see before me! Your beauty is indeed without equal, mistress, and the effect of the sunlight on your feathers is surely beyond compare! I heard from my friends that it is your voice, however, that is your finest attribute, and I have been longing to hear you sing!”“Well, mistress, you do indeed have a fine voice”]
+
 List of named characters:
 Emotion Analysis:
 [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 2.0, 0.0, 0.0, 1.0, 0.0, 1.0, 2.0, 2.0, 0.0], [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0, 2.0, 0.0, 1.0, 2.0, 3.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 2.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0], [1.0, 2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
@@ -7,7 +20,7 @@ Density Analysis:
 [[0.2972972972972973], [0.2972972972972973], [0.14864864864864866], [0.14864864864864866], [0.037162162162162164], [0.1858108108108108], [0.07432432432432433], [0.1858108108108108], [0.07432432432432433], [0.07432432432432433], [0.14864864864864866]]
 Negative Words:3
 Positive Words:5
-Took 0.727779982 seconds
+Took 0.825946767 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -113,6 +126,6 @@ Animal/Person #1:   fox
 
 ---------------------------
 Midi saved as the-fox-and-the-crow-music.midi !
-Fairytale 0 (the-fox-and-the-crow.txt) completely analysed and set to music.
+Fairytale 4 (the-fox-and-the-crow.txt) completely analysed and set to music.
 --------------------------------------------
 
