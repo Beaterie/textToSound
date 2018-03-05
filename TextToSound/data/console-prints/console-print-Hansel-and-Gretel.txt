@@ -1,26 +1,5 @@
 Fairytale 4: Hansel-and-Gretel.txt
-Textlength:6513
-[Hansel, Gretel]
 People-and-Animal-Lexicon updated.
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-prepare Text done
-classify done
-Textlength:6513
-xml done
-Number of Sections: 12
-emotion done
 List of named characters:
 Hansel
 Gretel
@@ -110,10 +89,10 @@ Hansel
 Emotion Analysis:
 [[1.0, 4.0, 1.0, 3.0, 1.0, 4.0, 3.0, 1.0, 2.0, 7.0], [1.0, 2.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 5.0, 2.0], [0.0, 4.0, 0.0, 2.0, 4.0, 0.0, 1.0, 6.0, 4.0, 1.0], [1.0, 7.0, 3.0, 0.0, 1.0, 4.0, 3.0, 3.0, 2.0, 7.0], [0.0, 5.0, 1.0, 0.0, 3.0, 1.0, 1.0, 3.0, 4.0, 2.0], [0.0, 3.0, 0.0, 1.0, 3.0, 3.0, 1.0, 3.0, 3.0, 5.0], [1.0, 1.0, 1.0, 1.0, 3.0, 3.0, 1.0, 2.0, 4.0, 3.0], [0.0, 5.0, 0.0, 3.0, 5.0, 3.0, 3.0, 5.0, 9.0, 4.0], [1.0, 7.0, 0.0, 2.0, 3.0, 1.0, 1.0, 3.0, 6.0, 7.0], [1.0, 3.0, 3.0, 5.0, 1.0, 4.0, 1.0, 1.0, 3.0, 11.0], [5.0, 3.0, 4.0, 5.0, 3.0, 3.0, 4.0, 4.0, 6.0, 7.0], [1.0, 3.0, 0.0, 1.0, 3.0, 0.0, 2.0, 2.0, 4.0, 1.0]]
 Density Analysis:
-[[0.05158912943344081], [0.04974666052510364], [0.05711653615845232], [0.06632888070013819], [0.04237678489175495], [0.055274067250115154], [0.05711653615845232], [0.0589590050667895], [0.06448641179180101], [0.05158912943344081], [0.06080147397512667], [0.027637033625057577]]
+[[0.11483253588516747], [0.11073137388926863], [0.12713602187286396], [0.14764183185235816], [0.09432672590567327], [0.12303485987696514], [0.12713602187286396], [0.13123718386876282], [0.14354066985645933], [0.11483253588516747], [0.13533834586466165], [0.06151742993848257]]
 Negative Words:57
 Positive Words:52
-Took 3.699400549 seconds
+Took 9.100079089 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -129,73 +108,73 @@ Section #0:
    Emotion: ............. Anticipation
    Frequency: ........... 4
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.05158912943344081
+   Emotion Density: ..... 0.11483253588516747
 
 Section #1:
    Emotion: ............. Trust
    Frequency: ........... 3
    Agitation State: ..... quiet
-   Emotion Density: ..... 0.04974666052510364
+   Emotion Density: ..... 0.11073137388926863
 
 Section #2:
    Emotion: ............. Trust
    Frequency: ........... 6
    Agitation State: ..... quiet
-   Emotion Density: ..... 0.05711653615845232
+   Emotion Density: ..... 0.12713602187286396
 
 Section #3:
    Emotion: ............. Anticipation
    Frequency: ........... 7
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.06632888070013819
+   Emotion Density: ..... 0.14764183185235816
 
 Section #4:
    Emotion: ............. Anticipation
    Frequency: ........... 5
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.04237678489175495
+   Emotion Density: ..... 0.09432672590567327
 
 Section #5:
    Emotion: ............. Anticipation
    Frequency: ........... 3
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.055274067250115154
+   Emotion Density: ..... 0.12303485987696514
 
 Section #6:
    Emotion: ............. Joy
    Frequency: ........... 3
    Agitation State: ..... alive
-   Emotion Density: ..... 0.05711653615845232
+   Emotion Density: ..... 0.12713602187286396
 
 Section #7:
    Emotion: ............. Anticipation
    Frequency: ........... 5
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.0589590050667895
+   Emotion Density: ..... 0.13123718386876282
 
 Section #8:
    Emotion: ............. Anticipation
    Frequency: ........... 7
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.06448641179180101
+   Emotion Density: ..... 0.14354066985645933
 
 Section #9:
    Emotion: ............. Fear
    Frequency: ........... 5
    Agitation State: ..... alive
-   Emotion Density: ..... 0.05158912943344081
+   Emotion Density: ..... 0.11483253588516747
 
 Section #10:
    Emotion: ............. Anger
    Frequency: ........... 5
    Agitation State: ..... alive
-   Emotion Density: ..... 0.06080147397512667
+   Emotion Density: ..... 0.13533834586466165
 
 Section #11:
    Emotion: ............. Anticipation
    Frequency: ........... 3
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.027637033625057577
+   Emotion Density: ..... 0.06151742993848257
 
 Musical Ambient Layer (Base Melody): V0 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (59+63+66)/0.5 (64+67+71)/0.5 (69+73+76)/0.5 (62+65+69)/0.5 (53+57+60+62)/1.0 (53+57+60+62)/1.0 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (59+63+66)/0.5 (64+67+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (65+73)/0.5 (65+71)/0.5 (65+73)/0.5 (65+71)/0.5 (62+70)/0.5 (62+65+69+72)/0.5 (62+70)/0.5 (62+65+69+72)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (60+64+67)/1.0 
 ------------------------------------------------------------------

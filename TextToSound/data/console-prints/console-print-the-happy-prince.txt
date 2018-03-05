@@ -1,23 +1,5 @@
 Fairytale 11: the-happy-prince.txt
-Textlength:30526
-[Mayor, Egypt, Prince, Reed, Town Councillors, Swallow]
 People-and-Animal-Lexicon updated.
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-prepare Text done
-classify done
-Textlength:30526
-xml done
-Number of Sections: 12
-emotion done
 List of named characters:
 Prince
 Town Councillors
@@ -144,10 +126,10 @@ Prince
 Emotion Analysis:
 [[1.0, 4.0, 2.0, 2.0, 11.0, 4.0, 1.0, 6.0, 15.0, 6.0], [1.0, 3.0, 2.0, 1.0, 5.0, 0.0, 2.0, 2.0, 9.0, 2.0], [0.0, 3.0, 0.0, 1.0, 5.0, 3.0, 1.0, 4.0, 8.0, 3.0], [3.0, 3.0, 4.0, 3.0, 3.0, 5.0, 1.0, 5.0, 9.0, 6.0], [1.0, 5.0, 2.0, 0.0, 8.0, 1.0, 3.0, 7.0, 9.0, 5.0], [3.0, 11.0, 2.0, 2.0, 7.0, 4.0, 4.0, 6.0, 11.0, 6.0], [0.0, 5.0, 1.0, 1.0, 4.0, 1.0, 2.0, 5.0, 5.0, 4.0], [1.0, 2.0, 2.0, 1.0, 6.0, 1.0, 2.0, 4.0, 6.0, 3.0], [1.0, 2.0, 1.0, 0.0, 3.0, 5.0, 2.0, 5.0, 4.0, 7.0], [1.0, 3.0, 3.0, 3.0, 4.0, 4.0, 1.0, 2.0, 4.0, 8.0], [1.0, 5.0, 1.0, 0.0, 3.0, 3.0, 3.0, 2.0, 10.0, 3.0], [0.0, 0.0, 3.0, 2.0, 2.0, 3.0, 1.0, 3.0, 6.0, 6.0]]
 Density Analysis:
-[[0.01493808556640241], [0.012972547991875777], [0.013365655506781104], [0.014544978051497084], [0.012972547991875777], [0.014151870536591758], [0.017689838170739696], [0.014544978051497084], [0.01493808556640241], [0.014151870536591758], [0.013365655506781104], [0.011400117932254471]]
+[[0.13183000867302688], [0.11448395490026018], [0.11795316565481354], [0.12836079791847355], [0.11448395490026018], [0.12489158716392021], [0.15611448395490027], [0.12836079791847355], [0.13183000867302688], [0.12489158716392021], [0.11795316565481354], [0.10060711188204684]]
 Negative Words:59
 Positive Words:96
-Took 4.423277179 seconds
+Took 3.853788087 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -163,73 +145,73 @@ Section #0:
    Emotion: ............. Joy
    Frequency: ........... 11
    Agitation State: ..... alive
-   Emotion Density: ..... 0.01493808556640241
+   Emotion Density: ..... 0.13183000867302688
 
 Section #1:
    Emotion: ............. Joy
    Frequency: ........... 5
    Agitation State: ..... alive
-   Emotion Density: ..... 0.012972547991875777
+   Emotion Density: ..... 0.11448395490026018
 
 Section #2:
    Emotion: ............. Joy
    Frequency: ........... 5
    Agitation State: ..... alive
-   Emotion Density: ..... 0.013365655506781104
+   Emotion Density: ..... 0.11795316565481354
 
 Section #3:
    Emotion: ............. Sadness
    Frequency: ........... 5
    Agitation State: ..... quiet
-   Emotion Density: ..... 0.014544978051497084
+   Emotion Density: ..... 0.12836079791847355
 
 Section #4:
    Emotion: ............. Joy
    Frequency: ........... 8
    Agitation State: ..... alive
-   Emotion Density: ..... 0.012972547991875777
+   Emotion Density: ..... 0.11448395490026018
 
 Section #5:
    Emotion: ............. Anticipation
    Frequency: ........... 11
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.014151870536591758
+   Emotion Density: ..... 0.12489158716392021
 
 Section #6:
    Emotion: ............. Anticipation
    Frequency: ........... 5
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.017689838170739696
+   Emotion Density: ..... 0.15611448395490027
 
 Section #7:
    Emotion: ............. Joy
    Frequency: ........... 6
    Agitation State: ..... alive
-   Emotion Density: ..... 0.014544978051497084
+   Emotion Density: ..... 0.12836079791847355
 
 Section #8:
    Emotion: ............. Sadness
    Frequency: ........... 5
    Agitation State: ..... quiet
-   Emotion Density: ..... 0.01493808556640241
+   Emotion Density: ..... 0.13183000867302688
 
 Section #9:
    Emotion: ............. Joy
    Frequency: ........... 4
    Agitation State: ..... alive
-   Emotion Density: ..... 0.014151870536591758
+   Emotion Density: ..... 0.12489158716392021
 
 Section #10:
    Emotion: ............. Anticipation
    Frequency: ........... 5
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.013365655506781104
+   Emotion Density: ..... 0.11795316565481354
 
 Section #11:
    Emotion: ............. Disgust
    Frequency: ........... 3
    Agitation State: ..... alive
-   Emotion Density: ..... 0.011400117932254471
+   Emotion Density: ..... 0.10060711188204684
 
 Musical Ambient Layer (Base Melody): V0 (65+69+72)/1.0 (65+69+72)/1.0 (60+64+67)/1.0 (60+64+67)/1.0 (60+64+67)/1.0 (60+64+67)/1.0 (57+60+64+65)/1.0 (57+60+64+65)/1.0 (59+63+66)/0.5 (64+67+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (65+69+72)/1.0 (65+69+72)/1.0 (57+60+64+65)/1.0 (57+60+64+65)/1.0 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (59+62+65+69)/0.5 (70)/0.5 (59+62+65+69)/0.5 (70)/0.5 (60+64+67)/1.0 
 ------------------------------------------------------------------

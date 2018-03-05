@@ -1,18 +1,5 @@
 Fairytale 7: The-Emperors-New-Clothes.txt
-Textlength:13696
-[Emperor, Majesty]
 People-and-Animal-Lexicon updated.
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-prepare Text done
-classify done
-Textlength:13696
-xml done
-Number of Sections: 11
-emotion done
 List of named characters:
 Emperor
 Emperor
@@ -53,10 +40,10 @@ Emperor
 Emotion Analysis:
 [[1.0, 1.0, 0.0, 0.0, 3.0, 0.0, 2.0, 2.0, 4.0, 1.0], [1.0, 3.0, 0.0, 0.0, 2.0, 1.0, 2.0, 1.0, 5.0, 3.0], [0.0, 4.0, 0.0, 3.0, 2.0, 1.0, 1.0, 5.0, 9.0, 3.0], [1.0, 5.0, 0.0, 0.0, 3.0, 0.0, 2.0, 3.0, 4.0, 2.0], [1.0, 2.0, 0.0, 2.0, 1.0, 0.0, 0.0, 3.0, 5.0, 2.0], [0.0, 3.0, 1.0, 0.0, 4.0, 0.0, 2.0, 2.0, 5.0, 1.0], [2.0, 1.0, 2.0, 2.0, 4.0, 2.0, 1.0, 1.0, 5.0, 1.0], [2.0, 3.0, 0.0, 2.0, 3.0, 2.0, 2.0, 5.0, 6.0, 3.0], [0.0, 1.0, 0.0, 0.0, 3.0, 0.0, 0.0, 1.0, 5.0, 1.0], [1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 2.0, 0.0, 3.0, 3.0], [0.0, 3.0, 0.0, 0.0, 4.0, 1.0, 2.0, 1.0, 6.0, 0.0]]
 Density Analysis:
-[[0.020078855140186917], [0.02168516355140187], [0.02168516355140187], [0.015259929906542057], [0.017669392523364486], [0.014456775700934581], [0.015259929906542057], [0.01686623831775701], [0.015259929906542057], [0.020078855140186917], [0.01204731308411215]]
+[[0.14808831448572968], [0.15993537964458804], [0.15993537964458804], [0.11254711900915455], [0.1303177167474421], [0.10662358642972537], [0.11254711900915455], [0.12439418416801293], [0.11254711900915455], [0.14808831448572968], [0.0888529886914378]]
 Negative Words:20
 Positive Words:57
-Took 2.461288207 seconds
+Took 2.244998008 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -72,67 +59,67 @@ Section #0:
    Emotion: ............. Joy
    Frequency: ........... 3
    Agitation State: ..... alive
-   Emotion Density: ..... 0.020078855140186917
+   Emotion Density: ..... 0.14808831448572968
 
 Section #1:
    Emotion: ............. Anticipation
    Frequency: ........... 3
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.02168516355140187
+   Emotion Density: ..... 0.15993537964458804
 
 Section #2:
    Emotion: ............. Trust
    Frequency: ........... 5
    Agitation State: ..... quiet
-   Emotion Density: ..... 0.02168516355140187
+   Emotion Density: ..... 0.15993537964458804
 
 Section #3:
    Emotion: ............. Anticipation
    Frequency: ........... 5
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.015259929906542057
+   Emotion Density: ..... 0.11254711900915455
 
 Section #4:
    Emotion: ............. Trust
    Frequency: ........... 3
    Agitation State: ..... quiet
-   Emotion Density: ..... 0.017669392523364486
+   Emotion Density: ..... 0.1303177167474421
 
 Section #5:
    Emotion: ............. Joy
    Frequency: ........... 4
    Agitation State: ..... alive
-   Emotion Density: ..... 0.014456775700934581
+   Emotion Density: ..... 0.10662358642972537
 
 Section #6:
    Emotion: ............. Joy
    Frequency: ........... 4
    Agitation State: ..... alive
-   Emotion Density: ..... 0.015259929906542057
+   Emotion Density: ..... 0.11254711900915455
 
 Section #7:
    Emotion: ............. Trust
    Frequency: ........... 5
    Agitation State: ..... quiet
-   Emotion Density: ..... 0.01686623831775701
+   Emotion Density: ..... 0.12439418416801293
 
 Section #8:
    Emotion: ............. Joy
    Frequency: ........... 3
    Agitation State: ..... alive
-   Emotion Density: ..... 0.015259929906542057
+   Emotion Density: ..... 0.11254711900915455
 
 Section #9:
    Emotion: ............. Surprise
    Frequency: ........... 2
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.020078855140186917
+   Emotion Density: ..... 0.14808831448572968
 
 Section #10:
    Emotion: ............. Joy
    Frequency: ........... 4
    Agitation State: ..... alive
-   Emotion Density: ..... 0.01204731308411215
+   Emotion Density: ..... 0.0888529886914378
 
 Musical Ambient Layer (Base Melody): V0 (59+63+66)/0.5 (64+67+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (53+57+60)/1.0 (53+57+60)/1.0 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (59+63+66)/0.5 (64+67+71)/0.5 (69+73+76)/0.5 (62+65+69)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (53+57+60)/1.0 (53+57+60)/1.0 (59+63+66)/0.5 (64+67+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+72)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+73)/0.25 (65+69+72)/0.25 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (60+64+67)/1.0 
 ------------------------------------------------------------------

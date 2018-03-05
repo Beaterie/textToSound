@@ -1,19 +1,5 @@
 Fairytale 5: The-Story-of-the-Youth-Who-Went-Forth-to-Learn-Wha-Fear-Was.txt
-Textlength:10270
-[]
 People-and-Animal-Lexicon updated.
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-prepare Text done
-classify done
-Textlength:10270
-xml done
-Number of Sections: 12
-emotion done
 List of named characters:
 Hearken
 Goodness
@@ -28,10 +14,10 @@ Hurrah
 Emotion Analysis:
 [[0.0, 5.0, 2.0, 3.0, 2.0, 2.0, 2.0, 13.0, 19.0, 3.0], [1.0, 7.0, 5.0, 1.0, 6.0, 1.0, 0.0, 9.0, 19.0, 5.0], [5.0, 3.0, 5.0, 6.0, 1.0, 6.0, 0.0, 4.0, 5.0, 10.0], [2.0, 5.0, 3.0, 2.0, 3.0, 3.0, 3.0, 1.0, 9.0, 7.0], [4.0, 4.0, 4.0, 5.0, 2.0, 3.0, 2.0, 0.0, 2.0, 8.0], [5.0, 7.0, 1.0, 8.0, 9.0, 4.0, 6.0, 2.0, 14.0, 6.0], [4.0, 6.0, 1.0, 8.0, 5.0, 4.0, 5.0, 3.0, 9.0, 6.0], [1.0, 2.0, 0.0, 1.0, 1.0, 2.0, 1.0, 0.0, 1.0, 3.0], [3.0, 5.0, 3.0, 5.0, 3.0, 5.0, 2.0, 1.0, 7.0, 9.0], [1.0, 1.0, 0.0, 3.0, 2.0, 6.0, 3.0, 1.0, 4.0, 6.0], [2.0, 5.0, 2.0, 5.0, 1.0, 3.0, 1.0, 2.0, 5.0, 5.0], [4.0, 7.0, 0.0, 4.0, 8.0, 1.0, 6.0, 6.0, 12.0, 1.0]]
 Density Analysis:
-[[0.04790652385589094], [0.0560856864654333], [0.04089581304771178], [0.03972736124634858], [0.0373904576436222], [0.03972736124634858], [0.051411879259980524], [0.030379746835443037], [0.042064264849074974], [0.0373904576436222], [0.03855890944498539], [0.03855890944498539]]
+[[0.13095554964067074], [0.1533138142134682], [0.11179132286398723], [0.1085972850678733], [0.10220920947564546], [0.1085972850678733], [0.14053766302901252], [0.08304498269896195], [0.11498536066010115], [0.10220920947564546], [0.10540324727175938], [0.10540324727175938]]
 Negative Words:69
 Positive Words:106
-Took 5.524224495 seconds
+Took 4.515798077 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -47,73 +33,73 @@ Section #0:
    Emotion: ............. Trust
    Frequency: ........... 13
    Agitation State: ..... quiet
-   Emotion Density: ..... 0.04790652385589094
+   Emotion Density: ..... 0.13095554964067074
 
 Section #1:
    Emotion: ............. Trust
    Frequency: ........... 9
    Agitation State: ..... quiet
-   Emotion Density: ..... 0.0560856864654333
+   Emotion Density: ..... 0.1533138142134682
 
 Section #2:
    Emotion: ............. Fear
    Frequency: ........... 6
    Agitation State: ..... alive
-   Emotion Density: ..... 0.04089581304771178
+   Emotion Density: ..... 0.11179132286398723
 
 Section #3:
    Emotion: ............. Anticipation
    Frequency: ........... 5
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.03972736124634858
+   Emotion Density: ..... 0.1085972850678733
 
 Section #4:
    Emotion: ............. Fear
    Frequency: ........... 5
    Agitation State: ..... alive
-   Emotion Density: ..... 0.0373904576436222
+   Emotion Density: ..... 0.10220920947564546
 
 Section #5:
    Emotion: ............. Joy
    Frequency: ........... 9
    Agitation State: ..... alive
-   Emotion Density: ..... 0.03972736124634858
+   Emotion Density: ..... 0.1085972850678733
 
 Section #6:
    Emotion: ............. Fear
    Frequency: ........... 8
    Agitation State: ..... alive
-   Emotion Density: ..... 0.051411879259980524
+   Emotion Density: ..... 0.14053766302901252
 
 Section #7:
    Emotion: ............. Anticipation
    Frequency: ........... 2
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.030379746835443037
+   Emotion Density: ..... 0.08304498269896195
 
 Section #8:
    Emotion: ............. Anticipation
    Frequency: ........... 5
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.042064264849074974
+   Emotion Density: ..... 0.11498536066010115
 
 Section #9:
    Emotion: ............. Sadness
    Frequency: ........... 6
    Agitation State: ..... quiet
-   Emotion Density: ..... 0.0373904576436222
+   Emotion Density: ..... 0.10220920947564546
 
 Section #10:
    Emotion: ............. Anticipation
    Frequency: ........... 5
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.03855890944498539
+   Emotion Density: ..... 0.10540324727175938
 
 Section #11:
    Emotion: ............. Joy
    Frequency: ........... 8
    Agitation State: ..... alive
-   Emotion Density: ..... 0.03855890944498539
+   Emotion Density: ..... 0.10540324727175938
 
 Musical Ambient Layer (Base Melody): V0 (59+63+66)/0.5 (64+67+71)/0.5 (69+73+76)/0.5 (62+65+69)/0.5 (69+73+76)/0.5 (62+65+69)/0.5 (53+57+60+62)/1.0 (62+68)/1.0 (62+68)/1.0 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (65+73)/0.5 (65+71)/0.5 (65+73)/0.5 (65+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (65+69+72)/1.0 (62+68)/1.0 (62+68)/1.0 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (64+67+71)/0.5 (57+60+64)/0.5 (53+57+60+64)/1.0 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (59+63+66)/0.5 (64+67+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (60+64+67)/1.0 
 ------------------------------------------------------------------

@@ -1,17 +1,5 @@
 Fairytale 10: little-red-riding-hood.txt
-Textlength:27067
-[Little Red Riding Hood]
 People-and-Animal-Lexicon updated.
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-prepare Text done
-classify done
-Textlength:27067
-xml done
-Number of Sections: 11
-emotion done
 List of named characters:
 Red Riding Hood
 Little Red Riding Hood
@@ -26,10 +14,10 @@ Little Red Riding Hood
 Emotion Analysis:
 [[1.0, 3.0, 2.0, 2.0, 2.0, 1.0, 1.0, 2.0, 3.0, 3.0], [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0], [0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 3.0, 1.0], [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0], [0.0, 2.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0], [0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0], [0.0, 3.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0], [0.0, 2.0, 0.0, 1.0, 1.0, 1.0, 0.0, 2.0, 3.0, 3.0], [0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 2.0, 0.0], [0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 2.0]]
 Density Analysis:
-[[0.005689585103631729], [0.0024383936158421694], [0.0024383936158421694], [0.0028447925518158643], [0.0028447925518158643], [0.0016255957438947796], [0.003657590423763254], [0.004470388295710644], [0.0032511914877895592], [0.003657590423763254], [0.0032511914877895592]]
+[[0.22916666666666666], [0.09821428571428571], [0.09821428571428571], [0.11458333333333333], [0.11458333333333333], [0.06547619047619048], [0.14732142857142858], [0.1800595238095238], [0.13095238095238096], [0.14732142857142858], [0.13095238095238096]]
 Negative Words:12
 Positive Words:19
-Took 0.873232908 seconds
+Took 0.890039673 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -45,67 +33,67 @@ Section #0:
    Emotion: ............. Anticipation
    Frequency: ........... 3
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.005689585103631729
+   Emotion Density: ..... 0.22916666666666666
 
 Section #1:
    Emotion: ............. Anticipation
    Frequency: ........... 1
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.0024383936158421694
+   Emotion Density: ..... 0.09821428571428571
 
 Section #2:
    Emotion: ............. Fear
    Frequency: ........... 1
    Agitation State: ..... alive
-   Emotion Density: ..... 0.0024383936158421694
+   Emotion Density: ..... 0.09821428571428571
 
 Section #3:
    Emotion: ............. Anticipation
    Frequency: ........... 1
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.0028447925518158643
+   Emotion Density: ..... 0.11458333333333333
 
 Section #4:
    Emotion: ............. Anticipation
    Frequency: ........... 2
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.0028447925518158643
+   Emotion Density: ..... 0.11458333333333333
 
 Section #5:
    Emotion: ............. Anticipation
    Frequency: ........... 1
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.0016255957438947796
+   Emotion Density: ..... 0.06547619047619048
 
 Section #6:
    Emotion: ............. Anticipation
    Frequency: ........... 3
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.003657590423763254
+   Emotion Density: ..... 0.14732142857142858
 
 Section #7:
    Emotion: ............. Anticipation
    Frequency: ........... 2
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.004470388295710644
+   Emotion Density: ..... 0.1800595238095238
 
 Section #8:
    Emotion: ............. Fear
    Frequency: ........... 1
    Agitation State: ..... alive
-   Emotion Density: ..... 0.0032511914877895592
+   Emotion Density: ..... 0.13095238095238096
 
 Section #9:
    Emotion: ............. Joy
    Frequency: ........... 1
    Agitation State: ..... alive
-   Emotion Density: ..... 0.003657590423763254
+   Emotion Density: ..... 0.14732142857142858
 
 Section #10:
    Emotion: ............. Fear
    Frequency: ........... 1
    Agitation State: ..... alive
-   Emotion Density: ..... 0.0032511914877895592
+   Emotion Density: ..... 0.13095238095238096
 
 Musical Ambient Layer (Base Melody): V0 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (65+73)/0.5 (65+71)/0.5 (65+73)/0.5 (65+71)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (65+73)/0.5 (65+71)/0.5 (65+73)/0.5 (65+71)/0.5 (65+69+72)/1.0 (65+69+72)/1.0 (65+73)/0.5 (65+71)/0.5 (65+73)/0.5 (65+71)/0.5 (60+64+67)/1.0 
 ------------------------------------------------------------------

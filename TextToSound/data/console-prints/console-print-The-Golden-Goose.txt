@@ -1,20 +1,5 @@
 Fairytale 6: The-Golden-Goose.txt
-Textlength:11839
-[Dummling]
 People-and-Animal-Lexicon updated.
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-Number of Sections: 1
-prepare Text done
-classify done
-Textlength:11839
-xml done
-Number of Sections: 11
-emotion done
 List of named characters:
 Dummling
 Dummling
@@ -29,10 +14,10 @@ Dummling
 Emotion Analysis:
 [[0.0, 4.0, 0.0, 0.0, 4.0, 1.0, 2.0, 3.0, 6.0, 3.0], [1.0, 3.0, 1.0, 0.0, 2.0, 1.0, 1.0, 2.0, 4.0, 2.0], [2.0, 3.0, 2.0, 2.0, 1.0, 4.0, 2.0, 2.0, 2.0, 7.0], [0.0, 5.0, 1.0, 0.0, 5.0, 2.0, 5.0, 4.0, 5.0, 3.0], [0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0], [1.0, 3.0, 1.0, 1.0, 2.0, 2.0, 2.0, 0.0, 3.0, 2.0], [0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 2.0, 3.0], [0.0, 2.0, 0.0, 1.0, 3.0, 1.0, 3.0, 1.0, 4.0, 1.0], [1.0, 2.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 2.0, 2.0], [1.0, 3.0, 3.0, 3.0, 1.0, 2.0, 1.0, 2.0, 3.0, 3.0], [0.0, 3.0, 0.0, 1.0, 2.0, 0.0, 0.0, 1.0, 7.0, 0.0]]
 Density Analysis:
-[[0.023228313202128557], [0.01672438550553256], [0.018582650561702847], [0.018582650561702847], [0.014866120449362278], [0.022299180674043417], [0.013007855393191993], [0.01672438550553256], [0.018582650561702847], [0.021370048145958272], [0.01672438550553256]]
+[[0.17527087316762271], [0.12619502868068835], [0.14021669853409816], [0.14021669853409816], [0.11217335882727852], [0.1682600382409178], [0.09815168897386871], [0.12619502868068835], [0.14021669853409816], [0.16124920331421289], [0.12619502868068835]]
 Negative Words:29
 Positive Words:40
-Took 1.373502277 seconds
+Took 2.269070249 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -48,67 +33,67 @@ Section #0:
    Emotion: ............. Anticipation
    Frequency: ........... 4
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.023228313202128557
+   Emotion Density: ..... 0.17527087316762271
 
 Section #1:
    Emotion: ............. Anticipation
    Frequency: ........... 3
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.01672438550553256
+   Emotion Density: ..... 0.12619502868068835
 
 Section #2:
    Emotion: ............. Sadness
    Frequency: ........... 4
    Agitation State: ..... quiet
-   Emotion Density: ..... 0.018582650561702847
+   Emotion Density: ..... 0.14021669853409816
 
 Section #3:
    Emotion: ............. Anticipation
    Frequency: ........... 5
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.018582650561702847
+   Emotion Density: ..... 0.14021669853409816
 
 Section #4:
    Emotion: ............. Anticipation
    Frequency: ........... 1
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.014866120449362278
+   Emotion Density: ..... 0.11217335882727852
 
 Section #5:
    Emotion: ............. Anticipation
    Frequency: ........... 3
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.022299180674043417
+   Emotion Density: ..... 0.1682600382409178
 
 Section #6:
    Emotion: ............. Joy
    Frequency: ........... 1
    Agitation State: ..... alive
-   Emotion Density: ..... 0.013007855393191993
+   Emotion Density: ..... 0.09815168897386871
 
 Section #7:
    Emotion: ............. Joy
    Frequency: ........... 3
    Agitation State: ..... alive
-   Emotion Density: ..... 0.01672438550553256
+   Emotion Density: ..... 0.12619502868068835
 
 Section #8:
    Emotion: ............. Anticipation
    Frequency: ........... 2
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.018582650561702847
+   Emotion Density: ..... 0.14021669853409816
 
 Section #9:
    Emotion: ............. Anticipation
    Frequency: ........... 3
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.021370048145958272
+   Emotion Density: ..... 0.16124920331421289
 
 Section #10:
    Emotion: ............. Anticipation
    Frequency: ........... 3
    Agitation State: ..... aroused
-   Emotion Density: ..... 0.01672438550553256
+   Emotion Density: ..... 0.12619502868068835
 
 Musical Ambient Layer (Base Melody): V0 (59+62+65)/0.5 (64+67+71)/0.5 (59+62+65)/0.5 (64+67+71)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (53+57+60+64)/1.0 (53+57+60+64)/1.0 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (65+69+72)/1.0 (65+69+72)/1.0 (59+63+66)/0.5 (64+67+71)/0.5 (63+65+73)/0.5 (60+64+67)/0.5 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.5 (64+67+71)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (62+65+69)/0.25 (67+71+74)/0.25 (59+62+65)/0.25 (64+67+71)/0.25 (62+65+69)/0.5 (67+71+74)/0.5 (60+64+67)/1.0 
 ------------------------------------------------------------------

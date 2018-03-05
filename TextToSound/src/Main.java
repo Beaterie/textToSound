@@ -10,23 +10,26 @@ public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		
+		/** 
+		 * Example without autoplay (false):
+		 * $ java -jar textToSound.jar fairytale.txt false
+		 *
+		 * Example with autoplay (true):
+		 * $ java -jar textToSound.jar fairytale.txt true
+   		 *
+		 * Example for working with all test-fairytales (possible only without autoplay):
+		 * $ java -jar textToSound.jar
+		 */
+		
 		PrintStream stdout = System.out;
 		PrintStream printer = new PrintStream(new FileOutputStream("data/console-prints/console-print"));
 		String lit_path = "";
 		Boolean autoplay = false;
 		
-		
-		// Example without autoplay (false):
-		// $ java -jar textToSound.jar fairytale.txt false
-		
-		// Example with autoplay (true):
-		// $ java -jar textToSound.jar fairytale.txt true
-		
-		// Example for working with all test-fairytales (possible only without autoplay):
-		// $ java -jar textToSound.jar
-		
-		
-		// indiviual input (fairytale)
+		/**
+		 * For the first to examples, this code will be executed.
+		 * Indiviual input (your own fairytale.txt) needed.
+		 */
 		if (args.length > 0) {
 			// check input correctness
 			if (args.length != 2 || args[0].endsWith(".txt") == false) {
@@ -74,13 +77,17 @@ public class Main {
 //					System.out.println(lit_path);
 //					System.out.println(canRun);
 				}
+				
+				// start running the real code
 				if (canRun == true) {
 					System.out.println("The following input.txt will be analysed: " + fairytale);
 					System.out.println("Start analysing and generating music.");
+					
 					printer = new PrintStream(new FileOutputStream("your-fairytale/console-print-" + fairytale));
 					System.setOut(printer);
 					
-					// DO THE MAGIC HERE
+					
+					// Do the magic (analysis) here:
 					Map<String, EmotionResult> animal_emotion_vecs = ExperimentalCharacterAnalysis.main(lit_path);
 					TextLexProcessor processor1 = new TextLexProcessor(lit_path,
 							"data/lexica/lexicon_people_and_animal_individual.csv");
@@ -89,6 +96,8 @@ public class Main {
 					NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor(lit_path, mp.getM_numOfSections());
 					EmotionResult EmotionResults = NERprocessor1.main(args);
 					mp.process(EmotionResults, animal_emotion_vecs);
+					// From now on, the analysis has ended.
+					
 					
 					System.out.println("Fairytale " + " (" + lit_path +
 							") completely analysed and set to music.");
@@ -107,11 +116,14 @@ public class Main {
 			}	
 		}
 		
-		// OR
-		// analyse our test-fairytales
+		/**
+		 * OR the standard execution performs with the analysis of our test-fairytales.
+		 * No parameter needed.
+		 */
 		if (args.length == 0) {
 			System.out.println("Start analysing and generating music.");
 
+			// accept only txt's
 			FilenameFilter filter = new FilenameFilter(){
 				@Override
 			    public boolean accept(File directory, String fileName) {
@@ -134,9 +146,11 @@ public class Main {
 				System.setOut(printer);
 				
 				System.out.println("Fairytale " + i + ": " + fairytales[i]);
+				
 				lit_path = "data/lit/" + fairytales[i];
 				
-				// DO THE MAGIC HERE
+				
+				// Do the magic (analysis) here:
 				Map<String, EmotionResult> animal_emotion_vecs = ExperimentalCharacterAnalysis.main(lit_path);
 				TextLexProcessor processor1 = new TextLexProcessor(lit_path,
 						"data/lexica/lexicon_people_and_animal_individual.csv");
@@ -145,6 +159,7 @@ public class Main {
 				NEREmotionProcessor NERprocessor1 = new NEREmotionProcessor(lit_path, mp.getM_numOfSections());
 				EmotionResult EmotionResults = NERprocessor1.main(args);
 				mp.process(EmotionResults, animal_emotion_vecs);
+				// From now on, the analysis has ended.
 				
 				System.out.println("Fairytale " + i + " (" + fairytales[i] +
 						") completely analysed and set to music.");
