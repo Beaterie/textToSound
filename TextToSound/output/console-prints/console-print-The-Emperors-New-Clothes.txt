@@ -1,5 +1,24 @@
-Fairytale 7: The-Emperors-New-Clothes.txt
+Fairytale 3: The-Emperors-New-Clothes.txt
 People-and-Animal-Lexicon updated.
+
+============================================================
+============================================================
+
+
+["The Emperor is sitting in his wardrobe.""Had I such a suit, I might at once find out what men in my realms are unfit for their office, and also be able to distinguish the wise from the foolish! This stuff must be woven for me immediately.""Well, Sir Minister!""Oh, it is excellent!""I certainly am not stupid!""Is not the work absolutely magnificent?""If your Majesty will only be pleased to look at it! What a splendid design! What glorious colors!""See!""Yes indeed!""How splendid his Majesty looks in his new clothes, and how well they fit!""The canopy which is to be borne over your Majesty, in the procession, is waiting,""Do my new clothes fit well?""Oh! How beautiful are our Emperor’s new clothes! What a magnificent train there is to the mantle; and how gracefully the scarf hangs!""But the Emperor has nothing at all on!"]
+
+Emperor
+["These must, indeed, be splendid clothes!""I should like to know how the weavers are getting on with my cloth,""I will send my faithful old minister to the weavers,""he will be best able to see how the cloth looks; for he is a man of sense, and no one can be more suitable for his office than he is.""I cannot discover the least bit of thread on the looms.""Is it possible that I am a simpleton? I have never thought so myself; and no one must know it now if I am so. Can it be, that I am unfit for my office? No, that must not be said either. I will never confess that I could not see the stuff.""You do not say whether the stuff pleases you.""This pattern, and the colors, yes, I will tell the Emperor without delay, how very beautiful I think them.""Does not the stuff appear as beautiful to you, as it did to my lord the minister?""It must be, that I am not fit for my good, profitable office! That is very odd; however, no one shall know anything about it.""How is this?""It has my complete approbation.""Magnificent! Charming! Excellent!""Here are your Majesty’s trousers! Here is the scarf! Here is the mantle! The whole suit is as light as a cobweb; one might fancy one has nothing at all on, when dressed in it; that, however, is the great virtue of this delicate cloth.""If your Imperial Majesty will be graciously pleased to take off your clothes, we will fit on the new suit, in front of the looking glass.""What a design! What colors! These are indeed royal robes!""I am quite ready,""But he has nothing at all on!"]
+
+king
+["he is sitting in council,"]
+
+father
+["Listen to the voice of innocence!"]
+
+man
+["What can be the meaning of this?""What!""We shall be much obliged to you,""Indeed, please your Imperial Majesty,""the cloth which the weavers are preparing is extraordinarily magnificent.""I can see nothing! This is indeed a terrible affair! Am I a simpleton, or am I unfit to be an Emperor? That would be the worst thing that could happen--Oh! the cloth is charming,""Oh, how beautiful!""Gentlemen Weavers.""The Emperor’s new clothes are ready!"]
+
 List of named characters:
 Emperor
 Emperor
@@ -43,7 +62,7 @@ Density Analysis:
 [[0.14808831448572968], [0.15993537964458804], [0.15993537964458804], [0.11254711900915455], [0.1303177167474421], [0.10662358642972537], [0.11254711900915455], [0.12439418416801293], [0.11254711900915455], [0.14808831448572968], [0.0888529886914378]]
 Negative Words:20
 Positive Words:57
-Took 2.244998008 seconds
+Took 3.508494342 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -171,6 +190,6 @@ Animal/Person #3:   man
 
 ---------------------------
 Midi saved as The-Emperors-New-Clothes-music.midi !
-Fairytale 7 (The-Emperors-New-Clothes.txt) completely analysed and set to music.
+Fairytale 3 (The-Emperors-New-Clothes.txt) completely analysed and set to music.
 --------------------------------------------
 

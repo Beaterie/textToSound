@@ -1,5 +1,30 @@
 Fairytale 6: The-Golden-Goose.txt
 People-and-Animal-Lexicon updated.
+
+============================================================
+============================================================
+
+
+[‘Get up and come with me; you shall eat yourself full.’ He led him to the king’]
+
+mother
+[‘Give me a piece of your cake and a drink out of your bottle; I am so hungry and thirsty.’‘The others are there,’‘I may as well be there too,’‘For shame, you good-for-nothing girls, why are you running across the fields after this young man? Is that seemly?’]
+
+son
+[‘If I give you my cake and wine, I shall have none for myself; be off with you,’ and he left the little man standing and went on.  But when he began to hew down a tree, it was not long before he made a false stroke, and the axe cut him in the arm, so that he had to go home and have it bound up. And this was the little grey man’‘What I give you will be taken away from myself; be off!’‘Father, do let me go and cut wood.’]
+
+father
+[‘Your brothers have hurt themselves with it, leave it alone, you do not understand anything about it.’]
+
+man
+[‘Do give me a piece of cake out of your pocket, and let me have a draught of your wine; I am so hungry and thirsty.’‘I shall soon find an opportunity of pulling out a feather,’‘Hi! your reverence, whither away so quickly? Do not forget that we have a christening today!’ and running after him he took him by the sleeve, but was also held fast to it.  Whilst the five were trotting thus one behind the other, two labourers came with their hoes from the fields; the parson called out to them and begged that they would set him and the sexton free. But they had scarcely touched the sexton when they were held fast, and now there were seven of them running behind Dummling and the goose.  Soon afterwards he came to a city, where a king ruled who had a daughter who was so serious that no one could make her laugh. So he had put forth a decree that whosoever should be able to make her laugh should marry her. When Dummling heard this, he went with his goose and all her train before the king’‘I have eaten a whole ovenful of rolls, but what good is that when one has such a hunger as I? My stomach remains empty, and I must tie myself up if I am not to die of hunger.’‘As soon as you come sailing back in it,’‘you shall have my daughter for wife.’]
+
+Dummling
+[‘Just go then, you will get wiser by hurting yourself.’‘I have only cinder-cake and sour beer; if that pleases you, we will sit down and eat.’‘Since you have a good heart, and are willing to divide what you have, I will give you good luck. There stands an old tree, cut it down, and you will find something at the roots.’‘Keep away; for goodness’ sake keep away!’‘There, I can help you,’‘just come with me and you shall be satisfied.’  He led him into the king’‘Since you have given me to eat and to drink, I will give you the ship; and I do all this because you once were kind to me.’ Then he gave him the ship which could sail on land and water, and when the king saw that, he could no longer prevent him from having his daughter. The wedding was celebrated, and after the king’]
+
+daughter
+[‘I have such a great thirst and cannot quench it; cold water I cannot stand, a barrel of wine I have just emptied, but that to me is like a drop on a hot stone!’]
+
 List of named characters:
 Dummling
 Dummling
@@ -17,7 +42,7 @@ Density Analysis:
 [[0.17527087316762271], [0.12619502868068835], [0.14021669853409816], [0.14021669853409816], [0.11217335882727852], [0.1682600382409178], [0.09815168897386871], [0.12619502868068835], [0.14021669853409816], [0.16124920331421289], [0.12619502868068835]]
 Negative Words:29
 Positive Words:40
-Took 2.269070249 seconds
+Took 3.689863766 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------

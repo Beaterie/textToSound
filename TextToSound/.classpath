@@ -23,6 +23,10 @@
 	<classpathentry kind="lib" path="data/stanford-corenlp/stanford-corenlp-3.8.0.jar"/>
 	<classpathentry kind="lib" path="data/stanford-corenlp/xom-1.2.10-src.jar"/>
 	<classpathentry kind="lib" path="data/stanford-corenlp/xom.jar"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="/Users/Josef/git/textToSound/TextToSound/data/jFugue/jfugue-5.0.7.jar"/>
+=======
+	<classpathentry kind="lib" path="data/jFugue/jfugue-5.0.7.jar"/>
+>>>>>>> c0d3ce9048b14e8912b1a6fad6565d5982a45fd2
 	<classpathentry kind="output" path="bin"/>
 </classpath>
