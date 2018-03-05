@@ -104,9 +104,17 @@ public class AmbientSoundGenerator {
 	 */
 	private String mixAmbientSound(String environmentName, ArrayList<ArrayList<Float>> occInfoSections) 
 			throws UnsupportedAudioFileException, IOException {
+		String filepath = EnvironmentSoundLibPath + 
+				EnvironmentSoundMap.get(environmentName)[0];
+				System.out.println(filepath);
 		AudioInputStream sound = AudioSystem.getAudioInputStream( new File(
 				EnvironmentSoundLibPath + 
-				EnvironmentSoundMap.get(environmentName)[new Random().nextBoolean()? 0:1]));
+				EnvironmentSoundMap.get(environmentName)[0]));//[new Random().nextBoolean()? 0:1]));
+		
+		// See if the keyword exists in each section. The sections with the keyword will play the sound
+		for (ArrayList<Float> section : occInfoSections) {
+			
+		}
 		
 		return "";
 	}
@@ -123,7 +131,7 @@ public class AmbientSoundGenerator {
 	 * @throws IOException 
 	 * @throws UnsupportedAudioFileException 
 	 */
-	public void generateAmbient(ProcessedResult result, int numSections) 
+	public void generateAmbient(ProcessedResult result) 
 			throws UnsupportedAudioFileException, IOException {
 		// Initialize ArrayList containing the generated audio file Paths
 		ArrayList<String> audioFiles = new ArrayList<>();
@@ -146,14 +154,14 @@ public class AmbientSoundGenerator {
 	// --------------------------------------------------------
 	// Main method for testing
 	// --------------------------------------------------------
-	public static void main(String[] args) throws IOException {
-		String srcFile = "data/the-happy-prince.txt";
+	public static void main(String[] args) throws IOException, UnsupportedAudioFileException {
+		String srcFile = "data/lit/the-happy-prince.txt";
 		TextLexProcessor processor = new TextLexProcessor(srcFile, "data/lexicon_environment.txt");
 		ProcessedResult result = processor.process();
 		result.printRes();
 		
 		AmbientSoundGenerator soundGenerator  = new AmbientSoundGenerator(srcFile, 10);
-		//soundGenerator.generateAmbient();
+		soundGenerator.generateAmbient(result);
 		
 	}
 }
