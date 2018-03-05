@@ -266,13 +266,15 @@ public class ExperimentalCharacterAnalysis {
 			// Search in the previous 50 characters before the first quote
 			if (i == 0) {
 				substring = mText.substring(max(0, txtIndex - 50), txtIndex).trim();
-				//System.out.println("From -1 to 0: \n" + substring + "\n");
-				String lastPunctuation = Character.toString(substring.charAt(substring.length()-1));
-				// If the preceding text isn't a part of the whole sentence including the quote,
-				// disregard. Otherwise determine the speaker.
-				if (lastPunctuation.equals(":") | lastPunctuation.equals(",")) {
-					subject = determineSpeaker(substring);
-					saveQuoteSpeaker(substring, subject, i);
+				if (substring != null && substring.length() > 0) {
+					//System.out.println("From -1 to 0: \n" + substring + "\n");
+					String lastPunctuation = Character.toString(substring.charAt(substring.length()-1));
+					// If the preceding text isn't a part of the whole sentence including the quote,
+					// disregard. Otherwise determine the speaker.
+					if (lastPunctuation.equals(":") | lastPunctuation.equals(",")) {
+						subject = determineSpeaker(substring);
+						saveQuoteSpeaker(substring, subject, i);
+					}
 				}
 			}
 			// Search in the following 50 characters after the last quote
@@ -286,19 +288,12 @@ public class ExperimentalCharacterAnalysis {
 						subject = determineSpeaker(substring);
 						saveQuoteSpeaker(substring, subject, i);
 					}
-					
-					//System.out.println();
-					for (String index : mQuoteSpeakers) {
-						//System.out.print(index + ", ");
-					}
 				}
 				return;
 			}
 			
 			int next = mQuoteIndexes.get(i+1);
 			substring = mText.substring(txtIndex, next);
-			
-			//System.out.println("From " + i + "\n" + substring);
 			
 			// Search the span of quotes
 			if (isEven(i)) {	// If i is even, it indicates this index is the start pos of a quote
@@ -310,7 +305,6 @@ public class ExperimentalCharacterAnalysis {
 				subject = determineSpeaker(substring);
 				saveQuoteSpeaker(substring, subject, i);
 			}
-			//System.out.println("Subject: " + subject + "\n");
 		}
 	}
 	
