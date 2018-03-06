@@ -1,4 +1,4 @@
-Fairytale 12: The-Wolf-and-the-Seven-Kids.txt
+Fairytale 2: The-Wolf-and-the-Seven-Kids.txt
 People-and-Animal-Lexicon updated.
 
 ============================================================
@@ -19,17 +19,13 @@ It
 monster
 ["Now go and look for some big stones, and we will fill the wicked beast's stomach with them while he is still asleep."]
 
-List of named characters:
-Dear
-Dear
-Dear
 Emotion Analysis:
 [[1.0, 2.0, 1.0, 1.0, 2.0, 3.0, 0.0, 2.0, 3.0, 4.0], [0.0, 4.0, 0.0, 0.0, 3.0, 1.0, 2.0, 3.0, 4.0, 1.0], [0.0, 2.0, 0.0, 0.0, 2.0, 4.0, 0.0, 3.0, 3.0, 5.0], [3.0, 3.0, 2.0, 1.0, 2.0, 3.0, 0.0, 2.0, 2.0, 4.0], [0.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0, 3.0, 3.0, 1.0], [1.0, 1.0, 1.0, 1.0, 4.0, 0.0, 1.0, 3.0, 5.0, 0.0], [1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0], [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 0.0, 2.0, 1.0, 1.0, 1.0, 0.0, 3.0, 2.0], [0.0, 1.0, 3.0, 1.0, 1.0, 1.0, 0.0, 3.0, 1.0, 2.0], [0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]]
 Density Analysis:
 [[0.13167587476979742], [0.11141804788213627], [0.12154696132596685], [0.12154696132596685], [0.11141804788213627], [0.1012891344383057], [0.070902394106814], [0.09116022099447513], [0.15193370165745856], [0.12154696132596685], [0.09116022099447513]]
 Negative Words:22
 Positive Words:25
-Took 2.569751788 seconds
+Took 2.019055017 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -146,6 +142,6 @@ Animal/Person #2:   monster
 
 ---------------------------
 Midi saved as The-Wolf-and-the-Seven-Kids-music.midi !
-Fairytale 12 (The-Wolf-and-the-Seven-Kids.txt) completely analysed and set to music.
+Fairytale 2 (The-Wolf-and-the-Seven-Kids.txt) completely analysed and set to music.
 --------------------------------------------
 

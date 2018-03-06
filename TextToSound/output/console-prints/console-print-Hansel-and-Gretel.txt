@@ -1,4 +1,4 @@
-Fairytale 0: Hansel-and-Gretel.txt
+Fairytale 4: Hansel-and-Gretel.txt
 People-and-Animal-Lexicon updated.
 
 ============================================================
@@ -43,99 +43,13 @@ sister
 Gretel
 [" said Hansel, ""No,""that will be too heavy for the little duck; she shall take us across, one after the other."]
 
-List of named characters:
-Hansel
-Gretel
-Gretel
-Hansel
-Gretel
-Hansel
-Hansel
-Gretel
-God
-Gretel
-Hansel
-Hansel
-Hansel
-Hansel
-Fool
-Hansel
-Hansel
-Gretel
-Hansel
-Gretel
-Gretel
-Hansel
-Hansel
-Hansel
-Gretel
-Hansel
-Hansel
-Gretel
-God
-Hansel
-Hansel
-Hansel
-Hansel
-Gretel
-Hansel
-Hansel
-Gretel
-Hansel
-Gretel
-Hansel
-Gretel
-Hansel
-Gretel
-Hansel
-Gretel
-Hansel
-Gretel
-Hansel
-Gretel
-Hansel
-Gretel
-Hansel
-Gretel
-Gretel
-Hansel
-Gretel
-Hansel
-Hansel
-Hansel
-Hansel
-Gretel
-Hansel
-Dear God
-Gretel
-Gretel
-Creep
-Gretel
-Gretel
-Gretel
-Gretel
-Gretel
-Hansel
-Hansel
-Hansel
-Hansel
-Gretel
-Hansel
-Hansel
-Gretel
-Hansel
-Gretel
-Hansel
-Gretel
-Gretel
-Hansel
 Emotion Analysis:
 [[1.0, 4.0, 1.0, 3.0, 1.0, 4.0, 3.0, 1.0, 2.0, 7.0], [1.0, 2.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 5.0, 2.0], [0.0, 4.0, 0.0, 2.0, 4.0, 0.0, 1.0, 6.0, 4.0, 1.0], [1.0, 7.0, 3.0, 0.0, 1.0, 4.0, 3.0, 3.0, 2.0, 7.0], [0.0, 5.0, 1.0, 0.0, 3.0, 1.0, 1.0, 3.0, 4.0, 2.0], [0.0, 3.0, 0.0, 1.0, 3.0, 3.0, 1.0, 3.0, 3.0, 5.0], [1.0, 1.0, 1.0, 1.0, 3.0, 3.0, 1.0, 2.0, 4.0, 3.0], [0.0, 5.0, 0.0, 3.0, 5.0, 3.0, 3.0, 5.0, 9.0, 4.0], [1.0, 7.0, 0.0, 2.0, 3.0, 1.0, 1.0, 3.0, 6.0, 7.0], [1.0, 3.0, 3.0, 5.0, 1.0, 4.0, 1.0, 1.0, 3.0, 11.0], [5.0, 3.0, 4.0, 5.0, 3.0, 3.0, 4.0, 4.0, 6.0, 7.0], [1.0, 3.0, 0.0, 1.0, 3.0, 0.0, 2.0, 2.0, 4.0, 1.0]]
 Density Analysis:
 [[0.11483253588516747], [0.11073137388926863], [0.12713602187286396], [0.14764183185235816], [0.09432672590567327], [0.12303485987696514], [0.12713602187286396], [0.13123718386876282], [0.14354066985645933], [0.11483253588516747], [0.13533834586466165], [0.06151742993848257]]
 Negative Words:57
 Positive Words:52
-Took 7.213043255 seconds
+Took 3.968698532 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -335,6 +249,6 @@ Animal/Person #9:   gretel
 
 ---------------------------
 Midi saved as Hansel-and-Gretel-music.midi !
-Fairytale 0 (Hansel-and-Gretel.txt) completely analysed and set to music.
+Fairytale 4 (Hansel-and-Gretel.txt) completely analysed and set to music.
 --------------------------------------------
 

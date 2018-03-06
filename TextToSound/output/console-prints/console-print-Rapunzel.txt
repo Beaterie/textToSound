@@ -1,4 +1,4 @@
-Fairytale 2: Rapunzel.txt
+Fairytale 12: Rapunzel.txt
 People-and-Animal-Lexicon updated.
 
 ============================================================
@@ -16,39 +16,13 @@ husband
 man
 [‘Sooner than let your wife die, bring her some of the rampion yourself, let it cost what it will.’‘Ah,’‘let mercy take the place of justice, I only made up my mind to do it out of necessity. My wife saw your rampion from the window, and felt such a longing for it that she would have died if she had not got some to eat.’‘Rapunzel, Rapunzel,   Let down your hair to me.’  Rapunzel had magnificent long hair, fine as spun gold, and when she heard the voice of the enchantress she unfastened her braided tresses, wound them round one of the hooks of the window above, and then the hair fell twenty ells down, and the enchantress climbed up by it.  After a year or two, it came to pass that the king’s son rode through the forest and passed by the tower. Then he heard a song, which was so charming that he stood still and listened. This was Rapunzel, who in her solitude passed her time in letting her sweet voice resound. The king’]
 
-List of named characters:
-God
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Dame Gothel
-Rapunzel
-Dame Gothel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
-Rapunzel
 Emotion Analysis:
 [[0.0, 2.0, 0.0, 0.0, 5.0, 0.0, 1.0, 1.0, 7.0, 0.0], [0.0, 1.0, 0.0, 0.0, 4.0, 0.0, 1.0, 2.0, 6.0, 0.0], [2.0, 1.0, 1.0, 1.0, 1.0, 4.0, 0.0, 0.0, 3.0, 4.0], [1.0, 3.0, 0.0, 2.0, 4.0, 1.0, 0.0, 0.0, 4.0, 3.0], [1.0, 3.0, 0.0, 1.0, 1.0, 2.0, 1.0, 2.0, 2.0, 2.0], [0.0, 2.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 3.0, 1.0], [0.0, 1.0, 0.0, 2.0, 1.0, 3.0, 1.0, 1.0, 3.0, 4.0], [0.0, 4.0, 0.0, 0.0, 2.0, 0.0, 1.0, 1.0, 5.0, 0.0], [3.0, 3.0, 1.0, 2.0, 3.0, 3.0, 2.0, 1.0, 3.0, 5.0], [2.0, 0.0, 2.0, 4.0, 2.0, 2.0, 0.0, 1.0, 2.0, 4.0], [3.0, 0.0, 4.0, 4.0, 0.0, 7.0, 0.0, 1.0, 1.0, 9.0]]
 Density Analysis:
 [[0.16535433070866143], [0.10236220472440945], [0.13385826771653545], [0.12598425196850394], [0.14173228346456693], [0.11023622047244094], [0.11023622047244094], [0.10236220472440945], [0.14960629921259844], [0.14960629921259844], [0.11811023622047244]]
 Negative Words:32
 Positive Words:39
-Took 3.751600019 seconds
+Took 1.743708793 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -165,6 +139,6 @@ Animal/Person #2:   man
 
 ---------------------------
 Midi saved as Rapunzel-music.midi !
-Fairytale 2 (Rapunzel.txt) completely analysed and set to music.
+Fairytale 12 (Rapunzel.txt) completely analysed and set to music.
 --------------------------------------------
 

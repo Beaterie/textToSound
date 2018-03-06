@@ -1,4 +1,4 @@
-Fairytale 11: The-Story-of-the-Youth-Who-Went-Forth-to-Learn-Wha-Fear-Was.txt
+Fairytale 5: The-Story-of-the-Youth-Who-Went-Forth-to-Learn-Wha-Fear-Was.txt
 People-and-Animal-Lexicon updated.
 
 ============================================================
@@ -22,24 +22,13 @@ brother
 boy
 ["Give an answer,""or take yourself off, you have no business here at night.""What do you want here?--speak if you are an honest fellow, or I will throw you down the steps!"" The woman ran away and found her husband, who was lying moaning in the corner, and had broken his leg.  She carried him down, and then with loud screams she hastened to the boy's father, "" cried she, "" said he. "" ""  "" "" Then a man approached who heard this conversation which the youth was holding with himself, and when they had walked a little farther to where they could see the gallows, the man said to him: "" Then the youth went to the gallows, sat down beneath it, and waited till evening came. And as he was cold, he lighted himself a fire, but at midnight the wind blew so sharply that in spite of his fire, he could not get warm. And as the wind knocked the hanged men against each other, and they moved backwards and forwards, he thought to himself: "" The dead men, however, did not hear, but were quite silent, and let their rags go on burning. At this he grew angry, and said: "" "" Then the man saw that he would not get the fifty talers that day, and went away saying: "" A waggoner who was striding behind him heard this and asked: ""I know not.""That I may not tell you.""Come, go with me, I will see about a place for you.""If it be allowed, I will willingly watch three nights in the haunted castle."]
 
-List of named characters:
-Hearken
-Goodness
-devil
-Father
-Enough
-Au
-Comrade
-Hullo
-Money
-Hurrah
 Emotion Analysis:
 [[0.0, 5.0, 2.0, 3.0, 2.0, 2.0, 2.0, 13.0, 19.0, 3.0], [1.0, 7.0, 5.0, 1.0, 6.0, 1.0, 0.0, 9.0, 19.0, 5.0], [5.0, 3.0, 5.0, 6.0, 1.0, 6.0, 0.0, 4.0, 5.0, 10.0], [2.0, 5.0, 3.0, 2.0, 3.0, 3.0, 3.0, 1.0, 9.0, 7.0], [4.0, 4.0, 4.0, 5.0, 2.0, 3.0, 2.0, 0.0, 2.0, 8.0], [5.0, 7.0, 1.0, 8.0, 9.0, 4.0, 6.0, 2.0, 14.0, 6.0], [4.0, 6.0, 1.0, 8.0, 5.0, 4.0, 5.0, 3.0, 9.0, 6.0], [1.0, 2.0, 0.0, 1.0, 1.0, 2.0, 1.0, 0.0, 1.0, 3.0], [3.0, 5.0, 3.0, 5.0, 3.0, 5.0, 2.0, 1.0, 7.0, 9.0], [1.0, 1.0, 0.0, 3.0, 2.0, 6.0, 3.0, 1.0, 4.0, 6.0], [2.0, 5.0, 2.0, 5.0, 1.0, 3.0, 1.0, 2.0, 5.0, 5.0], [4.0, 7.0, 0.0, 4.0, 8.0, 1.0, 6.0, 6.0, 12.0, 1.0]]
 Density Analysis:
 [[0.13095554964067074], [0.1533138142134682], [0.11179132286398723], [0.1085972850678733], [0.10220920947564546], [0.1085972850678733], [0.14053766302901252], [0.08304498269896195], [0.11498536066010115], [0.10220920947564546], [0.10540324727175938], [0.10540324727175938]]
 Negative Words:69
 Positive Words:106
-Took 8.674019406 seconds
+Took 5.006608317 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -184,6 +173,6 @@ Animal/Person #4:   boy
 
 ---------------------------
 Midi saved as The-Story-of-the-Youth-Who-Went-Forth-to-Learn-Wha-Fear-Was-music.midi !
-Fairytale 11 (The-Story-of-the-Youth-Who-Went-Forth-to-Learn-Wha-Fear-Was.txt) completely analysed and set to music.
+Fairytale 5 (The-Story-of-the-Youth-Who-Went-Forth-to-Learn-Wha-Fear-Was.txt) completely analysed and set to music.
 --------------------------------------------
 

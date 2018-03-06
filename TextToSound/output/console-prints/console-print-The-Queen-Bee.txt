@@ -1,4 +1,4 @@
-Fairytale 9: The-Queen-Bee.txt
+Fairytale 8: The-Queen-Bee.txt
 People-and-Animal-Lexicon updated.
 
 ============================================================
@@ -10,14 +10,13 @@ People-and-Animal-Lexicon updated.
 man
 [‘In the wood, under the moss, lie the thousand pearls belonging to the king’s daughter; they must all be found: and if one be missing by set of sun, he who seeks them will be turned into marble.’  The eldest brother set out, and sought for the pearls the whole day: but the evening came, and he had not found the first hundred: so he was turned into stone as the tablet had foretold.  The next day the second brother undertook the task; but he succeeded no better than the first; for he could only find the second hundred of the pearls; and therefore he too was turned into stone.  At last came the little dwarf’]
 
-List of named characters:
 Emotion Analysis:
 [[2.0, 4.0, 1.0, 0.0, 2.0, 3.0, 1.0, 1.0, 2.0, 4.0], [0.0, 2.0, 0.0, 2.0, 2.0, 1.0, 1.0, 2.0, 3.0, 3.0], [1.0, 2.0, 1.0, 2.0, 2.0, 2.0, 2.0, 2.0, 3.0, 2.0], [0.0, 2.0, 0.0, 1.0, 2.0, 1.0, 0.0, 2.0, 3.0, 1.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [1.0, 1.0, 1.0, 0.0, 2.0, 1.0, 1.0, 2.0, 2.0, 1.0], [1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 3.0, 3.0, 2.0], [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0], [0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 2.0, 0.0], [0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 2.0, 1.0, 1.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 0.0]]
 Density Analysis:
 [[0.15808383233532936], [0.14491017964071856], [0.17125748502994012], [0.1317365269461078], [0.09221556886227546], [0.17125748502994012], [0.14491017964071856], [0.10538922155688624], [0.11856287425149702], [0.07904191616766468], [0.07904191616766468]]
 Negative Words:14
 Positive Words:23
-Took 2.036296334 seconds
+Took 1.398008698 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -112,6 +111,6 @@ Animal/Person #0:   man
 
 ---------------------------
 Midi saved as The-Queen-Bee-music.midi !
-Fairytale 9 (The-Queen-Bee.txt) completely analysed and set to music.
+Fairytale 8 (The-Queen-Bee.txt) completely analysed and set to music.
 --------------------------------------------
 

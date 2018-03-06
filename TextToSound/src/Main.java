@@ -22,7 +22,7 @@ public class Main {
 		 */
 		
 		PrintStream stdout = System.out;
-		PrintStream printer = new PrintStream(new FileOutputStream("output/console-prints/console-print"));
+		PrintStream printer = new PrintStream(new FileOutputStream("output/console-prints/console-print-Rapunzel.txt"));
 		String lit_path = "";
 		Boolean autoplay = false;
 		
@@ -110,6 +110,7 @@ public class Main {
 					
 					System.out.println("Fairytale " + "(" + lit_path +
 							") completely analysed and set to music.");
+					System.out.println("You can find the results in the folder 'your-fairytale'.");
 					System.out.println("--------------------------------------------");
 					System.out.println();
 				}
@@ -171,13 +172,13 @@ public class Main {
 				
 				System.out.println("Fairytale " + i + " (" + fairytales[i] +
 						") completely analysed and set to music.");
+				System.out.println("You can find the results in the folder 'output'.");
 				System.out.println("--------------------------------------------");
 				System.out.println();
 			}
 		}
 		
 		System.out.println("Program has finished.");
-		System.out.println("You can find the results in the folder 'output'");
 			
 	}
 	

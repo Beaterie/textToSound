@@ -1,4 +1,4 @@
-Fairytale 3: The-Emperors-New-Clothes.txt
+Fairytale 7: The-Emperors-New-Clothes.txt
 People-and-Animal-Lexicon updated.
 
 ============================================================
@@ -19,50 +19,13 @@ father
 man
 ["What can be the meaning of this?""What!""We shall be much obliged to you,""Indeed, please your Imperial Majesty,""the cloth which the weavers are preparing is extraordinarily magnificent.""I can see nothing! This is indeed a terrible affair! Am I a simpleton, or am I unfit to be an Emperor? That would be the worst thing that could happen--Oh! the cloth is charming,""Oh, how beautiful!""Gentlemen Weavers.""The Emperor’s new clothes are ready!"]
 
-List of named characters:
-Emperor
-Emperor
-Time
-Emperor
-Emperor
-Emperor
-Sir Minister
-Emperor
-Emperor
-Emperor
-Emperor
-Imperial Majesty
-Emperor
-Emperor
-Emperor
-Majesty
-Emperor
-Emperor
-Emperor
-Gentlemen Weavers
-Emperor
-Emperor
-Emperor
-Majesty
-Imperial Majesty
-Emperor
-Emperor
-Majesty
-Majesty
-Emperor
-Majesty
-Emperor
-Emperor
-Emperor
-Emperor
-Emperor
 Emotion Analysis:
 [[1.0, 1.0, 0.0, 0.0, 3.0, 0.0, 2.0, 2.0, 4.0, 1.0], [1.0, 3.0, 0.0, 0.0, 2.0, 1.0, 2.0, 1.0, 5.0, 3.0], [0.0, 4.0, 0.0, 3.0, 2.0, 1.0, 1.0, 5.0, 9.0, 3.0], [1.0, 5.0, 0.0, 0.0, 3.0, 0.0, 2.0, 3.0, 4.0, 2.0], [1.0, 2.0, 0.0, 2.0, 1.0, 0.0, 0.0, 3.0, 5.0, 2.0], [0.0, 3.0, 1.0, 0.0, 4.0, 0.0, 2.0, 2.0, 5.0, 1.0], [2.0, 1.0, 2.0, 2.0, 4.0, 2.0, 1.0, 1.0, 5.0, 1.0], [2.0, 3.0, 0.0, 2.0, 3.0, 2.0, 2.0, 5.0, 6.0, 3.0], [0.0, 1.0, 0.0, 0.0, 3.0, 0.0, 0.0, 1.0, 5.0, 1.0], [1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 2.0, 0.0, 3.0, 3.0], [0.0, 3.0, 0.0, 0.0, 4.0, 1.0, 2.0, 1.0, 6.0, 0.0]]
 Density Analysis:
 [[0.14808831448572968], [0.15993537964458804], [0.15993537964458804], [0.11254711900915455], [0.1303177167474421], [0.10662358642972537], [0.11254711900915455], [0.12439418416801293], [0.11254711900915455], [0.14808831448572968], [0.0888529886914378]]
 Negative Words:20
 Positive Words:57
-Took 3.508494342 seconds
+Took 2.514143105 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -190,6 +153,6 @@ Animal/Person #3:   man
 
 ---------------------------
 Midi saved as The-Emperors-New-Clothes-music.midi !
-Fairytale 3 (The-Emperors-New-Clothes.txt) completely analysed and set to music.
+Fairytale 7 (The-Emperors-New-Clothes.txt) completely analysed and set to music.
 --------------------------------------------
 

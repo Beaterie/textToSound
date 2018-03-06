@@ -1,4 +1,4 @@
-Fairytale 5: The-Frog-Prince.txt
+Fairytale 3: The-Frog-Prince.txt
 People-and-Animal-Lexicon updated.
 
 ============================================================
@@ -19,17 +19,13 @@ princess
 prince
 ["You,""have broken his cruel charm, and now I have nothing to wish for but that you should go with me into my father's kingdom, where I will marry you, and love you as long as you live."]
 
-List of named characters:
-Princess
-Stay
-Heinrich
 Emotion Analysis:
 [[0.0, 2.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 4.0, 0.0], [1.0, 0.0, 1.0, 1.0, 0.0, 4.0, 0.0, 0.0, 1.0, 4.0], [0.0, 1.0, 0.0, 0.0, 2.0, 0.0, 0.0, 0.0, 3.0, 1.0], [0.0, 2.0, 0.0, 0.0, 2.0, 0.0, 1.0, 0.0, 4.0, 0.0], [1.0, 1.0, 0.0, 0.0, 2.0, 1.0, 0.0, 1.0, 5.0, 2.0], [1.0, 0.0, 1.0, 2.0, 0.0, 1.0, 1.0, 0.0, 1.0, 2.0], [1.0, 1.0, 0.0, 0.0, 3.0, 1.0, 1.0, 2.0, 6.0, 2.0], [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 0.0], [1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 0.0, 1.0, 6.0, 1.0], [3.0, 1.0, 1.0, 3.0, 3.0, 2.0, 1.0, 2.0, 6.0, 3.0], [0.0, 4.0, 0.0, 0.0, 4.0, 1.0, 2.0, 4.0, 8.0, 2.0]]
 Density Analysis:
 [[0.15661641541038526], [0.11976549413735343], [0.11976549413735343], [0.11976549413735343], [0.1658291457286432], [0.0829145728643216], [0.17504187604690116], [0.09212730318257957], [0.18425460636515914], [0.1474036850921273], [0.1934673366834171]]
 Negative Words:17
 Positive Words:46
-Took 3.060897119 seconds
+Took 2.411865571 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -157,6 +153,6 @@ Animal/Person #3:   prince
 
 ---------------------------
 Midi saved as The-Frog-Prince-music.midi !
-Fairytale 5 (The-Frog-Prince.txt) completely analysed and set to music.
+Fairytale 3 (The-Frog-Prince.txt) completely analysed and set to music.
 --------------------------------------------
 

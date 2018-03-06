@@ -1,4 +1,4 @@
-Fairytale 1: little-red-riding-hood.txt
+Fairytale 10: little-red-riding-hood.txt
 People-and-Animal-Lexicon updated.
 
 ============================================================
@@ -16,24 +16,13 @@ wolf
 grandmother
 ["Pull the bobbin, and the latch will go up."]
 
-List of named characters:
-Red Riding Hood
-Little Red Riding Hood
-Little Red Riding Hood
-Little Red Riding Hood
-Little Red Riding Hood
-Little Red Riding Hood
-Little Red Riding Hood
-Little Red Riding Hood
-Little Red Riding Hood
-Little Red Riding Hood
 Emotion Analysis:
 [[1.0, 3.0, 2.0, 2.0, 2.0, 1.0, 1.0, 2.0, 3.0, 3.0], [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0], [0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 3.0, 1.0], [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0], [0.0, 2.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0], [0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0], [0.0, 3.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0], [0.0, 2.0, 0.0, 1.0, 1.0, 1.0, 0.0, 2.0, 3.0, 3.0], [0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 2.0, 0.0], [0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 2.0]]
 Density Analysis:
 [[0.22916666666666666], [0.09821428571428571], [0.09821428571428571], [0.11458333333333333], [0.11458333333333333], [0.06547619047619048], [0.14732142857142858], [0.1800595238095238], [0.13095238095238096], [0.14732142857142858], [0.13095238095238096]]
 Negative Words:12
 Positive Words:19
-Took 1.834174958 seconds
+Took 0.986722499 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -161,6 +150,6 @@ Animal/Person #3:   grandmother
 
 ---------------------------
 Midi saved as little-red-riding-hood-music.midi !
-Fairytale 1 (little-red-riding-hood.txt) completely analysed and set to music.
+Fairytale 10 (little-red-riding-hood.txt) completely analysed and set to music.
 --------------------------------------------
 

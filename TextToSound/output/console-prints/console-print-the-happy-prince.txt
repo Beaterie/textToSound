@@ -1,4 +1,4 @@
-Fairytale 7: the-happy-prince.txt
+Fairytale 11: the-happy-prince.txt
 People-and-Animal-Lexicon updated.
 
 ============================================================
@@ -34,136 +34,13 @@ Children
 boy
 ["How cool I feel,""I must be getting better""It is curious,""but I feel quite warm now, although it is so cold.""Have you any commissions for Egypt?""I am just starting."" said the Mayor in fact, "" said the Art Professor at the University.  Then they melted the statue in a furnace, and the Mayor held a meeting of the Corporation to decide what was to be done with the metal.  ""  "" said the overseer of the workmen at the foundry.  "]
 
-List of named characters:
-Prince
-Town Councillors
-Prince
-Prince
-Charity Children
-Mathematical Master
-Egypt
-Reed
-Swallow
-Reed
-Reed
-Reed
-Prince
-Europe
-Reed
-Prince
-Prince
-Sans
-Souci
-Great Hall
-Round
-Prince
-Queen
-Egypt
-Swallow
-Nile
-King
-King
-Round
-Prince
-Swallow
-Prince
-Prince
-Swallow
-Prince
-Ghetto
-Swallow
-Prince
-Prince
-Professor
-Ornithology
-Egypt
-Swallow
-Wherever
-Sparrows
-Prince
-Egypt
-Prince
-Egypt
-Swallow
-God Memnon
-Prince
-Theatre
-Swallow
-Prince
-India
-Dear Prince
-Swallow
-Prince
-Prince
-Swallow
-Egypt
-Swallow
-Prince
-Prince
-Swallow
-Egypt
-Temple
-Baalbec
-Dear Prince
-Prince
-Swallow
-Prince
-Prince
-Prince
-Prince
-Egypt
-Swallow
-Prince
-Prince
-Nile
-King
-Moon
-Dear
-Prince
-Swallow
-Watchman
-Prince
-Prince
-Swallow
-Prince
-Prince
-Prince
-Prince
-Egypt
-Prince
-Egypt
-Swallow
-House
-Death
-Sleep
-Mayor
-Town Councillors
-Dear
-Prince
-Town Councillors
-Mayor
-Mayor
-Town Councillors
-Mayor
-Town Clerk
-Prince
-Art Professor
-University
-Mayor
-Corporation
-Town Councillors
-God
-Angel
-God
-Paradise
-Prince
 Emotion Analysis:
 [[1.0, 4.0, 2.0, 2.0, 11.0, 4.0, 1.0, 6.0, 15.0, 6.0], [1.0, 3.0, 2.0, 1.0, 5.0, 0.0, 2.0, 2.0, 9.0, 2.0], [0.0, 3.0, 0.0, 1.0, 5.0, 3.0, 1.0, 4.0, 8.0, 3.0], [3.0, 3.0, 4.0, 3.0, 3.0, 5.0, 1.0, 5.0, 9.0, 6.0], [1.0, 5.0, 2.0, 0.0, 8.0, 1.0, 3.0, 7.0, 9.0, 5.0], [3.0, 11.0, 2.0, 2.0, 7.0, 4.0, 4.0, 6.0, 11.0, 6.0], [0.0, 5.0, 1.0, 1.0, 4.0, 1.0, 2.0, 5.0, 5.0, 4.0], [1.0, 2.0, 2.0, 1.0, 6.0, 1.0, 2.0, 4.0, 6.0, 3.0], [1.0, 2.0, 1.0, 0.0, 3.0, 5.0, 2.0, 5.0, 4.0, 7.0], [1.0, 3.0, 3.0, 3.0, 4.0, 4.0, 1.0, 2.0, 4.0, 8.0], [1.0, 5.0, 1.0, 0.0, 3.0, 3.0, 3.0, 2.0, 10.0, 3.0], [0.0, 0.0, 3.0, 2.0, 2.0, 3.0, 1.0, 3.0, 6.0, 6.0]]
 Density Analysis:
 [[0.13183000867302688], [0.11448395490026018], [0.11795316565481354], [0.12836079791847355], [0.11448395490026018], [0.12489158716392021], [0.15611448395490027], [0.12836079791847355], [0.13183000867302688], [0.12489158716392021], [0.11795316565481354], [0.10060711188204684]]
 Negative Words:59
 Positive Words:96
-Took 7.992031223 seconds
+Took 4.225011328 seconds
 
 -----------------------------------------------------------------
 ---------------------- General Information ----------------------
@@ -352,6 +229,6 @@ Animal/Person #8:   boy
 
 ---------------------------
 Midi saved as the-happy-prince-music.midi !
-Fairytale 7 (the-happy-prince.txt) completely analysed and set to music.
+Fairytale 11 (the-happy-prince.txt) completely analysed and set to music.
 --------------------------------------------
 
